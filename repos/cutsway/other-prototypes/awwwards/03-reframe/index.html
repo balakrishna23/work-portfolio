@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Reframe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root { --paper: #ece6dc; --ink: #0e0a08; --soft: #5a4d43; --gold: #ffc72e; --red: #f0163a; --m: clamp(16px, 2.4vw, 40px); }
+  * { box-sizing: border-box; }
+  html { background: var(--paper); color: var(--ink); }
+  body { margin: 0; font-family: Newsreader, Georgia, serif; font-size: 20px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .k { font-family: Archivo, sans-serif; font-stretch: 62%; font-variation-settings: 'wdth' 62; font-weight: 900; text-transform: uppercase; line-height: .84; letter-spacing: -.01em; }
+  .sans { font-family: Archivo, sans-serif; }
+  .nav { position: fixed; inset: 0 0 auto; z-index: 30; display: flex; justify-content: space-between; align-items: center; padding: 18px var(--m); font-family: Archivo, sans-serif; transition: color .4s; }
+  .nav svg { width: 112px; height: 47px; display: block; }
+  .nav nav { display: flex; gap: 24px; font-weight: 600; font-size: 16px; }
+  .nav nav a { text-decoration: none; }
+  body.dark .nav { color: var(--paper); }
+  .btn { display: inline-flex; align-items: center; gap: 12px; padding: 12px 14px 12px 22px; border-radius: 999px; background: var(--ink); color: var(--paper); font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px; text-decoration: none; transition: transform .25s cubic-bezier(.16,1,.3,1); }
+  .btn i { width: 26px; height: 26px; border-radius: 50%; background: var(--paper); display: grid; place-items: center; }
+  .btn i::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); transition: transform .3s; }
+  .btn:hover { transform: translateY(-2px); } .btn:hover i::after { transform: scale(1.6); }
+  .btn--light { background: var(--paper); color: var(--ink); } .btn--light i { background: var(--ink); } .btn--light i::after { background: var(--gold); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+  /* the scene: window opens, the vertical crop arrives */
+  .scene { height: 280vh; position: relative; }
+  .stage { position: sticky; top: 0; height: 100vh; overflow: hidden; display: grid; place-items: center; }
+  .win { position: absolute; left: 50%; top: 50%; width: calc(var(--w) * 1vw); height: calc(var(--h) * 1vh); transform: translate(-50%, -50%); border-radius: calc(var(--r) * 1px); overflow: hidden; background: #000; --w: 44; --h: 42; --r: 14; }
+  .win canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .crop { position: absolute; top: 0; bottom: 0; left: 50%; aspect-ratio: 9 / 16; transform: translateX(-50%); box-shadow: 0 0 0 100vmax rgb(14 10 8 / calc(var(--dim) * .78)); outline: 3px solid rgb(255 199 46 / var(--dim)); --dim: 0; }
+  .crop span { position: absolute; left: 50%; bottom: 14%; transform: translateX(-50%); width: 86%; text-align: center; font-family: Archivo, sans-serif; font-weight: 900; font-stretch: 100%; font-size: clamp(18px, 2.6vh, 30px); line-height: 1.05; color: #fff; text-transform: uppercase; opacity: var(--dim); -webkit-text-stroke: 1px #000; paint-order: stroke; }
+  .crop span b { color: var(--gold); }
+  h1 { position: absolute; inset: 0; margin: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--m); font-size: clamp(4rem, 7.8vw, 10rem); pointer-events: none; }
+  h1 span { display: block; transform: translateX(calc(var(--out) * -1vw)); }
+  h1 span:last-of-type { transform: translateX(calc(var(--out) * 1vw)); }
+  h1 small { position: absolute; left: 50%; top: calc(50% - 21vh - 2.6rem); transform: translateX(-50%); font-family: Archivo, sans-serif; font-stretch: 100%; font-variation-settings: 'wdth' 100; font-weight: 600; font-size: 15px; text-transform: none; letter-spacing: 0; opacity: calc(1 - var(--out) / 8); }
+  .under { position: absolute; left: 0; right: 0; bottom: 7vh; display: grid; justify-items: center; gap: 22px; text-align: center; opacity: calc(1 - var(--out) / 6); padding: 0 var(--m); }
+  .under p { margin: 0; max-width: 38ch; font-size: clamp(19px, 1.6vw, 24px); }
+  .stage { --out: 0; }
+
+  .dark { background: var(--ink); color: var(--paper); }
+  section { padding: clamp(120px, 13vw, 200px) var(--m) 0; }
+  h2 { margin: 0 0 40px; font-size: clamp(3.6rem, 9vw, 9.5rem); }
+  .phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2vw, 32px); }
+  .phone { background: #1b1410; padding: 10px; border-radius: 28px; }
+  .phone canvas { width: 100%; aspect-ratio: 9 / 16; display: block; border-radius: 20px; }
+  .phone p { font-family: Archivo, sans-serif; font-size: 16px; margin: 14px 8px 6px; color: #e2d6c8; }
+  .phone p b { color: var(--paper); display: block; font-size: 19px; }
+  .split { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 72px); align-items: center; }
+  .split img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: 14px; }
+  .split p { margin: 0 0 22px; font-size: 22px; max-width: 32ch; }
+  .menu { list-style: none; margin: 0; padding: 0; font-family: Archivo, sans-serif; }
+  .menu li { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 20px 0; align-items: baseline; }
+  .menu li:nth-child(odd) { background: rgb(14 10 8 / .06); margin: 0 -16px; padding: 20px 16px; border-radius: 10px; }
+  .menu b { font-size: clamp(1.4rem, 2.4vw, 2.2rem); font-weight: 800; font-stretch: 100%; letter-spacing: -.02em; }
+  .menu span { font-size: 16px; color: var(--soft); display: block; font-weight: 500; }
+  .menu em { font-style: normal; font-weight: 900; font-stretch: 62%; font-size: clamp(2rem, 3.4vw, 3.2rem); text-transform: uppercase; }
+  .faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px clamp(24px, 4vw, 72px); }
+  .faq h3 { font-family: Archivo, sans-serif; margin: 0 0 8px; font-size: 22px; }
+  .faq p { margin: 0; }
+  footer { padding: clamp(120px, 13vw, 200px) var(--m) 24px; display: grid; justify-items: center; text-align: center; gap: 28px; }
+  footer .k { font-size: clamp(5rem, 19vw, 22rem); margin: 0; }
+  .credits { font-family: Archivo, sans-serif; font-size: 13px; color: var(--soft); }
+  @media (max-width: 860px) {
+    .nav nav { display: none; }
+    h1 { display: block; font-size: 22vw; }
+    h1 span { position: absolute; left: var(--m); top: calc(50% - 17vh - 22vw); }
+    h1 span:last-of-type { left: auto; right: var(--m); top: calc(50% + 17vh + 2vw); }
+    h1 small { top: 86px; }
+    .under { bottom: 3vh; gap: 14px; } .under p { font-size: 17px; }
+    .win { --w: 86; --h: 34; }
+    .phones { grid-template-columns: 1fr 1fr; } .phone:nth-child(3) { display: none; }
+    .split, .faq { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .scene { height: auto; } .stage { position: relative; } .crop { --dim: 1 !important; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#shorts">Shorts</a><a href="#menu">What we make</a><a href="#faq">Questions</a></nav>
+  <a class="btn" href="#book">Book a call<i></i></a>
+</header>
+
+<main id="top">
+  <div class="scene" id="scene">
+    <div class="stage" id="stage">
+      <div class="win" id="win">
+        <canvas id="live" width="1280" height="720" aria-label="A live stream frame with chat, being reframed to vertical"></canvas>
+        <div class="crop" id="crop"><span id="cap">he did <b>not</b> see that coming</span></div>
+      </div>
+      <h1 class="k"><span>Stream</span><small>Cutsway, editing for gaming creators</small><span>Shorts</span></h1>
+      <div class="under">
+        <p>Last night's eight-hour stream becomes this morning's shorts, reframed, captioned and posted while you sleep.</p>
+        <a class="btn" href="#book">Book a call<i></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="dark">
+    <section id="shorts" aria-labelledby="shorts-h" style="padding-top:clamp(80px,9vw,140px)">
+      <h2 class="k" id="shorts-h" data-rise>Ten shorts by morning</h2>
+      <div class="phones" data-rise="kids">
+        <div class="phone"><canvas width="360" height="640" data-k="fps" data-cap="one tap|ONE TAP|clutch"></canvas><p><b>The clutch</b>0:00:41 from a 6 hour VOD</p></div>
+        <div class="phone"><canvas width="360" height="640" data-k="race" data-cap="last lap|LAST LAP|first place"></canvas><p><b>The overtake</b>0:00:28, captioned in your font</p></div>
+        <div class="phone"><canvas width="360" height="640" data-k="podcast" data-cap="wait what|WAIT WHAT|he said that"></canvas><p><b>The hot take</b>0:00:52 from a podcast episode</p></div>
+      </div>
+    </section>
+    <section aria-labelledby="desk-h" style="padding-bottom:clamp(120px,13vw,200px)">
+      <div class="split">
+        <img src="../_shared/img/headset.jpg" alt="A gaming headset lit by RGB light on a desk" data-rise>
+        <div data-rise="kids">
+          <h2 class="k" id="desk-h">Face stays in</h2>
+          <p>Every short is reframed by a person, not a crop box. Facecam where the reaction is, gameplay where the play is.</p>
+          <p>Captions are timed word by word and set in your channel's type.</p>
+          <a class="btn btn--light" href="#book">Book a call<i></i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="menu" aria-labelledby="menu-h">
+    <div class="split" style="align-items:start">
+      <div><h2 class="k" id="menu-h" data-rise>What we make</h2><img src="../_shared/img/stage-4.jpg" alt="A crew filming an interview at a gaming event" data-rise style="aspect-ratio:4/3"></div>
+      <ul class="menu" data-rise="kids">
+        <li><div><b>Shorts pack</b><span>Ten vertical clips, reframed and captioned</span></div><em>24h</em></li>
+        <li><div><b>Stream VOD</b><span>A highlight video plus the shorts from it</span></div><em>48h</em></li>
+        <li><div><b>Gaming video</b><span>Story, pacing, captions, sound design</span></div><em>48h</em></li>
+        <li><div><b>Podcast episode</b><span>Clean episode and six clips</span></div><em>72h</em></li>
+        <li><div><b>Thumbnail</b><span>Three options, one final</span></div><em>8h</em></li>
+        <li><div><b>Posting</b><span>Titles, captions and schedule on four platforms</span></div><em>Daily</em></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 class="k" id="faq-h" data-rise>Fair questions</h2>
+    <div class="faq" data-rise="kids">
+      <div><h3>Do you watch the whole VOD?</h3><p>Yes. Chat spikes help us find moments, but a person watches every hour before anything is cut.</p></div>
+      <div><h3>Can the captions match my brand?</h3><p>Send your fonts and colours once. Every short after that uses them.</p></div>
+      <div><h3>Who posts them?</h3><p>We can, on a schedule set to when your audience is awake. Or we send the files and you post.</p></div>
+      <div><h3>How fast is fast?</h3><p>Sample times are above. Rush slots exist most days. Confirmed when you book.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <p class="k">Go live. Sleep.</p>
+  <a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call<i></i></a>
+  <p class="credits">Photographs: RGB gaming headset, CC0, Wikimedia Commons; event crew by Flickr user 48254827@N00, CC BY 2.0. Gameplay is drawn. Turnaround times are samples.</p>
+</footer>
+
+<script src="../_shared/frames.js"></script>
+<script src="../_shared/brand.js"></script>
+<script>
+  const stage = document.getElementById('stage'), win = document.getElementById('win'), crop = document.getElementById('crop'), scene = document.getElementById('scene');
+  const live = document.getElementById('live').getContext('2d');
+  const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v)), ease = k => 1 - Math.pow(1 - k, 3);
+  const phone = innerWidth < 860;
+  function onScroll() {
+    if (Cutsway.reduce) return;
+    const r = scene.getBoundingClientRect(), k = clamp(-r.top / (r.height - innerHeight));
+    const a = ease(clamp(k / .55)), b = ease(clamp((k - .55) / .35));
+    const w0 = phone ? 86 : 44, h0 = phone ? 34 : 42;
+    win.style.setProperty('--w', w0 + (100 - w0) * a); win.style.setProperty('--h', h0 + (100 - h0) * a); win.style.setProperty('--r', 14 * (1 - a));
+    stage.style.setProperty('--out', a * 60);
+    crop.style.setProperty('--dim', b);
+    document.body.classList.toggle('dark', k > .4 && k < 1.2 && r.bottom > 60);
+  }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const caps = ['he did <b>not</b> see that coming', 'one <b>hp</b> left', 'chat went <b>insane</b>'];
+  let ci = 0; setInterval(() => { document.getElementById('cap').innerHTML = caps[++ci % caps.length]; }, 2200);
+  const phones = [...document.querySelectorAll('.phone canvas')];
+  (function loop(t) {
+    const s = Cutsway.reduce ? 2 : t / 1000;
+    CutFrames.draw(live, 1280, 720, 'chat', 4, s);
+    phones.forEach((c, i) => {
+      const x = c.getContext('2d'), k = c.dataset.k;
+      x.save(); x.translate(-260, 0); CutFrames.draw(x, 1138, 640, k, i + 2, s + i); x.restore();
+      const words = c.dataset.cap.split('|'), w = words[Math.floor(s * 1.4 + i) % words.length];
+      x.font = '900 46px Archivo, sans-serif'; x.textAlign = 'center'; x.lineWidth = 8; x.strokeStyle = '#000'; x.fillStyle = i === 1 ? '#ffc72e' : '#fff';
+      x.strokeText(w.toUpperCase(), 180, 500); x.fillText(w.toUpperCase(), 180, 500);
+    });
+    requestAnimationFrame(loop);
+  })(0);
+</script>
+</body>
+</html>

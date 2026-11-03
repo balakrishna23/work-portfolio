@@ -1,0 +1,466 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #07070a;
+      font-family: "Inter";
+    }
+    #ch-app {
+      position: absolute;
+      inset: 0;
+      background: #f4f2ec;
+      transform-origin: 50% 40%;
+    }
+    #ch-head {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 350px;
+      background: #f4f2ec;
+      border-bottom: 2px solid #dcdad3;
+      z-index: 3;
+    }
+    #ch-back {
+      position: absolute;
+      left: 50px;
+      top: 222px;
+    }
+    #ch-avatar {
+      position: absolute;
+      left: 120px;
+      top: 196px;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: #07070a url("assets/brand/favicon.svg") center / 64% no-repeat;
+    }
+    #ch-name {
+      position: absolute;
+      left: 258px;
+      top: 204px;
+      font-weight: 800;
+      font-size: 50px;
+      color: #07070a;
+    }
+    #ch-status {
+      position: absolute;
+      left: 258px;
+      top: 264px;
+      font-weight: 500;
+      font-size: 40px;
+      color: #6b6b78;
+      white-space: nowrap;
+    }
+    #ch-status i {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-right: 12px;
+      border-radius: 50%;
+      background: #2bd36a;
+    }
+    #ch-view {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 352px;
+      height: 840px;
+      overflow: hidden;
+    }
+    #ch-list {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+    .msg {
+      position: absolute;
+      max-width: 800px;
+      padding: 28px 38px;
+      border-radius: 46px;
+      font-weight: 600;
+      font-size: 52px;
+      line-height: 1.24;
+    }
+    .me {
+      right: 140px;
+      background: #fddf4b;
+      color: #07070a;
+      border-bottom-right-radius: 12px;
+      transform-origin: 100% 100%;
+    }
+    .them {
+      left: 50px;
+      background: #07070a;
+      color: #f4f2ec;
+      border-bottom-left-radius: 12px;
+      transform-origin: 0% 100%;
+    }
+    .msg svg {
+      display: inline-block;
+      vertical-align: -8px;
+      margin-left: 10px;
+    }
+    .typing {
+      position: absolute;
+      left: 50px;
+      width: 170px;
+      height: 104px;
+      border-radius: 44px;
+      border-bottom-left-radius: 12px;
+      background: #07070a;
+    }
+    .typing b {
+      position: absolute;
+      top: 42px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #f4f2ec;
+    }
+    .div {
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+    .div span {
+      display: inline-block;
+      padding: 14px 34px;
+      border-radius: 999px;
+      background: #07070a;
+      color: #fddf4b;
+      font-family: "Space Mono";
+      font-weight: 700;
+      font-size: 40px;
+      text-transform: uppercase;
+    }
+    /* Attachments */
+    .file {
+      width: 740px;
+    }
+    .file-top {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+    .file-name {
+      font-weight: 800;
+    }
+    .file-meta {
+      font-weight: 500;
+      font-size: 40px;
+    }
+    .bar {
+      margin-top: 22px;
+      height: 14px;
+      border-radius: 7px;
+      background: rgb(7 7 10 / 0.18);
+      overflow: hidden;
+    }
+    .bar i {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: #07070a;
+      transform-origin: 0 50%;
+    }
+    .file-state {
+      margin-top: 14px;
+      font-weight: 700;
+      font-size: 40px;
+    }
+    .shorts {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .sh {
+      position: relative;
+      width: 220px;
+      height: 391px;
+      border-radius: 22px;
+      border: 3px solid rgb(244 242 236 / 0.5);
+      overflow: hidden;
+    }
+    .sh::after {
+      content: "";
+      position: absolute;
+      left: 82px;
+      top: 156px;
+      border-left: 52px solid rgb(244 242 236 / 0.92);
+      border-top: 32px solid transparent;
+      border-bottom: 32px solid transparent;
+    }
+    #ch-heart {
+      position: absolute;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #f4f2ec;
+      border: 3px solid #dcdad3;
+    }
+    #ch-heart svg {
+      position: absolute;
+      left: 16px;
+      top: 18px;
+    }
+    #ch-input {
+      position: absolute;
+      left: 40px;
+      right: 40px;
+      top: 1210px;
+      height: 112px;
+      border-radius: 56px;
+      background: #ffffff;
+      border: 2px solid #dcdad3;
+      z-index: 3;
+    }
+    #ch-input span {
+      position: absolute;
+      left: 44px;
+      top: 32px;
+      font-weight: 500;
+      font-size: 42px;
+      color: #6b6b78;
+    }
+    #ch-send {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: #fddf4b;
+    }
+    #ch-send svg {
+      position: absolute;
+      left: 20px;
+      top: 22px;
+    }
+    #ch-below {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 1340px;
+      bottom: 0;
+      background: #f4f2ec;
+    }
+
+    /* End card */
+    #ch-end {
+      position: absolute;
+      inset: 0;
+      background: #07070a;
+    }
+    #ch-turn {
+      position: absolute;
+      left: 60px;
+      width: 960px;
+      top: 300px;
+      text-align: center;
+      font-weight: 900;
+      font-size: 150px;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      color: #f4f2ec;
+    }
+    #ch-turn em {
+      font-style: normal;
+      color: #fddf4b;
+    }
+    #ch-logo {
+      position: absolute;
+      left: 90px;
+      top: 640px;
+      width: 900px;
+      height: 112.5px;
+    }
+    #ch-url {
+      position: absolute;
+      left: 60px;
+      width: 960px;
+      top: 812px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 100px;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #f4f2ec;
+    }
+    #ch-wa {
+      position: absolute;
+      left: 60px;
+      width: 960px;
+      top: 960px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 48px;
+      color: #c4c4d0;
+    }
+    #ch-wa b {
+      color: #f4f2ec;
+    }
+    #ch-btn {
+      position: absolute;
+      left: 290px;
+      top: 1090px;
+      width: 500px;
+      height: 120px;
+      border-radius: 60px;
+      background: #fddf4b;
+      color: #07070a;
+      text-align: center;
+      font-weight: 900;
+      font-size: 52px;
+      line-height: 120px;
+      letter-spacing: -0.02em;
+    }
+  </style>
+  <div id="root" data-composition-id="chat" data-width="1080" data-height="1920">
+    <div id="ch-app" class="clip" data-start="0" data-duration="24.2" data-track-index="1">
+      <div id="ch-view">
+        <div id="ch-list">
+          <div id="m1" class="msg me">i streamed 4 hours last night</div>
+          <div id="m2" class="msg me">and zero time to edit it</div>
+          <div id="t1" class="typing"><b style="left: 40px"></b><b style="left: 76px"></b><b style="left: 112px"></b></div>
+          <div id="m3" class="msg them">send us the whole pile</div>
+          <div id="m4" class="msg me file">
+            <div class="file-top">
+              <svg width="96" height="78" viewBox="0 0 96 78"><path d="M4 12 Q4 4 12 4 H36 L46 14 H84 Q92 14 92 22 V68 Q92 74 84 74 H12 Q4 74 4 68 Z" fill="#07070a" /><rect x="16" y="30" width="28" height="18" rx="3" fill="#5b5562" /><rect x="50" y="34" width="28" height="18" rx="3" fill="#8a7f8c" /></svg>
+              <div><div class="file-name">raw_footage.zip</div><div class="file-meta">4h 12m · 360 clips</div></div>
+            </div>
+            <div class="bar"><i id="m4-bar"></i></div>
+            <div class="file-state"><span id="m4-up">uploading…</span><span id="m4-done" style="position: absolute; left: 36px">uploaded<svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#07070a" /><path d="M11 20 L18 27 L30 13" fill="none" stroke="#fddf4b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg></span></div>
+          </div>
+          <div id="t2" class="typing"><b style="left: 40px"></b><b style="left: 76px"></b><b style="left: 112px"></b></div>
+          <div id="m5" class="msg them">on it. shorts back in 12h</div>
+          <div id="d1" class="div"><span>11h 48m later</span></div>
+          <div id="m6" class="msg them">
+            <div class="shorts">
+              <div class="sh" style="background: linear-gradient(180deg, #1c4cdd, #5ae2e8 58%, #0d1430 58.5%)"></div>
+              <div class="sh" style="background: linear-gradient(180deg, #761a2b, #fc8020 56%, #1d0f12 56.5%)"></div>
+              <div class="sh" style="background: linear-gradient(180deg, #272ed2, #fddf4b 62%, #1a1020 62.5%)"></div>
+            </div>
+            your shorts pack is ready
+          </div>
+          <div id="m7" class="msg me">WAIT WHAT</div>
+          <div id="m8" class="msg me">that was fast</div>
+          <div id="t3" class="typing"><b style="left: 40px"></b><b style="left: 76px"></b><b style="left: 112px"></b></div>
+          <div id="m9" class="msg them">full video lands in 36h. thumbnails in 8.</div>
+          <div id="m10" class="msg me">can you tighten the intro?</div>
+          <div id="t4" class="typing"><b style="left: 40px"></b><b style="left: 76px"></b><b style="left: 112px"></b></div>
+          <div id="m11" class="msg them">done. that's round 1 of 2<svg width="44" height="44" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#fddf4b" /><path d="M11 20 L18 27 L30 13" fill="none" stroke="#07070a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+          <div id="m12" class="msg me">wait you do hindi and telugu too??</div>
+          <div id="t5" class="typing"><b style="left: 40px"></b><b style="left: 76px"></b><b style="left: 112px"></b></div>
+          <div id="m13" class="msg them">english, hindi, telugu. and we post it for you.</div>
+          <div id="m14" class="msg me">ok you're hired</div>
+          <div id="ch-heart"><svg width="52" height="48" viewBox="0 0 52 48"><path d="M26 46 C10 34 2 25 2 14 C2 6 8 1 15 1 C20 1 24 4 26 8 C28 4 32 1 37 1 C44 1 50 6 50 14 C50 25 42 34 26 46 Z" fill="#fb3b27" /></svg></div>
+        </div>
+      </div>
+      <div id="ch-head">
+        <svg id="ch-back" width="40" height="60" viewBox="0 0 40 60"><path d="M32 6 L8 30 L32 54" fill="none" stroke="#07070a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <div id="ch-avatar"></div>
+        <div id="ch-name">Cutsway</div>
+        <div id="ch-status"><i></i><span id="ch-on">online</span><span id="ch-ty" style="position: absolute; left: 28px; opacity: 0">typing…</span></div>
+      </div>
+      <div id="ch-input">
+        <span>Message</span>
+        <div id="ch-send"><svg width="48" height="44" viewBox="0 0 48 44"><path d="M4 22 H40 M26 6 L42 22 L26 38" fill="none" stroke="#07070a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+      </div>
+      <div id="ch-below"></div>
+    </div>
+
+    <div id="ch-end" class="clip" data-start="23.6" data-duration="6.4" data-track-index="2">
+      <div id="ch-turn">Your <em>turn.</em></div>
+      <img id="ch-logo" src="assets/brand/logo.svg" alt="Cutsway" />
+      <div id="ch-url">cutsway.com</div>
+      <div id="ch-wa">WhatsApp <b>+91 62813 01476</b></div>
+      <div id="ch-btn">Book a call →</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // [id, appears at, kind]. Typing bubbles run from their time until the reply that follows them.
+      const FLOW = [
+        ["m1", 0.0], ["m2", 1.4], ["t1", 2.6], ["m3", 3.6], ["m4", 4.8], ["t2", 6.6], ["m5", 7.3], ["d1", 8.6], ["m6", 9.2],
+        ["m7", 10.8], ["m8", 11.7], ["t3", 12.5], ["m9", 13.2], ["m10", 15.0], ["t4", 16.0], ["m11", 16.7], ["m12", 18.4],
+        ["t5", 19.4], ["m13", 20.1], ["m14", 21.8],
+      ];
+      const VIEW_H = 840;
+      const GAP = 22;
+      // Lay the thread out once (before any tween): a typing bubble takes the slot its reply will fill.
+      let y = 40;
+      const top = {};
+      FLOW.forEach(([id]) => {
+        const el = document.getElementById(id);
+        if (id[0] === "t") {
+          top[id] = y;
+          el.style.top = y + "px";
+          return;
+        }
+        top[id] = y;
+        el.style.top = y + "px";
+        y += el.offsetHeight + GAP + (id === "d1" ? 10 : 0);
+      });
+      const bottom = (id) => top[id] + document.getElementById(id).offsetHeight;
+      const heart = document.getElementById("ch-heart");
+      heart.style.top = top.m14 + document.getElementById("m14").offsetHeight - 40 + "px";
+      heart.style.right = "120px";
+
+      const tl = gsap.timeline({ paused: true });
+      let shift = 0;
+      FLOW.forEach(([id, at], i) => {
+        const el = "#" + id;
+        // Scroll the thread when the newest item would fall below the fold.
+        const need = Math.max(0, bottom(id) + 30 - VIEW_H);
+        if (need > shift) {
+          tl.fromTo("#ch-list", { y: -shift }, { y: -need, duration: 0.32, ease: "power3.out", immediateRender: false }, at);
+          shift = need;
+        }
+        if (id[0] === "t") {
+          const next = FLOW[i + 1][1];
+          tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(2)" }, at);
+          tl.to(el, { opacity: 0, duration: 0.05, ease: "none" }, next - 0.02);
+          // The status line says so too.
+          tl.fromTo("#ch-on", { opacity: 1 }, { opacity: 0, duration: 0.01, immediateRender: false }, at);
+          tl.fromTo("#ch-ty", { opacity: 0 }, { opacity: 1, duration: 0.01, immediateRender: false }, at);
+          tl.fromTo("#ch-on", { opacity: 0 }, { opacity: 1, duration: 0.01, immediateRender: false }, next);
+          tl.fromTo("#ch-ty", { opacity: 1 }, { opacity: 0, duration: 0.01, immediateRender: false }, next);
+          // The dots bounce in turn while it types.
+          const n = Math.floor((next - at) / 0.36);
+          document.querySelectorAll(el + " b").forEach((dot, k) => {
+            tl.fromTo(dot, { y: 0 }, { y: -14, duration: 0.18, ease: "sine.inOut", yoyo: true, repeat: n * 2 - 1 }, at + 0.1 + k * 0.1);
+          });
+          return;
+        }
+        if (id === "d1") {
+          tl.fromTo(el, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(1.8)" }, at);
+          return;
+        }
+        if (at === 0) return; // the hook is on screen at frame 0
+        tl.fromTo(el, { opacity: 0, scale: 0.7, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(1.7)" }, at);
+      });
+
+      // Upload, then the tick.
+      tl.fromTo("#m4-bar", { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: "power2.inOut" }, 4.95);
+      tl.fromTo("#m4-up", { opacity: 1 }, { opacity: 0, duration: 0.08, ease: "none" }, 6.35);
+      tl.fromTo("#m4-done", { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "none" }, 6.38);
+      // The heart reaction.
+      tl.fromTo("#ch-heart", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(3)" }, 22.5);
+
+      // The phone pulls back into the end card.
+      tl.to("#ch-app", { scale: 0.5, y: -120, borderRadius: 90, filter: "blur(10px)", opacity: 0, duration: 0.6, ease: "power3.in" }, 23.4);
+      tl.fromTo("#ch-turn", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, 23.7);
+      tl.fromTo("#ch-logo", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.5, ease: "power2.inOut" }, 24.4);
+      tl.fromTo("#ch-url", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, 24.9);
+      tl.fromTo("#ch-wa", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 25.2);
+      tl.fromTo("#ch-btn", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, 25.5);
+      tl.to({}, { duration: 30 }, 0);
+      window.__timelines["chat"] = tl;
+    })();
+  </script>
+</template>

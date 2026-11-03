@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Speedrun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/page.css">
+<style>
+  .scrim { background: linear-gradient(to top, rgb(11 10 16 / 0.82), rgb(11 10 16 / 0) 46%); }
+  /* the split timer */
+  .run { position: fixed; z-index: 25; right: var(--m); top: 50%; transform: translateY(-50%); width: clamp(220px, 19vw, 280px); padding: 16px 18px; border-radius: 18px;
+    background: rgb(12 10 18 / 0.62); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1.5px solid rgb(242 240 230 / 0.2); pointer-events: none; font-variant-numeric: tabular-nums; }
+  .run__head { display: flex; justify-content: space-between; font-size: var(--step-small); font-weight: 800; color: var(--soft); margin-bottom: 8px; }
+  .run ol { list-style: none; margin: 0; padding: 0; font-size: 0.9375rem; font-weight: 700; }
+  .run li { display: flex; justify-content: space-between; padding: 7px 8px; border-radius: 8px; color: var(--soft); transition: background-color 200ms, color 200ms; }
+  .run li.now { background: rgb(242 240 230 / 0.12); color: var(--paper); }
+  .run li.done { color: var(--paper); }
+  .run li.done span:last-child { color: var(--yellow); }
+  .run__big { margin-top: 10px; font-weight: 900; font-stretch: 112%; letter-spacing: -0.02em; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1; text-align: right; color: #7dffb2; }
+  .run__note { margin-top: 6px; font-size: 0.8125rem; color: var(--soft); text-align: right; }
+  .frames { position: fixed; z-index: 25; right: var(--m); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); font-weight: 800; font-size: var(--step-small); color: var(--soft); pointer-events: none; font-variant-numeric: tabular-nums; }
+  .frames b { color: var(--paper); font-size: 1.25rem; font-weight: 900; }
+  @media (max-width: 820px) {
+    .run { top: calc(80px + env(safe-area-inset-top, 0px)); transform: none; width: auto; padding: 10px 14px; }
+    .run ol, .run__head, .run__note { display: none; }
+    .run__big { margin: 0; font-size: 1.6rem; }
+    .frames { display: none; }
+  }
+</style>
+</head>
+<body>
+<canvas id="world" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<div class="export" id="export" aria-hidden="true">
+  <div class="export__bar"><i id="export-fill"></i></div>
+  <div class="export__row"><span>loading level 1-1</span><span class="num" id="export-pct">000%</span></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spec" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#2136cd"/><stop offset=".08" stop-color="#2664f7"/><stop offset=".2" stop-color="#32a9f6"/>
+      <stop offset=".3" stop-color="#32d7f6"/><stop offset=".38" stop-color="#c5f9ed"/><stop offset=".45" stop-color="#fbf7c9"/>
+      <stop offset=".53" stop-color="#fef78e"/><stop offset=".61" stop-color="#f9e853"/><stop offset=".69" stop-color="#f5b843"/>
+      <stop offset=".77" stop-color="#fa7d31"/><stop offset=".87" stop-color="#ef462e"/><stop offset="1" stop-color="#e32139"/>
+    </linearGradient>
+    <clipPath id="barclip"><polygon points="4,58 396,19 396,53 4,92"/></clipPath>
+    <symbol id="logo" viewBox="0 0 400 166">
+      <g clip-path="url(#barclip)">
+        <rect x="4" y="0" width="266" height="100" fill="url(#spec)"/>
+        <rect x="276" y="0" width="7" height="100" fill="#eb1635"/><rect x="289" y="0" width="7" height="100" fill="#d41c40"/>
+        <rect x="302" y="0" width="7" height="100" fill="#b22546"/><rect x="315" y="0" width="7" height="100" fill="#8a2445"/>
+        <rect x="328" y="0" width="7" height="100" fill="#6a2444"/><rect x="341" y="0" width="7" height="100" fill="#52263f"/>
+        <rect x="354" y="0" width="7" height="100" fill="#3f2740"/><rect x="367" y="0" width="7" height="100" fill="#33283f"/>
+        <rect x="380" y="0" width="7" height="100" fill="#2d2844"/>
+      </g>
+      <text x="0" y="146" font-family="Archivo, sans-serif" font-weight="900" font-stretch="125%" font-size="74" letter-spacing="-3" fill="currentColor">cutsway</text>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 16 16"><path d="M3 2v7h10M9 5l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<aside class="run" aria-label="Turnaround splits">
+  <div class="run__head"><span>any% edit</span><span>hours</span></div>
+  <ol id="splitlist"></ol>
+  <div class="run__big" id="big">0:00.00</div>
+  <div class="run__note">Sample turnaround for a gaming video</div>
+</aside>
+<div class="frames" aria-hidden="true"><b id="frames">0</b> frames kept</div>
+
+<header class="nav">
+  <a class="nav__logo" href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#logo"/></svg></a>
+  <nav class="nav__links" aria-label="Main"><a href="#long-form">What we cut</a><a href="#turnaround">Turnaround</a><a href="#faq">FAQ</a></nav>
+  <div class="nav__cta"><a class="pill" href="#book">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+</header>
+
+<main id="top">
+  <section class="ch" data-scene aria-labelledby="h1">
+    <h1 class="display" id="h1">any% edit.</h1>
+    <div class="hero__row">
+      <p>Cutsway edits gaming videos, long-form, podcasts and shorts like a speedrun: no wasted frames, no dead air. Scroll to run.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="long-form" data-scene aria-labelledby="lf-h">
+    <div class="copy rise">
+      <h2 class="display" id="lf-h">gaming videos &amp; long-form</h2>
+      <p>Hours of gameplay cut to the minutes worth watching. Dead air and loading screens don't make it past the first split.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="sh-h">
+    <div class="copy rise">
+      <h2 class="display" id="sh-h">shorts &amp; reels</h2>
+      <p>The best moments of the run, reframed to vertical and captioned for the first second of a scroll.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="pod-h">
+    <div class="copy rise">
+      <h2 class="display" id="pod-h">podcasts</h2>
+      <p>Mic bumps, crosstalk and long pauses, cleared. One clean episode, plus the clips that bring new listeners in.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="turnaround" data-scene aria-labelledby="turn-h">
+    <div class="glass turn rise">
+      <h2 class="display" id="turn-h">when is it yours?</h2>
+      <div class="chips" role="group" aria-label="What would you send?">
+        <button class="chip" data-f="thumb">Thumbnail</button>
+        <button class="chip" data-f="shorts">Shorts pack</button>
+        <button class="chip" data-f="video" aria-pressed="true">Gaming video</button>
+        <button class="chip" data-f="podcast">Podcast</button>
+      </div>
+      <p class="due" aria-live="polite">Sent now, it's back by<strong class="num" id="due">…</strong></p>
+      <ol class="splits num" id="splits"></ol>
+      <p class="note">Sample turnaround times. The timer on the right is the same run.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="soc-h">
+    <div class="copy rise">
+      <h2 class="display" id="soc-h">posted, everywhere</h2>
+      <p>Uploaded and scheduled on YouTube, Instagram, TikTok and X, each with its own title and caption.</p>
+      <a class="pill pill--solid" href="#book">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </section>
+
+  <section class="ch" id="faq" data-scene aria-labelledby="faq-h">
+    <h2 class="display faq-h rise" id="faq-h">fair questions</h2>
+    <div class="glass faq rise" style="--i:1">
+      <details><summary>What do I send you?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>The raw recording, your channel link, a past video whose feel you like, and the date it needs to go up.</p></details>
+      <details><summary>Can you work from a stream VOD?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Yes. One VOD becomes a highlight video and a shorts pack from the same session.</p></details>
+      <details><summary>How many revisions?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Two rounds on every edit, left as notes on the exact frame. Sample policy, confirm before launch.</p></details>
+      <details><summary>Will you post it for me?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>If you want. We schedule and post with titles and captions written for each platform.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="book" data-scene aria-labelledby="book-h">
+  <h2 class="display rise" id="book-h"><a href="#book">book a call.</a></h2>
+  <p class="rise" style="--i:1">Run complete. Twenty minutes on a call and we'll route your next one.</p>
+  <div class="foot__row rise" style="--i:2">
+    <span>cutsway.socialmanager@gmail.com · sample address</span>
+    <nav aria-label="Social"><a href="#">YouTube</a><a href="#">Instagram</a><a href="#">X</a><a href="#">Discord</a></nav>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="../shared/page.js"></script>
+<script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { createWorld, chapterTracker, SPEC, SLICES, specAt, reduce, phone, ease, clamp01, canvasTex, drawLogoBar, drawWordmark, font, dotTexture, fontsReady, glowMat, flat, smooth } from '../shared/kit.js';
+
+  const world = createWorld({ bloom: [0.5, 0.5, 0.85], fov: 40, bg: '#120c22' });
+  world.phoneFov = 60;
+  const { scene, camera } = world;
+  scene.fog = new THREE.Fog('#2a1630', 18, 60);
+  await fontsReady();
+
+  // ── splits (sample turnaround, hours) ──
+  const SPLITS = [['Start', 0], ['Rough cut', 20], ['Shorts', 24], ['Podcast', 30], ['Export', 40], ['Posted', 44], ['Q&A', 46], ['Delivered', 47.97]];
+  const fmt = h => { const H = Math.floor(h), M = Math.floor((h - H) * 60), cs = Math.floor(((h - H) * 60 - M) * 100); return `${H}:${String(M).padStart(2, '0')}.${String(cs).padStart(2, '0')}`; };
+  const fmtShort = h => `${Math.floor(h)}:${String(Math.round((h % 1) * 60)).padStart(2, '0')}`;
+  const listEl = document.getElementById('splitlist'), bigEl = document.getElementById('big'), framesEl = document.getElementById('frames');
+  listEl.innerHTML = SPLITS.map(([n, h]) => `<li><span>${n}</span><span>${fmtShort(h)}</span></li>`).join('');
+  const rows = [...listEl.children];
+
+  // ── sky, sun, and two layers of skyline for parallax ──
+  const sky = canvasTex(64, 512);
+  { const g = sky.g, lg = g.createLinearGradient(0, 0, 0, 512); lg.addColorStop(0, '#0d0f2e'); lg.addColorStop(0.45, '#3f2740'); lg.addColorStop(0.72, '#b22546'); lg.addColorStop(0.86, '#fa7d31'); lg.addColorStop(0.95, '#f9e853'); g.fillStyle = lg; g.fillRect(0, 0, 64, 512); sky.tex.needsUpdate = true; }
+  const skyMesh = new THREE.Mesh(new THREE.PlaneGeometry(400, 60), new THREE.MeshBasicMaterial({ map: sky.tex, fog: false, depthWrite: false }));
+  skyMesh.position.set(60, 8, -45); scene.add(skyMesh);
+  const sunMat = new THREE.MeshBasicMaterial({ color: new THREE.Color('#ffd27a').multiplyScalar(1.6), toneMapped: false, fog: false });
+  const sun = new THREE.Mesh(new THREE.CircleGeometry(5.5, 48), sunMat); sun.position.set(0, 1.4, -44); scene.add(sun);
+  function skyline(seed, color, hMin, hMax, z, lit) {
+    const R = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(seed), g = new THREE.Group(); let x = -20;
+    while (x < 150) {
+      const w = 1.2 + R() * 2.6, h = hMin + R() * (hMax - hMin);
+      const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, 1), new THREE.MeshBasicMaterial({ color })); b.position.set(x + w / 2, -1 + h / 2, z); g.add(b);
+      if (lit) for (let k = 0; k < Math.floor(h * 1.6); k++) if (R() < 0.35) { const wdw = new THREE.Mesh(new THREE.PlaneGeometry(0.16, 0.22), glowMat(R() < 0.5 ? '#f5b843' : '#c5f9ed', 1.1)); wdw.position.set(x + 0.3 + R() * (w - 0.6), -0.6 + R() * (h - 0.6), z + 0.51); g.add(wdw); }
+      x += w + 0.15 + R() * 0.8;
+    }
+    scene.add(g);
+  }
+  skyline(3, '#1d1230', 3.5, 9, -38, false);
+  skyline(7, '#150d22', 1.5, 5.5, -24, true);
+
+  // ── the level ──
+  const STEP = 14, N = 8, L = STEP * (N - 1);
+  const GAPS = [1, 2, 3, 4, 5, 6].map(c => [c * STEP - 6.2, c * STEP - 4.4]);       // a gap in each stretch, before every checkpoint
+  const segH = x => { const c = Math.floor(x / STEP); return [0, 0.5, 0, 0.9, 0.4, 1.1, 0.6, 0.6][Math.max(0, Math.min(7, c + (x % STEP > STEP - 4.4 ? 1 : 0)))]; };
+  // ground height under x, and whether x is over a gap
+  function groundAt(x) { for (const [a, b] of GAPS) if (x > a && x < b) return null; return segH(x); }
+  const platMat = flat('#1b1426', { roughness: 0.8 });
+  const segs = [];
+  { let x0 = -8; const cuts = [...GAPS.flat(), L + 8].sort((a, b) => a - b);
+    let open = true, start = x0;
+    for (const c of cuts) { if (open) segs.push([start, c]); start = c; open = !open; }
+  }
+  // break each solid run where its height changes
+  const blocks = [];
+  segs.forEach(([a, b]) => { let s = a; for (let x = a; x <= b; x += 0.05) { if (x >= b - 0.05 || Math.abs(segH(x + 0.05) - segH(x)) > 0.01) { blocks.push([s, Math.min(b, x + 0.05), segH(x)]); s = x + 0.05; } } });
+  blocks.forEach(([a, b, h]) => {
+    if (b - a < 0.05) return;
+    const w = b - a, m = new THREE.Mesh(new THREE.BoxGeometry(w, 6, 2.4), platMat); m.position.set(a + w / 2, h - 3, 0); m.receiveShadow = true; scene.add(m);
+    // neon top edge in the logo's spectrum along the level; the last stretch breaks into the slices
+    const slicesFrom = L - 6;
+    if (a > slicesFrom) return;
+    const end = Math.min(b, slicesFrom), u0 = clamp01(a / slicesFrom), u1 = clamp01(end / slicesFrom), n = Math.max(1, Math.ceil((end - a) / 0.5));
+    for (let k = 0; k < n; k++) { const xa = a + (end - a) * k / n, xb = a + (end - a) * (k + 1) / n; const e = new THREE.Mesh(new THREE.BoxGeometry(xb - xa + 0.002, 0.06, 0.06), glowMat(specAt(u0 + (u1 - u0) * (k + 0.5) / n).getStyle(), 1.8)); e.position.set((xa + xb) / 2, h + 0.03, 1.2); scene.add(e); }
+  });
+  for (let k = 0; k < 9; k++) { const x = L - 6 + k * 0.62, e = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.06, 0.06), glowMat(SLICES[k], 2)); e.position.set(x + 0.15, segH(x) + 0.03, 1.2); scene.add(e); }
+
+  // checkpoints: flags in the spectrum that turn gold
+  const flags = [];
+  for (let c = 1; c < N - 1; c++) {
+    const x = c * STEP - 2.2, h = segH(x), g = new THREE.Group(); g.position.set(x, h, -0.6); scene.add(g);
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 2.6, 8), flat('#d9d4e6', { metalness: 0.6, roughness: 0.3 })); pole.position.y = 1.3; g.add(pole);
+    const cloth = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.55, 8, 4), new THREE.MeshBasicMaterial({ color: specAt(c / (N - 1)).multiplyScalar(1.4), side: THREE.DoubleSide, toneMapped: false })); cloth.position.set(0.46, 2.3, 0); g.add(cloth);
+    flags.push({ x, cloth, base: cloth.material.color.clone(), done: false, burst: 0 });
+  }
+
+  // film frames to collect
+  const frameGeo = new THREE.BoxGeometry(0.28, 0.2, 0.03);
+  const frameTex = canvasTex(64, 48); { const g = frameTex.g; g.fillStyle = '#f2f0e6'; g.fillRect(0, 0, 64, 48); g.fillStyle = '#0b0a10'; for (let k = 0; k < 5; k++) { g.fillRect(4 + k * 12, 3, 6, 5); g.fillRect(4 + k * 12, 40, 6, 5); } g.fillStyle = '#e32139'; g.fillRect(8, 12, 48, 24); frameTex.tex.needsUpdate = true; }
+  const frameMat = new THREE.MeshBasicMaterial({ map: frameTex.tex, toneMapped: false, color: new THREE.Color(1.3, 1.3, 1.3) });
+  const collect = [];
+  for (let x = 2; x < L - 2; x += 1.25) { if (groundAt(x) === null) continue; const m = new THREE.Mesh(frameGeo, frameMat); m.position.set(x, segH(x) + 1.25, 0); scene.add(m); collect.push({ m, x, got: false, t: 0 }); }
+
+  // dead air: blocks the runner cuts through
+  const LABELS = ['DEAD AIR', 'LOADING…', 'MIC BUMP', 'LONG PAUSE', 'BUFFERING', 'DEAD AIR'];
+  const cutters = [];
+  [1, 2, 3, 4, 5, 6].forEach((c, n) => {
+    const x = (c - 1) * STEP + 4.5, h = segH(x), lab = canvasTex(256, 96);
+    lab.g.fillStyle = '#4a4560'; lab.g.fillRect(0, 0, 256, 96); lab.g.fillStyle = '#f2f0e6'; lab.g.font = font(900, 32); lab.g.textAlign = 'center'; lab.g.fillText(LABELS[n], 128, 60); lab.tex.needsUpdate = true;
+    const grey = flat('#5a5470'); const mat = [grey, grey, grey, grey, new THREE.MeshBasicMaterial({ map: lab.tex, toneMapped: false, color: new THREE.Color(1.1, 1.1, 1.1) }), grey];
+    const halves = [-1, 1].map(s => { const m = new THREE.Mesh(new THREE.BoxGeometry(0.6, 1.1, 0.8), mat); m.position.set(x, h + 0.55, 0); m.scale.y = 1; scene.add(m); return m; });
+    // each half shows its half of the label
+    halves.forEach((m, k) => { m.geometry = m.geometry.clone(); const uv = m.geometry.attributes.uv; for (let v = 0; v < uv.count; v++) uv.setY(v, k === 0 ? uv.getY(v) * 0.5 + 0.5 : uv.getY(v) * 0.5); });
+    cutters.push({ x, h, halves, cut: 0 });
+  });
+  const slash = new THREE.Mesh(new THREE.PlaneGeometry(0.04, 2.2), glowMat('#e32139', 4)); slash.visible = false; scene.add(slash);
+
+  // finish: a gate with the wordmark, and confetti
+  const FX = L + 1.5, fh = segH(L);
+  const gate = new THREE.Group(); gate.position.set(FX, fh, -0.2); scene.add(gate);
+  [-1, 1].forEach(s => { const p = new THREE.Mesh(new THREE.BoxGeometry(0.18, 3.6, 0.18), flat('#f2f0e6')); p.position.set(0, 1.8, s * 1.1); gate.add(p); });
+  const banner = canvasTex(1024, 380); banner.g.fillStyle = '#0b0a10'; banner.g.fillRect(0, 0, 1024, 380); drawLogoBar(banner.g, 30, 0, 2.4); drawWordmark(banner.g, 20, 350, 170, '#f2f0e6'); banner.tex.needsUpdate = true;
+  const bannerMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.96), new THREE.MeshBasicMaterial({ map: banner.tex, toneMapped: false, side: THREE.DoubleSide })); bannerMesh.position.set(0, 3.25, 1.2); gate.add(bannerMesh);
+  const beam = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.16, 2.4), flat('#f2f0e6')); beam.position.set(0, 3.62, 0); gate.add(beam);
+  const checker = canvasTex(256, 32); for (let k = 0; k < 16; k++) for (let r = 0; r < 2; r++) { checker.g.fillStyle = (k + r) % 2 ? '#f2f0e6' : '#0b0a10'; checker.g.fillRect(k * 16, r * 16, 16, 16); } checker.tex.needsUpdate = true;
+  const line = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 0.3), new THREE.MeshBasicMaterial({ map: checker.tex })); line.rotation.set(-Math.PI / 2, 0, Math.PI / 2); line.position.set(0, 0.01, 0.2); gate.add(line);
+  const CN = 260, cPos = new Float32Array(CN * 3), cVel = new Float32Array(CN * 3), cCol = new Float32Array(CN * 3);
+  for (let k = 0; k < CN; k++) { const c = specAt(Math.random()); cCol.set([c.r * 1.5, c.g * 1.5, c.b * 1.5], k * 3); cPos.set([FX, fh - 50, 0], k * 3); }
+  const cGeo = new THREE.BufferGeometry(); cGeo.setAttribute('position', new THREE.BufferAttribute(cPos, 3)); cGeo.setAttribute('color', new THREE.BufferAttribute(cCol, 3));
+  scene.add(new THREE.Points(cGeo, new THREE.PointsMaterial({ size: 0.12, vertexColors: true, map: dotTexture(), transparent: true, depthWrite: false, toneMapped: false })));
+  let confettiFired = false;
+
+  // ── the runner: the editor, hoodie and headphones ──
+  const hoodie = smooth('#3b3150', { roughness: 0.85 }), pants = smooth('#1f1d27', { roughness: 0.9 }), skin = smooth('#c48a67', { roughness: 0.55 }), hairM = smooth('#1a1317'), shoeM = smooth('#e9e4d8'), phonesM = smooth('#0e0d12', { roughness: 0.35 });
+  const runner = new THREE.Group(); scene.add(runner);
+  const body = new THREE.Group(); runner.add(body);
+  const cap = (r, l, m) => new THREE.Mesh(new THREE.CapsuleGeometry(r, l, 6, 12), m);
+  const torso = cap(0.2, 0.45, hoodie); torso.position.y = 1.18; torso.scale.set(0.9, 1, 1.15); body.add(torso);
+  const hood = new THREE.Mesh(new THREE.TorusGeometry(0.12, 0.06, 8, 16), hoodie); hood.position.set(-0.08, 1.52, 0); hood.rotation.y = Math.PI / 2; hood.rotation.x = 0.4; body.add(hood);
+  const head = new THREE.Group(); head.position.set(0.04, 1.78, 0); body.add(head);
+  head.add(new THREE.Mesh(new THREE.SphereGeometry(0.17, 20, 16), skin));
+  const hair = new THREE.Mesh(new THREE.SphereGeometry(0.18, 20, 12, 0, Math.PI * 2, 0, Math.PI * 0.55), hairM); hair.rotation.z = 0.5; hair.position.x = -0.02; head.add(hair);
+  const nose = new THREE.Mesh(new THREE.ConeGeometry(0.025, 0.06, 8), skin); nose.rotation.z = -Math.PI / 2; nose.position.set(0.17, -0.02, 0); head.add(nose);
+  const eye = new THREE.Mesh(new THREE.SphereGeometry(0.018, 8, 6), smooth('#0d0b10')); eye.position.set(0.14, 0.03, 0.07); head.add(eye);
+  const band = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.018, 8, 24, Math.PI), phonesM); band.position.y = 0.01; band.rotation.y = Math.PI / 2; head.add(band);
+  [-1, 1].forEach(s => { const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.05, 16), phonesM); cup.rotation.x = Math.PI / 2; cup.position.set(0, -0.01, s * 0.18); head.add(cup); const ring = new THREE.Mesh(new THREE.TorusGeometry(0.07, 0.007, 6, 20), glowMat('#e32139', 2)); ring.position.set(0, -0.01, s * 0.21); head.add(ring); });
+  function limb(len, r, m, x, y, z) { const pivot = new THREE.Group(); pivot.position.set(x, y, z); const seg = cap(r, len, m); seg.position.y = -len / 2 - r * 0.2; pivot.add(seg); return pivot; }
+  const legs = [-1, 1].map(s => {
+    const hip = limb(0.36, 0.085, pants, 0, 0.92, s * 0.11); body.add(hip);
+    const knee = limb(0.34, 0.07, pants, 0, -0.42, 0); hip.add(knee);
+    const shoe = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.1, 0.12), shoeM); shoe.position.set(0.06, -0.43, 0); knee.add(shoe);
+    const stripe = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.02, 0.125), smooth('#e32139')); stripe.position.set(0.02, -0.4, 0); knee.add(stripe);
+    return { hip, knee };
+  });
+  const arms = [-1, 1].map(s => {
+    const sh = limb(0.28, 0.065, hoodie, 0.02, 1.5, s * 0.25); body.add(sh);
+    const el = limb(0.26, 0.055, hoodie, 0, -0.33, 0); sh.add(el);
+    const hand = new THREE.Mesh(new THREE.SphereGeometry(0.06, 10, 8), skin); hand.position.y = -0.33; el.add(hand);
+    return { sh, el };
+  });
+  runner.traverse(o => { if (o.isMesh) o.castShadow = true; });
+
+  // light: the sunset behind, a cool fill in front
+  scene.add(new THREE.HemisphereLight('#7a6ab0', '#1a1020', 1.2));
+  const key = new THREE.DirectionalLight('#ffb36b', 2.2); key.position.set(-6, 8, -10); scene.add(key);
+  const fill = new THREE.DirectionalLight('#c9d4ff', 1.9); fill.position.set(2, 4, 10); scene.add(fill);
+  const runnerRim = new THREE.PointLight('#fa7d31', 3, 4, 1.5); scene.add(runnerRim);
+
+  // dust in the air
+  const DN = 500, dp = new Float32Array(DN * 3); for (let i = 0; i < DN; i++) dp.set([-10 + Math.random() * (L + 30), Math.random() * 9 - 1, -8 + Math.random() * 12], i * 3);
+  const dgeo = new THREE.BufferGeometry(); dgeo.setAttribute('position', new THREE.BufferAttribute(dp, 3));
+  scene.add(new THREE.Points(dgeo, new THREE.PointsMaterial({ color: '#fbf7c9', size: 0.05, map: dotTexture(), transparent: true, opacity: 0.5, depthWrite: false })));
+
+  // ── the run ──
+  const track = chapterTracker();
+  let lastX = 0, speed = 0, phase = 0, got = 0;
+  function heightAt(x) {          // the runner's feet: ground, or a jump arc over a gap
+    for (const [a, b] of GAPS) {
+      const a0 = a - 0.9, b0 = b + 0.9;
+      if (x > a0 && x < b0) { const u = (x - a0) / (b0 - a0), h0 = segH(a0), h1 = segH(b0); return { y: h0 + (h1 - h0) * u + Math.sin(u * Math.PI) * 1.9, air: true }; }
+    }
+    return { y: segH(x), air: false };
+  }
+
+  world.start((t, dt) => {
+    const S = track(dt), x = S * STEP + (S >= N - 1 ? 1.5 : 0);
+    const dx = x - lastX; lastX = x;
+    speed += (Math.min(1, Math.abs(dx) / Math.max(dt, 0.001) / 6) - speed) * Math.min(1, dt * 6);
+    phase += dx * 2.6;
+    const { y, air } = heightAt(x);
+    runner.position.set(x, y, 0);
+    runner.rotation.y = dx < -0.0005 ? Math.PI : 0;
+
+    // pose: run cycle when moving, tuck in the air, breathe when still
+    const amp = reduce ? 0 : speed, s = Math.sin(phase);
+    body.position.y = air ? 0 : Math.abs(Math.cos(phase)) * 0.07 * amp + (reduce ? 0 : Math.sin(t * 2) * 0.01 * (1 - amp));
+    body.rotation.z = -0.18 * amp - (air ? 0.1 : 0);
+    legs.forEach(({ hip, knee }, k) => {
+      const ss = k ? -s : s;
+      hip.rotation.z = air ? (k ? 0.9 : 0.4) : ss * 0.95 * amp;
+      knee.rotation.z = air ? -1.4 : -Math.max(0, -ss) * 1.5 * amp - 0.05;
+    });
+    arms.forEach(({ sh, el }, k) => {
+      const ss = k ? s : -s;
+      sh.rotation.z = air ? (k ? 2.4 : 2.0) : ss * 0.85 * amp + 0.1;
+      el.rotation.z = air ? 0.4 : 1.35 * Math.max(0.35, amp);
+    });
+    head.rotation.z = Math.sin(t * 1.3) * 0.04;
+
+    // split timer
+    const seg = Math.min(SPLITS.length - 2, Math.floor(S)), sf = clamp01(S - seg);
+    const hrs = S >= SPLITS.length - 1 ? SPLITS[SPLITS.length - 1][1] : SPLITS[seg][1] + (SPLITS[seg + 1][1] - SPLITS[seg][1]) * sf;
+    bigEl.textContent = fmt(hrs);
+    rows.forEach((r, n) => { r.classList.toggle('done', n <= Math.floor(S + 0.02) && n > 0); r.classList.toggle('now', n === Math.min(SPLITS.length - 1, Math.floor(S + 0.02) + 1) && S < SPLITS.length - 1.02); });
+
+    // checkpoints
+    flags.forEach(fl => {
+      const passed = x > fl.x;
+      if (passed && !fl.done) { fl.done = true; fl.burst = 1; }
+      if (!passed && fl.done) fl.done = false;
+      fl.cloth.material.color.copy(fl.done ? new THREE.Color('#f9e853').multiplyScalar(1.8) : fl.base);
+      const pos = fl.cloth.geometry.attributes.position;
+      for (let v = 0; v < pos.count; v++) { const px = pos.getX(v) + 0.45; pos.setZ(v, Math.sin(px * 6 - t * 6) * 0.06 * px); }
+      pos.needsUpdate = true;
+    });
+
+    // frames: collected as the runner passes
+    got = 0;
+    collect.forEach(c => {
+      const has = x > c.x; if (has) got++;
+      c.t += ((has ? 1 : 0) - c.t) * Math.min(1, dt * 8);
+      const sc = 1 - c.t; c.m.scale.setScalar(Math.max(0.0001, sc)); c.m.position.y = segH(c.x) + 1.25 + c.t * 0.8 + Math.sin(t * 2 + c.x) * 0.05;
+      c.m.rotation.y = t * 2 + c.x;
+    });
+    framesEl.textContent = got;
+
+    // dead air gets cut
+    let slashOn = false;
+    cutters.forEach(c => {
+      const d = x - c.x, cut = clamp01((d + 0.5) / 0.6);
+      if (Math.abs(d + 0.2) < 0.35) { slashOn = true; slash.position.set(c.x, c.h + 0.6, 0.45); slash.rotation.z = 0.5; }
+      c.halves.forEach((m, k) => { const dir = k ? 1 : -1; m.position.set(c.x + cut * 0.15, c.h + 0.55 + dir * (0.3 * cut) - cut * cut * 1.6, dir * cut * 0.5); m.rotation.set(dir * cut * 0.8, 0, -dir * cut * 0.6); m.scale.y = 0.5; m.position.y += dir * 0.275; });
+    });
+    slash.visible = slashOn && !reduce;
+
+    // confetti at the finish
+    if (x > FX - 0.4 && !confettiFired && !reduce) { confettiFired = true; for (let k = 0; k < CN; k++) { cPos.set([FX + (Math.random() - 0.5) * 0.6, fh + 3.2, (Math.random() - 0.5) * 2], k * 3); cVel.set([(Math.random() - 0.5) * 6, 2 + Math.random() * 6, (Math.random() - 0.5) * 6], k * 3); } }
+    if (x < FX - 2) confettiFired = false;
+    for (let k = 0; k < CN; k++) { cVel[k * 3 + 1] -= dt * 6; for (let a = 0; a < 3; a++) cPos[k * 3 + a] += cVel[k * 3 + a] * dt * 0.6; }
+    cGeo.attributes.position.needsUpdate = true;
+
+    // camera follows with a little lead; pulls back for the finish
+    const fin = clamp01(S - (N - 2));
+    const lead = phone() ? -0.2 : -1.1, cz = (phone() ? 12.5 : 9.2) + fin * 2.5;
+    runnerRim.position.set(x - 0.8, y + 1.8, -1);
+    camera.position.set(x + lead + fin * 1.8, y + (phone() ? 2.6 : 1.5) + fin * 0.9, cz);
+    camera.lookAt(x + lead + 0.4 + fin * 1.8, y + (phone() ? 1.9 : 1.1) + fin * 0.6, 0);
+    skyMesh.position.x = x * 0.92 + 40; sun.position.x = x * 0.95 + 4;
+  });
+</script>
+</body>
+</html>

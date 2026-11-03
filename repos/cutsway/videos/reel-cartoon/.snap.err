@@ -1,0 +1,26 @@
+[hyperframes] browserGpuMode probe → hardware (WebGL renderer vendor="Google Inc. (NVIDIA)" renderer="ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)")
+[hyperframes] snapshot: frame 1/25 at 0s
+[hyperframes] snapshot: frame 2/25 at 2.2s
+[hyperframes] snapshot: frame 3/25 at 4.3s
+[hyperframes] snapshot: frame 4/25 at 5s
+[hyperframes] snapshot: frame 5/25 at 6s
+[hyperframes] snapshot: frame 6/25 at 7s
+[hyperframes] snapshot: frame 7/25 at 8s
+[hyperframes] snapshot: frame 8/25 at 8.6s
+[hyperframes] snapshot: frame 9/25 at 10.3s
+[hyperframes] snapshot: frame 10/25 at 11.2s
+[hyperframes] snapshot: frame 11/25 at 11.8s
+[hyperframes] snapshot: frame 12/25 at 12.7s
+[hyperframes] snapshot: frame 13/25 at 14.4s
+[hyperframes] snapshot: frame 14/25 at 15.8s
+[hyperframes] snapshot: frame 15/25 at 17.6s
+[hyperframes] snapshot: frame 16/25 at 19s
+[hyperframes] snapshot: frame 17/25 at 20.2s
+[hyperframes] snapshot: frame 18/25 at 21.2s
+[hyperframes] snapshot: frame 19/25 at 22.9s
+[hyperframes] snapshot: frame 20/25 at 24.1s
+[hyperframes] snapshot: frame 21/25 at 24.9s
+[hyperframes] snapshot: frame 22/25 at 26s
+[hyperframes] snapshot: frame 23/25 at 27.3s
+[hyperframes] snapshot: frame 24/25 at 29.9s
+[hyperframes] snapshot: frame 25/25 at 29.75s

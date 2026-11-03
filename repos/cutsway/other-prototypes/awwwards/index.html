@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Awwwards Set</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0d0907; --raise: #19120e; --paper: #f6efe4; --soft: #cdbfae; --gold: #ffc72e; --m: clamp(16px, 3vw, 48px); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--paper); font-family: Archivo, system-ui, sans-serif; font-size: 17px; line-height: 1.45; -webkit-font-smoothing: antialiased; padding: clamp(28px, 4vw, 64px) var(--m) 64px; }
+  a { color: inherit; }
+  .top { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(32px, 4vw, 56px); }
+  h1 { margin: 0; font-weight: 900; font-stretch: 125%; letter-spacing: -.045em; line-height: .9; font-size: clamp(2.8rem, 7vw, 7rem); text-transform: lowercase; }
+  .top p { margin: 0; max-width: 52ch; color: var(--paper); }
+  .top a.back { color: var(--gold); font-weight: 700; }
+  .bar { height: 10px; width: min(420px, 70vw); margin: 18px 0 0; }
+  .bar svg { width: 100%; height: 100%; display: block; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); gap: 28px 18px; }
+  .card { display: grid; gap: 10px; text-decoration: none; }
+  .card .shot { aspect-ratio: 16 / 10; overflow: hidden; background: var(--raise); border-radius: 10px; }
+  .card img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .6s cubic-bezier(.16,1,.3,1); }
+  .card:hover img { transform: scale(1.04); }
+  .card:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; border-radius: 10px; }
+  .card h2 { margin: 4px 0 0; font-size: 1.5rem; font-weight: 900; font-stretch: 112%; letter-spacing: -.03em; line-height: 1.05; }
+  .card p { margin: 0; color: var(--paper); }
+  .card .from { color: var(--soft); font-size: 15px; }
+  .card .live { color: var(--gold); font-size: 15px; font-weight: 700; }
+  .notes { margin-top: 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 32px; color: var(--soft); font-size: 15px; }
+  .notes h3 { color: var(--paper); margin: 0 0 8px; font-size: 18px; }
+  .notes p, .notes ul { margin: 0; } .notes ul { padding-left: 18px; }
+</style>
+</head>
+<body>
+<div class="top">
+  <div>
+    <h1>the awwwards set.</h1>
+    <div class="bar"><svg viewBox="0 15 400 80" preserveAspectRatio="none" aria-hidden="true"><use href="#cw-bar"/></svg></div>
+  </div>
+  <p>Fifteen directions, each taking one composition idea from a recent Awwwards Site of the Day or Month and rebuilding it from Cutsway's own world, in the gold to red logo colourway. Every page has one live thing to try. <a class="back" href="../">All earlier prototypes</a></p>
+</div>
+
+<div class="grid">
+  <a class="card" href="01-pit-wall/"><div class="shot"><img src="_shared/shots/01-pit-wall.jpg" alt=""></div><h2>01 · Pit Wall</h2><p>The turnaround as a race number over a black-and-white arena photo, stats down both sides.</p><span class="from">After Nick Ho and Lando Norris (Site of the Year 2025)</span><span class="live">Live: pick a deliverable, the giant number rolls and the "back by" time updates</span></a>
+  <a class="card" href="02-selects/"><div class="shot"><img src="_shared/shots/02-selects.jpg" alt=""></div><h2>02 · Selects</h2><p>An editor's contact sheet of gameplay frames on paper, circled in red grease pencil.</p><span class="from">After FORMAT by Obys (editorial grid)</span><span class="live">Live: circle frames to keep, the runtime adds up, "Play my cut" plays them</span></a>
+  <a class="card" href="03-reframe/"><div class="shot"><img src="_shared/shots/03-reframe.jpg" alt=""></div><h2>03 · Reframe</h2><p>"Stream / Shorts" split around a live stream window that opens to full screen.</p><span class="from">After Colonia Zacamil (split headline round a video)</span><span class="live">Live: scroll opens the window and a 9:16 crop reframes the stream</span></a>
+  <a class="card" href="04-filler/"><div class="shot"><img src="_shared/shots/04-filler.jpg" alt=""></div><h2>04 · Filler</h2><p>A justified type wall of mixed widths. The filler words collapse out as you scroll.</p><span class="from">After Signal-A Studio (justified mixed-weight wall)</span><span class="live">Live: paste a transcript, the ums and likes get struck and timed</span></a>
+  <a class="card" href="05-object/"><div class="shot"><img src="_shared/shots/05-object.jpg" alt=""></div><h2>05 · Object</h2><p>The logo bar as a real 3D object on a quiet studio ground, product-shot style.</p><span class="from">After Butter (3D hero object)</span><span class="live">Live: drag to spin it, slide to razor the slices off and drop the runtime</span></a>
+  <a class="card" href="06-thumbnail-lab/"><div class="shot"><img src="_shared/shots/06-thumbnail-lab.jpg" alt=""></div><h2>06 · Thumbnail Lab</h2><p>Loud on purpose: outlined italic type, hard shadows, a working thumbnail builder.</p><span class="from">After ONE&amp;ALL's hero type and maximalist work</span><span class="live">Live: type a title, pick a frame and a face, then see it at feed size</span></a>
+  <a class="card" href="07-sequence/"><div class="shot"><img src="_shared/shots/07-sequence.jpg" alt=""></div><h2>07 · Sequence</h2><p>The whole site is an edit timeline; the clips are coloured along the logo bar.</p><span class="from">After horizontal-scroll storytelling sites (Noomo, Obys experiments)</span><span class="live">Live: scroll drives the playhead and timecode; click a clip to jump</span></a>
+  <a class="card" href="08-burn/"><div class="shot"><img src="_shared/shots/08-burn.jpg" alt=""></div><h2>08 · Burn</h2><p>One glowing form on black: the logo bar as a living ember shader, giant word in the corner.</p><span class="from">After Zentry (Site of the Month)</span><span class="live">Live: the cursor stirs the fire; hold the button to burn the dead air</span></a>
+  <a class="card" href="09-order-up/"><div class="shot"><img src="_shared/shots/09-order-up.jpg" alt=""></div><h2>09 · Order Up</h2><p>A diner menu board and a thermal receipt; Cutsway as an editing kitchen.</p><span class="from">After artefact-led sites (the printed thing as the page)</span><span class="live">Live: build an order, the ticket prints a "ready by" time and emails it</span></a>
+  <a class="card" href="10-dead-air/"><div class="shot"><img src="_shared/shots/10-dead-air.jpg" alt=""></div><h2>10 · Dead Air</h2><p>Hushed and premium: a full-width podcast waveform with the silences marked.</p><span class="from">After Overworld Audio</span><span class="live">Live: toggle the edit and the gaps close; play a synthesised before and after</span></a>
+  <a class="card" href="11-panel/"><div class="shot"><img src="_shared/shots/11-panel.jpg" alt=""></div><h2>11 · Panel</h2><p>One night of a creator's stream told as a manga page, halftone photos and all.</p><span class="from">After comic-led portfolio work in the Brutalism collection</span><span class="live">Live: set when your stream ends and every panel's timestamp re-flows</span></a>
+  <a class="card" href="12-review/"><div class="shot"><img src="_shared/shots/12-review.jpg" alt=""></div><h2>12 · The Review</h2><p>An editorial magazine: serif masthead over a full-bleed cover photo.</p><span class="from">After Siena Film Foundation and LPAS</span><span class="live">Live: enter your raw minutes, the contents page writes itself</span></a>
+  <a class="card" href="13-tour/"><div class="shot"><img src="_shared/shots/13-tour.jpg" alt=""></div><h2>13 · Upload Tour</h2><p>A two-colour risograph gig poster; your upload schedule as tour dates.</p><span class="from">After No Art (festival energy)</span><span class="live">Live: toggle your upload days, the poster re-prints the dates</span></a>
+  <a class="card" href="14-channel-surf/"><div class="shot"><img src="_shared/shots/14-channel-surf.jpg" alt=""></div><h2>14 · Channel Surf</h2><p>The site is a television; each service is a channel, with a remote for navigation.</p><span class="from">After PX Push (broadcast, CRT texture)</span><span class="live">Live: scroll or the remote flips channels through static</span></a>
+  <a class="card" href="15-the-line/"><div class="shot"><img src="_shared/shots/15-the-line.jpg" alt=""></div><h2>15 · The Line</h2><p>A transit map: each deliverable is a metro line through the stations of an edit.</p><span class="from">After information-design winners (Vignelli-style diagrams)</span><span class="live">Live: pick a line, a train runs it and the split-flap board flips to its arrival</span></a>
+</div>
+
+<div class="notes">
+  <div><h3>How to open them</h3><p>05 and 08 use WebGL and work best through start-prototypes.bat (http). The rest also open straight from the folder.</p></div>
+  <div><h3>Pictures</h3><ul><li>Esports events: Flickr users 23979265@N07, 48254827@N00, 84584821@N08 (CC BY 2.0)</li><li>Podcast studio, SPNN (CC BY 4.0); The Podcave (CC BY 2.0)</li><li>RGB headset (CC0); Switch Pro Controller (public domain); InclusiveGameLab controllers (CC BY-SA 4.0), Wikimedia Commons</li><li>All gameplay frames are drawn in code, not real footage.</li></ul></div>
+  <div><h3>To confirm before launch</h3><p>Turnaround hours (8 / 24 / 48 / 72), two revision rounds, the platforms list, the email address, and every made-up feed title or story beat. None of the pictures show Cutsway's own work.</p></div>
+</div>
+<script src="_shared/brand.js"></script>
+</body>
+</html>

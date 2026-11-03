@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Other prototypes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0d0c12; --raise: #17151f; --paper: #f2f0e6; --soft: #b9b4c6; --yellow: #f9e853; --m: clamp(20px, 3vw, 48px); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--paper); font-family: "Archivo", system-ui, sans-serif; -webkit-font-smoothing: antialiased; padding: clamp(32px, 5vw, 72px) var(--m) 64px; }
+  ::selection { background: var(--yellow); color: #0b0a10; }
+  a { color: inherit; }
+  h1 { margin: 0; font-weight: 900; font-stretch: 125%; letter-spacing: -0.04em; line-height: 0.9; font-size: clamp(3rem, 9vw, 8rem); text-transform: lowercase; }
+  .lede { max-width: 56ch; color: var(--soft); font-size: 1.125rem; line-height: 1.45; margin: 18px 0 0; }
+  h2 { margin: 56px 0 18px; font-weight: 900; font-stretch: 125%; letter-spacing: -0.03em; font-size: clamp(1.6rem, 3vw, 2.4rem); text-transform: lowercase; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .card { display: grid; gap: 8px; padding: 20px; border-radius: 16px; background: var(--raise); text-decoration: none; border: 1.5px solid transparent; transition: border-color 160ms, transform 240ms cubic-bezier(0.16, 1, 0.3, 1); }
+  .card:hover { border-color: rgb(242 240 230 / 0.4); transform: translateY(-2px); }
+  .card:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+  .card b { font-size: 1.25rem; font-weight: 900; font-stretch: 112%; }
+  .card span { color: var(--soft); line-height: 1.4; }
+  .card i { font-style: normal; font-size: 0.8125rem; font-weight: 800; color: var(--yellow); }
+  .bar { height: 6px; width: min(420px, 70vw); margin-top: 28px; clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%); background: linear-gradient(90deg, #2136cd, #2664f7 8%, #32a9f6 20%, #32d7f6 30%, #c5f9ed 38%, #fbf7c9 45%, #fef78e 53%, #f9e853 61%, #f5b843 69%, #fa7d31 77%, #ef462e 87%, #e32139); }
+</style>
+</head>
+<body>
+<h1>other prototypes.</h1>
+<div class="bar" aria-hidden="true"></div>
+<p class="lede">Every direction tried before Raw Pile and Night Shift, kept for reference. The two picks live in <a href="../prototypes/">prototypes/</a>. The 3D ones need the launcher (start-prototypes.bat), not a double-click.</p>
+
+<h2>the immersive set</h2>
+<div class="grid">
+  <a class="card" href="immersive/"><b>5 new 3D worlds</b><span>Canyon (fly the waveform), Multiview (control-room wall), Ribbon (ride the film strip), Monoliths (drag the sun), Feed (a tower of shorts). Each one fully built, with its own interaction.</span><i>3D · newest · separate folder</i></a>
+</div>
+
+<h2>the awwwards set</h2>
+<div class="grid">
+  <a class="card" href="awwwards/"><b>15 new directions</b><span>Pit Wall, Selects, Reframe, Filler, Object, Thumbnail Lab, Sequence, Burn, Order Up, Dead Air, Panel, The Review, Upload Tour, Channel Surf, The Line. Each one rebuilt from a recent Awwwards winner in the gold → red colourway, each with something live to try.</span><i>newest · separate folder</i></a>
+</div>
+
+<h2>immersive worlds</h2>
+<div class="grid">
+  <a class="card" href="hook/"><b>Hook</b><span>New. The same 30-second clip, raw or cut by Cutsway, with a live retention graph and the editor's notes. The services are a chapter list; a scrubber turns the page into a video.</span><i>light, no 3D · new</i></a>
+  <a class="card" href="rawpile-original/"><b>The Raw Pile · old colours</b><span>The first version, in the original blue → red spectrum logo.</span><i>3D · archive</i></a>
+  <a class="card" href="inside/"><b>Into the Screen</b><span>Fly through a monitor into the timeline itself; it ends as the logo bar seen from above.</span><i>3D · newest</i></a>
+  <a class="card" href="speedrun/"><b>Speedrun</b><span>The editor runs the site like a level. Splits are the turnaround; dead air gets sliced.</span><i>3D · newest</i></a>
+  <a class="card" href="channel/"><b>Channel</b><span>The site as a creator channel. The trailer scrubs through the eight steps of one edit.</span><i>light, no 3D · newest</i></a>
+  <a class="card" href="studio/"><b>Studio</b><span>The editor at three monitors, neon logo on the wall, one camera shot per section.</span><i>3D</i></a>
+  <a class="card" href="world/"><b>Lake World</b><span>The particle logo travelling over a dusk lake, reshaping per section.</span><i>3D</i></a>
+</div>
+
+<h2>glass &amp; brutal</h2>
+<div class="grid">
+  <a class="card" href="glass-a-fields/"><b>Glass A · Fields</b><span>Frosted slabs over the travelling spectrum.</span></a>
+  <a class="card" href="glass-b-splits/"><b>Glass B · Splits</b><span>Dark glass, hard yellow shadows, the live splits timer.</span></a>
+  <a class="card" href="glass-c-the-cut/"><b>Glass C · The Cut</b><span>Paper ground, the bar seen through glass.</span></a>
+</div>
+
+<h2>flat</h2>
+<div class="grid">
+  <a class="card" href="a-fields/"><b>A · Fields</b><span>Each section a flat colour from the logo bar.</span></a>
+  <a class="card" href="b-splits/"><b>B · Splits</b><span>Dark, with the live turnaround clock as the hero.</span></a>
+  <a class="card" href="c-the-cut/"><b>C · The Cut</b><span>Light, the logo bar razored as you scroll.</span></a>
+</div>
+</body>
+</html>

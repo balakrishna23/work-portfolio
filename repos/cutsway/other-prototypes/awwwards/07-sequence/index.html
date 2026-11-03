@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Sequence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #100c0a; --panel: #1a1411; --lane: #221a16; --paper: #f6efe4; --soft: #c9baa9; --gold: #ffc72e; --red: #f0163a; --m: clamp(16px, 2.4vw, 36px); }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); color: var(--paper); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .num { font-variant-numeric: tabular-nums; }
+  .nav { position: fixed; z-index: 10; inset: 0 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 14px var(--m); }
+  .nav svg { width: 104px; height: 44px; display: block; color: var(--paper); }
+  .nav .tc { font-weight: 800; font-stretch: 125%; font-size: 20px; letter-spacing: -.02em; }
+  .btn { display: inline-flex; padding: 12px 18px; background: var(--gold); color: var(--bg); font-weight: 800; text-decoration: none; border-radius: 6px; transition: transform .2s, background .2s; }
+  .btn:hover { transform: translateY(-2px); background: #ffd65a; } .btn:active { transform: scale(.97); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .seq { height: 900vh; position: relative; }
+  .rig { position: sticky; top: 0; height: 100vh; display: grid; grid-template-rows: 1fr auto; padding: 72px var(--m) var(--m); gap: 14px; }
+  .monitor { position: relative; background: var(--panel); border-radius: 10px; overflow: hidden; }
+  .shot { position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(20px, 3vw, 48px); padding: clamp(20px, 3.4vw, 56px); align-items: center; opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; }
+  .shot.on { opacity: 1; visibility: visible; }
+  .shot h1, .shot h2 { margin: 0 0 18px; font-weight: 900; font-stretch: 125%; text-transform: lowercase; letter-spacing: -.05em; line-height: .9; font-size: clamp(2.8rem, 6.2vw, 7rem); }
+  .shot p { margin: 0 0 20px; font-size: clamp(18px, 1.4vw, 21px); max-width: 38ch; }
+  .shot p b { color: var(--gold); }
+  .shot img, .shot canvas { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; border-radius: 8px; }
+  .shot .k { display: inline-block; font-weight: 900; font-stretch: 125%; font-size: 1.6rem; letter-spacing: -.03em; color: var(--gold); }
+
+  .tl { background: var(--panel); border-radius: 10px; padding: 12px 0 14px; position: relative; overflow: hidden; height: clamp(170px, 27vh, 250px); }
+  .tl__track { position: absolute; left: 50%; top: 0; bottom: 0; will-change: transform; }
+  .ruler { position: absolute; top: 10px; left: 0; height: 22px; font-size: 13px; color: var(--soft); white-space: nowrap; }
+  .ruler span { position: absolute; top: 0; }
+  .lane { position: absolute; left: 0; height: 30%; }
+  .lane--v { top: 38px; } .lane--a { top: calc(38px + 34%); height: 26%; }
+  .clip { position: absolute; top: 0; bottom: 0; border-radius: 5px; padding: 8px 10px; font-size: 15px; font-weight: 800; color: #1a0b06; overflow: hidden; white-space: nowrap; cursor: pointer; border: 0; text-align: left; font-family: inherit; transition: filter .2s; }
+  .clip:hover { filter: brightness(1.12); }
+  .wave { position: absolute; top: 0; bottom: 0; border-radius: 5px; background: #2b211c; overflow: hidden; }
+  .wave canvas { width: 100%; height: 100%; display: block; }
+  .head { position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; margin-left: -1px; background: var(--red); z-index: 3; }
+  .head::before { content: ""; position: absolute; top: 0; left: -8px; border: 9px solid transparent; border-top: 12px solid var(--red); }
+  .lanes-label { position: absolute; left: 12px; z-index: 2; font-size: 13px; font-weight: 800; color: var(--soft); background: var(--panel); padding: 2px 6px; border-radius: 4px; }
+
+  section { padding: clamp(120px, 12vw, 180px) var(--m) 0; }
+  h2.big { margin: 0 0 36px; font-weight: 900; font-stretch: 125%; text-transform: lowercase; letter-spacing: -.05em; line-height: .9; font-size: clamp(2.8rem, 6.2vw, 7rem); }
+  .qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .qa div { background: var(--panel); border-radius: 10px; padding: 24px; }
+  .qa h3 { margin: 0 0 8px; font-size: 22px; }
+  .qa p { margin: 0; }
+  footer { padding: clamp(120px, 12vw, 180px) var(--m) 28px; }
+  .end { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; }
+  .end p { margin: 0; color: var(--soft); font-size: 13px; }
+  .bar { height: clamp(40px, 7vw, 110px); margin-bottom: 36px; }
+  .bar svg { width: 100%; height: 100%; display: block; }
+  @media (max-width: 860px) {
+    .shot { grid-template-columns: 1fr; align-content: start; gap: 14px; }
+    .shot img, .shot canvas { aspect-ratio: 16 / 9; max-height: 22vh; }
+    .shot h1, .shot h2 { font-size: 2.6rem; }
+    .qa { grid-template-columns: 1fr; }
+    .nav .tc { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .seq { height: auto; } .rig { position: static; height: auto; } .monitor { min-height: 0; } .shot { position: static; opacity: 1; visibility: visible; } .tl { display: none; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <span class="tc num" id="tc" aria-hidden="true">00:00:00:00</span>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <div class="seq" id="seq">
+    <div class="rig">
+      <div class="monitor" id="monitor">
+        <article class="shot on" aria-labelledby="h1"><div><h1 id="h1">your channel, on a timeline.</h1><p>Cutsway edits gaming videos, streams, shorts and podcasts for creators. Scroll to play the sequence.</p><a class="btn" href="#book">Book a call</a></div><canvas data-k="chat" width="960" height="600" aria-hidden="true"></canvas></article>
+        <article class="shot" aria-labelledby="s2"><div><h2 id="s2">gaming videos</h2><p>Hours of gameplay become the twelve minutes people finish. Story, pacing, captions, sound.</p><span class="k">48h</span></div><img src="../_shared/img/stage-1.jpg" alt="Players in headsets at tournament PCs"></article>
+        <article class="shot" aria-labelledby="s3"><div><h2 id="s3">stream VODs</h2><p>Eight hours live turns into a highlight video and the shorts chat would clip themselves.</p><span class="k">48h</span></div><img src="../_shared/img/stage-5.jpg" alt="A packed esports arena"></article>
+        <article class="shot" aria-labelledby="s4"><div><h2 id="s4">shorts &amp; reels</h2><p>Ten vertical clips per session, reframed by a person and captioned word by word.</p><span class="k">24h</span></div><canvas data-k="race" width="960" height="600" aria-hidden="true"></canvas></article>
+        <article class="shot" aria-labelledby="s5"><div><h2 id="s5">podcasts</h2><p>Three mics, two cameras, one clean episode, six clips.</p><span class="k">72h</span></div><img src="../_shared/img/mic-2.jpg" alt="Podcast microphones around a table"></article>
+        <article class="shot" aria-labelledby="s6"><div><h2 id="s6">thumbnails</h2><p>Three options per video, checked at feed size before you see them.</p><span class="k">8h</span></div><canvas data-k="boss" width="960" height="600" aria-hidden="true"></canvas></article>
+        <article class="shot" aria-labelledby="s7"><div><h2 id="s7">posted, everywhere</h2><p>Titles, captions and a schedule on YouTube, TikTok, Instagram and X.</p><span class="k">daily</span></div><img src="../_shared/img/headset.jpg" alt="A gaming headset in RGB light"></article>
+        <article class="shot" aria-labelledby="s8"><div><h2 id="s8">back by <span id="due">…</span></h2><p>That is a gaming video sent this minute. <b>Sample turnaround</b>, confirmed on your call.</p><a class="btn" href="#book">Book a call</a></div><img src="../_shared/img/podcave.jpg" alt="An editing desk with a mixer and a monitor showing a waveform"></article>
+      </div>
+      <div class="tl" aria-hidden="true">
+        <span class="lanes-label" style="top:44px">V1</span><span class="lanes-label" style="top:calc(44px + 34%)">A1</span>
+        <div class="tl__track" id="track"><div class="ruler" id="ruler"></div><div class="lane lane--v" id="lv"></div><div class="lane lane--a" id="la"></div></div>
+        <div class="head"></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 class="big" id="faq-h" data-rise>notes on the cut</h2>
+    <div class="qa" data-rise="kids">
+      <div><h3>What do I send?</h3><p>Everything raw. Picking is our job.</p></div>
+      <div><h3>How do I give notes?</h3><p>On the exact frame, in the review link. Two rounds per edit.</p></div>
+      <div><h3>Will it feel like my channel?</h3><p>Your editor starts from your last ten uploads and stays with you.</p></div>
+      <div><h3>Can you post it?</h3><p>Yes, on a schedule set to when your audience is awake.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <div class="bar"><svg viewBox="0 15 400 80" preserveAspectRatio="none" aria-hidden="true"><use href="#cw-bar"/></svg></div>
+  <div class="end"><p>Photographs: esports events by Flickr users 23979265@N07 and 84584821@N08, CC BY 2.0; SPNN podcast studio, CC BY 4.0; RGB headset, CC0; The Podcave, CC BY 2.0. Drawn gameplay. Times are samples.</p><a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a></div>
+</footer>
+
+<script src="../_shared/frames.js"></script>
+<script src="../_shared/brand.js"></script>
+<script>
+  const shots = [...document.querySelectorAll('.shot')], N = shots.length;
+  const PX = innerWidth < 860 ? 260 : 420; // pixels per clip on the timeline
+  // clip widths: long at the gold end, slices at the red end, like the logo
+  const widths = [1.2, 1.1, 1, 1, .9, .7, .55, .9].map(w => w * PX);
+  const cols = ['#f5bf1e', '#ffdc3c', '#ffb02a', '#ff8a22', '#ff6420', '#ff3d2c', '#f81f3a', '#f0163a'];
+  const names = ['intro', 'gaming_video', 'stream_vod', 'shorts_pack', 'podcast_ep', 'thumbnails', 'posting', 'book_a_call'];
+  const lv = document.getElementById('lv'), la = document.getElementById('la'), ruler = document.getElementById('ruler'), track = document.getElementById('track');
+  let x = 0; const starts = [];
+  widths.forEach((w, i) => {
+    starts.push(x);
+    const b = document.createElement('button'); b.className = 'clip'; b.style.cssText = `left:${x}px;width:${w - 4}px;background:${cols[i]}`; b.textContent = names[i] + '.mp4'; b.tabIndex = -1;
+    b.addEventListener('click', () => go(i)); lv.appendChild(b);
+    const a = document.createElement('div'); a.className = 'wave'; a.style.cssText = `left:${x}px;width:${w - 4}px`;
+    const c = document.createElement('canvas'); c.width = Math.round(w); c.height = 60; a.appendChild(c); la.appendChild(a);
+    const g = c.getContext('2d'); g.fillStyle = cols[i];
+    for (let k = 0; k < w; k += 3) { const h = (Math.abs(Math.sin(k * .07 + i) * Math.sin(k * .013 + i * 2)) * .8 + .1) * 54; g.fillRect(k, 30 - h / 2, 2, h); }
+    x += w;
+  });
+  // the tail: the logo's slices, as cut trims after the last clip
+  Cutsway.SLICE.forEach((c, i) => { const d = document.createElement('div'); d.className = 'clip'; d.style.cssText = `left:${x + 10 + i * 22}px;width:12px;background:${c};cursor:default`; lv.appendChild(d); });
+  const TOTAL = x;
+  for (let s = 0; s <= TOTAL + 300; s += 140) { const sp = document.createElement('span'); sp.style.left = s + 'px'; const sec = Math.round(s / 14); sp.textContent = `00:${String(Math.floor(sec / 60)).padStart(2, '0')}:${String(sec % 60).padStart(2, '0')}`; ruler.appendChild(sp); }
+  const seq = document.getElementById('seq'), tc = document.getElementById('tc');
+  function go(i) { const r = seq.getBoundingClientRect(), span = r.height - innerHeight; scrollTo({ top: scrollY + r.top + span * ((starts[i] + 2) / TOTAL), behavior: Cutsway.reduce ? 'auto' : 'smooth' }); }
+  let cur = 0;
+  function onScroll() {
+    const r = seq.getBoundingClientRect(), k = Math.max(0, Math.min(.9999, -r.top / (r.height - innerHeight))), px = k * TOTAL;
+    track.style.transform = `translateX(${-px}px)`;
+    let i = starts.findIndex((s, n) => px >= s && px < s + widths[n]); if (i < 0) i = N - 1;
+    if (i !== cur) { shots[cur].classList.remove('on'); shots[i].classList.add('on'); cur = i; }
+    const f = Math.floor(px / 14 * 30); tc.textContent = `00:${String(Math.floor(f / 1800)).padStart(2, '0')}:${String(Math.floor(f / 30) % 60).padStart(2, '0')}:${String(f % 30).padStart(2, '0')}`;
+  }
+  if (!Cutsway.reduce) { addEventListener('scroll', onScroll, { passive: true }); onScroll(); }
+  { const d = Cutsway.due(48); document.getElementById('due').textContent = (d.day.slice(0, 3) + ' ' + d.time).toLowerCase(); }
+  const cvs = [...document.querySelectorAll('.shot canvas')];
+  (function loop(t) { cvs.forEach((c, i) => { if (c.closest('.on') || Cutsway.reduce) CutFrames.draw(c.getContext('2d'), c.width, c.height, c.dataset.k, i + 1, t / 1000); }); requestAnimationFrame(loop); })(0);
+</script>
+</body>
+</html>

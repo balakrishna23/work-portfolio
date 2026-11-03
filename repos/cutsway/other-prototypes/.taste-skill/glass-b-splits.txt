@@ -1,0 +1,37 @@
+TASTESKILL · INSPECT   prototypes/glass-b-splits/index.html
+
+MEASURED (first viewport listed)
+  hero headline   "back before you respawn."  4 words · 2 line(s) · 149.8px (10.4vw) · Archivo 900 · tracking -0.04em · leading 0.9
+  @768px          2 line(s) · 81.4px
+  @390px          1 line(s) · 48px
+  typefaces       Archivo 100%
+  sizes in use    14 / 19 / 26 / 29 / 34 / 55 / 79 / 150 / 187 px   body 19px / 1.45
+  colour          page #0b0a10 · sections #f9e853 · button #f9e853
+  page            4.9 screens · 364 words · 0 images · hero media 100% bg-image
+  headings        11 · longest 2 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 2 picture(s) on the page (1 photographs, footage or raster images, 1 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+
+WARN — fix, or be able to defend
+  [card-rows] @1440px (+390)  2 rows of identical boxed cards.
+      → Vary the composition; not every section is a card grid.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768, 390)  The margins differ: 35px on the left, 56px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [edge-text] @390px  1 text block(s) sit 12–15px from the phone's edge: "sample" (13px)
+      → The page margin is 16–20px on a phone; the header and the corner labels sit on it too.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect-glass-b-splits/desktop-fold.jpg
+                  .taste-skill/inspect-glass-b-splits/desktop-page-01.jpg
+                  .taste-skill/inspect-glass-b-splits/desktop-page-02.jpg
+  tablet 768px    .taste-skill/inspect-glass-b-splits/tablet-fold.jpg
+                  .taste-skill/inspect-glass-b-splits/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect-glass-b-splits/mobile-fold.jpg
+                  .taste-skill/inspect-glass-b-splits/mobile-page-01.jpg
+
+report: .taste-skill/inspect-glass-b-splits/report.json
+RESULT: 1 FAIL, 4 WARN — not done.

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Filler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #f5f2ed; --ink: #0c0908; --soft: #4d4540; --red: #ee1240; --gold: #ffc72e; --m: clamp(16px, 2.6vw, 40px); }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); color: var(--ink); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  ::selection { background: var(--red); color: #fff; }
+  .nav { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; padding: 18px var(--m); align-items: center; font-size: 16px; font-weight: 600; }
+  .nav svg { width: 110px; height: 46px; display: block; }
+  .nav a { text-decoration: none; }
+  .nav a:hover { color: var(--red); }
+  .nav .btn { justify-self: end; grid-column: 6; }
+  .btn { display: inline-flex; padding: 13px 20px; background: var(--ink); color: var(--bg); font-weight: 800; text-decoration: none; transition: background .2s, transform .2s; border: 0; font: inherit; font-weight: 800; cursor: pointer; }
+  .btn:hover { background: var(--red); } .btn:active { transform: scale(.97); }
+  a:focus-visible, button:focus-visible, textarea:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+  .wall { height: 230vh; }
+  .wall__in { position: sticky; top: 0; min-height: 100vh; padding: 12vh var(--m) 40px; display: grid; align-content: center; gap: 36px; }
+  h1 { margin: 0; text-transform: uppercase; font-size: clamp(2.6rem, 6.9vw, 8rem); line-height: .92; letter-spacing: -.02em; text-align: justify; text-align-last: justify; font-weight: 200; font-stretch: 62%; }
+  h1 b { font-weight: 900; font-stretch: 125%; letter-spacing: -.045em; }
+  h1 .f { color: var(--red); font-weight: 900; font-stretch: 62%; display: inline-block; overflow: hidden; vertical-align: bottom; white-space: nowrap; max-width: calc(var(--keep, 1) * 6em); opacity: var(--keep, 1); transition: max-width .1s linear; }
+  .wall__foot { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; align-items: end; }
+  .wall__foot p { grid-column: 3 / span 2; margin: 0; font-size: 20px; }
+  .wall__foot .meter { grid-column: 1 / span 2; font-weight: 800; }
+  .meter b { display: block; font-size: clamp(2.4rem, 4vw, 3.6rem); font-stretch: 125%; font-weight: 900; letter-spacing: -.04em; line-height: 1; color: var(--red); font-variant-numeric: tabular-nums; }
+  .wall__foot .btn { grid-column: 6; justify-self: end; }
+
+  section { padding: clamp(120px, 13vw, 200px) var(--m) 0; }
+  h2 { margin: 0 0 40px; text-transform: uppercase; font-size: clamp(2.8rem, 6vw, 6.4rem); line-height: .92; letter-spacing: -.045em; font-weight: 900; font-stretch: 125%; }
+  h2 span { font-weight: 200; font-stretch: 62%; letter-spacing: -.01em; }
+
+  .tool { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--ink); color: var(--bg); }
+  .tool > div { padding: clamp(20px, 3vw, 40px); }
+  .tool label { display: block; font-weight: 800; margin-bottom: 12px; }
+  .tool textarea { width: 100%; min-height: 260px; resize: vertical; background: #1c1613; color: var(--bg); border: 0; padding: 18px; font: inherit; font-size: 20px; line-height: 1.5; }
+  .tool .out { background: var(--bg); color: var(--ink); }
+  .out p { font-size: 22px; line-height: 1.5; margin: 0 0 18px; min-height: 260px; }
+  .out del { color: var(--red); text-decoration-thickness: 3px; }
+  .out .saved { font-weight: 800; font-size: 18px; }
+  .out .saved b { font-size: 2.8rem; font-stretch: 125%; font-weight: 900; letter-spacing: -.04em; display: block; line-height: 1; color: var(--red); }
+
+  .index { list-style: none; margin: 0; padding: 0; }
+  .index li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr); gap: clamp(16px, 3vw, 48px); align-items: center; padding: 22px 0; }
+  .index li + li { margin-top: 6px; }
+  .index h3 { margin: 0; text-transform: uppercase; font-size: clamp(2rem, 4.4vw, 4.6rem); line-height: .9; letter-spacing: -.04em; font-weight: 900; font-stretch: 125%; }
+  .index h3 span { font-weight: 200; font-stretch: 62%; letter-spacing: -.01em; }
+  .index p { margin: 0; }
+  .index img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; filter: grayscale(1) contrast(1.05); transition: filter .4s; }
+  .index li:hover img { filter: none; }
+  .index em { font-style: normal; font-weight: 900; font-stretch: 125%; font-size: 1.6rem; letter-spacing: -.03em; display: block; color: var(--red); }
+
+  .qa { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; }
+  .qa h3 { margin: 0 0 8px; font-size: 22px; font-weight: 800; }
+  .qa p { margin: 0; }
+  footer { padding: clamp(120px, 13vw, 200px) var(--m) 28px; }
+  footer h2 { font-size: clamp(3rem, 12.6vw, 14rem); text-align: justify; text-align-last: justify; margin-bottom: 28px; }
+  .foot { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+  .credits { font-size: 13px; color: var(--soft); max-width: 80ch; margin: 0; }
+  @media (max-width: 860px) {
+    .nav { grid-template-columns: 1fr auto; } .nav > a:not(:first-child):not(.btn) { display: none; } .nav .btn { grid-column: 2; }
+    .wall { height: 200vh; }
+    h1 { font-size: 11.4vw; text-align: left; text-align-last: left; }
+    .wall__foot { grid-template-columns: 1fr; } .wall__foot > * { grid-column: 1 !important; justify-self: start !important; }
+    .tool, .qa { grid-template-columns: 1fr; }
+    .index li { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .wall { height: auto; } .wall__in { position: static; } h1 .f { --keep: 0 !important; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <a href="#try">Try it</a><a href="#work">What we cut</a><a href="#faq">Questions</a>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <div class="wall" id="wall">
+    <div class="wall__in">
+      <h1 id="h1"><b>Cutsway</b> <span class="f">um,</span> edits <b>gaming</b> <span class="f">like,</span> videos, <b>streams</b> <span class="f">so basically</span> and <b>podcasts</b> <span class="f">you know,</span> without <span class="f">uh,</span> the <b>dead&nbsp;air</b></h1>
+      <div class="wall__foot">
+        <div class="meter" aria-live="polite"><b id="saved">0.0s</b>cut from one sentence</div>
+        <p>An editing and social media studio for gaming creators. We cut what slows you down, and post what is left.</p>
+        <a class="btn" href="#book">Book a call</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="try" aria-labelledby="try-h">
+    <h2 id="try-h" data-rise>Paste a rant. <span>Watch it tighten.</span></h2>
+    <div class="tool" data-rise>
+      <div>
+        <label for="in">Your transcript</label>
+        <textarea id="in">So, um, basically we were, like, one hp left, and I'm, uh, you know, thinking there's literally no way, um, and then he just, like, walks right into it. Basically. Anyway, um, yeah.</textarea>
+      </div>
+      <div class="out">
+        <p id="out" aria-live="polite"></p>
+        <div class="saved"><b id="secs">0s</b>of dead air, at a typical speaking pace</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-h">
+    <h2 id="work-h" data-rise>What we cut <span>and for whom</span></h2>
+    <ul class="index">
+      <li data-rise="kids"><h3>Gaming <span>videos</span></h3><p>Loading screens, deaths that go nowhere, the twenty minutes of looting. What stays is the story. <em>48h</em></p><img src="../_shared/img/stage-1.jpg" alt="Two players in headsets at tournament PCs"></li>
+      <li data-rise="kids"><h3>Stream <span>VODs</span></h3><p>Eight hours live, one highlight video and ten shorts from the parts chat lost it over. <em>48h</em></p><img src="../_shared/img/stage-5.jpg" alt="Rows of players in a large esports arena"></li>
+      <li data-rise="kids"><h3>Pod<span>casts</span></h3><p>Crosstalk, ums, the coughs and the tangents. A clean episode and six clips to find new listeners. <em>72h</em></p><img src="../_shared/img/mic-1.jpg" alt="A podcast microphone on a boom arm in a studio"></li>
+      <li data-rise="kids"><h3>Shorts <span>&amp; thumbs</span></h3><p>Vertical cuts, captions timed to each word, and three thumbnail options per video. <em>8–24h</em></p><img src="../_shared/img/pad-switch.jpg" alt="A black game controller"></li>
+    </ul>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h" data-rise>Fair <span>questions</span></h2>
+    <div class="qa" data-rise="kids">
+      <div><h3>Will I still sound like me?</h3><p>Yes. We cut filler, not personality. The tangent people love stays in.</p></div>
+      <div><h3>What do I send?</h3><p>Everything raw. Sorting the pile is the job.</p></div>
+      <div><h3>How many revisions?</h3><p>Two rounds per edit, left as notes on the exact second.</p></div>
+      <div><h3>Who posts it?</h3><p>We can: titles, captions and a schedule on four platforms.</p></div>
+      <div><h3>How fast?</h3><p>8 to 72 hours depending on the job. Sample times, confirmed when you book.</p></div>
+      <div><h3>Do I keep one editor?</h3><p>Yes. Same person, every upload, learning your channel.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <h2>No um. Book a call.</h2>
+  <div class="foot">
+    <p class="credits">Photographs: esports events by Flickr users 23979265@N07 and 84584821@N08, CC BY 2.0; SPNN podcast studio microphone, CC BY 4.0; Nintendo Switch Pro Controller, public domain, Wikimedia Commons. Turnaround times are samples.</p>
+    <a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a>
+  </div>
+</footer>
+
+<script src="../_shared/brand.js"></script>
+<script>
+  const wall = document.getElementById('wall'), fillers = [...document.querySelectorAll('h1 .f')], saved = document.getElementById('saved');
+  function onScroll() {
+    const r = wall.getBoundingClientRect(), k = Math.max(0, Math.min(1, -r.top / (r.height - innerHeight)));
+    let s = 0;
+    fillers.forEach((f, i) => { const a = Math.max(0, Math.min(1, k * fillers.length * 1.15 - i)); f.style.setProperty('--keep', 1 - a); s += a * (0.5 + f.textContent.length * .07); });
+    saved.textContent = s.toFixed(1) + 's';
+  }
+  if (!Cutsway.reduce) { addEventListener('scroll', onScroll, { passive: true }); onScroll(); } else saved.textContent = '3.2s';
+
+  const FILL = /\b(um+|uh+|erm|like|basically|literally|you know|i mean|so|anyway|yeah|actually)\b,?/gi;
+  const inp = document.getElementById('in'), out = document.getElementById('out'), secs = document.getElementById('secs');
+  function run() {
+    const esc = inp.value.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+    let n = 0, chars = 0;
+    out.innerHTML = esc.replace(FILL, m => { n++; chars += m.length; return `<del>${m}</del>`; });
+    secs.textContent = (n * 0.45 + chars * 0.03).toFixed(1) + 's';
+  }
+  inp.addEventListener('input', run); run();
+</script>
+</body>
+</html>

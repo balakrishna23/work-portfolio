@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — The Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --paper: #f2ede4; --ink: #15100d; --soft: #5b5047; --red: #c8102e; --gold: #ffc72e; --m: clamp(16px, 3vw, 48px); }
+  * { box-sizing: border-box; }
+  html { background: var(--paper); color: var(--ink); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .serif { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; letter-spacing: -.02em; line-height: .9; }
+  .num { font-variant-numeric: tabular-nums; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px var(--m); font-size: 16px; }
+  .nav svg { width: 100px; height: 42px; display: block; }
+  .nav nav { display: flex; gap: 26px; }
+  .nav nav a { text-decoration: none; } .nav nav a:hover { text-decoration: underline; }
+  .btn { display: inline-flex; padding: 13px 22px; background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 600; transition: background .2s, transform .2s; }
+  .btn:hover { background: var(--red); } .btn:active { transform: scale(.97); }
+  a:focus-visible, input:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+  .cover { position: relative; margin: 0 var(--m); height: calc(100svh - 90px); min-height: 560px; overflow: hidden; color: var(--paper); }
+  .cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); transition: transform 2.4s cubic-bezier(.16,1,.3,1); }
+  .cover::after { content: ""; position: absolute; inset: 0; background: rgb(21 16 13 / .32); }
+  .cover > *:not(img) { position: relative; z-index: 1; }
+  .mast { margin: 0; padding: 2vh 2vw 0; font-size: clamp(5rem, 21.5vw, 26rem); text-align: center; line-height: .78; }
+  .lines { position: absolute !important; left: 2.4vw; right: 2.4vw; bottom: 3vh; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr); gap: 32px; align-items: end; }
+  .lines h1 { margin: 0; font-size: clamp(2.4rem, 4.4vw, 4.6rem); }
+  .lines h1 i { font-style: italic; }
+  .lines p { margin: 0; font-size: 18px; }
+  .lines .issue { text-align: right; font-size: 16px; }
+  .lines .issue b { display: block; font-family: "Instrument Serif", serif; font-weight: 400; font-size: 3rem; line-height: 1; }
+
+  section { padding: clamp(120px, 13vw, 200px) var(--m) 0; }
+  h2 { margin: 0 0 32px; font-size: clamp(3.2rem, 7vw, 7.6rem); }
+  .toc { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 72px); }
+  .toc__in label { display: block; font-weight: 700; margin-bottom: 10px; }
+  .toc__in .field { display: flex; align-items: baseline; gap: 10px; }
+  .toc__in input { width: 4.2ch; font: inherit; font-family: "Instrument Serif", serif; font-size: 5.6rem; line-height: 1; background: transparent; border: 0; border-bottom: 3px solid var(--ink); color: var(--ink); padding: 0; }
+  .toc__in span { font-family: "Instrument Serif", serif; font-size: 2.4rem; }
+  .toc__in p { color: var(--soft); margin: 18px 0 0; max-width: 32ch; }
+  .contents { list-style: none; margin: 0; padding: 0; }
+  .contents li { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 18px 0; }
+  .contents li:nth-child(odd) { background: #e9e2d6; margin: 0 -18px; padding: 18px; }
+  .contents b { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 2.6rem; line-height: 1; color: var(--red); }
+  .contents h3 { margin: 0; font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(1.7rem, 2.6vw, 2.5rem); line-height: 1.05; }
+  .contents p { margin: 4px 0 0; color: var(--soft); font-size: 16px; }
+  .contents em { font-style: normal; font-weight: 700; font-size: 16px; white-space: nowrap; }
+
+  .feature { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 4vw, 72px); align-items: start; }
+  .feature figure { margin: 0; }
+  .feature img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+  figcaption { font-size: 15px; color: var(--soft); margin-top: 10px; }
+  .body p { margin: 0 0 18px; max-width: 58ch; }
+  .body p:first-child::first-letter { font-family: "Instrument Serif", serif; float: left; font-size: 5.4em; line-height: .78; margin: .06em .08em 0 0; color: var(--red); }
+  .pull { font-family: "Instrument Serif", serif; font-style: italic; font-size: clamp(1.8rem, 2.6vw, 2.4rem); line-height: 1.1; margin: 28px 0; max-width: 22ch; }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
+  .duo img { aspect-ratio: 1; }
+
+  .letters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px clamp(24px, 3vw, 48px); }
+  .letters h3 { margin: 0 0 8px; font-family: "Instrument Serif", serif; font-weight: 400; font-size: 1.9rem; line-height: 1.05; }
+  .letters p { margin: 0; }
+  footer { padding: clamp(120px, 13vw, 200px) var(--m) 28px; }
+  footer .serif { font-size: clamp(5rem, 21.5vw, 26rem); line-height: .78; text-align: center; margin: 0 0 32px; }
+  .foot { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+  .credits { font-size: 13px; color: var(--soft); max-width: 80ch; margin: 0; }
+  @media (max-width: 860px) {
+    .nav nav { display: none; }
+    .cover { height: auto; min-height: 88svh; }
+    .lines { grid-template-columns: 1fr; gap: 14px; } .lines .issue { text-align: left; }
+    .toc, .feature, .letters { grid-template-columns: 1fr; }
+    .contents li { grid-template-columns: 4.6rem 1fr; } .contents em { grid-column: 2; }
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#contents">Contents</a><a href="#feature">Feature</a><a href="#letters">Letters</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <div class="cover">
+    <img src="../_shared/img/stage-2.jpg" alt="A presenter on a dark stage in front of an audience" id="cover-img">
+    <p class="mast serif" aria-hidden="true">Cutsway</p>
+    <div class="lines">
+      <h1 class="serif">The editors behind <i>your</i> next upload</h1>
+      <p>Cutsway edits gaming videos, streams, shorts and podcasts for creators, at the speed a channel actually needs.</p>
+      <p class="issue"><b class="num" id="issue">Issue 04</b><span id="date"></span></p>
+    </div>
+  </div>
+
+  <section id="contents" aria-labelledby="toc-h">
+    <div class="toc">
+      <div class="toc__in" data-rise="kids">
+        <h2 class="serif" id="toc-h">In this issue</h2>
+        <label for="mins">Your raw footage this week</label>
+        <div class="field"><input id="mins" type="number" min="10" max="900" value="240" inputmode="numeric"><span>minutes</span></div>
+        <p>Change it. The contents are written from what you send.</p>
+      </div>
+      <ol class="contents" id="toc" aria-live="polite"></ol>
+    </div>
+  </section>
+
+  <section id="feature" aria-labelledby="feat-h">
+    <h2 class="serif" id="feat-h" data-rise>Forty-eight hours inside one edit</h2>
+    <div class="feature">
+      <figure data-rise><img src="../_shared/img/stage-4.jpg" alt="A camera crew filming an interview at a gaming event"><figcaption>An upload starts long before anyone opens the timeline.</figcaption></figure>
+      <div class="body" data-rise="kids">
+        <p>The files land on a Friday night: a six-hour session, a facecam, a separate mic track. By Saturday morning the dead air is gone and the story has a shape. By Sunday evening it is a video, three thumbnails and ten shorts, posted to a schedule.</p>
+        <p class="pull">"Your editor watches your last ten uploads before cutting the next one."</p>
+        <p>Notes come back on the exact frame. Two rounds are included, and the same editor stays with the channel from one upload to the next.</p>
+        <div class="duo"><img src="../_shared/img/podcave.jpg" alt="An editing desk with a mixer and a monitor"><img src="../_shared/img/mic-2.jpg" alt="Podcast microphones around a table"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="letters" aria-labelledby="letters-h">
+    <h2 class="serif" id="letters-h" data-rise>Letters to the editor</h2>
+    <div class="letters" data-rise="kids">
+      <div><h3>What should I send?</h3><p>Everything raw. Choosing is what we're for.</p></div>
+      <div><h3>Will it still feel like me?</h3><p>That is the first thing your editor learns, from your own uploads.</p></div>
+      <div><h3>How fast, honestly?</h3><p>Thumbnails in 8 hours, shorts in 24, videos in 48, podcasts in 72. Samples, confirmed on your call.</p></div>
+      <div><h3>Do you post as well?</h3><p>Titles, descriptions and a schedule on YouTube, TikTok, Instagram and X.</p></div>
+      <div><h3>How many revisions?</h3><p>Two rounds per edit, as notes on the frame.</p></div>
+      <div><h3>Can we start this week?</h3><p>Book a call. Most channels send their first files within days.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <p class="serif" aria-hidden="true">Cutsway</p>
+  <div class="foot"><p class="credits">Photographs: gaming events by Flickr users 23979265@N07 and 48254827@N00, CC BY 2.0; The Podcave, CC BY 2.0; SPNN podcast studio, CC BY 4.0, Wikimedia Commons. Times and figures are samples.</p><a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a></div>
+</footer>
+
+<script src="../_shared/brand.js"></script>
+<script>
+  document.getElementById('date').textContent = new Date().toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
+  requestAnimationFrame(() => document.getElementById('cover-img').style.transform = 'scale(1)');
+  const inp = document.getElementById('mins'), toc = document.getElementById('toc');
+  const mm = m => { m = Math.round(m); return m >= 60 ? `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, '0')}m` : `${m} min`; };
+  function write() {
+    const raw = Math.max(10, Math.min(900, +inp.value || 240));
+    const cut = Math.max(6, Math.min(32, raw * .07)), shorts = Math.max(3, Math.min(20, Math.round(raw / 24))), pod = Math.round(raw * .72);
+    const rows = [
+      [mm(0), 'The raw pile', `${mm(raw)} of recordings, uploaded as is.`, 'You'],
+      [mm(cut), 'The cut', `A ${Math.round(cut)}-minute video, paced, captioned and mixed.`, '48 hours'],
+      [`×${shorts}`, 'The shorts', `${shorts} vertical clips, reframed and captioned word by word.`, '24 hours'],
+      ['×3', 'The cover', 'Three thumbnail options, checked at feed size.', '8 hours'],
+      [mm(pod), 'If it was a podcast', `The episode with long silences shortened, plus six clips.`, '72 hours'],
+      ['×4', 'Distribution', 'Posted to YouTube, TikTok, Instagram and X on your schedule.', 'Daily']
+    ];
+    toc.innerHTML = rows.map(r => `<li><b class="num">${r[0]}</b><div><h3>${r[1]}</h3><p>${r[2]}</p></div><em>${r[3]}</em></li>`).join('');
+  }
+  inp.addEventListener('input', write); write();
+</script>
+</body>
+</html>

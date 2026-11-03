@@ -1,0 +1,440 @@
+- link "Biggest deals of the year. 30-day money-back guarantee. Up to 78% off. 24/7 support. Don't miss out":
+  - /url: "#pricing"
+  - generic: Biggest deals of the year. 30-day money-back guarantee. Up to 78% off. 24/7 support. Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 78% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 78% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 78% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 78% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 78% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 78% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 78% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 78% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+- navigation:
+  - link "homepage link":
+    - /url: /in/
+  - link "Pricing":
+    - /url: /in/pricing
+  - button "Products":
+    - text: Products
+  - button "Solutions":
+    - text: Solutions
+  - button "Developers":
+    - text: Developers
+  - button "Resources":
+    - text: Resources
+  - button "Agent":
+    - generic: Agent
+  - 'button "Select location & language: India, English"':
+    - generic: EN
+  - link "Log in":
+    - /url: https://auth.hostinger.com/in/login
+- main:
+  - text: Up to 78% off
+  - heading "Cloud hosting" [level=1]
+  - text: this Sale Season
+  - text: Free domain and website migration
+  - text: Dedicated IP for stronger security
+  - text: 24/7 customer support
+  - generic: From ₹1,699
+  - generic: ₹509.15/mo
+  - link "Claim deal":
+    - /url: "#pricing"
+    - generic: Claim deal
+  - text: 30-day money-back guarantee
+  - button "Pause video":
+  - generic: Up to 78% off
+  - iframe
+  - generic: Recommended by WordPress.org
+  - heading "Secure your deal before it’s gone" [level=2]
+  - paragraph: 30-day money-back guarantee
+  - paragraph: Cancel anytime
+  - paragraph: 24/7 support
+  - heading "Cloud Enterprise" [level=3]
+  - paragraph: Maximum performance for your websites.
+  - generic: Startup
+  - generic: Professional
+  - generic: Enterprise
+  - paragraph: Resources
+  - generic: 10 Web Apps
+  - generic: NEW
+  - generic: 6 CPU cores
+  - generic: 12 GB RAM
+  - generic: 300 GB NVMe storage
+  - generic: 4 000 000 inodes (files and directories)
+  - generic: 300 PHP workers
+  - generic: Unlimited websites
+  - generic: Access sharing
+  - generic: ₹5,499
+  - generic: 71% off
+  - generic: ₹
+  - generic: 1,614.15
+  - generic: /mo
+  - generic: "'HASPECIAL' coupon applied"
+  - button "Choose plan":
+    - generic: Choose plan
+  - paragraph: Today you pay ₹77,479.20 for 48 months. Renews at ₹5,199/mo for the same term. Cancel anytime.
+  - paragraph: "Sale Season: Get 2x AI credits, 2000 instead of 1000"
+  - generic: Free domain for 1 year
+  - generic: Unlimited SSL
+  - generic: FREE
+  - generic: Unlimited mailboxes per website - free for 1 year
+  - generic: FREE
+  - generic: Managed hosting for WordPress, WooCommerce, and Web Apps
+  - generic: CDN included
+  - generic: Dedicated IP address
+  - generic: Priority 24/7 expert support
+  - generic: NEW
+  - generic: 30-Day money-back guarantee
+  - generic: AI SEO ready
+  - link "View all features":
+    - /url: /in/pricing?plan=cloud_hosting_grouped&coupon_cookie=HASPECIAL#compare-table
+    - generic: View all features
+  - paragraph: The price displayed is the monthly rate excluding applicable taxes. The total price for the plan to be paid upfront at checkout includes the monthly rate multiplied by the number of months in your plan, along with any applicable taxes.
+  - heading "What is cloud hosting?" [level=2]
+  - generic: Cloud hosting runs your website across a network of connected virtual servers instead of a single physical machine. If one server has an issue, another takes over — which means stronger uptime and scalability than shared hosting.
+  - link "Get started":
+    - /url: "#pricing"
+    - generic: Get started
+  - button "Pause video":
+  - paragraph: More power and flexibility
+  - generic: 20x more resources than traditional web hosting. Add capacity when traffic grows — no rebuild, no new server.
+  - paragraph: Stable and secure
+  - generic: 99.9% uptime, daily backups, and DDoS protection so busy days stay online and client data stays put.
+  - paragraph: Fully managed
+  - generic: Instant setup, an intuitive panel, and 24/7 support. The power of a VPS without running a server yourself.
+  - 'heading "Shared, cloud, or VPS: which one fits you?" [level=2]'
+  - generic: All three host your website. The difference is how much power and control you get.
+  - article:
+    - img "Cloud hosting"
+    - heading "Cloud hosting" [level=3]
+    - paragraph: Best for growing sites and stores that need more speed and reliable performance. 4x speed, 20x resources, still fully managed, handles traffic spikes.
+    - link "View plans":
+      - /url: "#pricing"
+      - generic: View plans
+  - article:
+    - img "Shared hosting"
+    - heading "Shared hosting" [level=3]
+    - paragraph: Best for your first website, blogs, and small business sites with steady traffic. Most affordable, fully managed, and ready with no setup.
+    - link "Explore shared hosting":
+      - /url: /in/shared-hosting
+      - generic: Explore shared hosting
+  - article:
+    - img "VPS hosting"
+    - heading "VPS hosting" [level=3]
+    - paragraph: Best for projects that need full control and flexibility. Manage everything more easily with 1-click apps and Kodee AI.
+    - link "Explore VPS hosting":
+      - /url: /in/vps-hosting
+      - generic: Explore VPS hosting
+  - heading "Everything you need to run a growing project" [level=2]
+  - link "Get started":
+    - /url: "#pricing"
+    - generic: Get started
+  - heading "WordPress tools, built in" [level=3]
+  - generic: One-click WordPress and WooCommerce, smart auto-updates with pre-update backups, a compatibility checker, and AI tools to write and troubleshoot.
+  - img "WordPress tools, built in"
+  - heading "Your data, protected" [level=3]
+  - paragraph: Free SSL, WHOIS privacy, a malware scanner, and Cloudflare-protected nameservers — without extra plugins to babysit.
+  - img "Your data, protected"
+  - heading "Fast under real traffic" [level=3]
+  - paragraph: PHP workers, CDN, LiteSpeed, ObjectCache, and NVMe SSD so stores and busy sites stay quick — plus a dedicated IP for mail and security.
+  - img "Fast under real traffic"
+  - heading "Free, done-for-you migration" [level=3]
+  - generic: Send a request and we move as many sites as you need, usually in about 20 minutes. Your site stays online while we switch.
+  - img "Free, done-for-you migration"
+  - heading "Trusted by 5M+ website owners worldwide" [level=2]
+  - link "Rani Sharma Review provider Hostinger is an excellent web hosting service that offers affordable plans without compromising on reliability.":
+    - /url: https://www.trustpilot.com/reviews/64703d273f394501c6a8aa6f
+    - heading "Rani Sharma" [level=4]
+    - img "Review provider"
+    - paragraph: Hostinger is an excellent web hosting service that offers affordable plans without compromising on reliability.
+  - link "Ruban Kumar Review provider Every time i tried for a help with hostinger they came out with the best solution, i am really happy with the service.":
+    - /url: https://www.trustpilot.com/reviews/64b2d255be8336a9b4f205d2
+    - heading "Ruban Kumar" [level=4]
+    - img "Review provider"
+    - paragraph: Every time i tried for a help with hostinger they came out with the best solution, i am really happy with the service.
+  - link "Deep Joshi Review provider If you are looking for a reliable hosting provider, I wholeheartedly recommend Hostinger. Give them a try, and I'm confident you won't be disappointed.":
+    - /url: https://www.trustpilot.com/reviews/64919a4c887ce90affab80ca
+    - heading "Deep Joshi" [level=4]
+    - img "Review provider"
+    - paragraph: If you are looking for a reliable hosting provider, I wholeheartedly recommend Hostinger. Give them a try, and I'm confident you won't be disappointed.
+  - iframe
+  - generic: Hostinger Connector
+  - heading "Infrastructure your AI agent can manage" [level=2]
+  - generic: Give Claude Code, Cursor, and other AI coding tools access to your hosting environment. Use simple prompts to deploy sites, set up domains, manage subscriptions, and complete other tasks - all from your AI workflow.
+  - link "Learn more":
+    - /url: /in/connector
+    - generic: Learn more
+  - paragraph: Free to install. Works with your active plan.
+  - generic: "Works with:"
+  - generic "VS Code":
+  - generic "Cursor":
+  - generic "Antigravity":
+  - generic "Claude Code":
+  - generic "Codex":
+  - generic "Devin":
+  - heading "Data centers worldwide" [level=2]
+  - generic: We have Data Centres and Content Delivery Network (CDN) locations around the world, ensuring your visitors enjoy the best possible performance wherever they are.
+  - button "North America":
+    - generic: North America
+  - button "South America":
+    - generic: South America
+  - button "Europe":
+    - generic: Europe
+  - button "South Africa":
+    - generic: South Africa
+  - button "Asia":
+    - generic: Asia
+  - button "Australia":
+    - generic: Australia
+  - heading "Locations in North America" [level=3]
+  - list:
+    - listitem: Arizona
+    - listitem: Massachusetts
+    - listitem: New York
+  - img "North America"
+  - generic: Locations with both Data Centres and CDNs
+  - heading "Multiple projects. One easy dashboard" [level=2]
+  - generic: Monitor site security, performance, and everything else that matters to you and your clients. Access and manage client accounts, collaborate on exciting projects, and get notified immediately if something goes wrong, so you can get everything back on track. Create custom tags to organize, search, and filter your website portfolio, all in one place.
+  - heading "Cloud hosting FAQs" [level=2]
+  - generic: Find answers to frequently asked questions about cloud web hosting services.
+  - button "What is cloud hosting?" [expanded]:
+    - heading "What is cloud hosting?" [level=3]
+  - paragraph:
+    - link "Cloud hosting is":
+      - /url: https://www.hostinger.com/in/tutorials/what-is-cloud-hosting
+    - text: a faster, stronger, and more reliable alternative to shared hosting.
+  - paragraph: Hostinger’s managed cloud hosting offers 4X more speed and 20X more resources compared to traditional web hosting. It’s also fully managed – meaning that we take care of all the technical stuff, so you can focus on scaling your projects.
+  - paragraph: It’s the perfect solution for website owners looking for the power and stability of a virtual private server (VPS), without the complexity of managing one.
+  - button "Why should I get cloud hosting services?":
+    - heading "Why should I get cloud hosting services?" [level=3]
+  - button "How can I migrate my websites to Hostinger’s cloud plan?":
+    - heading "How can I migrate my websites to Hostinger’s cloud plan?" [level=3]
+  - button "How much does cloud hosting cost? How easy is it to upgrade to a cloud plan?":
+    - heading "How much does cloud hosting cost? How easy is it to upgrade to a cloud plan?" [level=3]
+  - button "What is the difference between cloud and traditional hosting?":
+    - heading "What is the difference between cloud and traditional hosting?" [level=3]
+  - button "What is the difference between VPS and cloud server hosting?":
+    - heading "What is the difference between VPS and cloud server hosting?" [level=3]
+  - button "What's the difference between a server and cloud hosting?":
+    - heading "What's the difference between a server and cloud hosting?" [level=3]
+  - button "What does expert priority support mean?":
+    - heading "What does expert priority support mean?" [level=3]
+  - button "What are the CPU, RAM, inode, and disk limits of Hostinger plans?":
+    - heading "What are the CPU, RAM, inode, and disk limits of Hostinger plans?" [level=3]
+  - button "Are you using SSD as storage for managed cloud hosting plans?":
+    - heading "Are you using SSD as storage for managed cloud hosting plans?" [level=3]
+  - button "Can I run Node.js on your cloud server?":
+    - heading "Can I run Node.js on your cloud server?" [level=3]
+  - heading "Hosting that grows with you" [level=2]
+  - generic: Get the speed, security, and support your business needs to grow. Risk-free for 30 days.
+  - link "View plans":
+    - /url: "#pricing"
+    - generic: View plans
+  - img "Hosting that grows with you"
+- contentinfo:
+  - link "Hostinger":
+    - /url: /in/
+  - generic: Cloud hosting
+  - generic: Hosting
+  - link "Web hosting":
+    - /url: /in/web-hosting
+  - link "Shared hosting":
+    - /url: /in/shared-hosting
+  - link "Hosting for WordPress":
+    - /url: /in/wordpress-hosting
+  - link "VPS hosting":
+    - /url: /in/vps-hosting
+  - link "Self-hosted n8n":
+    - /url: /in/self-hosted-n8n
+  - link "Business email":
+    - /url: /in/business-email
+  - link "Cloud hosting":
+    - /url: /in/cloud-hosting
+  - link "Hosting for WooCommerce":
+    - /url: /in/woocommerce-hosting
+  - link "Hosting for agencies":
+    - /url: /in/pro
+  - link "Minecraft hosting":
+    - /url: /in/vps/minecraft-hosting
+  - link "Hermes Agent VPS":
+    - /url: https://www.hostinger.com/in/applications/hermes-agent
+  - link "OpenClaw":
+    - /url: /in/ai-automation-apps
+  - link "Paperclip VPS":
+    - /url: https://www.hostinger.com/in/applications/paperclip
+  - link "Google Workspace":
+    - /url: /in/google-workspace
+  - generic: Domain
+  - link "Domains":
+    - /url: /in/domain-name-search
+  - link "Buy a domain":
+    - /url: /in/domains
+  - link "Cheap domains":
+    - /url: /in/cheap-domain
+  - link "Free Domain Name":
+    - /url: /in/free-domain
+  - link "WHOIS Lookup":
+    - /url: /in/whois
+  - link "Free SSL certificate":
+    - /url: /in/free-ssl-certificate
+  - link "Domain transfer":
+    - /url: /in/domain-transfer
+  - link "Domain Extensions":
+    - /url: /in/tld
+  - link "Personal domain name":
+    - /url: /in/personal-domain-name
+  - link "Premium domains":
+    - /url: /in/premium-domains
+  - generic: Tools
+  - link "AI Builder":
+    - /url: /in/ai-builder
+  - link "Drag-and-drop website builder":
+    - /url: /in/website-builder
+  - link "Ecommerce Website Builder":
+    - /url: /in/ecommerce-website
+  - link "Templates":
+    - /url: /in/templates
+  - link "Domain Name Generator":
+    - /url: /in/domain-name-generator
+  - link "Print on Demand":
+    - /url: /in/print-on-demand
+  - link "Link in bio":
+    - /url: /in/link-in-bio
+  - link "Business Name Generator":
+    - /url: /in/business-name-generator
+  - link "AI Newsletter Generator":
+    - /url: /in/ai-email-generator
+  - link "AI Logo Generator":
+    - /url: /in/logo-maker
+  - link "Migrate to Hostinger":
+    - /url: /in/website-migration
+  - link "Hostinger API":
+    - /url: https://developers.hostinger.com/
+  - generic: Information
+  - link "Pricing":
+    - /url: /in/pricing
+  - link "Hostinger Reviews":
+    - /url: /in/reviews
+  - link "Affiliate program":
+    - /url: /in/affiliates
+  - link "Educational partnership":
+    - /url: /in/educational-partnership
+  - link "Referral program":
+    - /url: /in/referral-program
+  - link "Agency directory":
+    - /url: /in/agency-directory
+  - link "Sale Season deals":
+    - /url: /in/black-friday
+  - link "Roadmap":
+    - /url: https://www.hostinger.com/roadmap
+  - link "Changelog":
+    - /url: https://www.hostinger.com/changelog
+  - link "System status":
+    - /url: https://statuspage.hostinger.com/
+  - link "Trust center":
+    - /url: https://trust.hostinger.com/
+  - link "Sitemap":
+    - /url: /in/sitemap
+  - link "EntityMap":
+    - /url: https://www.hostinger.com/entitymap.html
+  - generic: Company
+  - link "About Hostinger":
+    - /url: /in/about
+  - link "Our technology":
+    - /url: /in/technology
+  - link "Blog":
+    - /url: https://www.hostinger.com/blog/
+  - link "Student discount":
+    - /url: /in/student-discount
+  - generic: Support
+  - link "Tutorials":
+    - /url: https://www.hostinger.com/in/tutorials/
+  - link "Knowledge Base":
+    - /url: https://www.hostinger.com/support
+  - link "Hostinger Academy":
+    - /url: https://www.youtube.com/HostingerIndia
+  - link "Contact us":
+    - /url: /in/contacts
+  - link "Report Online Abuse":
+    - /url: /in/report-abuse
+  - link "Hire an expert":
+    - /url: /in/agency-directory
+  - link "ic-linkedin-monochrome-24":
+    - /url: https://www.linkedin.com/company/hostinger
+  - link "ic-facebook-monochrome-24":
+    - /url: https://www.facebook.com/Hostinger
+  - link "ic-instagram-monochrome-24":
+    - /url: https://www.instagram.com/hostinger_global
+  - link "ic-x-twitter-monochrome-24":
+    - /url: https://x.com/Hostinger
+  - link "ic-youtube-24":
+    - /url: https://www.youtube.com/@Hostinger
+  - link "ic-reddit-monochrome-24":
+    - /url: https://www.reddit.com/r/Hostinger/
+  - link "ic-tiktok-monochrome-24":
+    - /url: https://www.tiktok.com/@hostingeracademy
+  - link "ic-discord-monochrome-24":
+    - /url: https://discord.gg/Zp2FteMUea
+  - link "homepage link":
+    - /url: /in/
+  - link "NPRD request policy":
+    - /url: /in/legal/non-public-registrant-data-request-policy
+  - link "Privacy policy":
+    - /url: /in/legal/privacy-policy
+  - link "Refund policy":
+    - /url: /in/legal/refund-policy
+  - link "Terms of service":
+    - /url: /in/legal/universal-terms-of-service-agreement
+  - img "upi"
+  - img "rupay"
+  - img "visa"
+  - img "mastercard"
+  - img "paypal"
+  - link "and more":
+    - /url: /in/payment-methods
+  - generic: © 2004-2026 Hostinger - Premium Web Hosting, Cloud, VPS, AI Website Builder & Domain Registration Services.
+  - paragraph: Prices are listed without GST
+- generic: Register one free .de, .es, .eu, .id, .in, .io, .it, .lt, .me, .com, .fun, .icu, .net, .org, .uno, .xyz, .blog, .info, .link, .live, .shop, .site, .tech, .click, .cloud, .email, .press, .space, .store, .online, .digital, .website domain when you purchase a new annual plan (1+ years). Additional terms apply. Already got a website? We'll move it from your existing hosting provider to Hostinger for free.
+- generic: A dedicated IP makes connecting to your hosting service easier and simplifies third-party tool integration. It reduces security risks associated with shared IPs. Your domain won’t be negatively affected by spam activities from other users, resulting in better email deliverability.
+- generic: Deploy and host web applications built with frameworks like React, Next.js, Vite, Vue, and others.
+- generic: Inodes are items that correspond to the number of files and folders you have on your account.
+- generic: PHP workers are directly responsible for loading products, processing orders, and handling customer requests. The more PHP workers available, the faster and more efficiently these tasks are performed, leading to a better shopping experience for customers.
+- generic: Use AI credits to create and edit websites, generate content, and automate tasks. Get a one-time gift of double the usual credits with a 48-month plan.
+- generic: Get a free domain for the first year with any 12-month or longer hosting plan. Choose from popular TLDs like .com, .info, .org or more. Additional terms detailed in Hostinger's free domains FAQs page apply.
+- generic: Each mailbox includes 1GB storage. Upgrade anytime for more storage, features, or mailboxes. Renews at ₹39/mo (12-month term).
+- generic: Hostinger's CDN (Content Delivery Network) optimizes website speed by caching content on multiple servers globally and delivering it from the visitor's nearest location, resulting in up to 40% faster loading times. Hostinger CDN comes with built-in static website caching, cache purging, CSS and JavaScript minification, data center rerouting, CDN bypass mode, and other website security features.
+- generic: An exclusive IP for your site that enables better stability, reliability, and flexibility — ideal for advanced setups and direct access.
+- generic: For more information please check our Refund Policy (exclusions may apply).
+- generic: Future-proof your WordPress site and boost visibility in AI search. Auto-generated llms.txt will guide LLM agents to your site for faster content discovery and indexing.

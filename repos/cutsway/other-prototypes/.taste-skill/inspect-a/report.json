@@ -1,0 +1,3284 @@
+{
+ "url": "prototypes/a-fields/index.html",
+ "at": "2026-10-22T16:27:27.823Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 9,
+   "filled": [
+    1,
+    1,
+    1,
+    0.97,
+    0.96,
+    1,
+    1,
+    0.49,
+    0.37
+   ],
+   "motion": {
+    "elements": 23,
+    "css": 0,
+    "transitions": 23,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 7320,
+     "screens": 8.1,
+     "words": 377,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "record tonight. post tomorrow.",
+     "words": 4,
+     "chars": 30,
+     "lines": 4,
+     "size": 165.6,
+     "vw": 11.5,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.96,
+     "top": 135,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "record tonight. post tomorrow.",
+     "words": 4,
+     "lines": 4,
+     "size": 165.6,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "record tonight. post tomorrow.",
+      "words": 4,
+      "chars": 30,
+      "lines": 4,
+      "size": 165.6,
+      "vw": 11.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 135,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "WE LOST THE RAID AT 1 HP",
+      "words": 7,
+      "chars": 24,
+      "lines": 3,
+      "size": 51.8,
+      "vw": 3.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.25,
+      "top": 772,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "what we cut",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 80.6,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 1773,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 80.6,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 1927,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "youtube long-form",
+      "words": 2,
+      "chars": 17,
+      "lines": 1,
+      "size": 80.6,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 2063,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 80.6,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 2200,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "shorts & reels",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 80.6,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 2308,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "thumbnails",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 80.6,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 2417,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "your socials, run",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 80.6,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 2526,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "the work",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 104,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.39,
+      "top": 3028,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "I QUIT MY JOB TO STREAM",
+      "words": 6,
+      "chars": 23,
+      "lines": 4,
+      "size": 49,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.22,
+      "top": 3199,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "NEW MAP FIRST LOOK",
+      "words": 4,
+      "chars": 18,
+      "lines": 4,
+      "size": 49,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.13,
+      "top": 3209,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "1V5 CLUTCH",
+      "words": 2,
+      "chars": 10,
+      "lines": 2,
+      "size": 49,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.18,
+      "top": 3295,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "100 DAYS HARDCORE",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 49,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.25,
+      "top": 3405,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "EP. 41 BURNOUT",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 49,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.22,
+      "top": 3415,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "when would you get it back?",
+      "words": 6,
+      "chars": 27,
+      "lines": 4,
+      "size": 104,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 3942,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "back by sat 9:57 pm",
+      "words": 5,
+      "chars": 19,
+      "lines": 2,
+      "size": 72,
+      "vw": 5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.49,
+      "top": 3972,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "first, drop the files.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 63.4,
+      "vw": 4.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.64,
+      "top": 4799,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "then we cut it.",
+      "words": 4,
+      "chars": 15,
+      "lines": 1,
+      "size": 63.4,
+      "vw": 4.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.64,
+      "top": 4979,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "you leave notes.",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 63.4,
+      "vw": 4.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.64,
+      "top": 5159,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "it goes live on time.",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 63.4,
+      "vw": 4.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 5339,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "fair questions",
+      "words": 2,
+      "chars": 14,
+      "lines": 2,
+      "size": 104,
+      "vw": 7.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 5921,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "book a call.",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 165.6,
+      "vw": 11.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 6963,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 23,
+     "maxLines": 4,
+     "over2Lines": 5,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      14,
+      19,
+      26,
+      49,
+      52,
+      63,
+      72,
+      81,
+      104,
+      166
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 19,
+      "leading": 1.45,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.4
+     },
+     "measureChars": 69,
+     "max": {
+      "size": 165.6,
+      "vw": 11.5,
+      "font": "Archivo",
+      "text": "record tonight."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.04,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "sample slot · gaming video",
+      "above": "WE LOST THE RAID AT 1 HP",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 719
+     },
+     {
+      "text": "sample slot",
+      "above": "I QUIT MY JOB TO STREAM",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 3168
+     },
+     {
+      "text": "sample slot",
+      "above": "NEW MAP FIRST LOOK",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 3168
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b0a10",
+     "bodyBgHsl": {
+      "h": 250,
+      "s": 0.23,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#2136cd",
+       "top": 0,
+       "hsl": {
+        "h": 233,
+        "s": 0.72,
+        "l": 0.47
+       }
+      },
+      {
+       "color": "#32d7f6",
+       "top": 1506,
+       "hsl": {
+        "h": 189,
+        "s": 0.92,
+        "l": 0.58
+       }
+      },
+      {
+       "color": "#fbf7c9",
+       "top": 2828,
+       "hsl": {
+        "h": 55,
+        "s": 0.86,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#f9e853",
+       "top": 3742,
+       "hsl": {
+        "h": 54,
+        "s": 0.93,
+        "l": 0.65
+       }
+      },
+      {
+       "color": "#fa7d31",
+       "top": 4599,
+       "hsl": {
+        "h": 23,
+        "s": 0.95,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#e32139",
+       "top": 5721,
+       "hsl": {
+        "h": 353,
+        "s": 0.78,
+        "l": 0.51
+       }
+      },
+      {
+       "color": "#0b0a10",
+       "top": 6448,
+       "hsl": {
+        "h": 250,
+        "s": 0.23,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0a10",
+       "share": 0.51
+      },
+      {
+       "color": "#fffdf2",
+       "share": 0.39
+      },
+      {
+       "color": "#fbf7c9",
+       "share": 0.04
+      },
+      {
+       "color": "#f9e853",
+       "share": 0.02
+      },
+      {
+       "color": "#4d4610",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#e4d44d",
+      "hsl": {
+       "h": 54,
+       "s": 0.74,
+       "l": 0.6
+      },
+      "fg": "#0b0a10"
+     },
+     "lowContrast": [
+      {
+       "text": "it goes live on time.",
+       "ratio": 2.6,
+       "need": 3,
+       "size": 63.4,
+       "fg": "#fffdf2",
+       "bg": "#fa7d31"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 1,
+     "radius": "pill",
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 99,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 7320,
+    "margins": {
+     "left": 32,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "h1#h1.display",
+      "tag": "h1",
+      "top": 135,
+      "height": 616,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.hero__foot",
+      "tag": "div",
+      "top": 1107,
+      "height": 199,
+      "words": 38,
+      "media": 0,
+      "middle": 462,
+      "heading": {
+       "text": "Cutsway edits gaming videos, YouTube long-form, po",
+       "size": 26,
+       "tag": "p"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#formats.field.formats",
+      "tag": "section",
+      "top": 1506,
+      "height": 1322,
+      "words": 96,
+      "media": 0,
+      "middle": 33,
+      "heading": {
+       "text": "what we cut",
+       "size": 81,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 120,
+      "textLeft": 32,
+      "textRight": 120,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.field.work",
+      "tag": "section",
+      "top": 2828,
+      "height": 914,
+      "words": 47,
+      "media": 0,
+      "middle": 9,
+      "heading": {
+       "text": "the work",
+       "size": 104,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#turnaround.field.turn",
+      "tag": "section",
+      "top": 3742,
+      "height": 857,
+      "words": 56,
+      "media": 0,
+      "middle": 109,
+      "heading": {
+       "text": "when would you get it back?",
+       "size": 104,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 48,
+      "textLeft": 32,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field.process",
+      "tag": "section",
+      "top": 4599,
+      "height": 1121,
+      "words": 71,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "first, drop the files.",
+       "size": 63,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 312,
+      "textLeft": 32,
+      "textRight": 312,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.field.faq",
+      "tag": "section",
+      "top": 5721,
+      "height": 728,
+      "words": 87,
+      "media": 0,
+      "middle": 110,
+      "heading": {
+       "text": "fair questions",
+       "size": 104,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 63,
+      "textLeft": 32,
+      "textRight": 63,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book.field.foot",
+      "tag": "footer",
+      "top": 6448,
+      "height": 872,
+      "words": 22,
+      "media": 0,
+      "middle": 58,
+      "heading": {
+       "text": "book a call.",
+       "size": 166,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 1292,
+      "height": 476
+     },
+     {
+      "top": 2628,
+      "height": 388
+     },
+     {
+      "top": 3540,
+      "height": 388
+     },
+     {
+      "top": 4384,
+      "height": 408
+     },
+     {
+      "top": 5520,
+      "height": 388
+     },
+     {
+      "top": 6212,
+      "height": 732
+     }
+    ],
+    "h1s": [
+     {
+      "text": "record tonight. post tomorrow.",
+      "size": 166,
+      "top": 135,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [
+     {
+      "text": "sample slot · gaming video",
+      "side": "left",
+      "px": 1
+     }
+    ],
+    "edges": [
+     {
+      "x": 32,
+      "n": 8
+     },
+     {
+      "x": 772,
+      "n": 3
+     },
+     {
+      "x": 261,
+      "n": 2
+     },
+     {
+      "x": 491,
+      "n": 2
+     },
+     {
+      "x": 720,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 17,
+    "bodySize": 19,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.22,
+    "voidBox": {
+     "x": 1080,
+     "y": 120,
+     "w": 360,
+     "h": 780
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    1,
+    1,
+    0.96,
+    0.99,
+    1,
+    0.69
+   ],
+   "motion": {
+    "elements": 25,
+    "css": 0,
+    "transitions": 25,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 5759,
+     "screens": 5.6,
+     "words": 377,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "record tonight. post tomorrow.",
+     "words": 4,
+     "chars": 30,
+     "lines": 4,
+     "size": 88.3,
+     "vw": 11.5,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.96,
+     "top": 154,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "record tonight. post tomorrow.",
+     "words": 4,
+     "lines": 4,
+     "size": 88.3,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "record tonight. post tomorrow.",
+      "words": 4,
+      "chars": 30,
+      "lines": 4,
+      "size": 88.3,
+      "vw": 11.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 154,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "WE LOST THE RAID AT 1 HP",
+      "words": 7,
+      "chars": 24,
+      "lines": 3,
+      "size": 27.6,
+      "vw": 3.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.25,
+      "top": 493,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "what we cut",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 43,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.62,
+      "top": 1234,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 43,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.62,
+      "top": 1319,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "youtube long-form",
+      "words": 2,
+      "chars": 17,
+      "lines": 2,
+      "size": 43,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.62,
+      "top": 1474,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 43,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.62,
+      "top": 1602,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "shorts & reels",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 43,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.62,
+      "top": 1704,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "thumbnails",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 43,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.62,
+      "top": 1806,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "your socials, run",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 43,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.62,
+      "top": 1937,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "the work",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 65.3,
+      "vw": 8.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 2219,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "1V5 CLUTCH",
+      "words": 2,
+      "chars": 10,
+      "lines": 2,
+      "size": 26.1,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.22,
+      "top": 2492,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "100 DAYS HARDCORE",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 26.1,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.36,
+      "top": 2605,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "EP. 41 BURNOUT",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 26.1,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.22,
+      "top": 2612,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "I QUIT MY JOB TO STREAM",
+      "words": 6,
+      "chars": 23,
+      "lines": 2,
+      "size": 26.1,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 2872,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "NEW MAP FIRST LOOK",
+      "words": 4,
+      "chars": 18,
+      "lines": 2,
+      "size": 26.1,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.27,
+      "top": 2886,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "when would you get it back?",
+      "words": 6,
+      "chars": 27,
+      "lines": 5,
+      "size": 65.3,
+      "vw": 8.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 3190,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "back by sat 9:57 pm",
+      "words": 5,
+      "chars": 19,
+      "lines": 2,
+      "size": 38.4,
+      "vw": 5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.49,
+      "top": 3219,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "first, drop the files.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 33.8,
+      "vw": 4.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.64,
+      "top": 3806,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "then we cut it.",
+      "words": 4,
+      "chars": 15,
+      "lines": 1,
+      "size": 33.8,
+      "vw": 4.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.64,
+      "top": 3984,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "you leave notes.",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 33.8,
+      "vw": 4.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.64,
+      "top": 4107,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "it goes live on time.",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 33.8,
+      "vw": 4.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 4257,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "fair questions",
+      "words": 2,
+      "chars": 14,
+      "lines": 2,
+      "size": 65.3,
+      "vw": 8.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.52,
+      "top": 4597,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "book a call.",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 88.3,
+      "vw": 11.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 5479,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 23,
+     "maxLines": 5,
+     "over2Lines": 3,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      14,
+      18,
+      23,
+      26,
+      28,
+      34,
+      38,
+      43,
+      65,
+      88
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 17.9,
+      "leading": 1.45,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.4
+     },
+     "measureChars": 41,
+     "max": {
+      "size": 88.3,
+      "vw": 11.5,
+      "font": "Archivo",
+      "text": "record tonight."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.04,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "sample slot · gaming video",
+      "above": "WE LOST THE RAID AT 1 HP",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 460
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b0a10",
+     "bodyBgHsl": {
+      "h": 250,
+      "s": 0.23,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#2136cd",
+       "top": 0,
+       "hsl": {
+        "h": 233,
+        "s": 0.72,
+        "l": 0.47
+       }
+      },
+      {
+       "color": "#32d7f6",
+       "top": 1091,
+       "hsl": {
+        "h": 189,
+        "s": 0.92,
+        "l": 0.58
+       }
+      },
+      {
+       "color": "#fbf7c9",
+       "top": 2112,
+       "hsl": {
+        "h": 55,
+        "s": 0.86,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#f9e853",
+       "top": 3082,
+       "hsl": {
+        "h": 54,
+        "s": 0.93,
+        "l": 0.65
+       }
+      },
+      {
+       "color": "#fa7d31",
+       "top": 3698,
+       "hsl": {
+        "h": 23,
+        "s": 0.95,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#e32139",
+       "top": 4489,
+       "hsl": {
+        "h": 353,
+        "s": 0.78,
+        "l": 0.51
+       }
+      },
+      {
+       "color": "#0b0a10",
+       "top": 5203,
+       "hsl": {
+        "h": 250,
+        "s": 0.23,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0a10",
+       "share": 0.51
+      },
+      {
+       "color": "#fffdf2",
+       "share": 0.39
+      },
+      {
+       "color": "#fbf7c9",
+       "share": 0.04
+      },
+      {
+       "color": "#f9e853",
+       "share": 0.02
+      },
+      {
+       "color": "#4d4610",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#e4d44d",
+      "hsl": {
+       "h": 54,
+       "s": 0.74,
+       "l": 0.6
+      },
+      "fg": "#0b0a10"
+     },
+     "lowContrast": [
+      {
+       "text": "it goes live on time.",
+       "ratio": 2.6,
+       "need": 3,
+       "size": 33.8,
+       "fg": "#fffdf2",
+       "bg": "#fa7d31"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 4597
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 81,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 5759,
+    "margins": {
+     "left": 17,
+     "right": 17
+    },
+    "sections": [
+     {
+      "sel": "section.field.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 1091,
+      "words": 61,
+      "media": 0,
+      "middle": 77,
+      "heading": {
+       "text": "record tonight.",
+       "size": 88,
+       "tag": "h1"
+      },
+      "left": 0,
+      "right": 36,
+      "textLeft": 0,
+      "textRight": 36,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#formats.field.formats",
+      "tag": "section",
+      "top": 1091,
+      "height": 1021,
+      "words": 82,
+      "media": 0,
+      "middle": 121,
+      "heading": {
+       "text": "what we cut",
+       "size": 43,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 18,
+      "textLeft": 17,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.field.work",
+      "tag": "section",
+      "top": 2112,
+      "height": 970,
+      "words": 47,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "the work",
+       "size": 65,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 17,
+      "textLeft": 17,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#turnaround.field.turn",
+      "tag": "section",
+      "top": 3082,
+      "height": 616,
+      "words": 56,
+      "media": 0,
+      "middle": 57,
+      "heading": {
+       "text": "when would you get it back?",
+       "size": 65,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 33,
+      "textLeft": 17,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field.process",
+      "tag": "section",
+      "top": 3698,
+      "height": 791,
+      "words": 53,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "first, drop the files.",
+       "size": 34,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 42,
+      "textLeft": 17,
+      "textRight": 42,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.field.faq",
+      "tag": "section",
+      "top": 4489,
+      "height": 714,
+      "words": 94,
+      "media": 0,
+      "middle": 70,
+      "heading": {
+       "text": "fair questions",
+       "size": 65,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 44,
+      "textLeft": 17,
+      "textRight": 44,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book.field.foot",
+      "tag": "footer",
+      "top": 5203,
+      "height": 556,
+      "words": 22,
+      "media": 0,
+      "middle": 58,
+      "heading": {
+       "text": "book a call.",
+       "size": 88,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 17,
+      "textLeft": 17,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 1900,
+      "height": 312
+     }
+    ],
+    "h1s": [
+     {
+      "text": "record tonight. post tomorrow.",
+      "size": 88,
+      "top": 154,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [
+     {
+      "text": "sample slot · gaming video",
+      "side": "left",
+      "px": 0
+     }
+    ],
+    "edges": [
+     {
+      "x": 17,
+      "n": 8
+     },
+     {
+      "x": 483,
+      "n": 4
+     },
+     {
+      "x": 262,
+      "n": 2
+     },
+     {
+      "x": 384,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 16,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 9,
+   "filled": [
+    1,
+    1,
+    1,
+    0.95,
+    0.84,
+    0.92,
+    1,
+    0.79,
+    0.66
+   ],
+   "motion": {
+    "elements": 24,
+    "css": 0,
+    "transitions": 24,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 7117,
+     "screens": 8.4,
+     "words": 373,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "record tonight. post tomorrow.",
+     "words": 4,
+     "chars": 30,
+     "lines": 4,
+     "size": 60.5,
+     "vw": 15.5,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.97,
+     "top": 127,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "record tonight. post tomorrow.",
+     "words": 4,
+     "lines": 4,
+     "size": 60.5,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "record tonight. post tomorrow.",
+      "words": 4,
+      "chars": 30,
+      "lines": 4,
+      "size": 60.5,
+      "vw": 15.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.97,
+      "top": 127,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "WE LOST THE RAID AT 1 HP",
+      "words": 7,
+      "chars": 24,
+      "lines": 3,
+      "size": 25.6,
+      "vw": 6.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.71,
+      "top": 475,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "what we cut",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 42.9,
+      "vw": 11,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1123,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 2,
+      "size": 42.9,
+      "vw": 11,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1233,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "youtube long-form",
+      "words": 2,
+      "chars": 17,
+      "lines": 2,
+      "size": 42.9,
+      "vw": 11,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1425,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 42.9,
+      "vw": 11,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1616,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "shorts & reels",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 42.9,
+      "vw": 11,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1741,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "thumbnails",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 42.9,
+      "vw": 11,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1908,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "your socials, run",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 42.9,
+      "vw": 11,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2032,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "the work",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 44,
+      "vw": 11.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.61,
+      "top": 2385,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "100 DAYS HARDCORE",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 22.4,
+      "vw": 5.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 2804,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "EP. 41 BURNOUT",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 22.4,
+      "vw": 5.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 3200,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "1V5 CLUTCH",
+      "words": 2,
+      "chars": 10,
+      "lines": 2,
+      "size": 22.4,
+      "vw": 5.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 3477,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "I QUIT MY JOB TO STREAM",
+      "words": 6,
+      "chars": 23,
+      "lines": 2,
+      "size": 22.4,
+      "vw": 5.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 3753,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "NEW MAP FIRST LOOK",
+      "words": 4,
+      "chars": 18,
+      "lines": 2,
+      "size": 22.4,
+      "vw": 5.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 4029,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "when would you get it back?",
+      "words": 6,
+      "chars": 27,
+      "lines": 3,
+      "size": 44,
+      "vw": 11.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4310,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "back by sat 9:57 pm",
+      "words": 5,
+      "chars": 19,
+      "lines": 2,
+      "size": 35.2,
+      "vw": 9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 4595,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "first, drop the files.",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 5128,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "then we cut it.",
+      "words": 4,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 5303,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "you leave notes.",
+      "words": 3,
+      "chars": 16,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.8,
+      "top": 5449,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "it goes live on time.",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.74,
+      "top": 5624,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "fair questions",
+      "words": 2,
+      "chars": 14,
+      "lines": 2,
+      "size": 44,
+      "vw": 11.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 5935,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "book a call.",
+      "words": 3,
+      "chars": 12,
+      "lines": 2,
+      "size": 66.3,
+      "vw": 17,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 6761,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 23,
+     "maxLines": 4,
+     "over2Lines": 3,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      14,
+      17,
+      20,
+      22,
+      26,
+      32,
+      35,
+      43,
+      44,
+      61,
+      66
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 17,
+      "leading": 1.45,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.4
+     },
+     "measureChars": 37,
+     "max": {
+      "size": 66.3,
+      "vw": 17,
+      "font": "Archivo",
+      "text": "book a call."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.04,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b0a10",
+     "bodyBgHsl": {
+      "h": 250,
+      "s": 0.23,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#2136cd",
+       "top": 0,
+       "hsl": {
+        "h": 233,
+        "s": 0.72,
+        "l": 0.47
+       }
+      },
+      {
+       "color": "#32d7f6",
+       "top": 991,
+       "hsl": {
+        "h": 189,
+        "s": 0.92,
+        "l": 0.58
+       }
+      },
+      {
+       "color": "#fbf7c9",
+       "top": 2289,
+       "hsl": {
+        "h": 55,
+        "s": 0.86,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#e32139",
+       "top": 2901,
+       "hsl": {
+        "h": 353,
+        "s": 0.78,
+        "l": 0.51
+       }
+      },
+      {
+       "color": "#f9e853",
+       "top": 4214,
+       "hsl": {
+        "h": 54,
+        "s": 0.93,
+        "l": 0.65
+       }
+      },
+      {
+       "color": "#fa7d31",
+       "top": 5032,
+       "hsl": {
+        "h": 23,
+        "s": 0.95,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#0b0a10",
+       "top": 6537,
+       "hsl": {
+        "h": 250,
+        "s": 0.23,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0a10",
+       "share": 0.52
+      },
+      {
+       "color": "#fffdf2",
+       "share": 0.39
+      },
+      {
+       "color": "#fbf7c9",
+       "share": 0.04
+      },
+      {
+       "color": "#f9e853",
+       "share": 0.02
+      },
+      {
+       "color": "#4d4610",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#e4d44d",
+      "hsl": {
+       "h": 54,
+       "s": 0.74,
+       "l": 0.6
+      },
+      "fg": "#0b0a10"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 81,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 7117,
+    "margins": {
+     "left": 16,
+     "right": 16
+    },
+    "sections": [
+     {
+      "sel": "section.field.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 991,
+      "words": 57,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "record tonight.",
+       "size": 60,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 14,
+      "textLeft": 16,
+      "textRight": -5,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#formats.field.formats",
+      "tag": "section",
+      "top": 991,
+      "height": 1298,
+      "words": 96,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "what we cut",
+       "size": 43,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 23,
+      "textLeft": 16,
+      "textRight": 23,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.field.work",
+      "tag": "section",
+      "top": 2289,
+      "height": 1926,
+      "words": 47,
+      "media": 0,
+      "middle": 73,
+      "heading": {
+       "text": "the work",
+       "size": 44,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#turnaround.field.turn",
+      "tag": "section",
+      "top": 4214,
+      "height": 817,
+      "words": 56,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "when would you get it back?",
+       "size": 44,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 30,
+      "textLeft": 16,
+      "textRight": 30,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field.process",
+      "tag": "section",
+      "top": 5032,
+      "height": 807,
+      "words": 71,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "first, drop the files.",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 34,
+      "textLeft": 16,
+      "textRight": 34,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.field.faq",
+      "tag": "section",
+      "top": 5839,
+      "height": 698,
+      "words": 115,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "fair questions",
+       "size": 44,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 42,
+      "textLeft": 16,
+      "textRight": 42,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book.field.foot",
+      "tag": "footer",
+      "top": 6537,
+      "height": 581,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "book a call.",
+       "size": 66,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 48,
+      "textLeft": 16,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 2544,
+      "height": 256
+     },
+     {
+      "top": 2940,
+      "height": 256
+     }
+    ],
+    "h1s": [
+     {
+      "text": "record tonight. post tomorrow.",
+      "size": 60,
+      "top": 127,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [
+     {
+      "text": "Cutsway edits gaming videos, YouTube long-form, po",
+      "side": "right",
+      "px": 14
+     }
+    ],
+    "edges": [
+     {
+      "x": 16,
+      "n": 8
+     },
+     {
+      "x": 39,
+      "n": 6
+     },
+     {
+      "x": 63,
+      "n": 2
+     },
+     {
+      "x": 86,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 18,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [
+     {
+      "text": "post tomorrow.",
+      "px": 5,
+      "side": "right"
+     }
+    ],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "5 headline(s) wrap past two lines at 1440px: \"record tonight. post tomorrow.\" → 4 lines (4 words, 165.6px); \"WE LOST THE RAID AT 1 HP\" → 3 lines (7 words, 51.8px); \"I QUIT MY JOB TO STREAM\" → 4 lines (6 words, 49px); \"NEW MAP FIRST LOOK\" → 4 lines (4 words, 49px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "3 eyebrow/kicker label(s) above headings: \"sample slot · gaming video\" above \"WE LOST THE RAID AT 1 HP\"; \"sample slot\" above \"I QUIT MY JOB TO STREAM\"; \"sample slot\" above \"NEW MAP FIRST LOOK\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (section #fbf7c9, text #fffdf2, text #fbf7c9).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Low-contrast text: \"it goes live on time.\" 2.6:1 needs 3:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "11 different font sizes (13, 14, 19, 26, 49, 52, 63, 72, 81, 104, 166).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "font-not-dealt",
+   "width": 1440,
+   "message": "The sheet dealt Chivo and Chivo, but the page renders Archivo.",
+   "fix": "Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look."
+  },
+  {
+   "level": "FAIL",
+   "id": "blank-gap",
+   "width": 1440,
+   "message": "6 stretch(es) of the page hold nothing at all: 732px at 6212px; 476px at 1292px; 388px at 2628px; 388px at 3540px (the screen is 900px tall).",
+   "fix": "Close the gap: a section gap is 120–240px on desktop and 72–112px on a phone. Look for a min-height: 100vh on a short section, an empty grid row, a hidden element still holding its space, or a reveal that never fired. A deliberate rest is a placed picture or colour field, not nothing."
+  },
+  {
+   "level": "FAIL",
+   "id": "edge-text",
+   "width": 1440,
+   "message": "1 text block(s) sit within 16px of the screen edge: \"sample slot · gaming video\" (1px from the left)",
+   "fix": "Keep text inside the page margin (16–32px or more). Only display type deliberately bled past the edge may touch it.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 768,
+   "message": "3 headline(s) wrap past two lines at 768px: \"record tonight. post tomorrow.\" → 4 lines (4 words, 88.3px); \"WE LOST THE RAID AT 1 HP\" → 3 lines (7 words, 27.6px); \"when would you get it back?\" → 5 lines (6 words, 65.3px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 32px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "3 headline(s) wrap past two lines at 390px: \"record tonight. post tomorrow.\" → 4 lines (4 words, 60.5px); \"WE LOST THE RAID AT 1 HP\" → 3 lines (7 words, 25.6px); \"when would you get it back?\" → 3 lines (6 words, 44px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "one-sided-bleed",
+   "width": 390,
+   "message": "1 display line(s) start inside the margin but run off the right edge by a few pixels: \"post tomorrow.\" (5px)",
+   "fix": "Fit the line to the content box by measurement (a small fit script, or SVG text with textLength), or bleed it on purpose by a clear amount from the margin. A name sliced by a few pixels on one side reads as a mistake."
+  },
+  {
+   "level": "WARN",
+   "id": "edge-text",
+   "width": 390,
+   "message": "1 text block(s) sit 12–15px from the phone's edge: \"Cutsway edits gaming videos, Y\" (14px)",
+   "fix": "The page margin is 16–20px on a phone; the header and the corner labels sit on it too."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a\\desktop-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a\\desktop-page-02.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a\\desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a\\mobile-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a\\mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

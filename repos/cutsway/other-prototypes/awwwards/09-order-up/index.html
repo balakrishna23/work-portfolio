@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Order Up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --board: #14100d; --counter: #c43a1c; --paper: #fbf7ee; --ink: #16110e; --soft: #6b5f55; --gold: #ffc72e; --red: #f0163a; --m: clamp(16px, 3vw, 48px); }
+  * { box-sizing: border-box; }
+  html { background: var(--counter); color: var(--ink); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .num { font-variant-numeric: tabular-nums; }
+  .c { font-stretch: 62%; font-weight: 900; text-transform: uppercase; letter-spacing: 0; line-height: .86; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px var(--m); color: var(--paper); }
+  .nav svg { width: 118px; height: 49px; display: block; }
+  .nav nav { display: flex; gap: 26px; font-weight: 700; }
+  .nav nav a { text-decoration: none; } .nav nav a:hover { color: var(--gold); }
+  .btn { display: inline-flex; justify-content: center; padding: 14px 22px; background: var(--ink); color: var(--paper); font-weight: 800; text-decoration: none; border: 0; font: inherit; font-weight: 800; cursor: pointer; transition: transform .2s, background .2s; }
+  .btn:hover { transform: translateY(-2px); background: #000; } .btn:active { transform: scale(.97); }
+  .btn--gold { background: var(--gold); color: var(--ink); } .btn--gold:hover { background: #ffd65a; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .top { padding: clamp(16px, 3vw, 40px) var(--m) 0; color: var(--paper); }
+  h1 { margin: 0; font-size: clamp(5rem, 15vw, 17rem); }
+  .top p { margin: 18px 0 0; font-size: clamp(19px, 1.6vw, 23px); max-width: 44ch; }
+
+  .shop { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(20px, 3vw, 48px); padding: clamp(40px, 5vw, 72px) var(--m) 0; align-items: start; }
+  .board { background: var(--board); color: var(--paper); padding: clamp(20px, 3vw, 44px); }
+  .board h2 { margin: 0 0 22px; font-size: clamp(2.6rem, 5vw, 5rem); color: var(--gold); }
+  .menu { list-style: none; margin: 0; padding: 0; }
+  .menu li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 14px; align-items: center; padding: 16px 0; }
+  .menu li + li { border-top: 2px dashed rgb(251 247 238 / .18); }
+  .menu b { font-size: clamp(1.6rem, 2.6vw, 2.4rem); display: block; }
+  .menu span { color: #d9ccbd; font-size: 16px; }
+  .menu em { font-style: normal; font-size: 2rem; color: var(--gold); min-width: 3.2ch; text-align: right; }
+  .qty { display: flex; align-items: center; gap: 6px; }
+  .qty button { width: 44px; height: 44px; border: 0; background: #2b221d; color: var(--paper); font: inherit; font-size: 24px; font-weight: 800; cursor: pointer; transition: background .15s, transform .1s; }
+  .qty button:hover { background: #3d3029; } .qty button:active { transform: scale(.9); }
+  .qty output { min-width: 1.6ch; text-align: center; font-weight: 900; font-size: 22px; }
+
+  .ticket-wrap { position: sticky; top: 20px; }
+  .ticket { background: var(--paper); padding: 26px 24px 20px; position: relative; filter: drop-shadow(0 18px 24px rgb(40 8 0 / .35)); --tear: radial-gradient(circle at 8px 0, transparent 7px, var(--paper) 7.5px); }
+  .ticket::after { content: ""; position: absolute; left: 0; right: 0; bottom: -10px; height: 10px; background: var(--tear); background-size: 16px 10px; }
+  .ticket header { text-align: center; padding-bottom: 14px; border-bottom: 2px dashed #cfc5b6; }
+  .ticket header svg { width: 130px; height: 54px; display: block; margin: 0 auto 6px; }
+  .ticket header p { margin: 0; font-size: 15px; color: var(--soft); }
+  .lines { list-style: none; margin: 0; padding: 12px 0; min-height: 120px; }
+  .lines li { display: grid; grid-template-columns: 2.4ch 1fr auto; gap: 8px; font-size: 17px; padding: 4px 0; animation: print .35s steps(4) both; }
+  .lines li span:last-child { font-weight: 700; }
+  .lines .empty { display: block; color: var(--soft); text-align: center; padding: 30px 0; animation: none; }
+  @keyframes print { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+  .sum { border-top: 2px dashed #cfc5b6; padding-top: 12px; display: grid; gap: 4px; }
+  .sum div { display: flex; justify-content: space-between; }
+  .sum .ready { font-size: clamp(2rem, 3vw, 2.8rem); margin-top: 6px; display: block; }
+  .bars { height: 54px; margin: 16px 0 8px; display: flex; gap: 2px; align-items: stretch; }
+  .bars i { background: var(--ink); }
+  .ticket small { display: block; text-align: center; color: var(--soft); font-size: 14px; }
+  .ticket .btn { width: 100%; margin-top: 16px; }
+
+  section { padding: clamp(120px, 13vw, 200px) var(--m) 0; color: var(--paper); }
+  h2.c { margin: 0 0 36px; font-size: clamp(3.4rem, 8vw, 8.6rem); }
+  .kitchen { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+  .kitchen figure { margin: 0; }
+  .kitchen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .kitchen .k1 { grid-column: 1 / span 7; grid-row: span 2; } .kitchen .k2 { grid-column: 8 / span 5; aspect-ratio: 4/3; } .kitchen .k3 { grid-column: 8 / span 5; aspect-ratio: 4/3; }
+  .kitchen p { grid-column: 1 / span 6; margin: 8px 0 0; font-size: 21px; }
+  .fine { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; background: var(--paper); color: var(--ink); }
+  .fine div { padding: clamp(20px, 3vw, 36px); }
+  .fine div:nth-child(2), .fine div:nth-child(3) { background: #f1e9db; }
+  .fine h3 { margin: 0 0 8px; font-size: 22px; } .fine p { margin: 0; }
+  footer { padding: clamp(120px, 13vw, 200px) var(--m) 28px; color: var(--paper); }
+  footer .c { font-size: clamp(5rem, 22vw, 26rem); margin: 0 0 20px; }
+  .foot { display: flex; justify-content: space-between; gap: 24px; align-items: end; flex-wrap: wrap; }
+  .credits { font-size: 13px; max-width: 80ch; margin: 0; }
+  @media (max-width: 900px) {
+    .nav nav { display: none; }
+    .shop, .fine { grid-template-columns: 1fr; }
+    .ticket-wrap { position: static; }
+    .kitchen > * { grid-column: 1 / -1 !important; grid-row: auto !important; }
+    .menu li { grid-template-columns: 1fr auto; } .menu em { grid-column: 1; grid-row: 2; text-align: left; font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#menu">The menu</a><a href="#kitchen">The kitchen</a><a href="#fine">Fine print</a></nav>
+  <a class="btn btn--gold" href="#menu">Start an order</a>
+</header>
+
+<main id="top">
+  <div class="top">
+    <h1 class="c">Order up.</h1>
+    <p>Cutsway is an editing kitchen for gaming creators. Pick what you need, and the ticket tells you when it's ready.</p>
+  </div>
+
+  <div class="shop" id="menu">
+    <div class="board">
+      <h2 class="c">Today's menu</h2>
+      <ul class="menu" id="items"></ul>
+    </div>
+    <div class="ticket-wrap">
+      <div class="ticket" aria-live="polite">
+        <header><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg><p class="num" id="order-no">Order 0000 · table: your channel</p></header>
+        <ul class="lines num" id="lines"></ul>
+        <div class="sum num">
+          <div><span>Items</span><span id="count">0</span></div>
+          <div><span>Revisions included</span><span>2 rounds</span></div>
+          <div><span>Ready by</span><span id="hrs">—</span></div>
+          <b class="ready c" id="ready">Nothing ordered</b>
+        </div>
+        <div class="bars" id="bars" aria-hidden="true"></div>
+        <small>Sample times. Confirmed on the call.</small>
+        <a class="btn" id="send" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Send this order</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="kitchen" aria-labelledby="kitchen-h">
+    <h2 class="c" id="kitchen-h" data-rise>The kitchen</h2>
+    <div class="kitchen" data-rise="kids">
+      <figure class="k1"><img src="../_shared/img/podcave.jpg" alt="An editing desk with a mixer, a monitor showing a waveform and a laptop"></figure>
+      <figure class="k2"><img src="../_shared/img/stage-4.jpg" alt="A crew filming an interview at a gaming event"></figure>
+      <figure class="k3"><img src="../_shared/img/mic-1.jpg" alt="A podcast microphone on a boom arm"></figure>
+      <p>One editor cooks for your channel every time. They learn the recipe from your last ten uploads before the first ticket.</p>
+    </div>
+  </section>
+
+  <section id="fine" aria-labelledby="fine-h">
+    <h2 class="c" id="fine-h" data-rise>The fine print</h2>
+    <div class="fine" data-rise="kids">
+      <div><h3>What do I hand over?</h3><p>The raw ingredients: recordings, VODs, facecam, audio tracks. No prep needed.</p></div>
+      <div><h3>Can I send it back?</h3><p>Twice per item. Notes go on the exact frame.</p></div>
+      <div><h3>Do you serve it too?</h3><p>We post to YouTube, TikTok, Instagram and X on your schedule if you add posting.</p></div>
+      <div><h3>Is there a regular's tab?</h3><p>Most channels order weekly. We set up a standing order on the call.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="c">Hungry?</p>
+  <div class="foot"><p class="credits">Photographs: The Podcave home studio, CC BY 2.0; event crew by Flickr user 48254827@N00, CC BY 2.0; SPNN podcast studio, CC BY 4.0, Wikimedia Commons. Menu items and times are samples.</p><a class="btn btn--gold" href="#menu">Start an order</a></div>
+</footer>
+
+<script src="../_shared/brand.js"></script>
+<script>
+  const MENU = [
+    { k: 'video', name: 'Gaming video', note: 'Story, pacing, captions, sound', h: 48, q: 1 },
+    { k: 'shorts', name: 'Shorts pack', note: 'Ten vertical clips, captioned', h: 24, q: 1 },
+    { k: 'thumb', name: 'Thumbnail', note: 'Three options, one final', h: 8, q: 1 },
+    { k: 'stream', name: 'Stream VOD', note: 'Highlight video from a live session', h: 48, q: 0 },
+    { k: 'podcast', name: 'Podcast episode', note: 'Clean episode and six clips', h: 72, q: 0 },
+    { k: 'post', name: 'Posting', note: 'Titles, captions, four platforms', h: 2, q: 0 }
+  ];
+  const items = document.getElementById('items');
+  MENU.forEach((m, i) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<div><b class="c">${m.name}</b><span>${m.note}</span></div><em class="c num">${m.h}h</em><div class="qty"><button type="button" aria-label="Remove one ${m.name}">−</button><output class="num" aria-label="${m.name} quantity">${m.q}</output><button type="button" aria-label="Add one ${m.name}">+</button></div>`;
+    const [minus, plus] = li.querySelectorAll('button'), out = li.querySelector('output');
+    minus.onclick = () => { m.q = Math.max(0, m.q - 1); out.value = m.q; out.textContent = m.q; print(); };
+    plus.onclick = () => { m.q = Math.min(9, m.q + 1); out.textContent = m.q; print(); };
+    items.appendChild(li);
+  });
+  const no = String(Math.floor(Math.random() * 9000) + 1000);
+  document.getElementById('order-no').textContent = `Order ${no} · table: your channel`;
+  function print() {
+    const lines = document.getElementById('lines'), chosen = MENU.filter(m => m.q);
+    lines.innerHTML = chosen.length ? chosen.map((m, i) => `<li style="animation-delay:${i * 60}ms"><span>${m.q}×</span><span>${m.name}</span><span>${m.h}h</span></li>`).join('') : '<li class="empty">Your ticket is empty. Add something from the menu.</li>';
+    const n = chosen.reduce((a, m) => a + m.q, 0), max = chosen.reduce((a, m) => Math.max(a, m.h + (m.q - 1) * Math.ceil(m.h / 4)), 0);
+    document.getElementById('count').textContent = n;
+    document.getElementById('hrs').textContent = max ? max + ' hours' : '—';
+    const d = Cutsway.due(max);
+    document.getElementById('ready').textContent = max ? `${d.day.slice(0, 3)} ${d.time}` : 'Nothing ordered';
+    const bars = document.getElementById('bars'); let s = no + chosen.map(m => m.k + m.q).join(''), html = '';
+    for (let i = 0; i < 64; i++) { const c = s.charCodeAt(i % s.length) * (i + 3); html += `<i style="flex:${1 + c % 3};${c % 5 === 0 ? 'background:transparent' : ''}"></i>`; }
+    bars.innerHTML = html;
+    const body = `Hi Cutsway,%0D%0A%0D%0AI'd like to order:%0D%0A${chosen.map(m => `${m.q} x ${m.name}`).join('%0D%0A')}%0D%0A%0D%0AMy channel: %0D%0A`;
+    document.getElementById('send').href = `mailto:cutsway.socialmanager@gmail.comm?subject=Order%20${no}&body=${body}`;
+  }
+  print();
+</script>
+</body>
+</html>

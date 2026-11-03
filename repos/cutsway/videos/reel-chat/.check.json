@@ -1,0 +1,1028 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 2
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 23,
+    "findings": [
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 8.333,
+        "selector": "#m1",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 187.59,
+          "top": 287,
+          "right": 902,
+          "bottom": 350,
+          "width": 714.41,
+          "height": 63
+        },
+        "containerSelector": "#ch-head",
+        "text": "i streamed 4 hours last night",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 187.59,
+          "y": 287,
+          "width": 714.41,
+          "height": 63
+        },
+        "firstSeen": 8.333,
+        "lastSeen": 8.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          8.333
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.667,
+        "selector": "#m1",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 187.59,
+          "top": -525,
+          "right": 902,
+          "bottom": -462,
+          "width": 714.41,
+          "height": 63
+        },
+        "containerSelector": "#root",
+        "text": "i streamed 4 hours last night",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 525
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 187.59,
+          "y": -525,
+          "width": 714.41,
+          "height": 63
+        },
+        "firstSeen": 11.667,
+        "lastSeen": 18.333,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          11.667,
+          15,
+          18.333
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.667,
+        "selector": "#m2",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 178,
+          "top": -383,
+          "right": 858.64,
+          "bottom": -255.53,
+          "width": 680.64,
+          "height": 127.47
+        },
+        "containerSelector": "#root",
+        "text": "and zero time to edit any of it",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 383
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 178,
+          "y": -383,
+          "width": 680.64,
+          "height": 127.47
+        },
+        "firstSeen": 11.667,
+        "lastSeen": 18.333,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          11.667,
+          15,
+          18.333
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.667,
+        "selector": "#m3",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 88,
+          "top": -176,
+          "right": 647.36,
+          "bottom": -113,
+          "width": 559.36,
+          "height": 63
+        },
+        "containerSelector": "#root",
+        "text": "send us the whole pile",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 176
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 88,
+          "y": -176,
+          "width": 559.36,
+          "height": 63
+        },
+        "firstSeen": 11.667,
+        "lastSeen": 18.333,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          11.667,
+          15,
+          18.333
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 11.667,
+        "selector": "div.file-name",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 370,
+          "top": -34,
+          "right": 787.84,
+          "bottom": 29,
+          "width": 417.84,
+          "height": 63
+        },
+        "containerSelector": "#root",
+        "text": "raw_footage.zip",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 34
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 370,
+          "y": -34,
+          "width": 417.84,
+          "height": 63
+        },
+        "firstSeen": 11.667,
+        "lastSeen": 18.333,
+        "occurrences": 3,
+        "heldMs": 0,
+        "times": [
+          11.667,
+          15,
+          18.333
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.667,
+        "selector": "div.file-name",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 370,
+          "top": -34,
+          "right": 787.84,
+          "bottom": 29,
+          "width": 417.84,
+          "height": 63
+        },
+        "containerSelector": "#ch-head",
+        "text": "raw_footage.zip",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.33,
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 370,
+          "y": -34,
+          "width": 417.84,
+          "height": 63
+        },
+        "firstSeen": 11.667,
+        "lastSeen": 11.667,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.667
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.667,
+        "selector": "div.file-meta",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 370,
+          "top": 30.47,
+          "right": 717.48,
+          "bottom": 79.47,
+          "width": 347.48,
+          "height": 49
+        },
+        "containerSelector": "#ch-head",
+        "text": "4h 12m · 360 clips",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 370,
+          "y": 30.47,
+          "width": 347.48,
+          "height": 49
+        },
+        "firstSeen": 11.667,
+        "lastSeen": 11.667,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.667
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.667,
+        "selector": "#m4-done",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 236,
+          "top": 130.06,
+          "right": 419.36,
+          "bottom": 179.06,
+          "width": 183.36,
+          "height": 49
+        },
+        "containerSelector": "#ch-head",
+        "text": "uploaded",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 236,
+          "y": 130.06,
+          "width": 183.36,
+          "height": 49
+        },
+        "firstSeen": 11.667,
+        "lastSeen": 11.667,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.667
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.667,
+        "selector": "#m5",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 88,
+          "top": 258,
+          "right": 678.98,
+          "bottom": 321,
+          "width": 590.98,
+          "height": 63
+        },
+        "containerSelector": "#ch-head",
+        "text": "on it. shorts back in 12h",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 88,
+          "y": 258,
+          "width": 590.98,
+          "height": 63
+        },
+        "firstSeen": 11.667,
+        "lastSeen": 11.667,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.667
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 11.667,
+        "selector": "#m4",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 200,
+          "top": -62,
+          "right": 940,
+          "bottom": 207.66,
+          "width": 740,
+          "height": 269.66
+        },
+        "containerSelector": "#root",
+        "text": "raw_footage.zip 4h 12m · 360 clips uploading… up",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 62
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 200,
+          "y": -62,
+          "width": 740,
+          "height": 269.66
+        },
+        "firstSeen": 11.667,
+        "lastSeen": 11.667,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.667
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 15,
+        "selector": "div.file-meta",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 370,
+          "top": -318.53,
+          "right": 717.48,
+          "bottom": -269.53,
+          "width": 347.48,
+          "height": 49
+        },
+        "containerSelector": "#root",
+        "text": "4h 12m · 360 clips",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 318.53
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 370,
+          "y": -318.53,
+          "width": 347.48,
+          "height": 49
+        },
+        "firstSeen": 15,
+        "lastSeen": 18.333,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          15,
+          18.333
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 15,
+        "selector": "#m4-done",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 236,
+          "top": -218.94,
+          "right": 419.36,
+          "bottom": -169.94,
+          "width": 183.36,
+          "height": 49
+        },
+        "containerSelector": "#root",
+        "text": "uploaded",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 218.94
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 236,
+          "y": -218.94,
+          "width": 183.36,
+          "height": 49
+        },
+        "firstSeen": 15,
+        "lastSeen": 18.333,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          15,
+          18.333
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 15,
+        "selector": "#m5",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 88,
+          "top": -91,
+          "right": 678.98,
+          "bottom": -28,
+          "width": 590.98,
+          "height": 63
+        },
+        "containerSelector": "#root",
+        "text": "on it. shorts back in 12h",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 91
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 88,
+          "y": -91,
+          "width": 590.98,
+          "height": 63
+        },
+        "firstSeen": 15,
+        "lastSeen": 18.333,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          15,
+          18.333
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 15,
+        "selector": "#d1 > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 380.88,
+          "top": 37,
+          "right": 699.13,
+          "bottom": 96,
+          "width": 318.25,
+          "height": 59
+        },
+        "containerSelector": "#ch-head",
+        "text": "11h 48m later",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 380.88,
+          "y": 37,
+          "width": 318.25,
+          "height": 59
+        },
+        "firstSeen": 15,
+        "lastSeen": 15,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 18.333,
+        "selector": "#d1 > span:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 380.88,
+          "top": -247,
+          "right": 699.13,
+          "bottom": -188,
+          "width": 318.25,
+          "height": 59
+        },
+        "containerSelector": "#root",
+        "text": "11h 48m later",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 247
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 380.88,
+          "y": -247,
+          "width": 318.25,
+          "height": 59
+        },
+        "firstSeen": 18.333,
+        "lastSeen": 18.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          18.333
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 18.333,
+        "selector": "#m6",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 88,
+          "top": 295,
+          "right": 723.33,
+          "bottom": 358,
+          "width": 635.33,
+          "height": 63
+        },
+        "containerSelector": "#ch-head",
+        "text": "your shorts pack is ready",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 88,
+          "y": 295,
+          "width": 635.33,
+          "height": 63
+        },
+        "firstSeen": 18.333,
+        "lastSeen": 18.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          18.333
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 18.333,
+        "selector": "#m6",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 50,
+          "top": -142,
+          "right": 822,
+          "bottom": 387.47,
+          "width": 772,
+          "height": 529.47
+        },
+        "containerSelector": "#root",
+        "text": "your shorts pack is ready",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 142
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 50,
+          "y": -142,
+          "width": 772,
+          "height": 529.47
+        },
+        "firstSeen": 18.333,
+        "lastSeen": 18.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          18.333
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 18.333,
+        "selector": "div.shorts > div:nth-of-type(1)",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 88,
+          "top": -114,
+          "right": 308,
+          "bottom": 277,
+          "width": 220,
+          "height": 391
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 114
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 88,
+          "y": -114,
+          "width": 220,
+          "height": 391
+        },
+        "firstSeen": 18.333,
+        "lastSeen": 18.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          18.333
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 18.333,
+        "selector": "div.shorts > div:nth-of-type(2)",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 326,
+          "top": -114,
+          "right": 546,
+          "bottom": 277,
+          "width": 220,
+          "height": 391
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 114
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 326,
+          "y": -114,
+          "width": 220,
+          "height": 391
+        },
+        "firstSeen": 18.333,
+        "lastSeen": 18.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          18.333
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 18.333,
+        "selector": "div.shorts > div:nth-of-type(3)",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 564,
+          "top": -114,
+          "right": 784,
+          "bottom": 277,
+          "width": 220,
+          "height": 391
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 114
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 564,
+          "y": -114,
+          "width": 220,
+          "height": 391
+        },
+        "firstSeen": 18.333,
+        "lastSeen": 18.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          18.333
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 23.799,
+        "selector": "#m10",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 282.29,
+          "top": 382.86,
+          "right": 876.77,
+          "bottom": 441.47,
+          "width": 594.48,
+          "height": 58.61
+        },
+        "containerSelector": "#ch-turn",
+        "text": "can you tighten the intro?",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 282.29,
+          "y": 382.86,
+          "width": 594.48,
+          "height": 58.61
+        },
+        "firstSeen": 23.799,
+        "lastSeen": 23.799,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          23.799
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 23.966,
+        "selector": "#ch-name",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 346.01,
+          "top": 305.11,
+          "right": 496.49,
+          "bottom": 346.38,
+          "width": 150.48,
+          "height": 41.27
+        },
+        "containerSelector": "#ch-turn",
+        "text": "Cutsway",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 346.01,
+          "y": 305.11,
+          "width": 150.48,
+          "height": 41.27
+        },
+        "firstSeen": 23.966,
+        "lastSeen": 23.966,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          23.966
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 23.966,
+        "selector": "#ch-on",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 365.27,
+          "top": 346.38,
+          "right": 445.03,
+          "bottom": 380.09,
+          "width": 79.76,
+          "height": 33.71
+        },
+        "containerSelector": "#ch-turn",
+        "text": "online",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/chat.html",
+        "bbox": {
+          "x": 365.27,
+          "y": 346.38,
+          "width": 79.76,
+          "height": 33.71
+        },
+        "firstSeen": 23.966,
+        "lastSeen": 23.966,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          23.966
+        ]
+      }
+    ],
+    "duration": 30,
+    "samples": [
+      1.667,
+      5,
+      8.333,
+      11.667,
+      15,
+      18.333,
+      21.667,
+      25,
+      28.333
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 23,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.667,
+      8.333,
+      15,
+      21.667,
+      28.333
+    ],
+    "checked": 27,
+    "passed": 27
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 240
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "60499eaa-374b-493b-b721-0cfac1dde145",
+    "revision": "62440e0d-d09b-449f-a391-320ad3c30644",
+    "report": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\videos\\reel-chat\\.hyperframes\\artifacts\\checks\\60499eaa-374b-493b-b721-0cfac1dde145.json",
+    "attribution": "recorded-revision"
+  },
+  "_meta": {
+    "version": "0.8.214",
+    "updateAvailable": false
+  }
+}

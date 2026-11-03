@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Glass C · The Cut</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #efede6;
+    --ink: #0b0a10;
+    --muted: #4a4753;
+    --red: #e32139;
+    --blue: #2136cd;
+    --yellow: #f9e853;
+    --spec: linear-gradient(90deg, #2136cd 0%, #2664f7 6%, #32a9f6 15%, #32d7f6 23%, #c5f9ed 29%, #fbf7c9 35%, #fef78e 41%, #f9e853 47%, #f5b843 53%, #fa7d31 60%, #ef462e 67%, #e32139 74%, #b22546 82%, #6a2444 90%, #2d2844 100%);
+
+    --line: 3px solid var(--ink);
+    --hard: 8px 8px 0 var(--ink);
+    --glass: color-mix(in srgb, #ffffff 40%, transparent);
+    --glass-blur: blur(20px) saturate(1.7);
+
+    --m: clamp(20px, 2.4vw, 36px);
+    --step-small: 0.875rem;
+    --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+    --step-lead: clamp(1.375rem, 1.1rem + 1.1vw, 2.25rem);
+    --step-head: clamp(2.3rem, 1rem + 4.4vw, 5.2rem);
+    --step-giant: clamp(4rem, 16vw, 17rem);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scrollbar-color: var(--ink) var(--ground); }
+  body { margin: 0; font-family: "Archivo", system-ui, sans-serif; font-size: var(--step-body); line-height: 1.45; color: var(--ink); background: var(--ground); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: 0.14; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  ::selection { background: var(--ink); color: var(--yellow); }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; box-shadow: 0 0 0 7px var(--yellow); }
+  a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 3px; }
+  svg { display: block; }
+  .num { font-variant-numeric: tabular-nums; }
+  .display { font-weight: 900; font-stretch: 125%; letter-spacing: -0.04em; line-height: 0.86; text-transform: lowercase; margin: 0; }
+  section { padding: clamp(56px, 7vw, 104px) var(--m); position: relative; overflow-x: clip; }
+
+  .glass { position: relative; z-index: 1; background: var(--glass); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border: var(--line); box-shadow: var(--hard); }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .glass { background: color-mix(in srgb, #ffffff 90%, transparent); } }
+
+  /* a cut piece of the logo bar, lying behind a section's glass */
+  .leak { position: absolute; z-index: 0; height: var(--h, 160px); background: var(--spec); background-size: var(--bs, 100%) 100%; background-position: var(--bp, 0) 0; clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%); pointer-events: none; }
+
+  /* ── nav ── */
+  .nav { position: sticky; top: 0; z-index: 20; display: flex; align-items: stretch; border-bottom: var(--line); background: color-mix(in srgb, var(--ground) 55%, transparent); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); padding-top: env(safe-area-inset-top, 0px); }
+  .nav > * { display: flex; align-items: center; padding: 12px var(--m); }
+  .nav__logo svg { width: clamp(116px, 11vw, 150px); }
+  .nav__links { padding: 0; margin-left: auto; border-left: var(--line); }
+  .nav__links a { height: 100%; display: flex; align-items: center; padding: 0 clamp(14px, 1.8vw, 28px); font-weight: 800; font-size: var(--step-small); text-decoration: none; transition: background-color 120ms, color 120ms; }
+  .nav__links a + a { border-left: var(--line); }
+  .nav__links a:hover { background: var(--ink); color: var(--ground); }
+  .tc { border-left: var(--line); border-right: var(--line); font-weight: 900; font-size: var(--step-small); background: var(--ink); color: var(--yellow); min-width: 9.4em; justify-content: center; }
+
+  .btn { display: inline-flex; align-items: center; padding: 0.9em 1.4em; border: var(--line); background: var(--ink); color: var(--ground); font-weight: 900; font-stretch: 115%; font-size: var(--step-small); text-decoration: none; text-transform: lowercase; box-shadow: 5px 5px 0 var(--red); transition: transform 140ms var(--ease-out), box-shadow 140ms var(--ease-out); }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--red); }
+  .btn:active { transform: translate(5px, 5px); box-shadow: 0 0 0 var(--red); }
+
+  /* ── hero: the bar, cut by scroll, seen through glass ── */
+  .hero { padding-top: clamp(24px, 3vw, 48px); padding-bottom: clamp(56px, 7vw, 104px); }
+  .hero h1 { font-size: var(--step-giant); position: relative; z-index: 1; }
+  .cutbar { --n: 56; display: flex; height: clamp(120px, 22vh, 240px); margin: clamp(20px, 3vw, 40px) calc(var(--m) * -1) 0; clip-path: polygon(0 34%, 100% 0, 100% 66%, 0 100%); }
+  .cutbar i { flex: 1; background: var(--spec); background-size: calc(var(--n) * 100%) 100%; background-position: calc(var(--k) / (var(--n) - 1) * 100%) 0; transform: scaleX(var(--sx, 1)) translateY(var(--ty, 0px)); }
+  .hero__card { width: min(620px, 100%); margin: calc(clamp(120px, 22vh, 240px) * -0.55) 0 0 auto; padding: clamp(20px, 2.4vw, 32px); }
+  .hero__card p { margin: 0 0 24px; font-size: var(--step-lead); line-height: 1.18; font-weight: 700; }
+
+  /* ── turnaround ── */
+  .when .leak { --h: clamp(200px, 30vw, 420px); left: -4vw; right: -4vw; top: 50%; translate: 0 -50%; --bs: 160%; --bp: 30%; }
+  .when .glass { padding: clamp(24px, 3vw, 44px); }
+  .when h2 { font-size: var(--step-head); margin-bottom: 32px; }
+  .sentence { font-size: var(--step-lead); font-weight: 700; line-height: 1.35; max-width: 32ch; margin: 0 0 16px; }
+  .sentence select {
+    font: inherit; color: var(--yellow); background: var(--ink); border: 0; border-radius: 0;
+    padding: 0.05em 1.6em 0.1em 0.5em; cursor: pointer; appearance: none; box-shadow: 4px 4px 0 var(--red);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23f9e853' stroke-width='3' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 0.45em center; background-size: 0.7em;
+  }
+  .due { font-size: clamp(2.6rem, 10vw, 10rem); color: var(--red); white-space: nowrap; }
+  .when small { display: block; margin-top: 20px; color: var(--muted); font-size: var(--step-small); font-weight: 600; }
+
+  /* ── formats ── */
+  .formats { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
+  .formats h2 { font-size: var(--step-head); margin: 0 0 24px; }
+  .formats ul { list-style: none; margin: 0; padding: 0; border-top: var(--line); }
+  .formats li { border-bottom: var(--line); }
+  .formats button {
+    all: unset; cursor: pointer; display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; padding: 10px 12px;
+    font-weight: 900; font-stretch: 125%; letter-spacing: -0.04em; line-height: 1.02; text-transform: lowercase;
+    font-size: clamp(2.2rem, 4.8vw, 5rem); transition: background-color 120ms, color 120ms;
+  }
+  .formats button::after { content: "→"; font-stretch: 100%; font-size: 0.5em; opacity: 0; transition: opacity 150ms, transform 250ms var(--ease-out); transform: translateX(-10px); }
+  .formats button:hover, .formats button:focus-visible, .formats button[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+  .formats button[aria-pressed="true"]::after, .formats button:hover::after { opacity: 1; transform: none; }
+  .preview { position: sticky; top: 100px; }
+  .preview .leak { --h: 70%; left: -14%; right: -24%; top: 10%; --bs: 200%; --bp: var(--lp, 0%); transition: background-position 500ms var(--ease-out); }
+  .preview .glass { padding: 18px; }
+  .preview p { margin: 16px 0 0; font-weight: 600; }
+  .card { container-type: inline-size; position: relative; overflow: hidden; display: grid; align-content: end; padding: 7%; background: var(--c, var(--blue)); color: var(--k, var(--ground)); aspect-ratio: var(--r, 16 / 9); border: var(--line); transition: background-color 300ms; }
+  .card b { font-weight: 900; font-stretch: 125%; text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.88; font-size: var(--fs, 12cqw); }
+  .card .tag { position: absolute; right: 7%; top: 7%; font-size: 0.8125rem; font-weight: 800; }
+  .preview .card { margin-left: auto; }
+
+  /* ── work ── */
+  .work h2 { font-size: var(--step-head); margin-bottom: 32px; }
+  .feature { margin: 0; display: grid; gap: 14px; }
+  .feature .card { aspect-ratio: 21 / 9; --fs: 10cqw; box-shadow: var(--hard); }
+  .feature figcaption { justify-self: start; display: inline-flex; gap: 12px; padding: 6px 10px; border: var(--line); background: var(--ground); font-size: var(--step-small); font-weight: 800; }
+  .feature figcaption em { font-style: normal; font-weight: 600; }
+
+  /* ── faq ── */
+  .faq { display: grid; grid-template-columns: 4fr 8fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .faq h2 { font-size: var(--step-head); }
+  .faq .glass { padding: 0; }
+  .faq details + details { border-top: var(--line); }
+  .faq summary { list-style: none; cursor: pointer; padding: 22px 24px; display: flex; justify-content: space-between; gap: 16px; font-weight: 900; font-stretch: 112%; font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem); line-height: 1.15; transition: background-color 120ms, color 120ms; }
+  .faq summary:hover { background: var(--ink); color: var(--ground); }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary svg { flex: none; width: 22px; transition: transform 260ms var(--ease-out); }
+  .faq details[open] summary svg { transform: rotate(45deg); }
+  .faq details p { margin: 0; padding: 0 24px 24px; max-width: 60ch; font-weight: 500; }
+  .faq .leak { --h: 260px; left: 30%; right: -6vw; top: 40%; --bs: 140%; --bp: 80%; }
+
+  /* ── footer ── */
+  .foot { background: var(--ink); color: var(--ground); padding: clamp(56px, 7vw, 104px) var(--m) calc(56px + env(safe-area-inset-bottom, 0px)); border-top: var(--line); }
+  .foot__slices { display: flex; gap: clamp(6px, 1vw, 14px); height: clamp(60px, 10vw, 140px); margin-bottom: clamp(48px, 7vw, 100px); }
+  .foot__slices i { flex: 1; background: var(--s); border: 3px solid var(--ground); }
+  .foot h2 { font-size: var(--step-giant); }
+  .foot h2 a { text-decoration: none; }
+  .foot h2 a:hover { color: var(--yellow); }
+  .foot p { font-size: var(--step-lead); line-height: 1.25; max-width: 32ch; margin: 28px 0 56px; font-weight: 600; }
+  .foot__row { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-top: 20px; border-top: 3px solid var(--ground); font-size: var(--step-small); font-weight: 700; }
+  .foot__row nav { display: flex; gap: 24px; }
+
+  /* ── motion ── */
+  .js .cutbar i { transform: scaleX(var(--sx, 1)) translateY(var(--ty, 0px)) scaleY(0); transition: transform 700ms var(--ease-out); transition-delay: calc(var(--k) * 14ms + 200ms); }
+  .js .loaded .cutbar i { transform: scaleX(var(--sx, 1)) translateY(var(--ty, 0px)); }
+  .js .loaded .cutbar.settled i { transition-duration: 120ms; transition-delay: 0ms; }
+  .js .hero h1 .ln { display: block; overflow: hidden; padding-bottom: 0.04em; }
+  .js .hero h1 .ln > span { display: block; transform: translateY(105%); transition: transform 1000ms var(--ease-out); transition-delay: calc(var(--i, 0) * 110ms); }
+  .js .loaded .hero h1 .ln > span { transform: none; }
+  .js .rise { opacity: 0; transform: translateY(24px); transition: opacity 650ms var(--ease-out), transform 850ms var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
+  .js .rise.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .cutbar i { transform: none !important; transition: none !important; }
+    .js .hero h1 .ln > span, .js .rise { transform: none !important; transition: opacity 300ms; }
+    html { scroll-behavior: auto; }
+  }
+
+  @media (max-width: 900px) {
+    .nav__links, .tc { display: none; }
+    .hero h1 { font-size: 21vw; }
+    .hero__card { margin-top: -40px; }
+    .formats, .faq { grid-template-columns: 1fr; }
+    .preview { display: none; }
+    .formats button { font-size: 9.6vw; }
+    .due { font-size: 11.5vw; }
+    .formats li p { margin: 0; padding: 0 12px 14px; }
+    .feature .card { aspect-ratio: 4 / 3; --fs: 13cqw; }
+  }
+  @media (min-width: 901px) { .formats li p { display: none; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spec" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#2136cd"/><stop offset=".08" stop-color="#2664f7"/><stop offset=".2" stop-color="#32a9f6"/>
+      <stop offset=".3" stop-color="#32d7f6"/><stop offset=".38" stop-color="#c5f9ed"/><stop offset=".45" stop-color="#fbf7c9"/>
+      <stop offset=".53" stop-color="#fef78e"/><stop offset=".61" stop-color="#f9e853"/><stop offset=".69" stop-color="#f5b843"/>
+      <stop offset=".77" stop-color="#fa7d31"/><stop offset=".87" stop-color="#ef462e"/><stop offset="1" stop-color="#e32139"/>
+    </linearGradient>
+    <clipPath id="barclip"><polygon points="4,58 396,19 396,53 4,92"/></clipPath>
+    <symbol id="logo" viewBox="0 0 400 166">
+      <g clip-path="url(#barclip)">
+        <rect x="4" y="0" width="266" height="100" fill="url(#spec)"/>
+        <rect x="276" y="0" width="7" height="100" fill="#eb1635"/><rect x="289" y="0" width="7" height="100" fill="#d41c40"/>
+        <rect x="302" y="0" width="7" height="100" fill="#b22546"/><rect x="315" y="0" width="7" height="100" fill="#8a2445"/>
+        <rect x="328" y="0" width="7" height="100" fill="#6a2444"/><rect x="341" y="0" width="7" height="100" fill="#52263f"/>
+        <rect x="354" y="0" width="7" height="100" fill="#3f2740"/><rect x="367" y="0" width="7" height="100" fill="#33283f"/>
+        <rect x="380" y="0" width="7" height="100" fill="#2d2844"/>
+      </g>
+      <text x="0" y="146" font-family="Archivo, sans-serif" font-weight="900" font-stretch="125%" font-size="74" letter-spacing="-3" fill="currentColor">cutsway</text>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <a class="nav__logo" href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#logo"/></svg></a>
+  <nav class="nav__links" aria-label="Main"><a href="#when">Turnaround</a><a href="#formats">What we cut</a><a href="#work">Work</a><a href="#faq">FAQ</a></nav>
+  <span class="tc num" id="tc" title="Your scroll, as timecode" aria-hidden="true">00:00:00:00</span>
+  <div><a class="btn" href="#book">book a call</a></div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1">
+    <h1 class="display" id="h1"><span class="ln"><span>we cut</span></span><span class="ln"><span style="--i:1">fast.</span></span></h1>
+    <div class="cutbar" id="cutbar" aria-hidden="true"></div>
+    <div class="glass hero__card rise" style="--i:2">
+      <p>Editing and social media for gaming channels, YouTubers and podcasts.</p>
+      <a class="btn" href="#book">book a call</a>
+    </div>
+  </section>
+
+  <section class="when" id="when" aria-labelledby="when-h">
+    <div class="leak" aria-hidden="true"></div>
+    <div class="glass rise">
+      <h2 class="display" id="when-h">when is it yours?</h2>
+      <p class="sentence">
+        <label for="fmt">If you send</label>
+        <select id="fmt">
+          <option value="8">a thumbnail brief</option>
+          <option value="24">a VOD for shorts</option>
+          <option value="48" selected>a gaming video</option>
+          <option value="72">a podcast episode</option>
+        </select>
+        right now, it's back by
+      </p>
+      <p class="display due num" id="due" aria-live="polite">…</p>
+      <small>Sample turnaround times, counted from your clock. Confirm before launch.</small>
+    </div>
+  </section>
+
+  <section class="formats" id="formats" aria-labelledby="formats-h">
+    <div>
+      <h2 class="display rise" id="formats-h">what we cut</h2>
+      <ul>
+        <li class="rise"><button aria-pressed="true" data-lp="0%" data-c="#2136cd" data-k="#efede6" data-r="16/9" data-t="100 days<br>hardcore" data-d="Hours of gameplay cut to the minutes worth watching, with sound design that makes the clutch land.">gaming videos</button><p>Hours of gameplay cut to the minutes worth watching.</p></li>
+        <li class="rise"><button data-lp="20%" data-c="#32d7f6" data-k="#0b0a10" data-r="16/9" data-t="i quit<br>my job" data-d="Story and retention edits for videos that need people to stay past the first minute.">long-form</button><p>Story and retention edits that keep people past minute one.</p></li>
+        <li class="rise"><button data-lp="85%" data-c="#e32139" data-k="#efede6" data-r="16/9" data-t="ep. 41<br>burnout" data-d="Multi-cam episodes cut clean, plus the clips that bring new listeners in.">podcasts</button><p>Multi-cam episodes cut clean, plus the clips.</p></li>
+        <li class="rise"><button data-lp="48%" data-c="#f9e853" data-k="#0b0a10" data-r="9/16" data-t="1v5<br>clutch" data-d="Vertical cuts with captions, built for the first second of a scroll.">shorts &amp; reels</button><p>Vertical, captioned, built for the first second.</p></li>
+        <li class="rise"><button data-lp="65%" data-c="#fa7d31" data-k="#0b0a10" data-r="16/9" data-t="new map<br>first look" data-d="The image that decides whether anyone sees the edit at all.">thumbnails</button><p>The image that decides whether anyone clicks.</p></li>
+        <li class="rise"><button data-lp="100%" data-c="#0b0a10" data-k="#f9e853" data-r="16/9" data-t="posted<br>9:00 pm" data-d="Scheduling, posting and captions across YouTube, Instagram, TikTok and X.">socials, run</button><p>Scheduled and posted on every platform.</p></li>
+      </ul>
+    </div>
+    <div class="preview" aria-live="polite">
+      <div class="leak" id="pv-leak" aria-hidden="true"></div>
+      <div class="glass">
+        <div class="card" id="pv" style="--c:#2136cd;--k:#efede6"><span class="tag">sample slot</span><b id="pv-t">100 days<br>hardcore</b></div>
+        <p id="pv-d">Hours of gameplay cut to the minutes worth watching, with sound design that makes the clutch land.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work" aria-labelledby="work-h">
+    <h2 class="display rise" id="work-h">the work</h2>
+    <figure class="feature rise">
+      <div class="card" style="--c:#fa7d31;--k:#0b0a10"><b>we lost<br>the raid</b></div>
+      <figcaption>Gaming video, 18 min <em>sample slot: your best edit goes here</em></figcaption>
+    </figure>
+    <p style="margin:36px 0 0"><a class="btn" href="#book">ask for the full reel</a></p>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="leak" aria-hidden="true"></div>
+    <h2 class="display rise" id="faq-h">fair questions</h2>
+    <div class="glass rise">
+      <details><summary>What do I send you?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3.5" fill="none"/></svg></summary><p>The raw recording, your channel link, a past video whose feel you like, and the date it needs to go up.</p></details>
+      <details><summary>Can you work from a stream VOD?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3.5" fill="none"/></svg></summary><p>Yes. One VOD becomes a highlight video and a shorts pack from the same session.</p></details>
+      <details><summary>How many revisions?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3.5" fill="none"/></svg></summary><p>Two rounds on every edit, left as notes on the exact frame. Sample policy, confirm before launch.</p></details>
+      <details><summary>Will you post it for me?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3.5" fill="none"/></svg></summary><p>If you want. We schedule and post with titles and captions written for each platform.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="book" aria-labelledby="book-h">
+  <div class="foot__slices" aria-hidden="true">
+    <i style="--s:#2136cd"></i><i style="--s:#32d7f6"></i><i style="--s:#fbf7c9"></i><i style="--s:#f9e853"></i><i style="--s:#fa7d31"></i><i style="--s:#e32139"></i><i style="--s:#b22546"></i><i style="--s:#6a2444"></i><i style="--s:#2d2844"></i>
+  </div>
+  <h2 class="display" id="book-h"><a href="#book">book<br>a call.</a></h2>
+  <p>Twenty minutes. Bring your channel; we'll tell you what we'd cut first.</p>
+  <div class="foot__row">
+    <span>cutsway.socialmanager@gmail.com · sample address</span>
+    <nav aria-label="Social"><a href="#">YouTube</a><a href="#">Instagram</a><a href="#">X</a><a href="#">Discord</a></nav>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('loaded')));
+  setTimeout(() => document.getElementById('cutbar').classList.add('settled'), 1900);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.rise').forEach(el => io.observe(el));
+
+  // the bar: the right end is already cut (as in the logo); scrolling moves the razor left
+  const bar = document.getElementById('cutbar'), N = 56;
+  bar.innerHTML = Array.from({ length: N }, (_, k) => `<i style="--k:${k}"></i>`).join('');
+  const slices = [...bar.children];
+  function cut(p) {
+    const edge = N * (0.82 - 0.7 * p);
+    slices.forEach((s, k) => {
+      const into = (k - edge) / N;
+      if (into > 0) {
+        s.style.setProperty('--sx', Math.max(0.42, 1 - into * 3).toFixed(3));
+        s.style.setProperty('--ty', reduce ? '0px' : `${(Math.sin(k * 1.7) * 14 * Math.min(1, into * 6)).toFixed(1)}px`);
+      } else { s.style.setProperty('--sx', 1); s.style.setProperty('--ty', '0px'); }
+    });
+  }
+  const tc = document.getElementById('tc'), pad = n => String(n).padStart(2, '0');
+  let ticking = false;
+  addEventListener('scroll', () => {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      const y = scrollY;
+      cut(Math.min(1, y / (innerHeight * 0.9)));
+      const f = Math.round(y), s = Math.floor(f / 30);   // 1px of scroll = 1 frame at 30fps
+      tc.textContent = `00:${pad(Math.floor(s / 60))}:${pad(s % 60)}:${pad(f % 30)}`;
+      ticking = false;
+    });
+  }, { passive: true });
+  cut(0);
+
+  const fmt = document.getElementById('fmt'), due = document.getElementById('due');
+  const when = h => new Date(Date.now() + h * 36e5).toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit' }).toLowerCase();
+  const setDue = () => { due.textContent = when(+fmt.value) + '.'; };
+  fmt.addEventListener('change', setDue); setDue();
+
+  const pv = document.getElementById('pv'), pvt = document.getElementById('pv-t'), pvd = document.getElementById('pv-d'), leak = document.getElementById('pv-leak');
+  document.querySelectorAll('.formats button').forEach(b => {
+    const pick = () => {
+      document.querySelectorAll('.formats button').forEach(x => x.setAttribute('aria-pressed', x === b));
+      pv.style.setProperty('--c', b.dataset.c); pv.style.setProperty('--k', b.dataset.k); pv.style.setProperty('--r', b.dataset.r);
+      pv.style.width = b.dataset.r === '9/16' ? '56%' : '100%';
+      leak.style.setProperty('--lp', b.dataset.lp);
+      pvt.innerHTML = b.dataset.t; pvd.textContent = b.dataset.d;
+    };
+    b.addEventListener('mouseenter', pick); b.addEventListener('focus', pick); b.addEventListener('click', pick);
+  });
+</script>
+</body>
+</html>

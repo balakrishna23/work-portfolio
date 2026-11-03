@@ -1,0 +1,148 @@
+{
+  "review_date": "2026-11-01",
+  "scope": "All Rawpile HTML, CSS, JavaScript, SVG, SEO and hosting configuration read; prototype equality checked after normalizing asset paths; image dimensions and video stream metadata inspected. No production deployment or load test performed.",
+  "file_count": 27,
+  "bytes": 4056892,
+  "files": [
+    {
+      "path": "launch/rawpile/404.html",
+      "bytes": 1173,
+      "sha256": "471d67b40d3bc744efa313152d7573e6eca8d982d2aee075aae1fa627c38bd5d"
+    },
+    {
+      "path": "launch/rawpile/_headers",
+      "bytes": 220,
+      "sha256": "37dd1dce501d44433525c8396ccd69c275fbde1b47ba9313da000af0d98d322d"
+    },
+    {
+      "path": "launch/rawpile/assets/work/raw-frames.jpg",
+      "bytes": 133831,
+      "sha256": "3eb82389f9aba5e6037f909667c2b18b9ef6570351af02daa37768a03c73ca63"
+    },
+    {
+      "path": "launch/rawpile/assets/work/reel-podcast-sm.mp4",
+      "bytes": 1048906,
+      "sha256": "ea37fd30fa770fb7885a80620569103ec8b1925f68c388e7922b92a5a8f90e4d"
+    },
+    {
+      "path": "launch/rawpile/assets/work/reel-podcast.mp4",
+      "bytes": 1950829,
+      "sha256": "49b252d1859c03936a5646581467af478a3b8b969099f2387d61e73f9b826803"
+    },
+    {
+      "path": "launch/rawpile/assets/work/thumb-creator.jpg",
+      "bytes": 64304,
+      "sha256": "91015eb08c92afc1099c2d407c726d6257bde6fec207a74c597219381d6e1d95"
+    },
+    {
+      "path": "launch/rawpile/assets/work/thumb-rawtalks-plain.jpg",
+      "bytes": 113096,
+      "sha256": "74c1c7234ea87b14170442aeaf9270c1c38c28defe71d696940a4be86578032b"
+    },
+    {
+      "path": "launch/rawpile/assets/work/thumb-rawtalks.jpg",
+      "bytes": 111235,
+      "sha256": "3295cb73ff953793e5c4e52dc5739cc4ea28ada1b45d8deda1a8d803460fc807"
+    },
+    {
+      "path": "launch/rawpile/assets/work/thumb-stocks.jpg",
+      "bytes": 120390,
+      "sha256": "5df0ca7489bea1d4723d46e5c43aa4fc9558f47dd38705a0170e96a071fa8cf4"
+    },
+    {
+      "path": "launch/rawpile/assets/work/thumb-wealthy.jpg",
+      "bytes": 87330,
+      "sha256": "6dde93ee86dc15d118107f469c38616e184cbeaca65a4e809cd95778068b8d0f"
+    },
+    {
+      "path": "launch/rawpile/index.html",
+      "bytes": 52558,
+      "sha256": "4a38a96f586e92de133267c7d90d75648d986f8896d750404cc0eadb2cf2c9a5"
+    },
+    {
+      "path": "launch/rawpile/og.jpg",
+      "bytes": 108869,
+      "sha256": "fa058ca8126f5066bd30bf0fc8965daae11a4dc9f3a61be905000495ff5cc954"
+    },
+    {
+      "path": "launch/rawpile/poster.jpg",
+      "bytes": 195977,
+      "sha256": "5cf62e280ffc27e7daf2c3c3ca2150eea6bb10618b69b281b30657fe9ad9627d"
+    },
+    {
+      "path": "launch/rawpile/robots.txt",
+      "bytes": 68,
+      "sha256": "62ede5a7bf146b199e8909831cc3c1e1e58dae3293a36cac05ab9252dfba0c5d"
+    },
+    {
+      "path": "launch/rawpile/shared/apple-touch-icon.png",
+      "bytes": 5637,
+      "sha256": "d02d6d1b550a72d396ba103674ef9fe3ad767d5a7634ddb345ee5bf13d49fc91"
+    },
+    {
+      "path": "launch/rawpile/shared/brand.css",
+      "bytes": 8457,
+      "sha256": "57f7c319eaf08c6701aedce02c535eec3d7208fb3ea6a4cfdfe8028014ca39e2"
+    },
+    {
+      "path": "launch/rawpile/shared/brand.js",
+      "bytes": 6766,
+      "sha256": "d898b9647325aec05d2dc567ff272c9d1b3a146d7788553ac5171bd05c8561f3"
+    },
+    {
+      "path": "launch/rawpile/shared/favicon.svg",
+      "bytes": 1993,
+      "sha256": "534bf1cf66e99cab7f6ad5a19efd851039f8ed0645e7583775cddfc277e84d2c"
+    },
+    {
+      "path": "launch/rawpile/shared/kit.js",
+      "bytes": 10752,
+      "sha256": "7013a50fa0899c89947085f4d747e542c34e2746cff299878bc0e61a0ab10814"
+    },
+    {
+      "path": "launch/rawpile/shared/logo.svg",
+      "bytes": 5354,
+      "sha256": "1221433f74e0dbc5d0cf4556d52a2f71ccb23d4761f1fbe7e081995c8fd1ef45"
+    },
+    {
+      "path": "launch/rawpile/shared/page.css",
+      "bytes": 10288,
+      "sha256": "3645933ffea8e2e4db90790a1f5aa6a9097b7f317f60dc8aa50221cb125d4c05"
+    },
+    {
+      "path": "launch/rawpile/shared/page.js",
+      "bytes": 7252,
+      "sha256": "97e4d287af8142ce786f8a61711912dac95aba9f89614c56abd106db486ca961"
+    },
+    {
+      "path": "launch/rawpile/shared/platforms.js",
+      "bytes": 5723,
+      "sha256": "89261194dd9527ffbe7b4a75dc811296272d9eb35b485dbdc41be1f31ffaa1f8"
+    },
+    {
+      "path": "launch/rawpile/shared/site-config.js",
+      "bytes": 939,
+      "sha256": "453906157b601936c9ee7a402df9b5ab506912e6b46c957b275439023b62174a"
+    },
+    {
+      "path": "launch/rawpile/shared/ui.js",
+      "bytes": 2623,
+      "sha256": "7701e5932b7c87d8cfe20d08d41f8bc1c5ff265d6315d8ee84f4850452f15a21"
+    },
+    {
+      "path": "launch/rawpile/shared/work.js",
+      "bytes": 2164,
+      "sha256": "feb54fc5eb1c37eb09089457997cf9db978d64667ae42dc929f4e5cf70cd38ae"
+    },
+    {
+      "path": "launch/rawpile/sitemap.xml",
+      "bytes": 158,
+      "sha256": "7f6875a818308f1acd3242c10ccf2bac4e262985ace196c0026233f8344dc3ac"
+    }
+  ],
+  "recommendation": "Keep existing static HTML/CSS/JavaScript, three.js r160 and Lenis. Host as Custom HTML; no server runtime or database needed.",
+  "one_year_price_before_tax_inr": 2388,
+  "domain_year_one_inr": 0,
+  "paid_email_addon_inr": 0,
+  "illustrative_total_at_18_percent_gst_inr": 2817.84
+}

@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Prototype B · Splits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #0b0a10;
+    --raise: #16141d;
+    --raise-2: #201d29;
+    --ink: #f2f0e6;
+    --muted: #aaa6b9;
+    --yellow: #f9e853;
+    /* logo bar stops, used flat */
+    --s1: #2664f7; --s2: #32d7f6; --s3: #c5f9ed; --s4: #f9e853; --s5: #fa7d31; --s6: #e32139; --s7: #8a2445;
+
+    --m: clamp(20px, 2.2vw, 32px);
+    --step-small: 0.875rem;
+    --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+    --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+    --step-head: clamp(2.3rem, 1rem + 4.4vw, 5.2rem);
+    --step-giant: clamp(3rem, 10.4vw, 11rem);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scrollbar-color: var(--raise-2) var(--ground); color-scheme: dark; }
+  body { margin: 0; font-family: "Archivo", system-ui, sans-serif; font-size: var(--step-body); line-height: 1.45; color: var(--ink); background: var(--ground); -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--yellow); color: var(--ground); }
+  :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+  a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 2px; }
+  svg { display: block; }
+  .display { font-weight: 900; font-stretch: 125%; letter-spacing: -0.035em; line-height: 0.92; text-transform: lowercase; margin: 0; text-wrap: balance; }
+  section, footer { padding: clamp(72px, 8vw, 120px) var(--m); }
+  .num { font-variant-numeric: tabular-nums; }
+
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: calc(18px + env(safe-area-inset-top, 0px)) var(--m) 18px; }
+  .nav__logo { width: clamp(120px, 12vw, 160px); color: var(--ink); }
+  .nav__links { display: flex; gap: clamp(16px, 2.4vw, 36px); font-weight: 700; font-size: var(--step-small); }
+  .nav__links a { text-decoration: none; color: var(--muted); transition: color 160ms; }
+  .nav__links a:hover { color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; padding: 0.85em 1.4em; border-radius: 999px; background: var(--yellow); color: var(--ground); font-weight: 800; font-stretch: 112%; text-decoration: none; font-size: var(--step-small); transition: transform 240ms var(--ease-out), background-color 160ms; }
+  .btn:hover { transform: translateY(-2px); background: var(--ink); }
+  .btn:active { transform: translateY(1px) scale(0.98); }
+
+  /* ── hero: headline left, live splits right ── */
+  .hero { display: grid; grid-template-columns: 4fr 7fr; gap: clamp(32px, 4vw, 64px) clamp(32px, 5vw, 80px); align-items: end; padding-top: clamp(32px, 4vw, 64px); }
+  .hero h1 { grid-column: 1 / -1; }
+  .hero h1 { font-size: var(--step-giant); }
+  .hero p { font-size: var(--step-lead); line-height: 1.3; max-width: 30ch; margin: 0 0 28px; }
+
+  .timer { background: var(--raise); padding: clamp(20px, 2.4vw, 36px); }
+  .timer__tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+  .tab { border: 0; cursor: pointer; border-radius: 999px; padding: 0.6em 1em; font: 700 var(--step-small)/1 "Archivo", sans-serif; background: var(--raise-2); color: var(--muted); transition: background-color 160ms, color 160ms, transform 200ms var(--ease-out); }
+  .tab:hover { color: var(--ink); }
+  .tab:active { transform: scale(0.97); }
+  .tab[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+  .timer__big { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+  .clock { font-size: clamp(3rem, 7vw, 6.4rem); font-weight: 900; font-stretch: 112%; letter-spacing: -0.03em; line-height: 0.9; }
+  .due { text-align: right; font-weight: 700; color: var(--muted); }
+  .due strong { display: block; color: var(--yellow); font-size: var(--step-lead); font-stretch: 112%; }
+  .rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  .rows li { display: grid; grid-template-columns: 9.5em 1fr 3.4em; gap: 14px; align-items: center; padding: 10px 0; font-weight: 600; font-size: var(--step-small); }
+  .rows .track { height: 14px; background: var(--raise-2); position: relative; overflow: hidden; }
+  .rows .fill { position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--c); transform-origin: left; transition: transform 700ms var(--ease-out); }
+  .rows .t { text-align: right; color: var(--muted); }
+  .rows li.done .t { color: var(--ink); }
+  .rows li.gold .t { color: var(--yellow); }
+  .timer__note { margin: 20px 0 0; font-size: var(--step-small); color: var(--muted); }
+
+  /* ── work ── */
+  .work__head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+  .work__head h2 { font-size: var(--step-head); }
+  .reel { display: grid; grid-template-columns: 7fr 2fr 2fr 2fr; gap: 32px 10px; align-items: start; }
+  .reel figure { margin: 0; display: grid; gap: 10px; }
+  .reel figcaption { display: flex; justify-content: space-between; gap: 8px; font-size: var(--step-small); font-weight: 600; }
+  .reel figcaption em { font-style: normal; color: var(--muted); }
+  .card { container-type: inline-size; position: relative; overflow: hidden; display: grid; align-content: end; padding: 7%; background: var(--c); color: var(--k, var(--ground)); aspect-ratio: var(--r, 16 / 9); transition: transform 400ms var(--ease-out); }
+  .card b { font-weight: 900; font-stretch: 125%; text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.88; font-size: var(--fs, 12cqw); }
+  figure:hover .card { transform: translateY(-6px); }
+
+  /* ── menu table ── */
+  .menu h2 { font-size: var(--step-head); margin-bottom: 40px; }
+  .menu table { width: 100%; border-collapse: collapse; font-size: var(--step-body); }
+  .menu th { text-align: left; font-size: var(--step-small); font-weight: 700; color: var(--muted); padding: 0 16px 14px 0; }
+  .menu td { padding: 22px 16px 22px 0; vertical-align: baseline; border-top: 1px solid var(--raise-2); }
+  .menu td:first-child { font-weight: 900; font-stretch: 125%; font-size: var(--step-lead); letter-spacing: -0.02em; text-transform: lowercase; white-space: nowrap; }
+  .menu td:last-child { text-align: right; font-weight: 800; white-space: nowrap; color: var(--yellow); }
+  .menu th:last-child { text-align: right; }
+  .menu tr { transition: background-color 160ms; }
+  .menu tbody tr:hover { background: var(--raise); }
+
+  /* ── process: the bar, cut in four ── */
+  .process h2 { font-size: var(--step-head); margin-bottom: 48px; }
+  .stages { display: grid; grid-template-columns: 3fr 4fr 2fr 3fr; gap: 10px; list-style: none; margin: 0; padding: 0; }
+  .stages li::before { content: ""; display: block; height: clamp(28px, 4vw, 56px); background: var(--c); margin-bottom: 20px; transform-origin: left; }
+  .stages h3 { font-size: var(--step-lead); font-weight: 900; font-stretch: 125%; letter-spacing: -0.02em; text-transform: lowercase; margin: 0 0 8px; line-height: 1.05; }
+  .stages p { margin: 0; color: var(--muted); max-width: 30ch; }
+
+  /* ── faq ── */
+  .faq { display: grid; grid-template-columns: 4fr 8fr; gap: clamp(32px, 6vw, 96px); }
+  .faq h2 { font-size: var(--step-head); }
+  .qa { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 48px; }
+  .qa h3 { font-size: var(--step-lead); font-weight: 800; font-stretch: 112%; line-height: 1.15; margin: 0 0 10px; }
+  .qa p { margin: 0; color: var(--muted); }
+
+  /* ── close: the one yellow field ── */
+  .close { background: var(--yellow); color: var(--ground); padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px)); }
+  .close h2 { font-size: clamp(3.4rem, 13vw, 14rem); }
+  .close h2 a { text-decoration: none; transition: color 200ms; }
+  .close h2 a:hover { color: var(--s6); }
+  .close p { font-size: var(--step-lead); line-height: 1.3; max-width: 36ch; margin: 24px 0 64px; }
+  .close__row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; font-size: var(--step-small); font-weight: 600; }
+  .close__row nav { display: flex; gap: 24px; }
+
+  /* ── motion ── */
+  .js .rise { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
+  .js .rise.in { opacity: 1; transform: none; }
+  .js .stages li::before { transform: scaleX(0); transition: transform 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 140ms); }
+  .js .stages.in li::before { transform: none; }
+  .js .rows .fill { transform: scaleX(0); }
+  .js .rows li.done .fill { transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .rise, .js .stages li::before, .js .rows .fill { transition: opacity 300ms; transform: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  @media (max-width: 860px) {
+    .nav__links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: 0; }
+    .hero h1 { font-size: 10.6vw; }
+    .reel { grid-template-columns: repeat(3, 1fr); }
+    .reel figure:first-child { grid-column: 1 / -1; }
+    .menu td:nth-child(2), .menu th:nth-child(2) { display: none; }
+    .stages { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+    .faq, .qa { grid-template-columns: 1fr; }
+    .close h2 { font-size: 16vw; }
+  }
+  @media (max-width: 480px) {
+    .rows li { grid-template-columns: 7.5em 1fr 3em; gap: 10px; }
+    .stages { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spec" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#2136cd"/><stop offset=".08" stop-color="#2664f7"/><stop offset=".2" stop-color="#32a9f6"/>
+      <stop offset=".3" stop-color="#32d7f6"/><stop offset=".38" stop-color="#c5f9ed"/><stop offset=".45" stop-color="#fbf7c9"/>
+      <stop offset=".53" stop-color="#fef78e"/><stop offset=".61" stop-color="#f9e853"/><stop offset=".69" stop-color="#f5b843"/>
+      <stop offset=".77" stop-color="#fa7d31"/><stop offset=".87" stop-color="#ef462e"/><stop offset="1" stop-color="#e32139"/>
+    </linearGradient>
+    <clipPath id="barclip"><polygon points="4,58 396,19 396,53 4,92"/></clipPath>
+    <symbol id="logo" viewBox="0 0 400 166">
+      <g clip-path="url(#barclip)">
+        <rect x="4" y="0" width="266" height="100" fill="url(#spec)"/>
+        <rect x="276" y="0" width="7" height="100" fill="#eb1635"/><rect x="289" y="0" width="7" height="100" fill="#d41c40"/>
+        <rect x="302" y="0" width="7" height="100" fill="#b22546"/><rect x="315" y="0" width="7" height="100" fill="#8a2445"/>
+        <rect x="328" y="0" width="7" height="100" fill="#6a2444"/><rect x="341" y="0" width="7" height="100" fill="#52263f"/>
+        <rect x="354" y="0" width="7" height="100" fill="#3f2740"/><rect x="367" y="0" width="7" height="100" fill="#33283f"/>
+        <rect x="380" y="0" width="7" height="100" fill="#2d2844"/>
+      </g>
+      <text x="0" y="146" font-family="Archivo, sans-serif" font-weight="900" font-stretch="125%" font-size="74" letter-spacing="-3" fill="currentColor">cutsway</text>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg class="nav__logo" viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#logo"/></svg></a>
+  <nav class="nav__links" aria-label="Main"><a href="#work">Work</a><a href="#menu">What we cut</a><a href="#how">How it works</a><a href="#faq">FAQ</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1">
+    <h1 class="display" id="h1">back before you respawn.</h1>
+    <div>
+      <p>Cutsway edits gaming videos, podcasts, long-form and shorts, makes the thumbnails and posts them for you. Run the clock and see when yours lands.</p>
+      <a class="btn" href="#book">Book a call</a>
+    </div>
+
+    <div class="timer" data-ui aria-labelledby="timer-h">
+      <h2 id="timer-h" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Turnaround splits</h2>
+      <div class="timer__tabs" role="group" aria-label="What would you send?">
+        <button class="tab" data-f="thumb">Thumbnail</button>
+        <button class="tab" data-f="shorts">Shorts pack</button>
+        <button class="tab" data-f="video" aria-pressed="true">Gaming video</button>
+        <button class="tab" data-f="podcast">Podcast</button>
+      </div>
+      <div class="timer__big" aria-live="polite">
+        <span class="clock num" id="clock">00:00</span>
+        <span class="due">Sent now, it's yours<strong class="num" id="due">…</strong></span>
+      </div>
+      <ol class="rows num" id="rows"></ol>
+      <p class="timer__note">Sample turnaround times. Confirm before launch.</p>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="work__head rise">
+      <h2 class="display" id="work-h">the work</h2>
+    </div>
+    <div class="reel">
+      <figure class="rise"><div class="card" style="--c:var(--s1);--k:var(--ink);--fs:9cqw"><b>100 days<br>hardcore</b></div><figcaption>Gaming video, 18 min <em>sample slot</em></figcaption></figure>
+      <figure class="rise" style="--i:1"><div class="card" style="--c:var(--s4);--r:9/16;--fs:17cqw"><b>1v5<br>clutch</b></div><figcaption>Short <em>sample</em></figcaption></figure>
+      <figure class="rise" style="--i:2"><div class="card" style="--c:var(--s5);--r:9/16;--fs:22cqw"><b>ep. 41</b></div><figcaption>Podcast clip <em>sample</em></figcaption></figure>
+      <figure class="rise" style="--i:3"><div class="card" style="--c:var(--s2);--r:9/16;--fs:22cqw"><b>new<br>map</b></div><figcaption>Short <em>sample</em></figcaption></figure>
+    </div>
+    <p style="margin:32px 0 0;font-weight:700"><a href="#book">Ask for the full reel</a></p>
+  </section>
+
+  <section class="menu" id="menu" aria-labelledby="menu-h">
+    <h2 class="display rise" id="menu-h">what we cut</h2>
+    <table class="rise num">
+      <thead><tr><th scope="col">Format</th><th scope="col">What you get</th><th scope="col">Back in</th></tr></thead>
+      <tbody>
+        <tr><td>gaming video</td><td>Hours of gameplay cut to the minutes worth watching, with sound design, captions and the thumbnail.</td><td>48 h</td></tr>
+        <tr><td>long-form</td><td>Story and retention edit for talking-head and documentary videos.</td><td>72 h</td></tr>
+        <tr><td>podcast</td><td>Multi-cam episode cut clean, plus five vertical clips.</td><td>72 h</td></tr>
+        <tr><td>shorts pack</td><td>Five verticals from one VOD or video, captioned.</td><td>24 h</td></tr>
+        <tr><td>thumbnail</td><td>Three concepts, one final, sized for every platform.</td><td>8 h</td></tr>
+        <tr><td>socials, run</td><td>Scheduling, posting and captions on YouTube, Instagram, TikTok and X.</td><td>Monthly</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="process" id="how" aria-labelledby="how-h">
+    <h2 class="display rise" id="how-h">how a cut happens</h2>
+    <ol class="stages rise">
+      <li style="--c:var(--s1);--i:0"><h3>you drop the files</h3><p>A Drive or Dropbox link to the raw recording or the VOD.</p></li>
+      <li style="--c:var(--s3);--i:1"><h3>we cut it</h3><p>Edit, captions, sound and thumbnail, made together so they tell one story.</p></li>
+      <li style="--c:var(--s5);--i:2"><h3>you leave notes</h3><p>On the exact frame. Two rounds included.</p></li>
+      <li style="--c:var(--s6);--i:3"><h3>it goes live</h3><p>Delivered ready to upload, or posted for you.</p></li>
+    </ol>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <h2 class="display rise" id="faq-h">fair questions</h2>
+    <div class="qa">
+      <div class="rise"><h3>What do I send you?</h3><p>The raw recording, your channel link, a past video whose feel you like, and the date it needs to go up.</p></div>
+      <div class="rise" style="--i:1"><h3>Can you work from a stream VOD?</h3><p>Yes. One VOD becomes a highlight video and a shorts pack from the same session.</p></div>
+      <div class="rise" style="--i:2"><h3>How many revisions?</h3><p>Two rounds on every edit, left as notes on the frame. Sample policy, confirm before launch.</p></div>
+      <div class="rise" style="--i:3"><h3>Will you post it too?</h3><p>If you want. We schedule and post with titles and captions written for each platform.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="close" id="book" aria-labelledby="book-h">
+  <h2 class="display" id="book-h"><a href="#book">book a call.</a></h2>
+  <p>Twenty minutes. Bring your channel; we'll tell you what we'd cut first.</p>
+  <div class="close__row">
+    <span>cutsway.socialmanager@gmail.com · sample address</span>
+    <nav aria-label="Social"><a href="#">YouTube</a><a href="#">Instagram</a><a href="#">X</a><a href="#">Discord</a></nav>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+  document.querySelectorAll('.rise').forEach(el => io.observe(el));
+
+  // sample turnarounds: confirm before launch
+  const F = {
+    thumb:   [['Brief in', 0], ['Three concepts', 3], ['Your pick', 5], ['Final art', 8]],
+    shorts:  [['VOD in', 0], ['Moments picked', 4], ['Cut + captions', 16], ['Your notes', 20], ['Delivered', 24]],
+    video:   [['Raw in', 0], ['Rough cut', 20], ['Your notes', 28], ['Final + thumb', 44], ['Delivered', 48]],
+    podcast: [['Recording in', 0], ['Episode cut', 30], ['Your notes', 40], ['Clips + thumb', 64], ['Delivered', 72]],
+  };
+  const C = ['var(--s1)', 'var(--s2)', 'var(--s4)', 'var(--s5)', 'var(--s6)'];
+  const when = h => new Date(Date.now() + h * 36e5).toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+  const pad = n => String(n).padStart(2, '0');
+  let run = 0;
+
+  function show(k) {
+    const s = F[k], total = s[s.length - 1][1], id = ++run;
+    document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-pressed', t.dataset.f === k));
+    document.getElementById('due').textContent = when(total);
+    const rows = document.getElementById('rows');
+    rows.innerHTML = s.map(([n, h], i) => `<li${i === s.length - 1 ? ' class="gold"' : ''}><span>${n}</span><span class="track"><span class="fill" style="--w:${Math.max(4, h / total * 100)}%;--c:${C[i % C.length]}"></span></span><span class="t">${pad(h)}:00</span></li>`).join('');
+    const lis = [...rows.children], clock = document.getElementById('clock');
+    if (reduce) { lis.forEach(l => l.classList.add('done')); clock.textContent = `${pad(total)}:00`; return; }
+    // the run: the clock races through the splits in 1.6s, each split lands as the clock passes it
+    const dur = 1600, t0 = performance.now();
+    (function tick(now) {
+      if (id !== run) return;
+      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3), h = e * total;
+      clock.textContent = `${pad(Math.floor(h))}:${pad(Math.floor((h % 1) * 60))}`;
+      s.forEach(([, sh], i) => { if (h >= sh) lis[i].classList.add('done'); });
+      if (p < 1) requestAnimationFrame(tick); else clock.textContent = `${pad(total)}:00`;
+    })(t0);
+  }
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => show(t.dataset.f)));
+  show('video');
+</script>
+</body>
+</html>

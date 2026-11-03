@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bangers&display=swap" rel="stylesheet">
+<style>
+  :root { --paper: #fbf8f1; --ink: #0b0908; --red: #ee1240; --gold: #ffc72e; --m: clamp(12px, 2.4vw, 36px); --gut: clamp(8px, 1vw, 14px); }
+  * { box-sizing: border-box; }
+  html { background: var(--paper); color: var(--ink); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .sfx { font-family: Bangers, Impact, sans-serif; font-weight: 400; letter-spacing: .02em; line-height: .9; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 14px var(--m); }
+  .nav svg { width: 110px; height: 46px; display: block; }
+  .nav nav { display: flex; gap: 24px; font-weight: 800; }
+  .nav nav a { text-decoration: none; } .nav nav a:hover { color: var(--red); }
+  .btn { display: inline-flex; padding: 12px 20px; background: var(--red); color: #fff; font-family: Bangers, Impact, sans-serif; font-size: 24px; letter-spacing: .04em; text-decoration: none; border: 3px solid var(--ink); transform: rotate(-2deg); transition: transform .15s; }
+  .btn:hover { transform: rotate(0) scale(1.05); } .btn:active { transform: scale(.96); }
+  a:focus-visible, select:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+  .page { padding: 0 var(--m); display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: minmax(0, auto); gap: var(--gut); }
+  .p { position: relative; overflow: hidden; background: var(--paper); outline: 4px solid var(--ink); outline-offset: -4px; min-height: 220px; }
+  .p img, .p canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tone img { filter: grayscale(1) contrast(1.6) brightness(1.05); mix-blend-mode: multiply; }
+  .tone::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(var(--ink) 28%, transparent 30%); background-size: 6px 6px; opacity: .22; mix-blend-mode: multiply; pointer-events: none; }
+  .speed { position: absolute; inset: 0; pointer-events: none; }
+  .cap { position: absolute; left: 4px; top: 4px; background: var(--paper); padding: 8px 12px; font-weight: 800; font-size: 16px; border-right: 4px solid var(--ink); border-bottom: 4px solid var(--ink); z-index: 2; font-variant-numeric: tabular-nums; }
+  .bub { position: absolute; z-index: 2; background: #fff; border: 3px solid var(--ink); border-radius: 50%; padding: 18px 22px; font-weight: 800; font-size: clamp(15px, 1.2vw, 18px); text-align: center; line-height: 1.2; max-width: 240px; }
+  .bub::after { content: ""; position: absolute; width: 22px; height: 22px; background: #fff; border-right: 3px solid var(--ink); border-bottom: 3px solid var(--ink); transform: rotate(45deg) skew(12deg, 12deg); bottom: -12px; left: 34%; }
+
+  .p1 { grid-column: 1 / span 7; grid-row: span 2; min-height: 520px; background: var(--ink); color: var(--paper); padding: clamp(20px, 3vw, 44px); display: flex; flex-direction: column; justify-content: flex-end; }
+  .p1 h1 { position: relative; z-index: 2; margin: 0; font-size: clamp(4.4rem, 9.6vw, 11rem); color: var(--paper); }
+  .p1 h1 span { color: var(--gold); }
+  .p1 p { position: relative; z-index: 2; margin: 18px 0 20px; font-size: 20px; max-width: 32ch; font-weight: 600; }
+  .p1 .row { position: relative; z-index: 2; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .p1 label { font-weight: 800; font-size: 16px; }
+  .p1 select { font: inherit; font-weight: 800; font-size: 18px; padding: 10px 12px; background: var(--paper); color: var(--ink); border: 3px solid var(--gold); }
+  .p2 { grid-column: 8 / span 5; min-height: 250px; }
+  .p3 { grid-column: 8 / span 5; min-height: 250px; }
+  .p4 { grid-column: 1 / span 4; min-height: 340px; background: var(--red); }
+  .p4 .sfx { position: absolute; inset: 0; display: grid; place-items: center; font-size: clamp(5rem, 10vw, 10rem); color: var(--gold); -webkit-text-stroke: 3px var(--ink); transform: rotate(-8deg); z-index: 2; }
+  .p5 { grid-column: 5 / span 8; min-height: 340px; }
+  .p6 { grid-column: 1 / span 5; min-height: 300px; }
+  .p7 { grid-column: 6 / span 7; min-height: 300px; background: var(--gold); padding: clamp(20px, 3vw, 40px); display: flex; flex-direction: column; justify-content: center; }
+  .p7 h2 { margin: 0 0 10px; font-size: clamp(3rem, 6vw, 6rem); }
+  .p7 p { margin: 0 0 20px; font-size: 20px; max-width: 36ch; font-weight: 600; }
+
+  section { padding: clamp(120px, 12vw, 180px) var(--m) 0; }
+  h2.title { margin: 0 0 28px; font-size: clamp(3.4rem, 7vw, 7.6rem); }
+  .cast { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gut); }
+  .cast > div { outline: 4px solid var(--ink); outline-offset: -4px; padding: 22px; }
+  .cast > div:nth-child(2) { background: var(--ink); color: var(--paper); }
+  .cast > div:nth-child(4) { background: var(--gold); }
+  .cast b { display: block; font-family: Bangers, Impact; font-size: 3.4rem; line-height: 1; font-weight: 400; color: var(--red); }
+  .cast h3 { margin: 6px 0 6px; font-size: 22px; } .cast p { margin: 0; }
+  .qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gut); }
+  .qa > div { outline: 4px solid var(--ink); outline-offset: -4px; padding: 24px; display: grid; gap: 14px; }
+  .qa .q { justify-self: start; background: #fff; border: 3px solid var(--ink); border-radius: 26px; padding: 10px 18px; font-weight: 800; font-size: 19px; }
+  .qa .a { justify-self: end; background: var(--ink); color: var(--paper); border-radius: 26px; padding: 12px 18px; max-width: 46ch; }
+  footer { padding: clamp(120px, 12vw, 180px) var(--m) 28px; }
+  .end { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 24px; }
+  .end .sfx { font-size: clamp(6rem, 18vw, 20rem); margin: 0; color: var(--red); -webkit-text-stroke: 4px var(--ink); }
+  .credits { font-size: 13px; margin-top: 24px; max-width: 90ch; }
+  @media (max-width: 860px) {
+    .nav nav { display: none; }
+    .page > * { grid-column: 1 / -1 !important; grid-row: auto !important; }
+    .p1 { min-height: 0; padding-top: 80px; }
+    .cast, .qa { grid-template-columns: 1fr 1fr; } .qa { grid-template-columns: 1fr; }
+    .end { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#cast">The cast</a><a href="#faq">Questions</a></nav>
+  <a class="btn" href="#book">Book a call!</a>
+</header>
+
+<main id="top">
+  <div class="page" aria-label="One night, told as a comic">
+    <div class="p p1">
+      <svg class="speed" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" id="speed"></svg>
+      <h1 class="sfx">You log off.<br><span>We cut.</span></h1>
+      <p>Cutsway edits gaming videos, streams, shorts and podcasts overnight, so the clips are up before you are.</p>
+      <div class="row"><label for="end">My stream ends at</label><select id="end"><option value="21">9 pm</option><option value="22">10 pm</option><option value="23" selected>11 pm</option><option value="24">midnight</option><option value="25">1 am</option><option value="26">2 am</option></select></div>
+    </div>
+    <div class="p p2 tone"><img src="../_shared/img/pad-ps5.jpg" alt="Hands on a controller at the end of a session"><span class="cap" data-at="0">11:00 PM. GG, chat.</span></div>
+    <div class="p p3"><canvas width="640" height="360" data-k="chat" aria-hidden="true"></canvas><span class="cap" data-at="0.4">11:24 PM. The VOD lands.</span><div class="bub" style="right:6%;bottom:12%">6 hours. 41 good minutes in there somewhere.</div></div>
+    <div class="p p4"><svg class="speed" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" data-burst></svg><span class="sfx">SHHK!</span><span class="cap" data-at="2">1:00 AM. Dead air: gone.</span></div>
+    <div class="p p5 tone"><img src="../_shared/img/podcave.jpg" alt="An editor's desk with a mixer and a monitor showing a waveform"><span class="cap" data-at="4.5">3:30 AM. Captions, sound, the zoom on the clutch.</span><div class="bub" style="left:52%;top:16%">Keeping the bit where he screams.</div></div>
+    <div class="p p6"><canvas width="640" height="480" data-k="race" aria-hidden="true"></canvas><span class="cap" data-at="8">7:00 AM. Ten shorts, scheduled.</span></div>
+    <div class="p p7">
+      <span class="cap" data-at="9.5" style="position:static;align-self:flex-start;margin-bottom:16px">8:30 AM. You wake up.</span>
+      <h2 class="sfx">"How is this already up?"</h2>
+      <p>That's the whole idea. One editor who knows your channel, working while you sleep.</p>
+      <a class="btn" href="#book" style="align-self:flex-start">Book a call!</a>
+    </div>
+  </div>
+
+  <section id="cast" aria-labelledby="cast-h">
+    <h2 class="title sfx" id="cast-h" data-rise>The cast</h2>
+    <div class="cast" data-rise="kids">
+      <div><b>8h</b><h3>Thumbnails</h3><p>Three options per video, read at feed size.</p></div>
+      <div><b style="color:var(--gold)">24h</b><h3>Shorts packs</h3><p>Ten vertical clips, reframed and captioned.</p></div>
+      <div><b>48h</b><h3>Gaming videos &amp; VODs</h3><p>Story, pacing, captions, sound design.</p></div>
+      <div><b style="color:var(--ink)">72h</b><h3>Podcasts</h3><p>Clean episode and six clips.</p></div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 class="title sfx" id="faq-h" data-rise>Questions!</h2>
+    <div class="qa" data-rise="kids">
+      <div><span class="q">What do I send?</span><span class="a">The whole VOD. Finding the 41 good minutes is our job.</span></div>
+      <div><span class="q">Do you actually work overnight?</span><span class="a">Your editor's day starts when your stream ends. That's how the times work.</span></div>
+      <div><span class="q">Can I change things?</span><span class="a">Two rounds of notes per edit, left on the exact frame.</span></div>
+      <div><span class="q">Are those times promised?</span><span class="a">They're samples. Yours are confirmed on the call.</span></div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <div class="end"><p class="sfx">The end?</p><a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call!</a></div>
+  <p class="credits">Photographs: InclusiveGameLab person with PS5 controller, CC BY-SA 4.0; The Podcave home studio, CC BY 2.0, Wikimedia Commons. Gameplay panels are drawn. The story and times are samples.</p>
+</footer>
+
+<script src="../_shared/frames.js"></script>
+<script src="../_shared/brand.js"></script>
+<script>
+  // speed lines and bursts
+  function lines(svg, burst) { let h = ''; for (let i = 0; i < 70; i++) { const a = i / 70 * Math.PI * 2, r0 = burst ? 8 + (i % 3) * 6 : 30 + (i % 5) * 4; const x1 = 50 + Math.cos(a) * r0, y1 = 50 + Math.sin(a) * r0;
+    h += `<path d="M${x1.toFixed(1)} ${y1.toFixed(1)} L${(50 + Math.cos(a - .015) * 90).toFixed(1)} ${(50 + Math.sin(a - .015) * 90).toFixed(1)} L${(50 + Math.cos(a + .015) * 90).toFixed(1)} ${(50 + Math.sin(a + .015) * 90).toFixed(1)}Z" fill="${burst ? '#0b0908' : '#2a2421'}"/>`; } svg.innerHTML = h; }
+  lines(document.getElementById('speed'), false); lines(document.querySelector('[data-burst]'), true);
+  // the timestamps follow your stream's end
+  const caps = [...document.querySelectorAll('.cap[data-at]')], texts = caps.map(c => c.textContent.replace(/^[^.]+\.\s*/, ''));
+  function fmt(h) { const H = Math.floor(h) % 24, M = Math.round((h % 1) * 60); const ap = H < 12 ? 'AM' : 'PM'; return `${((H + 11) % 12) + 1}:${String(M).padStart(2, '0')} ${ap}`; }
+  function retime() { const e = +document.getElementById('end').value; caps.forEach((c, i) => c.textContent = `${fmt(e + +c.dataset.at)}. ${texts[i]}`); }
+  document.getElementById('end').addEventListener('change', retime); retime();
+  const cvs = [...document.querySelectorAll('.p canvas')];
+  (function loop(t) { cvs.forEach((c, i) => CutFrames.draw(c.getContext('2d'), c.width, c.height, c.dataset.k, i + 4, Cutsway.reduce ? 2 : t / 1000)); requestAnimationFrame(loop); })(0);
+</script>
+</body>
+</html>

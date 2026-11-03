@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Selects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+  :root { --paper: #efe8dc; --sheet: #e4dccd; --ink: #120d0a; --soft: #4a3f37; --red: #e3172f; --m: clamp(16px, 3vw, 48px); }
+  * { box-sizing: border-box; }
+  html { background: var(--paper); color: var(--ink); }
+  body { margin: 0; overflow-x: clip; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  ::selection { background: var(--red); color: var(--paper); }
+  .num { font-variant-numeric: tabular-nums; }
+  .hand { font-family: "Permanent Marker", cursive; color: var(--red); font-weight: 400; }
+  h1, h2, .display { font-weight: 900; font-stretch: 112%; letter-spacing: -0.045em; line-height: .9; text-transform: lowercase; margin: 0; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px var(--m); }
+  .nav svg { width: 118px; height: 49px; display: block; }
+  .nav nav { display: flex; gap: 26px; font-weight: 600; font-size: 16px; }
+  .nav nav a { text-decoration: none; }
+  .nav nav a:hover { color: var(--red); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 800; text-decoration: none; border: 0; font: inherit; font-weight: 800; cursor: pointer; transition: transform .25s cubic-bezier(.16,1,.3,1), background .2s; }
+  .btn:hover { background: var(--red); transform: translateY(-2px); }
+  .btn:active { transform: scale(.97); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+  .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 3vw, 48px); padding: clamp(24px, 4vw, 56px) var(--m) 0; align-items: start; }
+  h1 { font-size: clamp(3.4rem, 10.4vw, 11rem); margin-bottom: 12px; }
+  .lede { font-size: 20px; max-width: 30ch; margin: 0 0 28px; }
+  .tally { margin-top: 44px; background: var(--ink); color: var(--paper); padding: 22px 24px; }
+  .tally p { margin: 0; font-size: 16px; }
+  .tally b { display: block; font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 900; font-stretch: 125%; letter-spacing: -0.04em; line-height: 1; margin: 6px 0; }
+  .tally b span { color: #ffc72e; }
+  .tally .hand { color: #ffc72e; font-size: 20px; }
+
+  .sheet { background: var(--sheet); padding: clamp(14px, 1.6vw, 24px); }
+  .sheet__head { display: flex; justify-content: space-between; font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--soft); }
+  .frames { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px 8px; margin: 0; padding: 0; list-style: none; }
+  .frames button { all: unset; cursor: pointer; display: block; position: relative; }
+  .frames canvas { display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; transition: transform .25s cubic-bezier(.16,1,.3,1), filter .25s; }
+  .frames button:hover canvas { transform: scale(1.04); }
+  .frames button:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+  .frames small { display: block; font-size: 13px; color: var(--soft); margin-top: 3px; }
+  .frames svg { position: absolute; left: -12%; top: -22%; width: 124%; height: 140%; pointer-events: none; overflow: visible; }
+  .frames path { fill: none; stroke: var(--red); stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: 400; stroke-dashoffset: 400; transition: stroke-dashoffset .5s cubic-bezier(.65,0,.35,1); }
+  .frames [aria-pressed="true"] path { stroke-dashoffset: 0; }
+  .frames [aria-pressed="false"] canvas { filter: saturate(.25) brightness(.8); }
+  .sheet__foot { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; gap: 12px; flex-wrap: wrap; }
+  .sheet__foot .hand { font-size: 22px; }
+
+  .reel { margin: clamp(48px, 6vw, 96px) var(--m) 0; background: var(--ink); padding: 18px; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 18px; align-items: center; }
+  .reel canvas { width: 100%; aspect-ratio: 16 / 9; display: block; }
+  .reel p { color: var(--paper); margin: 0; font-size: 17px; }
+  .reel b { display: block; color: #ffc72e; font-size: 2.6rem; font-weight: 900; font-stretch: 125%; letter-spacing: -.04em; line-height: 1; margin-bottom: 8px; }
+
+  section { padding: clamp(120px, 13vw, 200px) var(--m) 0; }
+  h2 { font-size: clamp(3rem, 6.4vw, 6.4rem); margin-bottom: 40px; }
+
+  .rows { margin: 0; padding: 0; list-style: none; }
+  .rows li { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr); gap: clamp(16px, 3vw, 48px); padding: 28px 0; align-items: center; }
+  .rows li:nth-child(odd) { background: var(--sheet); margin: 0 calc(var(--m) * -1); padding-left: var(--m); padding-right: var(--m); }
+  .rows h3 { margin: 0; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; font-stretch: 112%; letter-spacing: -.04em; line-height: 1; text-transform: lowercase; }
+  .rows p { margin: 0; }
+  .strip { display: flex; gap: 6px; }
+  .strip canvas { flex: 1; min-width: 0; aspect-ratio: 16/9; display: block; }
+  .strip--v canvas { aspect-ratio: 9/16; }
+
+  .desk { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(24px, 3vw, 48px); align-items: end; }
+  .desk img { width: 100%; display: block; aspect-ratio: 4 / 3; object-fit: cover; }
+  .desk__side { display: grid; gap: 18px; }
+  .desk__side img { aspect-ratio: 3 / 2; }
+  .desk__side p { margin: 0; font-size: 20px; }
+  figcaption { font-size: 15px; color: var(--soft); margin-top: 8px; }
+  figure { margin: 0; }
+
+  .faq { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 3vw, 48px); }
+  .qa { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 32px; }
+  .qa h3 { margin: 0 0 8px; font-size: 22px; font-weight: 800; }
+  .qa p { margin: 0; }
+
+  footer { padding: clamp(120px, 13vw, 200px) var(--m) 28px; }
+  .foot { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+  .foot h2 { margin: 0; }
+  .credits { font-size: 13px; color: var(--soft); margin-top: 48px; max-width: 90ch; }
+
+  @media (max-width: 900px) {
+    .nav nav { display: none; }
+    .hero, .desk, .faq { grid-template-columns: 1fr; }
+    .frames { grid-template-columns: repeat(4, 1fr); }
+    .frames li:nth-child(n+21) { display: none; }
+    .reel { grid-template-columns: 1fr; }
+    .rows li { grid-template-columns: 1fr; gap: 12px; }
+    .qa { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#cuts">What we cut</a><a href="#desk">The desk</a><a href="#faq">Questions</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <h1 style="grid-column:1/-1">we keep the good part.</h1>
+    <div>
+      <p class="lede">Cutsway edits gaming videos, streams, shorts and podcasts. Four hours of footage in, the twelve minutes worth watching out.</p>
+      <a class="btn" href="#book">Book a call</a>
+      <div class="tally" aria-live="polite">
+        <p><span class="hand">your cut so far</span></p>
+        <b class="num" id="run">0:00 <span>/ 4:12:00</span></b>
+        <p id="sel">Circle the frames you would keep.</p>
+      </div>
+    </div>
+    <div class="sheet">
+      <div class="sheet__head"><span>raw_session_0412.mp4 · 30 frames</span><span>tap to keep</span></div>
+      <ul class="frames" id="frames"></ul>
+      <div class="sheet__foot"><span class="hand">circled = kept</span><button class="btn" id="play" type="button">Play my cut</button></div>
+    </div>
+  </div>
+
+  <div class="reel" id="reel" data-rise>
+    <canvas id="reel-c" width="960" height="540" aria-label="Your selected frames played in sequence"></canvas>
+    <p><b class="num" id="reel-n">0 shots</b>This is roughly what we do, a few hundred times per video, at the speed your upload schedule needs.</p>
+  </div>
+
+  <section id="cuts" aria-labelledby="cuts-h">
+    <h2 id="cuts-h" data-rise>what comes off the sheet</h2>
+    <ul class="rows">
+      <li data-rise="kids"><h3>gaming videos</h3><div class="strip" data-kinds="fps,boss,map,race"></div><p>Story, pacing, captions and sound design. Back in 48 hours.</p></li>
+      <li data-rise="kids"><h3>shorts &amp; reels</h3><div class="strip strip--v" data-kinds="race,platform,boss,fps,chat,menu"></div><p>Ten vertical clips from one session, captioned for the first second. 24 hours.</p></li>
+      <li data-rise="kids"><h3>stream VODs</h3><div class="strip" data-kinds="chat,chat,fps,menu"></div><p>Eight hours live becomes one highlight video and a shorts pack. 48 hours.</p></li>
+      <li data-rise="kids"><h3>podcasts</h3><div class="strip" data-kinds="podcast,podcast,podcast,podcast"></div><p>Three mics, two cameras, one clean episode and six clips. 72 hours.</p></li>
+      <li data-rise="kids"><h3>thumbnails</h3><div class="strip" data-kinds="boss,platform,race"></div><p>Three options with every edit, made alongside it. Alone, 8 hours.</p></li>
+    </ul>
+  </section>
+
+  <section id="desk" aria-labelledby="desk-h">
+    <h2 id="desk-h" data-rise>one editor, your channel</h2>
+    <div class="desk">
+      <figure data-rise><img src="../_shared/img/podcave.jpg" alt="An editing desk with a mixer, a monitor showing a waveform and a laptop"><figcaption>Your editor learns your last ten uploads before cutting the next one.</figcaption></figure>
+      <div class="desk__side" data-rise="kids">
+        <figure><img src="../_shared/img/mic-2.jpg" alt="Podcast microphones around a round table"></figure>
+        <p>Notes go on the exact frame. Two rounds of changes come with every edit, and you keep the same editor from one upload to the next.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <div class="faq">
+      <div><h2 id="faq-h" data-rise>fair questions</h2><figure data-rise><img src="../_shared/img/stage-3.jpg" alt="Two creators talking on a sofa at a gaming event" style="width:100%;display:block;aspect-ratio:4/3;object-fit:cover"></figure></div>
+      <div class="qa" data-rise="kids">
+        <div><h3>What do I send?</h3><p>The whole raw pile. VODs, recordings, the clips you are not sure about. Choosing is our job.</p></div>
+        <div><h3>Who picks what stays?</h3><p>We do the first pass, you have the final word. Anything we cut can come back in a revision.</p></div>
+        <div><h3>How fast, really?</h3><p>Thumbnails in 8 hours, shorts in 24, videos in 48, podcasts in 72. Sample times, confirmed when you book.</p></div>
+        <div><h3>Do you post it too?</h3><p>If you want. Titles, captions and a schedule for YouTube, TikTok, Instagram and X.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <div class="foot">
+    <h2 style="font-size:clamp(3.4rem,11vw,12rem)">send the pile.</h2>
+    <a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a>
+  </div>
+  <p class="credits">Photographs: The Podcave home studio, CC BY 2.0; SPNN podcast studio, CC BY 4.0, Wikimedia Commons; gaming event photo by Flickr user 23979265@N07, CC BY 2.0. Gameplay frames are drawn samples. Turnaround times are samples.</p>
+</footer>
+
+<script src="../_shared/frames.js"></script>
+<script src="../_shared/brand.js"></script>
+<script>
+  const KINDS = ['fps','race','platform','boss','chat','map','menu','podcast'];
+  const list = document.getElementById('frames'), runEl = document.getElementById('run'), selEl = document.getElementById('sel');
+  const frames = [];
+  const wobble = (s) => { let r = s * 13.7; const R = () => (r = (r * 9301 + 49297) % 233280) / 233280;
+    const p = []; for (let i = 0; i <= 14; i++) { const a = -0.4 + i / 13 * Math.PI * 2.08; const rx = 46 + R() * 6, ry = 36 + R() * 5; p.push([50 + Math.cos(a) * rx, 50 + Math.sin(a) * ry]); }
+    return 'M' + p.map(q => q.map(v => v.toFixed(1)).join(' ')).join(' L'); };
+  for (let i = 0; i < 30; i++) {
+    const kind = KINDS[(i * 7 + (i * i) % 5 + (i >> 3)) % KINDS.length], sec = 120 + i * 491 + (i % 3) * 37;
+    const li = document.createElement('li');
+    const tc = `${Math.floor(sec / 3600)}:${String(Math.floor(sec / 60) % 60).padStart(2, '0')}:${String(sec % 60).padStart(2, '0')}`;
+    const keep = [2, 7, 11, 16, 23].includes(i);
+    li.innerHTML = `<button type="button" aria-pressed="${keep}" aria-label="Frame at ${tc}, ${kind}"><canvas width="192" height="108"></canvas><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="${wobble(i + 1)}"/></svg><small class="num">${tc}</small></button>`;
+    list.appendChild(li);
+    const c = li.querySelector('canvas'); CutFrames.draw(c.getContext('2d'), 192, 108, kind, i + 3, i * 1.7);
+    frames.push({ kind, seed: i + 3, t: i * 1.7, len: 4 + (i * 7) % 13, btn: li.querySelector('button') });
+  }
+  function tally() {
+    const kept = frames.filter(f => f.btn.getAttribute('aria-pressed') === 'true');
+    const s = kept.reduce((a, f) => a + f.len, 0);
+    runEl.innerHTML = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')} <span>/ 4:12:00</span>`;
+    selEl.textContent = kept.length ? `${kept.length} shots kept, ${frames.length - kept.length} cut.` : 'Circle the frames you would keep.';
+    return kept;
+  }
+  list.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true'); tally(); });
+  tally();
+
+  // the reel plays the kept frames as a cut
+  const rc = document.getElementById('reel-c'), rx = rc.getContext('2d'), rn = document.getElementById('reel-n');
+  let playing = [], idx = 0, t0 = 0;
+  function play() { playing = tally(); if (!playing.length) playing = frames.slice(0, 4); idx = 0; t0 = performance.now(); rn.textContent = playing.length + ' shots'; }
+  document.getElementById('play').addEventListener('click', () => { play(); document.getElementById('reel').scrollIntoView({ behavior: Cutsway.reduce ? 'auto' : 'smooth', block: 'center' }); });
+  play();
+  (function loop(now) {
+    const f = playing[idx % playing.length], el = (now - t0) / 1000;
+    CutFrames.draw(rx, 960, 540, f.kind, f.seed, f.t + (Cutsway.reduce ? 0 : el));
+    if (el > 1.4) { idx++; t0 = now; rx.fillStyle = '#fff'; }
+    requestAnimationFrame(loop);
+  })(performance.now());
+
+  // service strips
+  document.querySelectorAll('.strip').forEach((s, n) => s.dataset.kinds.split(',').forEach((k, i) => {
+    const v = s.classList.contains('strip--v'); const c = document.createElement('canvas'); c.width = v ? 108 : 192; c.height = v ? 192 : 108; s.appendChild(c);
+    CutFrames.draw(c.getContext('2d'), c.width, c.height, k, n * 7 + i, i * 2.3);
+  }));
+</script>
+</body>
+</html>

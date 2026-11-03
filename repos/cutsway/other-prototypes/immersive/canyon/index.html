@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Canyon</title>
+<meta name="description" content="Fly an hour of raw audio as a canyon. Cutsway cuts the silence out.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --night: #0e0607; --paper: #f8eee2; --soft: #e2cfbd; --gold: #ffc72e; --red: #f0163a; --m: clamp(18px, 3.4vw, 56px); }
+  * { box-sizing: border-box; }
+  html { background: var(--night); color: var(--paper); scrollbar-color: #5a1420 var(--night); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .num { font-variant-numeric: tabular-nums; }
+  #gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+  .scrim { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgb(14 6 7 / .72), rgb(14 6 7 / .25) 42%, rgb(14 6 7 / 0) 62%); }
+  .nav { position: fixed; z-index: 10; inset: 0 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px var(--m); }
+  .nav svg { width: 118px; height: 49px; display: block; color: var(--paper); }
+  .nav nav { display: flex; gap: 28px; font-weight: 600; font-size: 16px; }
+  .nav nav a { text-decoration: none; opacity: .82; transition: opacity .2s; } .nav nav a:hover { opacity: 1; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: var(--gold); color: #1a0b06; font: inherit; font-weight: 800; font-size: 17px; text-decoration: none; border: 0; cursor: pointer; transition: transform .25s cubic-bezier(.16,1,.3,1), background .2s; }
+  .btn:hover { transform: translateY(-2px); background: #ffd65a; }
+  .btn:active { transform: scale(.97); }
+  .btn--ghost { background: rgb(248 238 226 / .1); color: var(--paper); box-shadow: inset 0 0 0 1.5px rgb(248 238 226 / .45); }
+  .btn--ghost:hover { background: rgb(248 238 226 / .2); }
+  .btn--red { background: var(--red); color: #fff; } .btn--red:hover { background: #ff2d4f; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .rail { position: fixed; z-index: 10; right: var(--m); top: 50%; transform: translateY(-50%); display: grid; gap: 4px; list-style: none; margin: 0; padding: 0; }
+  .rail button { all: unset; cursor: pointer; display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 6px 0; font-size: 14px; font-weight: 700; color: rgb(248 238 226 / .55); transition: color .3s; }
+  .rail button::after { content: ""; width: 18px; height: 3px; background: currentColor; transition: width .4s cubic-bezier(.16,1,.3,1), background .3s; }
+  .rail button[aria-current="true"] { color: var(--paper); }
+  .rail button[aria-current="true"]::after { width: 44px; background: var(--gold); }
+  .rail button:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+  .readout { position: fixed; z-index: 10; right: var(--m); bottom: 26px; display: flex; gap: 28px; align-items: end; pointer-events: none; text-align: right; }
+  .readout div { display: grid; }
+  .readout b { font-weight: 900; font-stretch: 125%; letter-spacing: -.04em; font-size: clamp(1.6rem, 2.4vw, 2.4rem); line-height: 1; }
+  .readout span { font-size: 14px; font-weight: 600; color: var(--soft); }
+  .readout .cut b { color: var(--gold); }
+
+  main { position: relative; z-index: 2; }
+  .ch { min-height: 120vh; display: flex; align-items: center; padding: 120px var(--m); }
+  .ch:first-child { min-height: 100vh; }
+  .copy { max-width: 36rem; opacity: .0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+  .ch.is-on .copy, .no-js .copy { opacity: 1; transform: none; }
+  h1, h2 { margin: 0 0 20px; font-weight: 900; font-stretch: 125%; letter-spacing: -.05em; line-height: .9; text-transform: lowercase; text-wrap: balance; }
+  h1 { font-size: clamp(3.6rem, 8.4vw, 9rem); }
+  h2 { font-size: clamp(2.8rem, 5.6vw, 6rem); }
+  .copy p { margin: 0 0 24px; font-size: clamp(18px, 1.35vw, 21px); max-width: 34ch; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .hint { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: var(--soft); }
+  .hint i { width: 22px; height: 34px; border-radius: 12px; box-shadow: inset 0 0 0 2px var(--soft); position: relative; }
+  .hint i::after { content: ""; position: absolute; left: 50%; top: 7px; width: 4px; height: 7px; margin-left: -2px; border-radius: 2px; background: var(--gold); animation: wheel 1.6s ease-in-out infinite; }
+  @keyframes wheel { 50% { transform: translateY(9px); opacity: .3; } }
+  .list { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 8px; }
+  .list li { display: flex; gap: 12px; align-items: baseline; font-size: 18px; }
+  .list li::before { content: ""; flex: none; width: 10px; height: 10px; background: var(--gold); transform: translateY(-1px) skewX(-18deg); }
+  .big { font-weight: 900; font-stretch: 125%; letter-spacing: -.05em; font-size: clamp(3rem, 5vw, 5rem); line-height: 1; color: var(--gold); display: block; margin-bottom: 6px; }
+  kbd { font: inherit; font-weight: 800; font-size: 13px; padding: 2px 7px; border-radius: 6px; background: rgb(248 238 226 / .16); }
+
+  .after { position: relative; z-index: 3; background: var(--night); padding: clamp(120px, 12vw, 200px) var(--m) 32px; }
+  .after h2 { margin-bottom: 36px; }
+  .faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .faq div { background: #1c0d0d; border-radius: 18px; padding: 26px; }
+  .faq h3 { margin: 0 0 8px; font-size: 21px; } .faq p { margin: 0; color: var(--paper); }
+  .end { margin-top: clamp(120px, 12vw, 200px); display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 24px; }
+  .end h2 { font-size: clamp(3.6rem, 11vw, 12rem); margin: 0; }
+  .credits { margin-top: 40px; font-size: 13px; color: var(--soft); max-width: 90ch; }
+  .nogl #gl, .nogl .scrim { display: none; }
+  .nogl body { background: #2a0d10; }
+  @media (max-width: 860px) {
+    .nav nav, .rail { display: none; }
+    .scrim { background: linear-gradient(0deg, rgb(14 6 7 / .85), rgb(14 6 7 / .2) 55%, rgb(14 6 7 / 0)); }
+    .ch { align-items: flex-end; padding-bottom: 110px; }
+    .readout { gap: 18px; top: 84px; bottom: auto; } .readout b { font-size: 1.3rem; }
+    .faq, .end { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .copy { transition: none; } .hint i::after { animation: none; } }
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#" data-go="1">The cut</a><a href="#" data-go="4">Shorts</a><a href="#faq">Questions</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<ul class="rail" aria-label="Chapters">
+  <li><button data-go="0">Takeoff</button></li><li><button data-go="1">The cut</button></li><li><button data-go="2">Videos</button></li>
+  <li><button data-go="3">Streams</button></li><li><button data-go="4">Shorts</button></li><li><button data-go="5">Landing</button></li>
+</ul>
+
+<div class="readout" aria-live="polite">
+  <div><b class="num" id="rt">58:12</b><span id="rt-n">raw, before the cut</span></div>
+  <div class="cut"><b class="num" id="sv">0:00</b><span>silence removed</span></div>
+</div>
+
+<main id="top">
+  <section class="ch" data-ch aria-labelledby="h1">
+    <div class="copy">
+      <h1 id="h1">fly the waveform.</h1>
+      <p>Cutsway edits gaming videos, streams, shorts and podcasts. Below you is one hour of raw audio. The ridges are talking; the flat ground is silence.</p>
+      <div class="row"><a class="btn" href="#book">Book a call</a><span class="hint"><i></i>Scroll to fly</span></div>
+    </div>
+  </section>
+
+  <section class="ch" data-ch aria-labelledby="c1">
+    <div class="copy">
+      <h2 id="c1">dead air drops out.</h2>
+      <p>Pauses, loading screens, the twenty minutes where nothing happens. That is the first thing we cut. Try it.</p>
+      <div class="row"><button class="btn btn--red" id="cut" type="button" aria-pressed="false">Cut the silence</button><span class="hint"><kbd>C</kbd> to cut, <kbd>Z</kbd> to undo</span></div>
+    </div>
+  </section>
+
+  <section class="ch" data-ch aria-labelledby="c2">
+    <div class="copy">
+      <h2 id="c2">gaming videos.</h2>
+      <p>What is left gets shape. Hours of play become the twelve minutes people finish.</p>
+      <ul class="list"><li>Story and pacing found in the footage</li><li>Captions, zooms and sound design</li><li>Three thumbnail options alongside</li></ul>
+      <span class="big num">48h</span><span class="hint">sample turnaround, from upload</span>
+    </div>
+  </section>
+
+  <section class="ch" data-ch aria-labelledby="c3">
+    <div class="copy">
+      <h2 id="c3">streams &amp; podcasts.</h2>
+      <p>An eight-hour VOD or a three-mic episode is the same terrain, just longer. We fly all of it, so you don't have to.</p>
+      <ul class="list"><li>Stream VOD to a highlight video, 48h</li><li>Podcast to a clean episode and six clips, 72h</li><li>Every track levelled on its own</li></ul>
+    </div>
+  </section>
+
+  <section class="ch" data-ch aria-labelledby="c4">
+    <div class="copy">
+      <h2 id="c4">the peaks become shorts.</h2>
+      <p>The loudest moments light up: the clutch, the scream, the laugh. Each one becomes a vertical clip, reframed and captioned.</p>
+      <span class="big num">×10</span><span class="hint">shorts per session, back in 24 hours</span>
+    </div>
+  </section>
+
+  <section class="ch" data-ch aria-labelledby="c5">
+    <div class="copy">
+      <h2 id="c5">landed by <span id="due">sunday</span>.</h2>
+      <p>Send a gaming video now and that is when it's back, cut, captioned and ready to post. One editor who knows your channel, every upload.</p>
+      <div class="row"><a class="btn" href="#book">Book a call</a><button class="btn btn--ghost" type="button" data-go="0">Fly it again</button></div>
+    </div>
+  </section>
+</main>
+
+<div class="after">
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">before takeoff</h2>
+    <div class="faq">
+      <div><h3>What do I send?</h3><p>Everything raw: recordings, VODs, separate mic tracks. Sorting it is the job.</p></div>
+      <div><h3>Will you cut pauses I meant?</h3><p>No. Silence for effect stays. We cut silence nobody chose.</p></div>
+      <div><h3>How many revisions?</h3><p>Two rounds per edit, as notes on the exact second.</p></div>
+      <div><h3>Are the times fixed?</h3><p>They are samples. Yours are confirmed on the call.</p></div>
+    </div>
+  </section>
+  <footer class="end" id="book">
+    <h2>cut the quiet.</h2>
+    <a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a>
+  </footer>
+  <p class="credits">The terrain is drawn from a generated sample waveform, not a real recording. Times and runtimes are samples.</p>
+</div>
+
+<script src="../../awwwards/_shared/brand.js"></script>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+<script type="module">
+import { createStage, hasWebGL, seg, smooth, clamp, lerp } from '../_shared/stage.js';
+{ const d = Cutsway.due(48); document.getElementById('due').textContent = d.day.toLowerCase(); }
+if (!hasWebGL()) { document.documentElement.classList.add('nogl'); document.querySelectorAll('.ch').forEach(c => c.classList.add('is-on')); }
+else {
+const S = createStage({ canvas: document.getElementById('gl'), fov: 55, far: 1600, exposure: 1.05, bloom: { strength: .75, radius: .6, threshold: .78 } });
+const { THREE, scene, camera, state } = S;
+
+// ---- the waveform: one bar every 1.5 units, speech and silence ----
+const LEN = 900, Z0 = 60, BAR = 3, NB = Math.round(LEN / BAR);
+const data = new Uint8Array(NB * 4);
+let r = 11; const R = () => (r = (r * 9301 + 49297) % 233280) / 233280;
+let i = 0, silBars = 0;
+while (i < NB) {
+  const speak = 5 + Math.floor(R() * 14), loud = .45 + R() * .55;
+  for (let k = 0; k < speak && i < NB; k++, i++) {
+    const env = Math.sin(Math.PI * (k + .5) / speak) ** .6;
+    const a = Math.min(1, env * loud * (.45 + .55 * R()) + (R() < .06 ? .35 : 0));
+    data[i * 4] = a * 255; data[i * 4 + 1] = 0; data[i * 4 + 2] = a > .78 ? 255 : 0; data[i * 4 + 3] = 255;
+  }
+  const quiet = R() < .55 ? 3 + Math.floor(R() * 8) : 1 + Math.floor(R() * 2);
+  for (let k = 0; k < quiet && i < NB; k++, i++) { data[i * 4] = 6 + R() * 14; data[i * 4 + 1] = quiet > 2 ? 255 : 0; data[i * 4 + 2] = 0; data[i * 4 + 3] = 255; if (quiet > 2) silBars++; }
+}
+// long silences where the camera looks during the cut chapter
+for (const [a0, a1] of [[56, 63], [70, 79], [88, 96], [105, 111]]) for (let k = a0; k <= a1; k++) { if (!data[k * 4 + 1]) silBars++; data[k * 4] = 8; data[k * 4 + 1] = 255; data[k * 4 + 2] = 0; }
+const wave = new THREE.DataTexture(data, NB, 1, THREE.RGBAFormat); wave.magFilter = wave.minFilter = THREE.NearestFilter; wave.needsUpdate = true;
+
+const SKY_H = new THREE.Color('#ff5a2a'), SKY_T = new THREE.Color('#12060a');
+const segX = state.mobile ? 80 : 150, segZ = state.mobile ? NB * 2 : NB * 3;
+const geo = new THREE.PlaneGeometry(240, LEN, segX, segZ); geo.rotateX(-Math.PI / 2); geo.translate(0, 0, Z0 - LEN / 2);
+const uni = { uWave: { value: wave }, uCut: { value: 0 }, uSel: { value: 0 }, uLen: { value: LEN }, uZ0: { value: Z0 }, uBar: { value: BAR }, uTime: { value: 0 }, uSky: { value: SKY_H.clone() }, uFogNear: { value: 60 }, uFogFar: { value: 420 } };
+const terrain = new THREE.Mesh(geo, new THREE.ShaderMaterial({
+  uniforms: uni,
+  vertexShader: `
+    uniform sampler2D uWave; uniform float uCut, uSel, uLen, uZ0, uBar, uTime;
+    varying vec3 vPos; varying float vH, vSil, vSel, vWall, vZ;
+    void main(){
+      vec3 p = position; vZ = p.z;
+      float zq = (floor((p.z) / uBar) + .5) * uBar;
+      float u = (uZ0 - zq) / uLen;
+      vec4 w = texture2D(uWave, vec2(u, .5));
+      float ax = abs(p.x);
+      float wall = smoothstep(4., 13., ax) * (1. - smoothstep(48., 100., ax) * .7);
+      float across = .78 + .22 * sin(p.x * .21 + zq * .13);
+      float h = w.r * 30. * wall * across;
+      h += smoothstep(70., 120., ax) * 10. * (.5 + .5 * sin(p.z * .045 + p.x * .07));
+      h -= w.g * uCut * 80. * smoothstep(0., 1., wall + .25);
+      p.y = h;
+      vH = h; vSil = w.g; vSel = w.b * uSel * wall; vWall = wall;
+      vec4 wp = modelMatrix * vec4(p, 1.); vPos = wp.xyz;
+      gl_Position = projectionMatrix * viewMatrix * wp;
+    }`,
+  fragmentShader: `
+    uniform vec3 uSky; uniform float uFogNear, uFogFar, uCut, uTime;
+    varying vec3 vPos; varying float vH, vSil, vSel, vWall, vZ;
+    uniform float uBar;
+    vec3 lin(vec3 c){ return pow(c, vec3(2.2)); }
+    vec3 spec(float t){
+      vec3 a = lin(vec3(.27,.06,.08)), b = lin(vec3(.94,.07,.25)), c = lin(vec3(1.,.39,.13)), d = lin(vec3(1.,.69,.16)), e = lin(vec3(1.,.86,.24));
+      return t < .25 ? mix(a,b,t/.25) : t < .5 ? mix(b,c,(t-.25)/.25) : t < .75 ? mix(c,d,(t-.5)/.25) : mix(d,e,(t-.75)/.25);
+    }
+    void main(){
+      vec3 n = normalize(cross(dFdx(vPos), dFdy(vPos)));
+      vec3 L = normalize(vec3(.15, .32, -1.));
+      float diff = max(dot(n, L), 0.), up = clamp(n.y, 0., 1.);
+      float t = clamp(vH / 30., 0., 1.);
+      vec3 base = mix(lin(vec3(.09,.035,.04)), spec(t), smoothstep(.0, .5, t) * vWall + .12 * t);
+      base = mix(base, lin(vec3(.30,.27,.26)), vSil * .85 * (1. - uCut));
+      vec3 L2 = normalize(vec3(-.35, .55, 1.));
+      vec3 col = base * (.16 + .95 * diff + .55 * max(dot(n, L2), 0.)) + base * up * .14;
+      float e = fract(vZ / uBar); float groove = smoothstep(0., .12, min(e, 1. - e));
+      col *= mix(.38, 1., groove);
+      col += spec(t) * (1. - smoothstep(.0, .1, abs(e - .5) - .38)) * up * vWall * t * .6;
+      float lineMask = (1. - smoothstep(.12, .45, abs(vPos.x))) * (1. - vSil * uCut);
+      col += mix(lin(vec3(1., .78, .2)), lin(vec3(.95,.07,.22)) * step(.5, fract(vZ * .5)), vSil) * lineMask * 1.6;
+      col += spec(t) * pow(t, 2.6) * up * 1.4;
+      col += lin(vec3(1., .8, .25)) * vSel * up * 4.;
+      float cliff = vSil * uCut * smoothstep(-.5, -14., vH);
+      col = mix(col, lin(vec3(.95,.07,.22)) * (2.2 + .8 * sin(uTime * 3. + vPos.z * .3)), cliff * .85);
+      float d = length(vPos - cameraPosition);
+      col = mix(col, uSky, smoothstep(uFogNear, uFogFar, d));
+      gl_FragColor = vec4(col, 1.);
+    }`
+}));
+scene.add(terrain);
+
+// ---- sky with a low sun ahead ----
+const skyU = { uTop: { value: SKY_T }, uHor: { value: SKY_H }, uSunDir: { value: new THREE.Vector3(.15, .07, -1).normalize() }, uTime: { value: 0 } };
+const sky = new THREE.Mesh(new THREE.SphereGeometry(1200, 48, 24), new THREE.ShaderMaterial({ side: THREE.BackSide, depthWrite: false, uniforms: skyU,
+  vertexShader: `varying vec3 vD; void main(){ vD = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
+  fragmentShader: `uniform vec3 uTop, uHor, uSunDir; uniform float uTime; varying vec3 vD;
+    float h(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }
+    void main(){
+      float y = vD.y;
+      vec3 col = mix(uHor, uTop, smoothstep(-.02, .42, y));
+      float s = max(dot(vD, uSunDir), 0.);
+      col += vec3(1., .5, .2) * pow(s, 24.) * .45 + vec3(1., .78, .45) * smoothstep(.9986, .9993, s) * 2.6;
+      col += vec3(1.,.35,.12) * pow(s, 4.) * .25 * smoothstep(.3, -.05, y);
+      vec2 g = floor(vD.xz / max(.2, y) * 220.);
+      col += vec3(1.,.9,.8) * step(.9975, h(g)) * smoothstep(.15, .6, y) * .8;
+      gl_FragColor = vec4(col, 1.);
+    }` }));
+scene.add(sky);
+scene.background = SKY_T;
+
+// ---- embers drifting over the canyon ----
+const EN = state.mobile ? 600 : 1500, ep = new Float32Array(EN * 3), eSeed = new Float32Array(EN);
+for (let k = 0; k < EN; k++) { ep[k * 3] = (Math.random() - .5) * 160; ep[k * 3 + 1] = Math.random() * 60; ep[k * 3 + 2] = -Math.random() * 300; eSeed[k] = Math.random(); }
+const eg = new THREE.BufferGeometry(); eg.setAttribute('position', new THREE.BufferAttribute(ep, 3)); eg.setAttribute('seed', new THREE.BufferAttribute(eSeed, 1));
+const emU = { uTime: { value: 0 }, uCamZ: { value: 0 }, uPx: { value: state.w < 760 ? 1.4 : 2 } };
+const embers = new THREE.Points(eg, new THREE.ShaderMaterial({ uniforms: emU, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+  vertexShader: `attribute float seed; uniform float uTime, uCamZ, uPx; varying float vA;
+    void main(){ vec3 p = position; p.y = mod(p.y + uTime * (1. + seed * 2.), 60.); p.x += sin(uTime * .5 + seed * 20.) * 2.;
+      p.z = uCamZ - mod(uCamZ - p.z, 300.) + 20.;
+      vec4 mv = modelViewMatrix * vec4(p, 1.); gl_PointSize = uPx * (1. + seed * 2.5) * (80. / -mv.z); vA = (.3 + .7 * seed) * smoothstep(0., 8., p.y);
+      gl_Position = projectionMatrix * mv; }`,
+  fragmentShader: `varying float vA; void main(){ float d = length(gl_PointCoord - .5); gl_FragColor = vec4(vec3(1., .62, .22) * 2., vA * smoothstep(.5, 0., d)); }` }));
+scene.add(embers);
+
+// ---- the cut ----
+let cutOn = 0, cutV = 0;
+const cutBtn = document.getElementById('cut');
+function setCut(v) { cutOn = v; cutBtn.setAttribute('aria-pressed', v ? 'true' : 'false'); cutBtn.textContent = v ? 'Undo the cut' : 'Cut the silence'; }
+cutBtn.addEventListener('click', () => setCut(cutOn ? 0 : 1));
+addEventListener('keydown', e => { if (e.target.closest('input,textarea')) return; if (e.key === 'c' || e.key === 'C') setCut(1); if (e.key === 'z' || e.key === 'Z') setCut(0); });
+const rt = document.getElementById('rt'), rtn = document.getElementById('rt-n'), sv = document.getElementById('sv');
+const RAW = 58 * 60 + 12, SIL = Math.round(RAW * silBars / NB);
+const mmss = s => `${Math.floor(s / 60)}:${String(Math.round(s) % 60).padStart(2, '0')}`;
+
+const STEP = 125, cam = new THREE.Vector3(), look = new THREE.Vector3();
+S.onFrame(s => {
+  const p = s.ps;
+  // the cut runs itself once you pass the second chapter, unless undone
+  const autoCut = seg(p, 1.15, 1.6) > .5 && cutBtn.dataset.touched !== '1';
+  const want = Math.max(cutOn, autoCut && p < 6 ? 1 : 0);
+  cutV += (want - cutV) * (s.reduce ? 1 : 1 - Math.exp(-s.dt * 2.2));
+  uni.uCut.value = smooth(clamp(cutV));
+  uni.uSel.value = smooth(seg(p, 3.4, 4)) * (1 - seg(p, 4.6, 5) * .6);
+  uni.uTime.value = s.t; emU.uTime.value = s.t;
+  rt.textContent = mmss(RAW - SIL * uni.uCut.value); sv.textContent = mmss(SIL * uni.uCut.value);
+  rtn.textContent = uni.uCut.value > .98 ? 'after the cut' : uni.uCut.value > .02 ? 'cutting' : 'raw, before the cut';
+
+  const z = Z0 - 30 - p * STEP;
+  const rise = smooth(seg(p, 4.2, 5));
+  const peek = smooth(seg(p, .4, 1)) * (1 - smooth(seg(p, 1.4, 2)));
+  const y = lerp(10.5, 95, rise) + peek * 14 + Math.sin(s.t * .35) * .4;
+  cam.set(s.px * (s.mobile ? 2 : 5) * (1 - rise), y, z + rise * 40);
+  camera.position.lerp(cam, s.reduce ? 1 : .12);
+  look.set(s.px * 2, lerp(6, -10, rise) - peek * 16 + s.py * 3, z - lerp(48, 120, rise) - peek * 10);
+  camera.lookAt(look);
+  camera.rotation.z += -s.px * .06 * (1 - rise);
+  emU.uCamZ.value = camera.position.z;
+  sky.position.copy(camera.position);
+});
+cutBtn.addEventListener('click', () => { cutBtn.dataset.touched = '1'; });
+}
+</script>
+</body>
+</html>

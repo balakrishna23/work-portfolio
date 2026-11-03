@@ -1,0 +1,37 @@
+TASTESKILL · INSPECT   prototypes/c-the-cut/index.html
+
+MEASURED (first viewport listed)
+  hero headline   "we cut fast."  3 words · 2 line(s) · 230.4px (16vw) · Archivo 900 · tracking -0.04em · leading 0.86
+  @768px          2 line(s) · 161.3px
+  @390px          2 line(s) · 81.9px
+  typefaces       Archivo 100%
+  sizes in use    13 / 14 / 19 / 26 / 33 / 56 / 79 / 89 / 138 / 158 / 230 px   body 19px / 1.45
+  colour          page #efede6 · sections #e4e1d8 #fa7d31 #0b0a10 · button #0b0a10
+  page            5.6 screens · 168 words · 0 images · hero media none
+  headings        18 · longest 2 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+
+WARN — fix, or be able to defend
+  [palette-cream] @1440px (+768, 390)  Yellow-cream background (page background #efede6, text #efede6).
+      → Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.
+  [size-count] @1440px (+768, 390)  11 different font sizes (13, 14, 19, 26, 33, 56, 79, 89, 138, 158, 230).
+      → A page needs about five: display, heading, lead, body, small.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [font-not-dealt] @1440px  The sheet dealt Chivo and Chivo, but the page renders Archivo.
+      → Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect-c-the-cut/desktop-fold.jpg
+                  .taste-skill/inspect-c-the-cut/desktop-page-01.jpg
+                  .taste-skill/inspect-c-the-cut/desktop-page-02.jpg
+  tablet 768px    .taste-skill/inspect-c-the-cut/tablet-fold.jpg
+                  .taste-skill/inspect-c-the-cut/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect-c-the-cut/mobile-fold.jpg
+                  .taste-skill/inspect-c-the-cut/mobile-page-01.jpg
+
+report: .taste-skill/inspect-c-the-cut/report.json
+RESULT: 1 FAIL, 4 WARN — not done.

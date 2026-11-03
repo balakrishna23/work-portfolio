@@ -1,0 +1,36 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    #lg-mark {
+      position: absolute;
+      left: 90px;
+      top: 660px;
+      width: 900px;
+      height: 112.5px;
+    }
+    #lg-fill {
+      position: absolute;
+      inset: 0;
+      width: 900px;
+      height: 112.5px;
+    }
+  </style>
+  <!-- The real CUTSWAY wordmark lands in the continue screen, revealed in 8 hard pixel steps. -->
+  <div id="root" data-composition-id="logo" data-width="1080" data-height="1920">
+    <div id="lg-mark" class="clip" data-start="0" data-duration="2.5" data-track-index="1">
+      <img id="lg-fill" src="assets/brand/logo.svg" alt="Cutsway" />
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#lg-fill", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "steps(8)" }, 0);
+      window.__timelines["logo"] = tl;
+    })();
+  </script>
+</template>

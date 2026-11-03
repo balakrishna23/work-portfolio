@@ -1,0 +1,365 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #07070a;
+    }
+    #qs-canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+      image-rendering: pixelated;
+    }
+  </style>
+  <!-- The arcade quest, drawn at 270 x 480 pixels and scaled 4x with no smoothing. -->
+  <div id="root" data-composition-id="quest" data-width="1080" data-height="1920">
+    <canvas id="qs-canvas" width="1080" height="1920" data-layout-ignore></canvas>
+  </div>
+  <script>
+    (function () {
+      const LW = 270;
+      const LH = 480;
+      const BEAT = 60 / 128;
+      const out = document.getElementById("qs-canvas").getContext("2d");
+      const low = document.createElement("canvas");
+      low.width = LW;
+      low.height = LH;
+      const ctx = low.getContext("2d");
+      const P = {
+        K: "#07070a", W: "#f4f2ec", Y: "#fddf4b", R: "#fb3b27", C: "#03c0f4", B: "#1c4cdd", O: "#fc8020",
+        S: "#c98b5e", T: "#8d5a3b", D: "#2c2a33", G: "#5b5562", L: "#8a7f8c", N: "#272ed2", M: "#761a2b",
+      };
+
+      // ---------- 5x7 pixel font ----------
+      const F = {
+        A: [" ### ", "#   #", "#   #", "#####", "#   #", "#   #", "#   #"], B: ["#### ", "#   #", "#   #", "#### ", "#   #", "#   #", "#### "],
+        C: [" ####", "#    ", "#    ", "#    ", "#    ", "#    ", " ####"], D: ["#### ", "#   #", "#   #", "#   #", "#   #", "#   #", "#### "],
+        E: ["#####", "#    ", "#    ", "#### ", "#    ", "#    ", "#####"], F: ["#####", "#    ", "#    ", "#### ", "#    ", "#    ", "#    "],
+        G: [" ####", "#    ", "#    ", "#  ##", "#   #", "#   #", " ####"], H: ["#   #", "#   #", "#   #", "#####", "#   #", "#   #", "#   #"],
+        I: ["#####", "  #  ", "  #  ", "  #  ", "  #  ", "  #  ", "#####"], J: ["  ###", "   # ", "   # ", "   # ", "#  # ", "#  # ", " ##  "],
+        K: ["#   #", "#  # ", "# #  ", "##   ", "# #  ", "#  # ", "#   #"], L: ["#    ", "#    ", "#    ", "#    ", "#    ", "#    ", "#####"],
+        M: ["#   #", "## ##", "# # #", "# # #", "#   #", "#   #", "#   #"], N: ["#   #", "##  #", "# # #", "#  ##", "#   #", "#   #", "#   #"],
+        O: [" ### ", "#   #", "#   #", "#   #", "#   #", "#   #", " ### "], P: ["#### ", "#   #", "#   #", "#### ", "#    ", "#    ", "#    "],
+        Q: [" ### ", "#   #", "#   #", "#   #", "# # #", "#  # ", " ## #"], R: ["#### ", "#   #", "#   #", "#### ", "# #  ", "#  # ", "#   #"],
+        S: [" ####", "#    ", "#    ", " ### ", "    #", "    #", "#### "], T: ["#####", "  #  ", "  #  ", "  #  ", "  #  ", "  #  ", "  #  "],
+        U: ["#   #", "#   #", "#   #", "#   #", "#   #", "#   #", " ### "], V: ["#   #", "#   #", "#   #", "#   #", "#   #", " # # ", "  #  "],
+        W: ["#   #", "#   #", "#   #", "# # #", "# # #", "## ##", "#   #"], X: ["#   #", "#   #", " # # ", "  #  ", " # # ", "#   #", "#   #"],
+        Y: ["#   #", "#   #", " # # ", "  #  ", "  #  ", "  #  ", "  #  "], Z: ["#####", "    #", "   # ", "  #  ", " #   ", "#    ", "#####"],
+        0: [" ### ", "#   #", "#  ##", "# # #", "##  #", "#   #", " ### "], 1: ["  #  ", " ##  ", "  #  ", "  #  ", "  #  ", "  #  ", " ### "],
+        2: [" ### ", "#   #", "    #", "   # ", "  #  ", " #   ", "#####"], 3: ["#### ", "    #", "    #", " ### ", "    #", "    #", "#### "],
+        4: ["   # ", "  ## ", " # # ", "#  # ", "#####", "   # ", "   # "], 5: ["#####", "#    ", "#### ", "    #", "    #", "#   #", " ### "],
+        6: [" ### ", "#    ", "#    ", "#### ", "#   #", "#   #", " ### "], 7: ["#####", "    #", "   # ", "  #  ", " #   ", " #   ", " #   "],
+        8: [" ### ", "#   #", "#   #", " ### ", "#   #", "#   #", " ### "], 9: [" ### ", "#   #", "#   #", " ####", "    #", "    #", " ### "],
+        ":": ["     ", "  #  ", "  #  ", "     ", "  #  ", "  #  ", "     "], ".": ["     ", "     ", "     ", "     ", "     ", " ##  ", " ##  "],
+        "!": ["  #  ", "  #  ", "  #  ", "  #  ", "  #  ", "     ", "  #  "], "?": [" ### ", "#   #", "    #", "   # ", "  #  ", "     ", "  #  "],
+        "-": ["     ", "     ", "     ", "#####", "     ", "     ", "     "], ">": [" #   ", "  #  ", "   # ", "    #", "   # ", "  #  ", " #   "],
+        "+": ["     ", "  #  ", "  #  ", "#####", "  #  ", "  #  ", "     "], "'": ["  #  ", "  #  ", "     ", "     ", "     ", "     ", "     "],
+        "*": ["  #  ", "  #  ", "#####", " ### ", " # # ", "#   #", "     "], "/": ["    #", "    #", "   # ", "  #  ", " #   ", "#    ", "#    "],
+        " ": ["     ", "     ", "     ", "     ", "     ", "     ", "     "],
+      };
+      const textW = (str, s) => str.length * 6 * s - s;
+      function txt(str, x, y, s, col, o = {}) {
+        let x0 = o.align === "left" ? x : Math.round(x - textW(str, s) / 2);
+        const sh = o.shadow === false ? 0 : Math.max(1, Math.round(s / 2));
+        const pass = (dx, dy, c) => {
+          ctx.fillStyle = c;
+          for (let i = 0; i < str.length; i++) {
+            const g = F[str[i]] || F[" "];
+            for (let r = 0; r < 7; r++)
+              for (let k = 0; k < 5; k++) if (g[r][k] === "#") ctx.fillRect(x0 + i * 6 * s + k * s + dx, y + r * s + dy, s, s);
+          }
+        };
+        if (sh) pass(sh, sh, o.shadowCol || P.K);
+        pass(0, 0, col);
+      }
+      const rect = (x, y, w, h, c) => {
+        ctx.fillStyle = c;
+        ctx.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h));
+      };
+      function frame(x, y, w, h, fill, border = P.W) {
+        rect(x, y, w, h, P.K);
+        rect(x + 1, y + 1, w - 2, h - 2, border);
+        rect(x + 3, y + 3, w - 6, h - 6, P.K);
+        rect(x + 4, y + 4, w - 8, h - 8, fill);
+      }
+
+      // ---------- sprites (12 x 16) ----------
+      const SPR = {
+        hero: ["....RRRR....", "...RKKKKR...", "..RKKKKKKR..", "..RSSSSSSR..", "..RSKSSKSR..", "...SSSSSS...", "...SSKKSS...", "....SSSS....", "..BBBBBBBB..", ".BBBBBBBBBB.", ".SBBBBBBBBS.", ".SBBBBBBBBS.", "..BBBBBBBB..", "..DDD..DDD..", "..DDD..DDD..", ".KKKK..KKKK."],
+        editor: ["...RRRRR....", "..RRRRRRRR..", "...TTTTTT...", "...TKTTKT...", "...TTTTTT...", "...TTKKTT...", "....TTTT....", "..YYYYYYYY..", ".YYYRRYYYWW.", ".TYYYYYYYTW.", ".TYYYYYYY.WW", "..YYYYYYYY..", "..DDD..DDD..", "..DDD..DDD..", ".KKKK..KKKK.", "............"],
+        design: ["...KKKKKK...", "..KKKKKKKK..", "...SSSSSS...", "...SKSSKS...", "...SSSSSS...", "...SSKKSS...", "....SSSS....", "..CCCCCCCC..", ".CCCCCCCCCO.", ".SCCCCCCCSL.", ".SCCCCCCC.L.", "..CCCCCCCC..", "..DDD..DDD..", "..DDD..DDD..", ".KKKK..KKKK.", "............"],
+        social: ["...OOOOOO...", "..OOOOOOOO..", "...TTTTTT...", "...TKTTKT...", "...TTTTTT...", "...TTKKTT...", "....TTTT....", "..RRRRRRRR..", ".RRRRRRRRKK.", ".TRRRRRRRKC.", ".TRRRRRRRKK.", "..RRRRRRRR..", "..DDD..DDD..", "..DDD..DDD..", ".KKKK..KKKK.", "............"],
+      };
+      function spr(name, x, y, s, o = {}) {
+        const rows = SPR[name];
+        const x0 = Math.round(x - 6 * s), y0 = Math.round(y - 16 * s);
+        rows.forEach((row, r) => {
+          for (let k = 0; k < 12; k++) {
+            let ch = row[k];
+            if (o.legs != null && r >= 13) {
+              const shift = r >= 13 ? (k < 6 ? o.legs : -o.legs) : 0;
+              ch = row[Math.max(0, Math.min(11, k - shift))];
+            }
+            if (o.tired && r === 4 && ch === "K") ch = "S";
+            if (ch === "." || !ch) continue;
+            rect(x0 + k * s, y0 + r * s, s, s, P[ch]);
+          }
+        });
+        if (o.tired) {
+          rect(x0 + 4 * s, y0 + 4.5 * s, s, Math.max(1, s / 3), P.K);
+          rect(x0 + 7 * s, y0 + 4.5 * s, s, Math.max(1, s / 3), P.K);
+        }
+      }
+      // Loot icons (about 20 x 20 at s = 1).
+      function item(kind, cx, cy, s) {
+        const r = (x, y, w, h, c) => rect(cx + x * s, cy + y * s, w * s, h * s, c);
+        if (kind === "shorts") {
+          r(-6, -10, 12, 20, P.K); r(-5, -9, 10, 18, P.R); r(-3, 4, 6, 2, P.W); r(-2, -4, 2, 6, P.W); r(0, -3, 2, 4, P.W);
+        } else if (kind === "video") {
+          r(-11, -7, 22, 14, P.K); r(-10, -6, 20, 12, P.B); r(-2, -3, 2, 6, P.W); r(0, -2, 2, 4, P.W); r(2, -1, 1, 2, P.W);
+        } else if (kind === "podcast") {
+          r(-4, -10, 8, 12, P.K); r(-3, -9, 6, 10, P.L); r(-3, -6, 6, 1, P.G); r(-3, -3, 6, 1, P.G); r(-6, 0, 2, 4, P.K); r(4, 0, 2, 4, P.K); r(-5, 4, 10, 2, P.K); r(-1, 6, 2, 3, P.K); r(-4, 9, 8, 2, P.K);
+        } else {
+          r(-11, -7, 22, 14, P.K); r(-10, -6, 20, 12, P.Y); r(4, -4, 3, 6, P.K); r(4, 3, 3, 2, P.K); r(-8, 1, 9, 3, P.R);
+        }
+      }
+      function qblock(x, y, used) {
+        rect(x - 10, y - 10, 20, 20, P.K);
+        rect(x - 9, y - 9, 18, 18, used ? P.T : P.Y);
+        if (!used) {
+          txt("?", x, y - 6, 2, P.O, { shadow: false });
+        }
+        rect(x - 9, y - 9, 18, 2, used ? P.T : P.W);
+      }
+
+      // ---------- world ----------
+      const stars = Array.from({ length: 70 }, (_, i) => ({ x: (i * 97.3) % LW, y: (i * 151.7) % LH, v: 6 + (i % 5) * 5, c: i % 7 === 0 ? P.Y : i % 3 ? P.L : P.W }));
+      function sky(t, speed = 1) {
+        rect(0, 0, LW, LH, P.K);
+        stars.forEach((s) => rect(s.x, (s.y + t * s.v * speed) % LH, 1, 1, s.c));
+      }
+      const clamp = (v) => Math.max(0, Math.min(1, v));
+      const seg = (t, a, d) => clamp((t - a) / d);
+      const step = (k, n) => Math.floor(k * n) / n; // pixel games move in steps
+      const blink = (t, rate = BEAT) => Math.floor(t / (rate / 2)) % 2 === 0;
+      const typed = (str, t, t0, cps = 30) => str.slice(0, Math.max(0, Math.floor((t - t0) * cps)));
+      const bob = (t) => (Math.floor(t / BEAT) % 2 ? 1 : 0);
+
+      function sTitle(t) {
+        sky(t, 1.5);
+        rect(6, 50, LW - 12, 2, P.Y);
+        rect(6, 344, LW - 12, 2, P.Y);
+        txt("PLAYER 1", 135, 64, 2, P.W);
+        if (t >= 0.44) {
+          const k = step(seg(t, 0.44, 0.2), 4);
+          txt("NEW QUEST", 135, 90 - (1 - k) * 30, 4, P.Y);
+        }
+        if (t >= 1.3) txt("UNLOCKED!", 135, 132, 3, t < 1.5 ? P.W : P.C);
+        spr("hero", 135, 290 - bob(t), 6);
+        if (blink(t)) txt("PRESS START", 135, 316, 2, P.W);
+      }
+
+      function sCard(t) {
+        sky(t, 0.6);
+        frame(14, 64, 242, 230, P.N);
+        txt("QUEST", 135, 80, 2, P.Y);
+        rect(24, 98, 222, 1, P.W);
+        txt(typed("EDIT A", t, 2.62, 26), 135, 112, 4, P.W);
+        if (t >= 3.12) txt("4H VOD", 135, 152, 5, P.Y);
+        txt("DIFFICULTY", 135, 210, 2, P.W);
+        for (let i = 0; i < 5; i++) if (t >= 3.9 + i * 0.09) txt("*", 87 + i * 24, 234, 3, P.R);
+        spr("hero", 135, 420, 4);
+      }
+
+      function sEnergy(t) {
+        sky(t, 0.3);
+        txt("ENERGY", 20, 66, 2, P.W, { align: "left" });
+        txt("3:00AM", 250 - textW("3:00AM", 2), 66, 2, P.C, { align: "left" });
+        frame(18, 84, 234, 18, P.K);
+        const lv = 1 - 0.88 * step(seg(t, 5.3, 1.3), 6);
+        rect(22, 88, 226 * lv, 10, lv > 0.4 ? P.Y : P.R);
+        if (t >= 6.2 && blink(t, 0.25)) txt("CRITICALLY LOW!", 135, 112, 2, P.R);
+        // The pile of unedited tapes grows behind the player.
+        const n = Math.floor(seg(t, 5.0, 2.0) * 40);
+        for (let i = 0; i < n; i++) {
+          const col = i % 8, row = Math.floor(i / 8);
+          rect(30 + col * 26 + (row % 2) * 13, 312 - row * 14, 24, 12, P.K);
+          rect(31 + col * 26 + (row % 2) * 13, 313 - row * 14, 22, 10, i % 3 ? P.G : P.L);
+          rect(35 + col * 26 + (row % 2) * 13, 316 - row * 14, 6, 4, P.D);
+        }
+        rect(0, 326, LW, 154, P.D);
+        rect(0, 326, LW, 2, P.L);
+        spr("hero", 135, 326, 5, { tired: true });
+        const d = (t * 2) % 1;
+        rect(160, 236 + d * 14, 3, 4, P.C);
+      }
+
+      function sSummon(t) {
+        sky(t, 0.5);
+        txt("SUMMON", 135, 84, 4, P.Y);
+        txt("PARTY?", 135, 120, 4, P.Y);
+        frame(18, 170, 234, 130, P.K);
+        const sel = t < 8.4 ? 0 : 1;
+        const struck = t >= 8.4;
+        txt("DO IT ALONE", 50, 200, 2, struck ? P.G : P.W, { align: "left" });
+        if (struck) rect(46, 206, textW("DO IT ALONE", 2) + 8, 2, P.R);
+        const picked = t >= 8.9;
+        txt("CALL CUTSWAY", 50, 250, 2, picked && blink(t, 0.12) ? P.Y : sel === 1 ? P.Y : P.W, { align: "left" });
+        if (t >= 7.8) txt(">", 32, sel ? 250 : 200, 2, P.Y);
+        if (t >= 9.22) rect(0, 0, LW, LH, P.W);
+      }
+
+      const PARTY = [["editor", 60, 9.5, "EDIT"], ["design", 135, 9.72, "ART"], ["social", 210, 9.94, "POST"]];
+      function sParty(t) {
+        rect(0, 0, LW, LH, P.K);
+        for (let i = 0; i < 12; i++) rect(0, ((i * 40 + t * 120) % 480) - 10, LW, 6, i % 3 === 0 ? P.N : P.D);
+        const k = step(seg(t, 9.4, 0.18), 3);
+        txt("CUTSWAY", 135, 70 - (1 - k) * 60, 5, P.Y);
+        if (t >= 10.38) txt("HAS JOINED!", 135, 124, 3, P.W);
+        PARTY.forEach(([name, x, t0, label]) => {
+          if (t < t0) return;
+          const f = step(seg(t, t0, 0.2), 5);
+          spr(name, x, 290 - (1 - f) * 260, 4);
+          if (f >= 1) txt(label, x, 302, 2, P.C);
+        });
+        if (t < 9.45) rect(0, 0, LW, LH, P.W);
+      }
+
+      const LOOT = [["shorts", "SHORTS", "12H", 12.8, 13.38], ["video", "VIDEOS", "36H", 14.56, 15.28], ["podcast", "PODCASTS", "48H", 16.28, 17.36], ["thumb", "THUMBNAILS", "8H", 18.22, 19.32]];
+      const SLOT = (i) => [37 + i * 65, 78];
+      function sRun(t) {
+        sky(t, 0.4);
+        // Inventory.
+        for (let i = 0; i < 4; i++) {
+          const [sx, sy] = SLOT(i);
+          frame(sx - 28, sy - 16, 56, 32, P.K, P.L);
+        }
+        // Ground scrolls; the party runs on it.
+        const scroll = (t - 11.25) * 90;
+        rect(0, 312, LW, 168, P.T);
+        for (let x = -((scroll | 0) % 24); x < LW; x += 24) {
+          rect(x, 312, 22, 10, P.O);
+          rect(x + 12, 324, 22, 10, P.O);
+        }
+        rect(0, 312, LW, 2, P.K);
+        const legs = Math.floor(t / 0.12) % 2 ? 1 : -1;
+        let jump = 0;
+        LOOT.forEach(([, , , th]) => {
+          const k = (t - (th - 0.22)) / 0.44;
+          if (k > 0 && k < 1) jump = Math.max(jump, 4 * k * (1 - k));
+        });
+        [["social", 44], ["design", 80], ["editor", 116]].forEach(([n, x], i) => spr(n, x, 312 - (Math.floor(t / 0.12 + i) % 2), 3, { legs }));
+        spr("hero", 160, 312 - Math.round(jump * 56), 3, { legs: jump > 0 ? 0 : legs });
+        LOOT.forEach(([kind, name, hrs, th, tn], i) => {
+          const bx = 160 + (th - t) * 90;
+          const bump = t >= th && t < th + 0.1 ? -4 : 0;
+          if (bx > -20 && bx < 300) qblock(bx, 200 + bump, t >= th);
+          if (t < th) return;
+          const next = LOOT[i + 1] ? LOOT[i + 1][3] : 19.68;
+          const fly = seg(t, next - 0.3, 0.25);
+          const pop = step(seg(t, th, 0.2), 4);
+          const [sx, sy] = SLOT(i);
+          if (fly <= 0) {
+            item(kind, 135, 196 - pop * 70, 2 + pop * 2);
+            txt(name, 135, 176, 3, P.W);
+            if (t >= tn) txt(hrs, 135, 222, 6, blink(t, 0.3) ? P.Y : P.O);
+          } else {
+            const f = step(fly, 5);
+            item(kind, 135 + (sx - 135) * f, 126 + (sy - 126) * f, 4 - f * 3);
+          }
+        });
+        LOOT.forEach(([kind, , , , ], i) => {
+          const next = LOOT[i + 1] ? LOOT[i + 1][3] : 19.68;
+          if (t >= next - 0.05) item(kind, SLOT(i)[0], SLOT(i)[1], 1);
+        });
+        if (t >= 11.5 && t < 12.6) txt("LOOT!", 135, 150, 6, blink(t, 0.2) ? P.Y : P.W);
+      }
+
+      const LANGS = [["ENGLISH", 21.4], ["HINDI", 22.1], ["TELUGU", 22.96]];
+      function sNotes(t) {
+        sky(t, 0.5);
+        txt("2 ROUNDS", 135, 70, 4, P.Y);
+        txt("OF NOTES", 135, 104, 4, P.Y);
+        [["ROUND 1", 20.14], ["ROUND 2", 20.6]].forEach(([s2, at], i) => {
+          const x = 14 + i * 126;
+          frame(x, 136, 116, 32, P.K, P.L);
+          txt(s2, x + 10, 145, 2, P.W, { align: "left" });
+          if (t >= at) {
+            rect(x + 98, 145, 10, 14, P.Y);
+            rect(x + 100, 147, 6, 10, P.K);
+          }
+        });
+        frame(18, 182, 234, 140, P.K);
+        txt("LANGUAGE", 135, 192, 2, P.C);
+        let cur = -1;
+        LANGS.forEach(([name, at], i) => {
+          const on = t >= at;
+          if (on) cur = i;
+          rect(40, 220 + i * 32, 14, 14, P.W);
+          rect(42, 222 + i * 32, 10, 10, on ? P.Y : P.K);
+          txt(name, 64, 220 + i * 32, 2, on ? P.Y : P.L, { align: "left" });
+        });
+        if (cur >= 0) txt(">", 28, 220 + cur * 32, 2, P.Y);
+      }
+
+      function sComplete(t) {
+        sky(t, 2);
+        if (t < 23.95) rect(0, 0, LW, LH, P.W);
+        txt("QUEST", 135, 70, 6, P.Y);
+        if (t >= 24.44) txt("COMPLETE!", 135, 124, 4, P.W);
+        txt("XP", 30, 176, 2, P.C, { align: "left" });
+        frame(54, 172, 196, 20, P.K, P.L);
+        rect(58, 176, 188 * step(seg(t, 24.6, 0.75), 12), 12, P.C);
+        if (t >= 25.38) txt("LEVEL UP!", 135, 210, 4, blink(t, 0.16) ? P.Y : P.R);
+        const j = t >= 25.38 ? Math.abs(Math.sin((t - 25.38) * 7)) : 0;
+        spr("hero", 135, 322 - Math.round(j * 22), 5);
+        if (t >= 25.38) {
+          for (let i = 0; i < 40; i++) {
+            const k = (t - 25.38) * (40 + (i % 7) * 12);
+            rect((i * 53) % LW, ((i * 31) % 120) + k - 20, 3, 3, [P.Y, P.R, P.C, P.W][i % 4]);
+          }
+        }
+      }
+
+      function sContinue(t) {
+        sky(t, 0.4);
+        txt("CONTINUE?", 135, 70, 4, P.W);
+        if (t < 27.5) {
+          const n = 9 - Math.floor((t - 26.25) / BEAT);
+          txt(String(Math.max(n, 1)), 135, 130, 12, P.Y);
+        } else {
+          txt("CUTSWAY.COM", 135, 226, 3, P.W);
+          txt("WHATSAPP", 135, 256, 2, P.C);
+          txt("+91 62813 01476", 135, 276, 2, P.W);
+          if (blink(t)) txt("PRESS START", 135, 316, 2, P.Y);
+        }
+      }
+
+      function draw(t) {
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        if (t < 2.55) sTitle(t);
+        else if (t < 5.0) sCard(t);
+        else if (t < 7.5) sEnergy(t);
+        else if (t < 9.375) sSummon(t);
+        else if (t < 11.25) sParty(t);
+        else if (t < 19.7) sRun(t);
+        else if (t < 23.85) sNotes(t);
+        else if (t < 26.25) sComplete(t);
+        else sContinue(t);
+        out.imageSmoothingEnabled = false;
+        out.clearRect(0, 0, 1080, 1920);
+        out.drawImage(low, 0, 0, 1080, 1920);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      tl.to({}, { duration: 30 }, 0);
+      tl.eventCallback("onUpdate", () => draw(tl.time()));
+      draw(0);
+      window.__timelines["quest"] = tl;
+    })();
+  </script>
+</template>

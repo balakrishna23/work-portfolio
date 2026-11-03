@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Feed</title>
+<meta name="description" content="Fall down a spiral of shorts. Cutsway makes ten per session, back in 24 hours.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+<style>
+  :root { --deep: #12060a; --paper: #fff3ea; --soft: #e8cfc2; --gold: #ffc72e; --red: #f0163a; --m: clamp(18px, 3.4vw, 56px); }
+  * { box-sizing: border-box; }
+  html { background: var(--deep); color: var(--paper); scrollbar-color: #5a1428 var(--deep); }
+  body { margin: 0; font-family: "Bricolage Grotesque", system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  #gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; cursor: grab; touch-action: pan-y; }
+  #gl.dragging { cursor: grabbing; }
+  .scrim { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(90deg, rgb(18 6 10 / .78), rgb(18 6 10 / .3) 40%, rgb(18 6 10 / 0) 58%); }
+  .nav { position: fixed; z-index: 10; inset: 0 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px var(--m); }
+  .nav svg { width: 118px; height: 49px; display: block; color: var(--paper); }
+  .nav nav { display: flex; gap: 26px; font-weight: 600; font-size: 16px; }
+  .nav nav a { text-decoration: none; opacity: .8; } .nav nav a:hover, .nav nav a[aria-current="true"] { opacity: 1; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; background: var(--gold); color: #1a0806; font: inherit; font-weight: 800; font-size: 17px; text-decoration: none; border: 0; cursor: pointer; transition: transform .25s cubic-bezier(.34,1.56,.64,1), background .2s; }
+  .btn:hover { transform: translateY(-2px) scale(1.03); background: #ffd65a; } .btn:active { transform: scale(.95); }
+  .btn--ghost { background: rgb(255 243 234 / .1); color: var(--paper); } .btn--ghost:hover { background: rgb(255 243 234 / .2); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  main { position: relative; z-index: 2; pointer-events: none; }
+  main a, main button { pointer-events: auto; }
+  .ch { min-height: 125vh; display: flex; align-items: center; padding: 120px var(--m); }
+  .ch:first-child { min-height: 100vh; }
+  .copy { max-width: 34rem; opacity: 0; transform: translateY(30px) scale(.98); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.34,1.56,.64,1); }
+  .ch.is-on .copy { opacity: 1; transform: none; }
+  h1, h2 { margin: 0 0 18px; font-weight: 800; letter-spacing: -.045em; line-height: .9; font-variation-settings: "opsz" 96; text-wrap: balance; }
+  h1 { font-size: clamp(3.6rem, 8vw, 8.6rem); }
+  h2 { font-size: clamp(2.8rem, 5.4vw, 5.8rem); }
+  .copy p { margin: 0 0 24px; font-size: clamp(18px, 1.35vw, 21px); max-width: 34ch; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; padding: 0; list-style: none; }
+  .tags li { padding: 8px 14px; border-radius: 999px; background: rgb(255 243 234 / .1); font-weight: 700; font-size: 16px; }
+  .big { display: block; font-weight: 800; letter-spacing: -.05em; font-size: clamp(4rem, 8vw, 7.6rem); line-height: .85; color: var(--gold); margin-bottom: 10px; }
+
+  .hud { position: fixed; z-index: 11; right: var(--m); bottom: 24px; display: flex; gap: 10px; align-items: center; pointer-events: none; }
+  .hud span { background: rgb(18 6 10 / .8); padding: 10px 16px; border-radius: 999px; font-size: 15px; font-weight: 600; }
+  .hud b { color: var(--gold); }
+  .close { position: fixed; z-index: 12; left: 50%; bottom: 28px; transform: translate(-50%, 140%); transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
+  .close.show { transform: translate(-50%, 0); }
+
+  .after { position: relative; z-index: 3; background: var(--deep); padding: clamp(120px, 12vw, 200px) var(--m) 32px; }
+  .faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .faq div { background: #22101a; border-radius: 22px; padding: 26px; }
+  .faq h3 { margin: 0 0 8px; font-size: 22px; font-weight: 800; letter-spacing: -.02em; } .faq p { margin: 0; }
+  .end { margin-top: clamp(120px, 12vw, 200px); display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 24px; }
+  .end h2 { font-size: clamp(4rem, 12vw, 13rem); margin: 0; }
+  .credits { margin-top: 40px; font-size: 13px; color: var(--soft); max-width: 90ch; }
+  .nogl #gl, .nogl .scrim, .nogl .hud { display: none; }
+  @media (max-width: 860px) {
+    .nav nav { display: none; }
+    .scrim { background: linear-gradient(0deg, rgb(18 6 10 / .86), rgb(18 6 10 / .2) 58%, rgb(18 6 10 / 0)); }
+    .ch { align-items: flex-end; padding-bottom: 110px; }
+    .hud { left: 12px; right: 12px; justify-content: center; bottom: 14px; } .hud span:last-child { display: none; }
+    .faq, .end { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .copy { transition: none; } }
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="A spiral of phones playing shorts. Drag to spin it, tap a phone to bring it close."></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Chapters"><a href="#" data-go="1">Reframing</a><a href="#" data-go="2">Captions</a><a href="#" data-go="3">Posting</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<div class="hud" aria-live="polite"><span id="depth"><b>0</b> shorts deep</span><span>Drag to spin · tap a phone</span></div>
+<button class="btn btn--ghost close" id="close" type="button">Back to the feed</button>
+
+<main id="top">
+  <section class="ch" data-ch aria-labelledby="h1">
+    <div class="copy">
+      <h1 id="h1">Fall into your feed.</h1>
+      <p>Cutsway turns your streams, videos and podcasts into shorts, reels and TikToks. Every phone in this spiral is one we'd cut from a single session. Scroll down.</p>
+      <div class="row"><a class="btn" href="#book">Book a call</a></div>
+    </div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c1">
+    <div class="copy">
+      <h2 id="c1">Reframed by a person.</h2>
+      <p>Not a crop box guessing. Facecam where the reaction is, gameplay where the play is, cut to the beat of the clip.</p>
+    </div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c2">
+    <div class="copy">
+      <h2 id="c2">Captions, word by word.</h2>
+      <p>Timed to the syllable, set in your channel's colours, big enough to read with the sound off. Tap a phone to watch one.</p>
+    </div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c3">
+    <div class="copy">
+      <h2 id="c3">Posted everywhere.</h2>
+      <ul class="tags"><li>YouTube Shorts</li><li>TikTok</li><li>Instagram Reels</li><li>X</li></ul>
+      <p>Each with its own title and caption, scheduled for when your audience is actually awake.</p>
+    </div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c4">
+    <div class="copy">
+      <span class="big">×10</span>
+      <h2 id="c4">Back by <span id="due">tomorrow</span>.</h2>
+      <p>Ten shorts per session, back in 24 hours. Sample turnaround, confirmed on your call. One editor who knows your channel.</p>
+      <div class="row"><a class="btn" href="#book">Book a call</a><button class="btn btn--ghost" type="button" data-go="0">Back to the top</button></div>
+    </div>
+  </section>
+</main>
+
+<div class="after">
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h" style="margin-bottom:36px">Before you post</h2>
+    <div class="faq">
+      <div><h3>Where do the shorts come from?</h3><p>Your streams, videos and podcasts. We find the moments; you don't record anything extra.</p></div>
+      <div><h3>Can the captions match my brand?</h3><p>Send your fonts and colours once. Every short after that uses them.</p></div>
+      <div><h3>Do you post them?</h3><p>If you want: titles, captions and a schedule on four platforms.</p></div>
+      <div><h3>Are the times fixed?</h3><p>They are samples. Yours are confirmed on the call.</p></div>
+    </div>
+  </section>
+  <footer class="end" id="book">
+    <h2>Keep scrolling.</h2>
+    <a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a>
+  </footer>
+  <p class="credits">Every short in the spiral is drawn in code as a sample, not real footage. Times are samples.</p>
+</div>
+
+<script src="../../awwwards/_shared/brand.js"></script>
+<script src="../../awwwards/_shared/frames.js"></script>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+<script type="module">
+import { createStage, createAtlas, hasWebGL, seg, smooth, clamp, lerp } from '../_shared/stage.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+{ const d = Cutsway.due(24); document.getElementById('due').textContent = d.day; }
+if (!hasWebGL()) { document.documentElement.classList.add('nogl'); document.querySelectorAll('.ch').forEach(c => c.classList.add('is-on')); }
+else {
+const S = createStage({ canvas: document.getElementById('gl'), fov: 50, far: 400, exposure: 1.05, bloom: { strength: .65, radius: .7, threshold: .78 } });
+const { THREE, scene, camera, state } = S;
+scene.background = new THREE.Color('#12060a');
+scene.fog = new THREE.Fog('#12060a', 16, 44);
+
+// ---- the shorts: an atlas of vertical clips with captions and the side rail ----
+const CAPS = [['NO', 'WAY', 'HE', 'HIT', 'THAT'], ['ONE', 'HP', 'LEFT', 'AND...'], ['CHAT', 'WENT', 'INSANE'], ['WAIT', 'FOR', 'IT'], ['WORST', 'TAKE', 'EVER'], ['CLUTCH', 'OR', 'KICK']];
+const PLAT = ['Shorts', 'TikTok', 'Reels', 'X'];
+const KINDS = ['fps', 'race', 'boss', 'podcast', 'platform', 'chat', 'map', 'menu'];
+function drawShort(x, w, h, cell, t) {
+  x.save(); x.translate(-(cell.i % 3) * 90 - 60, 0); window.CutFrames.draw(x, 569, 320, cell.kind, cell.seed, t + cell.phase); x.restore();
+  x.fillStyle = 'rgba(0,0,0,.28)'; x.fillRect(0, h - 70, w, 70);
+  const words = CAPS[cell.i % CAPS.length], wi = Math.floor((t + cell.phase) * 2.4) % words.length;
+  x.font = '800 30px "Bricolage Grotesque", Arial'; x.textAlign = 'center'; x.lineWidth = 6; x.strokeStyle = '#000'; x.lineJoin = 'round';
+  x.fillStyle = (cell.i + wi) % 3 ? '#ffffff' : '#ffc72e'; x.strokeText(words[wi], w / 2, h * .62); x.fillText(words[wi], w / 2, h * .62);
+  // side rail: like, comment, share
+  x.fillStyle = 'rgba(255,255,255,.92)';
+  [h * .5, h * .62, h * .74].forEach((y, k) => { x.beginPath(); if (k === 0) { x.moveTo(w - 20, y + 6); x.bezierCurveTo(w - 34, y - 4, w - 28, y - 14, w - 20, y - 6); x.bezierCurveTo(w - 12, y - 14, w - 6, y - 4, w - 20, y + 6); } else if (k === 1) { x.ellipse(w - 20, y - 3, 11, 9, 0, 0, 7); } else { x.moveTo(w - 30, y); x.lineTo(w - 10, y - 8); x.lineTo(w - 16, y + 8); x.closePath(); } x.fill(); });
+  x.textAlign = 'left'; x.font = '700 14px "Bricolage Grotesque", Arial'; x.fillStyle = '#fff'; x.fillText('@yourchannel', 12, h - 40);
+  x.fillStyle = 'rgba(255,255,255,.75)'; x.fillText(PLAT[cell.i % 4], 12, h - 20);
+  x.fillStyle = 'rgba(255,255,255,.25)'; x.fillRect(0, h - 4, w, 4); x.fillStyle = '#f0163a'; x.fillRect(0, h - 4, w * (((t + cell.phase) * .12) % 1), 4);
+}
+const atlas = createAtlas({ cols: 10, rows: 4, cw: 180, ch: 320, kinds: KINDS, fps: 10, draw: drawShort });
+
+const N = state.mobile ? 80 : 110, R = 6.6, STEP_A = .4, STEP_Y = .5;
+const PW = 2.1, PH = 4.1;
+const bodies = new THREE.InstancedMesh(new RoundedBoxGeometry(PW, PH, .22, 4, .26), new THREE.MeshStandardMaterial({ color: '#141011', metalness: .7, roughness: .32 }), N);
+const rims = new THREE.InstancedMesh(new RoundedBoxGeometry(PW + .1, PH + .1, .12, 4, .3), new THREE.MeshBasicMaterial({ toneMapped: false }), N);
+const scrGeo = new THREE.PlaneGeometry(PW - .16, PH - .18);
+const aCell = new Float32Array(N), aDim = new Float32Array(N).fill(1);
+for (let i = 0; i < N; i++) aCell[i] = i % 40;
+scrGeo.setAttribute('aCell', new THREE.InstancedBufferAttribute(aCell, 1));
+const dimAttr = new THREE.InstancedBufferAttribute(aDim, 1); dimAttr.setUsage(THREE.DynamicDrawUsage); scrGeo.setAttribute('aDim', dimAttr);
+const scrU = Object.assign(THREE.UniformsUtils.clone(THREE.UniformsLib.fog), { uMap: { value: atlas.texture } });
+const screens = new THREE.InstancedMesh(scrGeo, new THREE.ShaderMaterial({ uniforms: scrU, fog: true,
+  vertexShader: `attribute float aCell, aDim; varying vec2 vUv; varying float vCell, vDim;
+    #include <fog_pars_vertex>
+    void main(){ vUv = uv; vCell = aCell; vDim = aDim; vec4 mvPosition = modelViewMatrix * instanceMatrix * vec4(position, 1.); gl_Position = projectionMatrix * mvPosition;
+    #include <fog_vertex>
+    }`,
+  fragmentShader: `uniform sampler2D uMap; varying vec2 vUv; varying float vCell, vDim;
+    #include <fog_pars_fragment>
+    void main(){
+      vec2 q = abs(vUv - .5) * vec2(1.94, 3.92) - vec2(.97, 1.96) + .2; if (length(max(q, 0.)) > .2) discard;
+      vec2 c = vec2(mod(vCell, 10.), floor(vCell / 10.));
+      vec3 col = pow(texture2D(uMap, vec2((c.x + vUv.x) / 10., 1. - (c.y + 1. - vUv.y) / 4.)).rgb, vec3(2.2));
+      gl_FragColor = vec4(col * (.15 + .95 * vDim) * 1.2, 1.);
+      #include <fog_fragment>
+    }` }), N);
+[bodies, rims, screens].forEach(m => { m.instanceMatrix.setUsage(THREE.DynamicDrawUsage); m.frustumCulled = false; scene.add(m); });
+// rims run gold to red to maroon down the spiral, like the logo bar
+const ramp = Cutsway.SPEC.concat(Cutsway.SLICE);
+for (let i = 0; i < N; i++) { const f = i / (N - 1) * (ramp.length - 1), a = Math.floor(f), b = Math.min(ramp.length - 1, a + 1);
+  rims.setColorAt(i, new THREE.Color(ramp[a]).lerp(new THREE.Color(ramp[b]), f - a).multiplyScalar(1.6)); }
+rims.instanceColor.needsUpdate = true;
+
+scene.add(new THREE.HemisphereLight('#ffd0b8', '#2a0a12', .9));
+const lamp = new THREE.PointLight('#ff9a5a', 80, 30, 1.5); scene.add(lamp);
+
+// motes falling with you
+const MN = state.mobile ? 500 : 1200, mp = new Float32Array(MN * 3);
+for (let i = 0; i < MN; i++) { const a = Math.random() * 6.28, r = 2 + Math.random() * 14; mp[i * 3] = Math.cos(a) * r; mp[i * 3 + 1] = -Math.random() * 120 + 10; mp[i * 3 + 2] = Math.sin(a) * r; }
+const mg = new THREE.BufferGeometry(); mg.setAttribute('position', new THREE.BufferAttribute(mp, 3));
+scene.add(new THREE.Points(mg, new THREE.PointsMaterial({ color: new THREE.Color(1.6, .9, .5), size: .07, transparent: true, opacity: .7, depthWrite: false, blending: THREE.AdditiveBlending })));
+
+// the phone you tap rises in front of you at full resolution
+scene.add(camera);
+const heroC = document.createElement('canvas'); heroC.width = 360; heroC.height = 640; const heroX = heroC.getContext('2d');
+const heroT = new THREE.CanvasTexture(heroC); heroT.colorSpace = THREE.SRGBColorSpace;
+const hero = new THREE.Group();
+const hBody = new THREE.Mesh(new RoundedBoxGeometry(PW, PH, .22, 4, .26), bodies.material); hero.add(hBody);
+const hRim = new THREE.Mesh(new RoundedBoxGeometry(PW + .1, PH + .1, .12, 4, .3), new THREE.MeshBasicMaterial({ color: new THREE.Color(1.05, .72, .16), toneMapped: false })); hRim.position.z = -.01; hero.add(hRim);
+const hScreen = new THREE.Mesh(new THREE.PlaneGeometry(PW - .16, PH - .18), new THREE.ShaderMaterial({ uniforms: { uMap: { value: heroT } },
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+  fragmentShader: `uniform sampler2D uMap; varying vec2 vUv; void main(){ vec2 q = abs(vUv - .5) * vec2(1.94, 3.92) - vec2(.97, 1.96) + .2; if (length(max(q, 0.)) > .2) discard;
+    gl_FragColor = vec4(pow(texture2D(uMap, vUv).rgb, vec3(2.2)) * 1.15, 1.); }` }));
+hScreen.position.z = .13; hero.add(hScreen);
+hero.visible = false; camera.add(hero);
+
+// hearts for double taps
+const hc = document.createElement('canvas'); hc.width = hc.height = 64; const hx = hc.getContext('2d'); hx.fillStyle = '#ff2b4a';
+hx.beginPath(); hx.moveTo(32, 56); hx.bezierCurveTo(4, 36, 6, 8, 32, 20); hx.bezierCurveTo(58, 8, 60, 36, 32, 56); hx.fill();
+const htex = new THREE.CanvasTexture(hc); htex.colorSpace = THREE.SRGBColorSpace;
+const hearts = [];
+function burst(at) { for (let k = 0; k < 14; k++) { const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: htex, transparent: true, depthWrite: false, color: new THREE.Color(1.8, 1.8, 1.8), toneMapped: false }));
+  s.position.copy(at); s.scale.setScalar(.5 + Math.random() * .4); s.userData = { v: new THREE.Vector3((Math.random() - .5) * 2.5, 2 + Math.random() * 2.5, (Math.random() - .5) * 2.5), age: 0 }; scene.add(s); hearts.push(s); } }
+
+// ---- spin, pick, pull close ----
+let spin = 0, spinV = 0, drag = null, moved = 0;
+const cv = document.getElementById('gl');
+cv.addEventListener('pointerdown', e => { drag = { x: e.clientX, t: performance.now() }; moved = 0; cv.classList.add('dragging'); });
+addEventListener('pointermove', e => { if (!drag) return; const dx = e.clientX - drag.x; moved += Math.abs(dx); spinV = dx / innerWidth * 5; spin += dx / innerWidth * 3.2; drag.x = e.clientX; });
+addEventListener('pointerup', e => { if (drag && moved < 6 && e.target === cv) tap(e); drag = null; cv.classList.remove('dragging'); });
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+let sel = -1, selK = 0, lastTap = 0, lastSel = -1, heroCell = null, heroAcc = 0;
+const closeBtn = document.getElementById('close');
+function tap(e) {
+  ptr.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight * 2 - 1)); ray.setFromCamera(ptr, camera);
+  const now = performance.now();
+  if (sel >= 0) {
+    const h = ray.intersectObject(hScreen)[0];
+    if (h) { if (now - lastTap < 400) burst(h.point); }
+    else release();
+  } else {
+    const hit = ray.intersectObject(screens)[0];
+    if (hit) { sel = hit.instanceId; heroCell = atlas.cells[aCell[sel]]; closeBtn.classList.add('show'); }
+  }
+  lastTap = now;
+}
+function release() { sel = -1; closeBtn.classList.remove('show'); }
+closeBtn.addEventListener('click', release);
+addEventListener('keydown', e => { if (e.key === 'Escape') release(); });
+
+const D = new THREE.Object3D();
+const camDir = new THREE.Vector3(), lookAt = new THREE.Vector3(), camT = new THREE.Vector3();
+const depthEl = document.getElementById('depth');
+const SPAN = (N - 8) * STEP_Y;
+S.onFrame(s => {
+  const p = s.ps, dt = s.dt;
+  if (!drag) { spinV *= Math.exp(-dt * 2.2); spin += spinV * dt + (s.reduce ? 0 : dt * .12); }
+  const y = -2.5 - p / 4 * SPAN * .86;
+  // the camera stands outside the tower and descends with the scroll
+  if (s.mobile) { camT.set(s.px * 2, y + 2 + s.py, 27); lookAt.set(0, y - 6.5, 0); }
+  else { camT.set(5 + s.px * 3, y + 2.2 + s.py * 1.2, 21); lookAt.set(-4.2, y - .8, 0); }
+  camera.position.lerp(camT, s.reduce ? 1 : .1);
+  camera.lookAt(lookAt);
+  lamp.position.copy(camera.position).add(new THREE.Vector3(0, 2, 0));
+  selK += ((sel >= 0 ? 1 : 0) - selK) * (1 - Math.exp(-dt * 6));
+  let cnt = 0;
+  for (let i = 0; i < N; i++) {
+    const a = i * STEP_A + spin, py = -i * STEP_Y;
+    D.position.set(Math.cos(a) * R, py, Math.sin(a) * R); D.lookAt(Math.cos(a) * R * 2, py, Math.sin(a) * R * 2); D.scale.setScalar(1); D.updateMatrix();
+    if (i === sel || (sel < 0 && i === lastSel && selK > .01)) { D.scale.setScalar(Math.max(.001, 1 - selK)); D.updateMatrix(); }
+    bodies.setMatrixAt(i, D.matrix);
+    D.translateZ(-.01); D.updateMatrix(); rims.setMatrixAt(i, D.matrix);
+    D.translateZ(.14); D.updateMatrix(); screens.setMatrixAt(i, D.matrix);
+    aDim[i] = sel >= 0 && i !== sel ? 1 - selK * .75 : 1;
+    if (py > y + 1 && Math.sin(a) > 0) cnt++;
+  }
+  if (sel >= 0) lastSel = sel;
+  hero.visible = selK > .01;
+  if (hero.visible) {
+    const e = 1 - Math.pow(1 - selK, 3);
+    hero.position.set(0, (1 - e) * -5, s.mobile ? -6.4 : -5.6); hero.rotation.set((1 - e) * .6, (1 - e) * -.5 + s.px * .08, 0);
+    heroAcc += dt; if (heroAcc > 1 / 24 && heroCell) { heroAcc = 0; heroX.save(); heroX.scale(2, 2); drawShort(heroX, 180, 320, heroCell, s.t); heroX.restore(); heroT.needsUpdate = true; }
+  }
+  bodies.instanceMatrix.needsUpdate = rims.instanceMatrix.needsUpdate = screens.instanceMatrix.needsUpdate = true; dimAttr.needsUpdate = true;
+  depthEl.innerHTML = `<b>${cnt}</b> shorts deep`;
+  atlas.tick(dt, s.t, 1);
+  for (let k = hearts.length - 1; k >= 0; k--) { const h = hearts[k], u = h.userData; u.age += dt; u.v.y -= dt * 1.5; h.position.addScaledVector(u.v, dt); h.material.opacity = 1 - u.age / 1.6; if (u.age > 1.6) { scene.remove(h); hearts.splice(k, 1); } }
+});
+}
+</script>
+</body>
+</html>

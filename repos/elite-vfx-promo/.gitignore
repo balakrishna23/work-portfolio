@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# Ignore the output video from Git but not videos you import into src/.
+out
+
+# Real-ESRGAN binary (downloaded from github.com/xinntao/Real-ESRGAN releases v0.2.5.0)
+tools/

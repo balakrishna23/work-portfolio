@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Multiview</title>
+<meta name="description" content="A control room wall of every feed you record. Cutsway picks the shot.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --room: #080605; --panel: #121010; --paper: #f4ede4; --soft: #c8bcb0; --tally: #f0163a; --pvw: #36d07a; --gold: #ffc72e; --m: clamp(18px, 3vw, 48px); }
+  * { box-sizing: border-box; }
+  html { background: var(--room); color: var(--paper); scrollbar-color: #3a1218 var(--room); }
+  body { margin: 0; font-family: Barlow, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .cond { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: .01em; }
+  .num { font-variant-numeric: tabular-nums; }
+  #gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; cursor: crosshair; }
+  .nav { position: fixed; z-index: 10; inset: 0 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 18px var(--m); }
+  .nav svg { width: 112px; height: 47px; display: block; color: var(--paper); }
+  .nav nav { display: flex; gap: 6px; }
+  .nav nav a { font-family: "Barlow Condensed"; font-weight: 700; font-size: 17px; text-transform: uppercase; letter-spacing: .03em; text-decoration: none; padding: 8px 14px; border-radius: 6px; color: var(--soft); transition: color .2s, background .2s; }
+  .nav nav a:hover { color: var(--paper); background: rgb(255 255 255 / .06); }
+  .nav nav a[aria-current="true"] { color: var(--paper); background: rgb(240 22 58 / .2); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 8px; background: var(--paper); color: var(--room); font-family: "Barlow Condensed"; font-weight: 800; font-size: 19px; text-transform: uppercase; letter-spacing: .03em; text-decoration: none; border: 0; cursor: pointer; transition: transform .2s, background .2s; }
+  .btn:hover { transform: translateY(-2px); background: #fff; } .btn:active { transform: scale(.96); }
+  .btn--tally { background: var(--tally); color: #fff; } .btn--tally:hover { background: #ff2d4f; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  main { position: relative; z-index: 2; pointer-events: none; }
+  main a, main button { pointer-events: auto; }
+  .ch { min-height: 125vh; display: flex; align-items: flex-end; padding: 120px var(--m) 150px; }
+  .ch:first-child { min-height: 100vh; }
+  /* each chapter's copy is a lower third */
+  .lt { display: grid; grid-template-columns: 8px minmax(0, 1fr); max-width: 640px; opacity: 0; transform: translateX(-30px); transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .ch.is-on .lt { opacity: 1; transform: none; }
+  .lt::before { content: ""; background: var(--tally); }
+  .lt__in { background: rgb(10 8 8 / .9); padding: 22px 26px 24px; }
+  .lt__tag { display: inline-block; font-family: "Barlow Condensed"; font-weight: 700; font-size: 16px; letter-spacing: .06em; color: var(--tally); margin-bottom: 6px; }
+  h1, h2 { margin: 0 0 12px; font-family: "Barlow Condensed", sans-serif; font-weight: 800; text-transform: uppercase; line-height: .9; letter-spacing: -.005em; }
+  h1 { font-size: clamp(3.4rem, 7vw, 7.4rem); }
+  h2 { font-size: clamp(2.8rem, 5vw, 5.4rem); }
+  .lt p { margin: 0 0 16px; max-width: 46ch; font-size: clamp(18px, 1.3vw, 20px); }
+  .lt p:last-child { margin-bottom: 0; }
+  .lt .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .lt .meta { font-family: "Barlow Condensed"; font-weight: 700; font-size: 20px; letter-spacing: .03em; color: var(--gold); }
+
+  .mixer { position: fixed; z-index: 11; right: var(--m); bottom: 24px; display: grid; grid-template-columns: auto auto auto; gap: 10px; align-items: stretch; }
+  .bus { background: rgb(10 8 8 / .92); padding: 10px 14px; border-radius: 10px; min-width: 150px; border-top: 4px solid var(--c); }
+  .bus small { display: block; font-family: "Barlow Condensed"; font-weight: 700; font-size: 14px; letter-spacing: .08em; color: var(--c); }
+  .bus b { font-family: "Barlow Condensed"; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: .02em; }
+  .take { font-size: 24px; padding: 0 24px; }
+  .take[disabled] { opacity: .45; cursor: default; transform: none; }
+  .tip { position: fixed; z-index: 11; right: var(--m); bottom: 104px; font-size: 15px; color: var(--soft); text-align: right; pointer-events: none; }
+  kbd { font: inherit; font-weight: 700; padding: 1px 7px; border-radius: 5px; background: rgb(255 255 255 / .12); color: var(--paper); }
+
+  .after { position: relative; z-index: 3; background: var(--room); padding: clamp(120px, 12vw, 200px) var(--m) 32px; }
+  .after h2 { margin-bottom: 32px; }
+  .faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .faq div { background: var(--panel); border-radius: 12px; padding: 24px; border-left: 6px solid #2a2222; }
+  .faq h3 { margin: 0 0 6px; font-family: "Barlow Condensed"; font-weight: 800; font-size: 26px; text-transform: uppercase; } .faq p { margin: 0; }
+  .end { margin-top: clamp(120px, 12vw, 200px); display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 24px; }
+  .end h2 { font-size: clamp(4rem, 13vw, 14rem); margin: 0; }
+  .end h2 span { color: var(--tally); }
+  .credits { margin-top: 40px; font-size: 14px; color: var(--soft); max-width: 90ch; }
+  .nogl #gl, .nogl .mixer, .nogl .tip { display: none; }
+  @media (max-width: 860px) {
+    .nav nav { display: none; }
+    .ch { padding-bottom: 170px; }
+    .mixer { left: 12px; right: 12px; bottom: 12px; grid-template-columns: 1fr 1fr auto; }
+    .bus { min-width: 0; padding: 8px 10px; } .bus b { font-size: 18px; } .bus small { font-size: 12px; white-space: nowrap; }
+    .tip { display: none; }
+    .faq, .end { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .lt { transition: none; } }
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="A control room wall of live feeds. Click a feed to preview it."></canvas>
+
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Chapters"><a href="#" data-go="1">Videos</a><a href="#" data-go="2">Streams</a><a href="#" data-go="3">Podcasts</a><a href="#" data-go="4">Shorts</a><a href="#" data-go="5">Your turn</a></nav>
+  <a class="btn btn--tally" href="#book">Book a call</a>
+</header>
+
+<div class="tip" id="tip">Click any feed for <kbd>preview</kbd>, then <kbd>Space</kbd> to take it</div>
+<div class="mixer" aria-label="Vision mixer">
+  <div class="bus" style="--c:var(--pvw)"><small>Preview</small><b id="pvw">Cam 3</b></div>
+  <div class="bus" style="--c:var(--tally)"><small>Program · <span class="num" id="cuts">0</span> cuts</small><b id="pgm">Game 1</b></div>
+  <button class="btn btn--tally take" id="take" type="button">Take</button>
+</div>
+
+<main id="top">
+  <section class="ch" data-ch aria-labelledby="h1">
+    <div class="lt"><div class="lt__in">
+      <span class="lt__tag">Live · Cutsway control room</span>
+      <h1 id="h1">Every feed. One editor.</h1>
+      <p>Cutsway edits gaming videos, streams, shorts and podcasts. Gameplay, facecam, chat, three mics: you record all of it, we pick the shot.</p>
+      <div class="row"><a class="btn btn--tally" href="#book">Book a call</a><span class="meta">Scroll to cut between feeds</span></div>
+    </div></div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c1">
+    <div class="lt"><div class="lt__in">
+      <span class="lt__tag">Feed group · gameplay</span>
+      <h2 id="c1">Gaming videos</h2>
+      <p>Hours of play on one wall. We find the story, cut to the moment, and add the zoom, the caption and the sound that make it land.</p>
+      <p class="meta">Back in 48 hours · three thumbnails included</p>
+    </div></div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c2">
+    <div class="lt"><div class="lt__in">
+      <span class="lt__tag">Feed group · live</span>
+      <h2 id="c2">Stream VODs</h2>
+      <p>Eight hours of game, facecam and chat, watched by a person. The highlight video follows the moments chat lost it over.</p>
+      <p class="meta">Highlight video and ten shorts · 48 hours</p>
+    </div></div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c3">
+    <div class="lt"><div class="lt__in">
+      <span class="lt__tag">Feed group · studio</span>
+      <h2 id="c3">Podcasts</h2>
+      <p>Three mics, two cameras. We cut to whoever is talking, catch the reaction that matters, and clean every track on its own.</p>
+      <p class="meta">Episode and six clips · 72 hours</p>
+    </div></div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c4">
+    <div class="lt"><div class="lt__in">
+      <span class="lt__tag">Program · vertical</span>
+      <h2 id="c4">Shorts, reframed</h2>
+      <p>Program turns vertical. Facecam where the reaction is, gameplay where the play is, captions word by word.</p>
+      <p class="meta">Ten shorts per session · 24 hours</p>
+    </div></div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c5">
+    <div class="lt"><div class="lt__in">
+      <span class="lt__tag">Your turn</span>
+      <h2 id="c5">Take a shot</h2>
+      <p>Click any feed on the wall to preview it, then hit Take. That is the job, a few hundred times per video, back by <strong id="due">Sunday</strong>.</p>
+      <div class="row"><a class="btn btn--tally" href="#book">Book a call</a><span class="meta" id="you">You have made 0 cuts</span></div>
+    </div></div>
+  </section>
+</main>
+
+<div class="after">
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">Off air</h2>
+    <div class="faq">
+      <div><h3>What do I send?</h3><p>Every feed raw: gameplay, facecam, each mic, the chat log if you have it.</p></div>
+      <div><h3>Who chooses the shots?</h3><p>Your editor does the first cut. You leave notes on the exact frame, two rounds included.</p></div>
+      <div><h3>Same editor each time?</h3><p>Yes. They learn your channel from your last ten uploads and stay on it.</p></div>
+      <div><h3>Are the times fixed?</h3><p>They are samples. Yours are confirmed on the call.</p></div>
+    </div>
+  </section>
+  <footer class="end" id="book">
+    <h2 class="cond">Cut to <span>us</span>.</h2>
+    <a class="btn btn--tally" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a>
+  </footer>
+  <p class="credits">Every feed on the wall is drawn in code as a sample; none is real footage. Times are samples.</p>
+</div>
+
+<script src="../../awwwards/_shared/brand.js"></script>
+<script src="../../awwwards/_shared/frames.js"></script>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+<script type="module">
+import { createStage, createAtlas, hasWebGL, seg, smooth, clamp, lerp } from '../_shared/stage.js';
+{ const d = Cutsway.due(48); document.getElementById('due').textContent = d.day; }
+if (!hasWebGL()) { document.documentElement.classList.add('nogl'); document.querySelectorAll('.ch').forEach(c => c.classList.add('is-on')); }
+else {
+const S = createStage({ canvas: document.getElementById('gl'), fov: 42, far: 300, exposure: 1, bloom: { strength: .7, radius: .55, threshold: .72 } });
+const { THREE, scene, camera, state } = S;
+scene.background = new THREE.Color('#080605');
+scene.fog = new THREE.Fog('#080605', 30, 80);
+
+// ---- the feeds ----
+const COLS = 16, ROWS = 8, CW = 192, CH = 108;
+const GROUP = { fps: 'game', race: 'game', boss: 'game', platform: 'game', map: 'game', menu: 'game', chat: 'live', podcast: 'studio' };
+const KINDS = ['fps', 'chat', 'race', 'podcast', 'boss', 'map', 'chat', 'platform', 'podcast', 'fps', 'menu', 'chat', 'race', 'podcast', 'boss', 'chat'];
+const names = { game: 'Game', live: 'VOD', studio: 'Cam' };
+const counters = { game: 0, live: 0, studio: 0 };
+let pgmCell = -1, pvwCell = -1;
+const atlas = createAtlas({ cols: COLS, rows: ROWS, cw: CW, ch: CH, kinds: KINDS, fps: 14, draw(x, w, h, cell, t) {
+  window.CutFrames.draw(x, w, h, cell.kind, cell.seed, t * (.6 + (cell.i % 5) * .15) + cell.phase);
+  x.fillStyle = 'rgba(0,0,0,.55)'; x.fillRect(0, h - 22, w, 22);
+  x.font = '600 14px "Barlow Condensed", Arial, sans-serif'; x.fillStyle = '#f4ede4'; x.textBaseline = 'middle';
+  x.fillText((cell.label || '').toUpperCase(), 8, h - 11);
+  x.fillStyle = cell.i === pgmCell ? '#f0163a' : cell.i === pvwCell ? '#36d07a' : '#3a3330'; x.fillRect(w - 18, h - 16, 10, 10);
+} });
+atlas.cells.forEach((c, i) => { c.kind = KINDS[(i * 5 + Math.floor(i / COLS) * 3) % KINDS.length]; c.group = GROUP[c.kind]; c.label = `${names[c.group]} ${++counters[c.group]}`; });
+pgmCell = atlas.cells.find(c => c.group === 'game').i; pvwCell = atlas.cells.find(c => c.group === 'studio').i;
+atlas.cells.forEach(c => atlas.paint(c, 0)); atlas.texture.needsUpdate = true;
+
+// brightness per feed, eased toward a target mask per chapter
+const mask = new Float32Array(COLS * ROWS).fill(1), maskT = new Float32Array(COLS * ROWS).fill(1);
+const mdata = new Uint8Array(COLS * ROWS * 4).fill(255);
+const mtex = new THREE.DataTexture(mdata, COLS, ROWS, THREE.RGBAFormat); mtex.needsUpdate = true;
+
+// curved wall: we sit inside the arc
+const R = 24, ARC = 1.95, HGT = R * ARC / COLS * ROWS * 9 / 16;
+const wallGeo = new THREE.CylinderGeometry(R, R, HGT, 96, 1, true, Math.PI - ARC / 2, ARC);
+const wallU = { uMap: { value: atlas.texture }, uMask: { value: mtex }, uHover: { value: -1 }, uPvw: { value: pvwCell }, uPgm: { value: pgmCell }, uTime: { value: 0 }, uCols: { value: COLS }, uRows: { value: ROWS } };
+const wall = new THREE.Mesh(wallGeo, new THREE.ShaderMaterial({ side: THREE.BackSide, uniforms: wallU,
+  vertexShader: `varying vec2 vUv; void main(){ vUv = vec2(1. - uv.x, uv.y); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+  fragmentShader: `uniform sampler2D uMap, uMask; uniform float uHover, uPvw, uPgm, uTime, uCols, uRows; varying vec2 vUv;
+    void main(){
+      vec2 g = vec2(vUv.x * uCols, (1. - vUv.y) * uRows); vec2 c = floor(g), f = fract(g);
+      float idx = c.y * uCols + c.x;
+      vec2 inset = (f - .5) * 1.06 + .5;
+      float bez = step(.0, inset.x) * step(inset.x, 1.) * step(.0, inset.y) * step(inset.y, 1.);
+      vec2 uv = vec2((c.x + clamp(inset.x, 0., 1.)) / uCols, 1. - (c.y + clamp(inset.y, 0., 1.)) / uRows);
+      vec3 col = texture2D(uMap, uv).rgb;
+      col = pow(col, vec3(2.2));
+      float m = texture2D(uMask, (c + .5) / vec2(uCols, uRows)).r;
+      col *= .08 + .92 * m;
+      col *= .9 + .1 * sin(g.y * 260. + uTime * 4.);
+      vec2 e = min(f, 1. - f); float edge = 1. - smoothstep(.0, .045, min(e.x * 1.78, e.y));
+      vec3 ring = vec3(0.); float on = 0.;
+      if (abs(idx - uPgm) < .5) { ring = vec3(1., .03, .12) * 3.; on = 1.; }
+      else if (abs(idx - uPvw) < .5) { ring = vec3(.1, 1., .35) * 2.2; on = 1.; }
+      else if (abs(idx - uHover) < .5) { ring = vec3(1., .75, .2) * 2.; on = 1.; }
+      col = mix(col * bez, ring, edge * on);
+      col = mix(vec3(.012, .01, .01), col, max(bez, edge * on));
+      gl_FragColor = vec4(col * 1.25, 1.);
+    }` }));
+wall.position.set(0, HGT / 2 - .2, 0);
+scene.add(wall);
+
+// program and preview monitors
+function monitor(w, h) {
+  const c = document.createElement('canvas'); c.width = 960; c.height = 540;
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: t, toneMapped: false }));
+  m.scale.set(w, h, 1);
+  const frame = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: '#000' }));
+  frame.position.z = -.02; frame.scale.set(1.04, 1.07, 1); m.add(frame);
+  return { c, x: c.getContext('2d'), t, m };
+}
+const PGM = monitor(8.6, 4.84), PVW = monitor(5.2, 2.93);
+PGM.m.position.set(1.7, 6.3, -15.2); PVW.m.position.set(-6.2, 5.9, -15.6); PVW.m.rotation.y = .16; PGM.m.rotation.y = -.04;
+scene.add(PGM.m, PVW.m);
+const tallyBar = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: new THREE.Color(1.3, .04, .12), toneMapped: false }));
+tallyBar.scale.set(1.04, .018, 1); tallyBar.position.set(0, .545, -.01); PGM.m.add(tallyBar);
+const pvwBar = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: new THREE.Color(.08, 1.1, .35), toneMapped: false }));
+pvwBar.scale.set(1.04, .026, 1); pvwBar.position.set(0, .55, -.01); PVW.m.add(pvwBar);
+
+// the on-air sign above the wall
+const sc = document.createElement('canvas'); sc.width = 512; sc.height = 128; const sx = sc.getContext('2d');
+sx.fillStyle = '#1a0306'; sx.fillRect(0, 0, 512, 128); sx.strokeStyle = '#ff2040'; sx.lineWidth = 8; sx.strokeRect(8, 8, 496, 112);
+sx.font = '800 84px "Barlow Condensed", Arial'; sx.textAlign = 'center'; sx.textBaseline = 'middle'; sx.fillStyle = '#ff4a5e'; sx.fillText('ON AIR', 256, 68);
+const st = new THREE.CanvasTexture(sc); st.colorSpace = THREE.SRGBColorSpace;
+const sign = new THREE.Mesh(new THREE.PlaneGeometry(4.4, 1.1), new THREE.MeshBasicMaterial({ map: st, toneMapped: false, color: new THREE.Color(1.8, 1.8, 1.8) }));
+sign.position.set(0, HGT + 1.3, -21.5); scene.add(sign);
+document.fonts && document.fonts.ready.then(() => { sx.fillStyle = '#1a0306'; sx.fillRect(14, 14, 484, 100); sx.fillStyle = '#ff4a5e'; sx.fillText('ON AIR', 256, 68); st.needsUpdate = true; });
+
+// desk with the mixer keys
+const desk = new THREE.Mesh(new THREE.BoxGeometry(16, .5, 3.6), new THREE.MeshStandardMaterial({ color: '#16110f', roughness: .5, metalness: .3 }));
+desk.position.set(0, 1.1, 9.5); scene.add(desk);
+const lip = new THREE.Mesh(new THREE.BoxGeometry(16, 1.6, .2), new THREE.MeshStandardMaterial({ color: '#0d0a09', roughness: .7 }));
+lip.position.set(0, .35, 11.3); scene.add(lip);
+const KEYS = 16 * 2, keys = new THREE.InstancedMesh(new THREE.BoxGeometry(.42, .1, .42), new THREE.MeshBasicMaterial({ toneMapped: false }), KEYS);
+const dm = new THREE.Object3D();
+for (let k = 0; k < KEYS; k++) { const row = Math.floor(k / 16), col = k % 16; dm.position.set(-6.6 + col * .88, 1.4, 8.9 + row * .75); dm.updateMatrix(); keys.setMatrixAt(k, dm.matrix); keys.setColorAt(k, new THREE.Color(.05, .04, .04)); }
+scene.add(keys);
+const tbar = new THREE.Mesh(new THREE.BoxGeometry(.24, 1.1, .24), new THREE.MeshStandardMaterial({ color: '#c9bfb4', metalness: .6, roughness: .3 }));
+tbar.position.set(7.4, 1.8, 9.4); tbar.rotation.x = -.35; scene.add(tbar);
+
+// floor: a mirrored copy of the wall and monitors seen through a dark glossy floor
+const FLOOR_Y = -.2;
+const mirror = new THREE.Group(); mirror.scale.y = -1; mirror.position.y = FLOOR_Y * 2;
+const mWall = wall.clone(), mPgm = PGM.m.clone(), mPvw = PVW.m.clone();
+mirror.add(mWall, mPgm, mPvw); scene.add(mirror);
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(160, 160), new THREE.MeshBasicMaterial({ color: '#070504', transparent: true, opacity: .8 }));
+floor.rotation.x = -Math.PI / 2; floor.position.y = FLOOR_Y; floor.renderOrder = 2; scene.add(floor);
+scene.add(new THREE.AmbientLight('#ffe8d8', .25));
+const wash = new THREE.PointLight('#ff8a4a', 60, 40, 1.6); wash.position.set(0, 6, -10); scene.add(wash);
+const key = new THREE.PointLight('#ffd7b0', 30, 20, 1.6); key.position.set(0, 7, 10); scene.add(key);
+
+// ---- mixer logic ----
+const pvwEl = document.getElementById('pvw'), pgmEl = document.getElementById('pgm'), cutsEl = document.getElementById('cuts'), youEl = document.getElementById('you');
+let cuts = 0, flash = 0;
+const label = i => atlas.cells[i].label;
+function setPvw(i) { pvwCell = i; wallU.uPvw.value = i; pvwEl.textContent = label(i); atlas.paint(atlas.cells[i], state.t); atlas.texture.needsUpdate = true; }
+function take(quiet) {
+  if (pvwCell === pgmCell) return;
+  const old = pgmCell; pgmCell = pvwCell; pvwCell = old; wallU.uPgm.value = pgmCell; wallU.uPvw.value = pvwCell;
+  pgmEl.textContent = label(pgmCell); pvwEl.textContent = label(pvwCell); if (!quiet) cuts++; flash = 1;
+  cutsEl.textContent = cuts; youEl.textContent = `You have made ${cuts} cut${cuts === 1 ? '' : 's'}`;
+  [old, pgmCell].forEach(i => atlas.paint(atlas.cells[i], state.t)); atlas.texture.needsUpdate = true;
+}
+document.getElementById('take').addEventListener('click', () => take());
+addEventListener('keydown', e => { if ((e.code === 'Space' || e.key === 'Enter') && !e.target.closest('a,button,input')) { e.preventDefault(); take(); } });
+pvwEl.textContent = label(pvwCell); pgmEl.textContent = label(pgmCell);
+
+const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+function pick(e) { ptr.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight * 2 - 1)); ray.setFromCamera(ptr, camera);
+  const hit = ray.intersectObject(wall)[0]; if (!hit) return -1;
+  const u = 1 - hit.uv.x, v = hit.uv.y; return Math.floor((1 - v) * ROWS) * COLS + Math.floor(u * COLS); }
+const cv = document.getElementById('gl');
+cv.addEventListener('pointermove', e => { wallU.uHover.value = pick(e); });
+cv.addEventListener('click', e => { const i = pick(e); if (i < 0) return; if (i === pvwCell) take(); else setPvw(i); });
+
+// chapter masks and camera shots
+const SHOTS = [
+  { pos: [0, 5.6, 17.5], look: [0, 6.6, -20], mask: () => 1 },
+  { pos: [-7, 6.5, 2], look: [-14, 6.5, -20], mask: c => c.group === 'game' },
+  { pos: [5, 7.5, 3], look: [10, 8, -22], mask: c => c.group === 'live' },
+  { pos: [1, 5.2, 4], look: [-2, 5, -22], mask: c => c.group === 'studio' },
+  { pos: [1.7, 6.2, -4.5], look: [1.7, 6.2, -16], mask: c => c.kind === 'race' || c.kind === 'chat' },
+  { pos: [-1, 5, 15], look: [0, 5.8, -20], mask: () => 1 }
+];
+const autoPgm = [null, 'game', 'live', 'studio', 'game', null];
+let lastCh = 0;
+const camPos = new THREE.Vector3(...SHOTS[0].pos), camLook = new THREE.Vector3(...SHOTS[0].look), tp = new THREE.Vector3(), tl = new THREE.Vector3();
+function drawMon(M, i, t, vertical) {
+  const x = M.x, cell = atlas.cells[i];
+  if (vertical) {
+    x.fillStyle = '#000'; x.fillRect(0, 0, 960, 540);
+    x.save(); x.beginPath(); x.rect(330, 0, 300, 540); x.clip(); x.translate(330 - 330, 0); window.CutFrames.draw(x, 960, 540, cell.kind, cell.seed, t + cell.phase); x.restore();
+    x.fillStyle = 'rgba(0,0,0,.72)'; x.fillRect(0, 0, 330, 540); x.fillRect(630, 0, 330, 540);
+    x.font = '800 34px "Barlow Condensed", Arial'; x.textAlign = 'center'; x.lineWidth = 7; x.strokeStyle = '#000'; x.fillStyle = '#ffc72e';
+    const w = ['NO WAY', 'ONE HP', 'CLUTCH'][Math.floor(t * .8) % 3]; x.strokeText(w, 480, 430); x.fillText(w, 480, 430); x.textAlign = 'left';
+  } else window.CutFrames.draw(x, 960, 540, cell.kind, cell.seed, t + cell.phase);
+  x.fillStyle = 'rgba(0,0,0,.6)'; x.fillRect(20, 20, 210, 40);
+  x.font = '700 26px "Barlow Condensed", Arial'; x.fillStyle = '#f4ede4'; x.fillText(label(i).toUpperCase(), 32, 50);
+  M.t.needsUpdate = true;
+}
+let monAcc = 0;
+S.onFrame(s => {
+  const p = s.ps, a = clamp(Math.round(p), 0, SHOTS.length - 1), b = clamp(Math.floor(p), 0, SHOTS.length - 2), k = smooth(clamp(p - b));
+  // camera between the two nearest shots
+  tp.fromArray(SHOTS[b].pos).lerp(new THREE.Vector3(...SHOTS[b + 1].pos), k);
+  tl.fromArray(SHOTS[b].look).lerp(new THREE.Vector3(...SHOTS[b + 1].look), k);
+  tp.x += s.px * .8; tp.y += s.py * .4;
+  if (s.mobile) { tp.z += 6; tp.y += .6; }
+  camPos.lerp(tp, s.reduce ? 1 : .08); camLook.lerp(tl, s.reduce ? 1 : .08);
+  camera.position.copy(camPos); camera.lookAt(camLook);
+  // the chapter's feeds stay lit
+  atlas.cells.forEach((c, i) => { maskT[i] = SHOTS[a].mask(c) ? 1 : 0; mask[i] += (maskT[i] - mask[i]) * (s.reduce ? 1 : .07); mdata[i * 4] = mask[i] * 255; });
+  mtex.needsUpdate = true;
+  if (a !== lastCh) { lastCh = a; const g = autoPgm[a]; if (g) { const pick = atlas.cells.filter(c => c.group === g && (a !== 4 || c.kind === 'race'))[cuts % 3]; if (pick && pick.i !== pgmCell) { setPvw(pick.i); take(true); } } }
+  // program goes vertical for shorts
+  const vert = smooth(seg(p, 3.5, 4)) * (1 - smooth(seg(p, 4.5, 5)));
+  PGM.m.scale.set(lerp(8.6, 2.72, vert), 4.84, 1); mPgm.scale.copy(PGM.m.scale);
+  atlas.tick(s.dt, s.t, 1);
+  monAcc += s.dt; if (monAcc > 1 / 24) { monAcc = 0; drawMon(PGM, pgmCell, s.t, vert > .5); drawMon(PVW, pvwCell, s.t, false); }
+  flash = Math.max(0, flash - s.dt * 4);
+  PGM.m.material.color.setScalar(1 + flash * 2.5);
+  wallU.uTime.value = s.t;
+  for (let k2 = 0; k2 < KEYS; k2++) { const col = k2 % 16, row = Math.floor(k2 / 16); const cell = pgmCell % 16 === col && row === 0 ? 1 : pvwCell % 16 === col && row === 1 ? 2 : 0;
+    keys.setColorAt(k2, cell === 1 ? new THREE.Color(1.6, .06, .14) : cell === 2 ? new THREE.Color(.1, 1.3, .4) : new THREE.Color(.05, .04, .04)); }
+  keys.instanceColor.needsUpdate = true;
+  tbar.rotation.x = -.35 + flash * .7;
+});
+}
+</script>
+</body>
+</html>

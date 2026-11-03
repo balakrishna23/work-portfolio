@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Dead Air</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0f0c0b; --raise: #1a1513; --paper: #efe6da; --soft: #b9aa99; --gold: #ffc72e; --amber: #ffb02a; --red: #f0163a; --m: clamp(16px, 4vw, 80px); }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); color: var(--paper); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .num { font-variant-numeric: tabular-nums; }
+  .thin { font-weight: 200; font-stretch: 125%; letter-spacing: -.045em; line-height: .95; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 22px var(--m); }
+  .nav svg { width: 112px; height: 47px; display: block; }
+  .nav nav { display: flex; gap: 32px; font-size: 16px; }
+  .nav nav a { text-decoration: none; color: var(--soft); transition: color .2s; } .nav nav a:hover { color: var(--paper); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border-radius: 999px; background: transparent; color: var(--paper); box-shadow: inset 0 0 0 1.5px rgb(239 230 218 / .5); font: inherit; font-size: 17px; font-weight: 600; text-decoration: none; cursor: pointer; border: 0; transition: background .25s, color .25s, box-shadow .25s; }
+  .btn:hover { background: var(--paper); color: var(--bg); }
+  .btn--fill { background: var(--gold); color: var(--bg); box-shadow: none; } .btn--fill:hover { background: var(--paper); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  .hero { min-height: calc(100svh - 92px); display: grid; grid-template-rows: auto 1fr auto; padding: clamp(24px, 6vh, 72px) var(--m) 32px; gap: 28px; }
+  .hero__top { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 32px; align-items: end; }
+  h1 { margin: 0; font-size: clamp(3.6rem, 8.4vw, 9.4rem); }
+  .hero__top p { margin: 0; font-size: 20px; color: var(--paper); max-width: 34ch; }
+  .wave { position: relative; min-height: 200px; }
+  .wave canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: pointer; }
+  .deck { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+  .deck__l { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .toggle { display: inline-flex; padding: 4px; border-radius: 999px; background: var(--raise); }
+  .toggle button { border: 0; background: transparent; color: var(--soft); font: inherit; font-size: 16px; font-weight: 600; padding: 10px 18px; border-radius: 999px; cursor: pointer; transition: background .25s, color .25s; }
+  .toggle button[aria-pressed="true"] { background: var(--paper); color: var(--bg); }
+  .time { text-align: right; }
+  .time b { display: block; font-size: clamp(2.2rem, 3.4vw, 3.2rem); }
+  .time span { color: var(--soft); font-size: 16px; }
+
+  section { padding: clamp(120px, 14vw, 220px) var(--m) 0; }
+  h2 { margin: 0 0 40px; font-size: clamp(2.8rem, 6vw, 6.4rem); }
+  .mics { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr); gap: 18px; align-items: end; }
+  .mics img { width: 100%; display: block; object-fit: cover; border-radius: 4px; }
+  .mics figure { margin: 0; }
+  .mics figcaption { margin-top: 12px; color: var(--soft); font-size: 16px; }
+  .m1 img { aspect-ratio: 4 / 5; } .m2 img { aspect-ratio: 1; } .m3 img { aspect-ratio: 3 / 4; }
+  .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); margin-top: 72px; }
+  .steps h3 { margin: 0 0 8px; font-size: 24px; font-weight: 500; }
+  .steps p { margin: 0; color: var(--paper); }
+  .steps b { display: block; font-size: 3rem; color: var(--gold); margin-bottom: 8px; }
+  .clips { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 72px); align-items: center; }
+  .clips p { font-size: 20px; margin: 0 0 24px; max-width: 32ch; }
+  .reels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .reels canvas { width: 100%; aspect-ratio: 9 / 16; display: block; border-radius: 12px; }
+  .qa { max-width: 980px; }
+  details { border-radius: 14px; background: var(--raise); margin-bottom: 10px; }
+  summary { padding: 22px 26px; cursor: pointer; list-style: none; font-size: 22px; font-weight: 400; display: flex; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: ""; width: 14px; height: 14px; margin-top: 6px; flex: none; border-right: 1.5px solid var(--gold); border-bottom: 1.5px solid var(--gold); transform: rotate(45deg); transition: transform .3s; }
+  details[open] summary::after { transform: rotate(225deg); }
+  details p { margin: 0; padding: 0 26px 24px; max-width: 64ch; color: var(--paper); }
+  footer { padding: clamp(140px, 16vw, 240px) var(--m) 32px; text-align: center; display: grid; justify-items: center; gap: 28px; }
+  footer h2 { font-size: clamp(3.4rem, 11vw, 12rem); margin: 0; }
+  .credits { font-size: 13px; color: var(--soft); max-width: 80ch; }
+  @media (max-width: 860px) {
+    .nav nav { display: none; }
+    .hero__top, .clips { grid-template-columns: 1fr; }
+    .wave { min-height: 160px; }
+    .time { text-align: left; }
+    .mics, .steps { grid-template-columns: 1fr; } .reels { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#room">The room</a><a href="#clips">Clips</a><a href="#faq">Questions</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1" style="padding-top:clamp(24px,6vh,72px)">
+    <div class="hero__top">
+      <h1 class="thin" id="h1">Less silence. Same voice.</h1>
+      <p>Cutsway edits podcasts, streams and gaming videos. This is an hour-long episode. Turn on the edit and listen to what's left.</p>
+    </div>
+    <div class="wave"><canvas id="wave" aria-label="Waveform of a podcast episode; silent gaps close up when the edit is on"></canvas></div>
+    <div class="deck">
+      <div class="deck__l">
+        <button class="btn btn--fill" id="play" type="button">Play a sample</button>
+        <div class="toggle" role="group" aria-label="Edit"><button type="button" data-e="0" aria-pressed="true">Raw</button><button type="button" data-e="1" aria-pressed="false">Cutsway edit</button></div>
+      </div>
+      <div class="time" aria-live="polite"><b class="thin num" id="dur">58:12</b><span id="dur-n">raw recording, three mics</span></div>
+    </div>
+  </section>
+
+  <section id="room" aria-labelledby="room-h">
+    <h2 class="thin" id="room-h" data-rise>Three mics, one clean episode.</h2>
+    <div class="mics" data-rise="kids">
+      <figure class="m1"><img src="../_shared/img/mic-1.jpg" alt="A podcast microphone on a boom arm in a studio"><figcaption>Each mic levelled and cleaned on its own track.</figcaption></figure>
+      <figure class="m2"><img src="../_shared/img/mic-2.jpg" alt="Several podcast microphones around a round table"><figcaption>Crosstalk untangled, not muted.</figcaption></figure>
+      <figure class="m3"><img src="../_shared/img/podcave.jpg" alt="An editing desk with a mixer and waveform on screen"><figcaption>Mixed to the loudness every platform expects.</figcaption></figure>
+    </div>
+    <div class="steps" data-rise="kids">
+      <div><b class="thin">−28%</b><h3>Pauses</h3><p>Long silences shortened to a breath, so the conversation keeps its rhythm. Typical, varies by show.</p></div>
+      <div><b class="thin">0</b><h3>Ums you will miss</h3><p>Filler words and false starts come out. Laughter and tangents people love stay in.</p></div>
+      <div><b class="thin">72h</b><h3>Back to you</h3><p>The episode, the video version and six clips. Sample turnaround, confirmed on your call.</p></div>
+    </div>
+  </section>
+
+  <section id="clips" aria-labelledby="clips-h">
+    <div class="clips">
+      <div data-rise="kids">
+        <h2 class="thin" id="clips-h">Clips that travel.</h2>
+        <p>Six vertical clips per episode, captioned word by word and posted when your audience is awake.</p>
+        <a class="btn" href="#book">Book a call</a>
+      </div>
+      <div class="reels" data-rise="kids">
+        <canvas width="270" height="480" data-s="1"></canvas><canvas width="270" height="480" data-s="2"></canvas><canvas width="270" height="480" data-s="3"></canvas><canvas width="270" height="480" data-s="4"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 class="thin" id="faq-h" data-rise>Questions, quietly.</h2>
+    <div class="qa" data-rise="kids">
+      <details open><summary>Will it still sound like us?</summary><p>Yes. We shorten silence, we don't remove the room. Your pauses for effect stay.</p></details>
+      <details><summary>Video podcasts too?</summary><p>Yes: two or three cameras, cut to whoever is speaking, with reactions where they matter.</p></details>
+      <details><summary>What do you need from us?</summary><p>Every track separately, and the video files. One upload link per episode.</p></details>
+      <details><summary>How many revisions?</summary><p>Two rounds per episode, as notes on the exact second.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <h2 class="thin">Say less.</h2>
+  <a class="btn btn--fill" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a>
+  <p class="credits">Photographs: SPNN podcast studio, CC BY 4.0; The Podcave home studio, CC BY 2.0, Wikimedia Commons. The waveform and audio are a synthesized sample, not a real episode. Figures are samples.</p>
+</footer>
+
+<script src="../_shared/frames.js"></script>
+<script src="../_shared/brand.js"></script>
+<script>
+  // a fake hour-long episode: speech segments separated by silences
+  const SEG = []; let r = 7; const R = () => (r = (r * 9301 + 49297) % 233280) / 233280;
+  for (let i = 0; i < 46; i++) SEG.push({ speech: .6 + R() * 1.8, gap: R() < .35 ? .9 + R() * 1.6 : .12 + R() * .2, spk: R() < .5 ? 0 : 1 });
+  const cv = document.getElementById('wave'), x = cv.getContext('2d');
+  let edit = 0, e = 0, playing = false, ph = 0;
+  function size() { const b = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio, 2); cv.width = b.width * d; cv.height = b.height * d; }
+  addEventListener('resize', size); size();
+  const len = k => SEG.reduce((a, s) => a + s.speech + s.gap * (1 - k * .82) * (s.gap > .5 ? 1 : (1 - k * .3)), 0);
+  const RAW = len(0);
+  function draw() {
+    const W = cv.width, H = cv.height, total = len(e), sc = W / RAW; x.clearRect(0, 0, W, H);
+    let px = 0, n = 0;
+    SEG.forEach((s, i) => {
+      const w = s.speech * sc, g = s.gap * (1 - e * .82) * (s.gap > .5 ? 1 : (1 - e * .3)) * sc;
+      for (let k = 0; k < w; k += 3 * (W / 1400)) {
+        const a = Math.abs(Math.sin((n += .37) * 1.3) * Math.sin(n * .21 + i)) * .85 + .1, env = Math.sin(Math.PI * k / w);
+        const h = a * env * H * .44 * (s.spk ? .8 : 1);
+        x.fillStyle = (px + k) / W < ph ? '#ffc72e' : (s.spk ? '#ff8a22' : '#efe6da');
+        x.fillRect(px + k, H / 2 - h, Math.max(1, 2 * W / 1400), h * 2);
+      }
+      px += w;
+      if (s.gap > .5 && e < .99) { x.fillStyle = `rgba(240,22,58,${.28 * (1 - e)})`; x.fillRect(px, H * .1, g, H * .8); }
+      x.fillStyle = '#3a302b'; x.fillRect(px, H / 2 - 1, g, 2);
+      px += g;
+    });
+    const mins = 58.2 * total / RAW;
+    document.getElementById('dur').textContent = `${Math.floor(mins)}:${String(Math.round((mins % 1) * 60)).padStart(2, '0')}`;
+  }
+  document.querySelectorAll('.toggle button').forEach(b => b.addEventListener('click', () => {
+    edit = +b.dataset.e; document.querySelectorAll('.toggle button').forEach(o => o.setAttribute('aria-pressed', o === b));
+    document.getElementById('dur-n').textContent = edit ? 'after the Cutsway edit' : 'raw recording, three mics';
+  }));
+  // synthesized audio: soft voice-like tones that follow the segments
+  let ac, t0;
+  function sound() {
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)(); t0 = ac.currentTime + .05; let t = t0;
+    const master = ac.createGain(); master.gain.value = .12; master.connect(ac.destination);
+    SEG.slice(0, 14).forEach(s => {
+      const syll = Math.round(s.speech * 5);
+      for (let i = 0; i < syll; i++) { const o = ac.createOscillator(), g = ac.createGain(), f = ac.createBiquadFilter();
+        o.type = 'sawtooth'; o.frequency.value = (s.spk ? 165 : 120) * (1 + (Math.sin(i * 2.3) * .12)); f.type = 'bandpass'; f.frequency.value = 700 + (i % 3) * 400; f.Q.value = 4;
+        g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(1, t + .03); g.gain.exponentialRampToValueAtTime(.001, t + .16);
+        o.connect(f); f.connect(g); g.connect(master); o.start(t); o.stop(t + .2); t += .2; }
+      t += s.gap * (1 - edit * .82) * (s.gap > .5 ? 1 : (1 - edit * .3));
+    });
+    return t - t0;
+  }
+  const play = document.getElementById('play');
+  play.addEventListener('click', () => { if (playing) return; playing = true; const dur = sound(); play.textContent = edit ? 'Playing the edit' : 'Playing raw';
+    const start = performance.now(); (function adv() { const k = (performance.now() - start) / 1000 / dur; ph = Math.min(1, k) * (14 / 46) * (len(edit) / RAW) * 1.6; if (k < 1) requestAnimationFrame(adv); else { playing = false; ph = 0; play.textContent = 'Play a sample'; } })(); });
+  cv.addEventListener('click', () => document.querySelector(`.toggle button[data-e="${edit ? 0 : 1}"]`).click());
+  (function loop() { e += (edit - e) * (Cutsway.reduce ? 1 : .06); draw(); requestAnimationFrame(loop); })();
+  // clip reels
+  const reels = [...document.querySelectorAll('.reels canvas')], caps = ['he said WHAT', 'the worst take', 'we were wrong', 'chat agreed'];
+  (function rl(t) { reels.forEach((c, i) => { const g = c.getContext('2d'); g.save(); g.translate(-165 + (i % 2) * 120, 0); CutFrames.draw(g, 853, 480, 'podcast', i + 1, (Cutsway.reduce ? 1 : t / 1000) + i); g.restore();
+    g.font = '800 30px Archivo'; g.textAlign = 'center'; g.lineWidth = 6; g.strokeStyle = '#000'; g.fillStyle = i % 2 ? '#ffc72e' : '#fff'; g.strokeText(caps[i], 135, 400); g.fillText(caps[i], 135, 400); }); requestAnimationFrame(rl); })(0);
+</script>
+</body>
+</html>

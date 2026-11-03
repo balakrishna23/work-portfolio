@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #0b0a10;
+    --paper: #f2f0e6;
+    --soft: #d9d4e6;
+    --yellow: #f9e853;
+    --red: #e32139;
+    --spec: linear-gradient(90deg, #2136cd, #2664f7 8%, #32a9f6 20%, #32d7f6 30%, #c5f9ed 38%, #fbf7c9 45%, #fef78e 53%, #f9e853 61%, #f5b843 69%, #fa7d31 77%, #ef462e 87%, #e32139);
+    --m: clamp(20px, 3vw, 48px);
+    --step-small: 0.875rem;
+    --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+    --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+    --step-head: clamp(2.6rem, 1rem + 5.4vw, 6.6rem);
+    --step-giant: clamp(3.6rem, 13vw, 14rem);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: dark; scrollbar-color: #3f2740 var(--night); }
+  body { margin: 0; font-family: "Archivo", system-ui, sans-serif; font-size: var(--step-body); line-height: 1.45; color: var(--paper); background: var(--night); -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--yellow); color: var(--night); }
+  :focus-visible { outline: 2px solid var(--yellow); outline-offset: 4px; }
+  a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 2px; }
+  svg { display: block; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ── the world sits behind everything ── */
+  #world { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+  .no-webgl #world { display: none; }
+  .no-webgl body { background: #1a1020 url(../assets/spectrum.jpg) center / cover fixed; }
+  .scrim { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to top, rgb(11 10 16 / 0.78), rgb(11 10 16 / 0) 48%); }
+  .nav::before { content: ""; position: absolute; inset: 0 0 -40px 0; z-index: -1; pointer-events: none; background: linear-gradient(to bottom, rgb(11 10 16 / 0.72), rgb(11 10 16 / 0)); }
+
+  /* ── export intro: the logo bar renders in, under a second ── */
+  .export { position: fixed; inset: 0; z-index: 60; background: var(--night); display: grid; place-content: center; gap: 18px; width: 100%; padding: 0 var(--m); transition: opacity 320ms ease, visibility 320ms; }
+  .export.done { opacity: 0; visibility: hidden; }
+  .export__bar { width: min(560px, 80vw); height: 26px; clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%); background: #1b1824; position: relative; overflow: hidden; }
+  .export__bar i { position: absolute; inset: 0; background: var(--spec); transform-origin: left; transform: scaleX(var(--p, 0)); }
+  .export__row { display: flex; justify-content: space-between; font-size: var(--step-small); font-weight: 700; color: var(--soft); width: min(560px, 80vw); }
+
+  /* ── nav ── */
+  .nav { position: fixed; inset: 0 0 auto 0; z-index: 30; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: calc(18px + env(safe-area-inset-top, 0px)) var(--m) 18px; }
+  .nav__logo svg { width: clamp(120px, 11vw, 156px); color: var(--paper); }
+  .nav__links { display: flex; gap: clamp(18px, 2.4vw, 36px); font-size: var(--step-small); font-weight: 700; }
+  .nav__links a { text-decoration: none; color: var(--soft); transition: color 160ms; }
+  .nav__links a:hover { color: var(--paper); }
+  .nav__cta { justify-self: end; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 10px; padding: 0.8em 1.3em; border-radius: 999px;
+    border: 1.5px solid rgb(242 240 230 / 0.42); color: var(--paper); text-decoration: none; font-weight: 800; font-size: var(--step-small);
+    background: rgb(242 240 230 / 0.1); -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+    transition: background-color 200ms, color 200ms, border-color 200ms, transform 240ms var(--ease-out);
+  }
+  .pill:hover { background: var(--paper); color: var(--night); border-color: var(--paper); }
+  .pill:active { transform: scale(0.97); }
+  .pill--solid { background: var(--yellow); color: var(--night); border-color: var(--yellow); }
+  .pill--solid:hover { background: var(--paper); border-color: var(--paper); }
+  .pill svg { width: 15px; }
+
+  /* ── chapters over the world ── */
+  main, footer { position: relative; z-index: 2; }
+  .ch { min-height: 100svh; padding: clamp(96px, 12vh, 140px) var(--m) clamp(48px, 8vh, 88px); display: grid; grid-template-columns: repeat(12, 1fr); align-content: end; gap: 24px var(--m); }
+  .ch--top { align-content: start; padding-top: clamp(120px, 18vh, 200px); }
+  .ch h1 { grid-column: 1 / -1; font-size: var(--step-giant); }
+  .ch h2 { font-size: var(--step-head); }
+  .display { font-weight: 900; font-stretch: 125%; letter-spacing: -0.04em; line-height: 0.88; text-transform: lowercase; margin: 0; text-wrap: balance; }
+  .copy { grid-column: 1 / span 5; }
+  .copy p { margin: 20px 0 0; max-width: 38ch; font-size: var(--step-lead); line-height: 1.3; font-weight: 500; }
+  .copy .pill { margin-top: 28px; }
+  .hero__row { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+  .hero__row p { margin: 0; max-width: 34ch; font-size: var(--step-lead); line-height: 1.3; font-weight: 500; }
+  .hint { font-size: var(--step-small); font-weight: 700; color: var(--soft); display: inline-flex; align-items: center; gap: 10px; }
+  .hint i { width: 2px; height: 28px; background: var(--paper); transform-origin: top; animation: hint 1.8s var(--ease-out) infinite; }
+  @keyframes hint { 0% { transform: scaleY(0); } 60% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+
+  .glass { background: rgb(18 14 26 / 0.38); -webkit-backdrop-filter: blur(22px) saturate(1.5); backdrop-filter: blur(22px) saturate(1.5); border: 1.5px solid rgb(242 240 230 / 0.28); border-radius: 22px; }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .glass { background: rgb(18 14 26 / 0.9); } }
+
+  /* turnaround */
+  .turn { grid-column: 1 / span 6; padding: clamp(22px, 2.6vw, 36px); }
+  .turn h2 { margin-bottom: 24px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { border: 1.5px solid rgb(242 240 230 / 0.4); border-radius: 999px; padding: 0.6em 1em; background: transparent; color: var(--paper); font: 700 var(--step-small)/1 "Archivo", sans-serif; cursor: pointer; transition: background-color 160ms, color 160ms, transform 200ms var(--ease-out); }
+  .chip:hover { background: rgb(242 240 230 / 0.14); }
+  .chip:active { transform: scale(0.97); }
+  .chip[aria-pressed="true"] { background: var(--paper); color: var(--night); border-color: var(--paper); }
+  .due { margin: 26px 0 6px; font-size: var(--step-small); font-weight: 700; color: var(--soft); }
+  .due strong { display: block; margin-top: 6px; color: var(--yellow); font-weight: 900; font-stretch: 125%; letter-spacing: -0.03em; font-size: clamp(2.2rem, 4.4vw, 4.4rem); line-height: 0.95; text-transform: lowercase; }
+  .splits { list-style: none; margin: 22px 0 0; padding: 0; font-size: var(--step-small); font-weight: 600; }
+  .splits li { display: grid; grid-template-columns: 1fr auto auto; gap: 18px; padding: 9px 0; }
+  .splits li + li { border-top: 1px solid rgb(242 240 230 / 0.18); }
+  .splits span:nth-child(3) { color: var(--soft); min-width: 7.5em; text-align: right; }
+  .note { margin: 14px 0 0; font-size: var(--step-small); color: var(--soft); }
+
+  /* faq */
+  .faq { grid-column: 1 / span 6; padding: clamp(10px, 1.4vw, 18px) clamp(22px, 2.6vw, 36px); }
+  .faq-h { grid-column: 1 / -1; }
+  .faq details + details { border-top: 1px solid rgb(242 240 230 / 0.2); }
+  .faq summary { list-style: none; cursor: pointer; padding: 20px 0; display: flex; justify-content: space-between; gap: 16px; font-weight: 800; font-stretch: 112%; font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem); line-height: 1.2; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary svg { flex: none; width: 20px; transition: transform 260ms var(--ease-out); }
+  .faq details[open] summary svg { transform: rotate(45deg); }
+  .faq details p { margin: 0 0 20px; max-width: 56ch; color: var(--soft); }
+
+  /* footer */
+  .foot { min-height: 100svh; padding: clamp(96px, 14vh, 160px) var(--m) calc(32px + env(safe-area-inset-bottom, 0px)); display: grid; align-content: end; gap: 28px; }
+  .foot h2 { font-size: var(--step-giant); }
+  .foot h2 a { text-decoration: none; transition: color 200ms; }
+  .foot h2 a:hover { color: var(--yellow); }
+  .foot p { margin: 0; max-width: 36ch; font-size: var(--step-lead); line-height: 1.3; font-weight: 500; }
+  .foot__row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding-top: 20px; border-top: 1.5px solid rgb(242 240 230 / 0.3); font-size: var(--step-small); font-weight: 700; color: var(--soft); }
+  .foot__row nav { display: flex; gap: 22px; }
+
+  /* text arrives with its chapter */
+  .js .rise { opacity: 0; transform: translateY(26px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 90ms); }
+  .js .rise.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .rise { transform: none; transition: opacity 300ms; }
+    .hint i { animation: none; }
+    .export { display: none; }
+  }
+
+  @media (max-width: 820px) {
+    .nav { grid-template-columns: 1fr auto; }
+    .nav__links { display: none; }
+    .ch { grid-template-columns: 1fr; align-content: end; }
+    .ch--top { align-content: end; }
+    .copy, .turn, .faq { grid-column: 1 / -1; }
+    .ch h1 { font-size: 19vw; }
+    .foot h2 { font-size: 17vw; }
+  }
+</style>
+</head>
+<body>
+<canvas id="world" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<div class="export" id="export" aria-hidden="true">
+  <div class="export__bar"><i id="export-fill"></i></div>
+  <div class="export__row"><span>exporting cutsway.mp4</span><span class="num" id="export-pct">000%</span></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spec" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#2136cd"/><stop offset=".08" stop-color="#2664f7"/><stop offset=".2" stop-color="#32a9f6"/>
+      <stop offset=".3" stop-color="#32d7f6"/><stop offset=".38" stop-color="#c5f9ed"/><stop offset=".45" stop-color="#fbf7c9"/>
+      <stop offset=".53" stop-color="#fef78e"/><stop offset=".61" stop-color="#f9e853"/><stop offset=".69" stop-color="#f5b843"/>
+      <stop offset=".77" stop-color="#fa7d31"/><stop offset=".87" stop-color="#ef462e"/><stop offset="1" stop-color="#e32139"/>
+    </linearGradient>
+    <clipPath id="barclip"><polygon points="4,58 396,19 396,53 4,92"/></clipPath>
+    <symbol id="logo" viewBox="0 0 400 166">
+      <g clip-path="url(#barclip)">
+        <rect x="4" y="0" width="266" height="100" fill="url(#spec)"/>
+        <rect x="276" y="0" width="7" height="100" fill="#eb1635"/><rect x="289" y="0" width="7" height="100" fill="#d41c40"/>
+        <rect x="302" y="0" width="7" height="100" fill="#b22546"/><rect x="315" y="0" width="7" height="100" fill="#8a2445"/>
+        <rect x="328" y="0" width="7" height="100" fill="#6a2444"/><rect x="341" y="0" width="7" height="100" fill="#52263f"/>
+        <rect x="354" y="0" width="7" height="100" fill="#3f2740"/><rect x="367" y="0" width="7" height="100" fill="#33283f"/>
+        <rect x="380" y="0" width="7" height="100" fill="#2d2844"/>
+      </g>
+      <text x="0" y="146" font-family="Archivo, sans-serif" font-weight="900" font-stretch="125%" font-size="74" letter-spacing="-3" fill="currentColor">cutsway</text>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 16 16"><path d="M3 2v7h10M9 5l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <a class="nav__logo" href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#logo"/></svg></a>
+  <nav class="nav__links" aria-label="Main"><a href="#long-form">What we cut</a><a href="#turnaround">Turnaround</a><a href="#faq">FAQ</a></nav>
+  <div class="nav__cta"><a class="pill" href="#book">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+</header>
+
+<main id="top">
+  <section class="ch" data-shape="bar" aria-labelledby="h1">
+    <h1 class="display" id="h1">we cut fast.</h1>
+    <div class="hero__row">
+      <p>Editing and social media for gaming channels, YouTubers and podcasts. Send the raw files tonight; post tomorrow.</p>
+      <span class="hint"><i></i>Scroll to cut</span>
+    </div>
+  </section>
+
+  <section class="ch" id="long-form" data-shape="frame" aria-labelledby="lf-h">
+    <div class="copy rise">
+      <h2 class="display" id="lf-h">gaming videos &amp; long-form</h2>
+      <p>Hours of gameplay cut to the minutes worth watching. Story and retention edits that keep people past minute one, with the thumbnail made alongside the edit, not after it.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-shape="phone" aria-labelledby="sh-h">
+    <div class="copy rise">
+      <h2 class="display" id="sh-h">shorts &amp; reels</h2>
+      <p>One VOD becomes a week of verticals: captioned, reframed, cut for the first second of a scroll.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-shape="wave" aria-labelledby="pod-h">
+    <div class="copy rise">
+      <h2 class="display" id="pod-h">podcasts</h2>
+      <p>Multi-cam episodes cut clean and levelled, plus the clips that bring new listeners in.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="turnaround" data-shape="clock" aria-labelledby="turn-h">
+    <div class="glass turn rise">
+      <h2 class="display" id="turn-h">when is it yours?</h2>
+      <div class="chips" role="group" aria-label="What would you send?">
+        <button class="chip" data-f="thumb">Thumbnail</button>
+        <button class="chip" data-f="shorts">Shorts pack</button>
+        <button class="chip" data-f="video" aria-pressed="true">Gaming video</button>
+        <button class="chip" data-f="podcast">Podcast</button>
+      </div>
+      <p class="due" aria-live="polite">Sent now, it's back by<strong class="num" id="due">…</strong></p>
+      <ol class="splits num" id="splits"></ol>
+      <p class="note">Sample turnaround times. The clock in the sky points at yours.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-shape="sphere" aria-labelledby="soc-h">
+    <div class="copy rise">
+      <h2 class="display" id="soc-h">posted, everywhere</h2>
+      <p>We schedule and post on YouTube, Instagram, TikTok and X, with titles and captions written for each one.</p>
+      <a class="pill pill--solid" href="#book">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </section>
+
+  <section class="ch" id="faq" data-shape="slices" aria-labelledby="faq-h">
+    <h2 class="display faq-h rise" id="faq-h">fair questions</h2>
+    <div class="glass faq rise" style="--i:1">
+      <details><summary>What do I send you?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>The raw recording, your channel link, a past video whose feel you like, and the date it needs to go up.</p></details>
+      <details><summary>Can you work from a stream VOD?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Yes. One VOD becomes a highlight video and a shorts pack from the same session.</p></details>
+      <details><summary>How many revisions?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Two rounds on every edit, left as notes on the exact frame. Sample policy, confirm before launch.</p></details>
+      <details><summary>Will you post it for me?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>If you want. We schedule and post with titles and captions written for each platform.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="book" data-shape="bar" aria-labelledby="book-h">
+  <h2 class="display rise" id="book-h"><a href="#book">book a call.</a></h2>
+  <p class="rise" style="--i:1">Twenty minutes. Bring your channel; we'll tell you what we'd cut first.</p>
+  <div class="foot__row rise" style="--i:2">
+    <span>cutsway.socialmanager@gmail.com · sample address</span>
+    <nav aria-label="Social"><a href="#">YouTube</a><a href="#">Instagram</a><a href="#">X</a><a href="#">Discord</a></nav>
+  </div>
+</footer>
+
+<script>
+  // page logic that does not need WebGL
+  document.documentElement.classList.add('js');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+  document.querySelectorAll('.rise').forEach(el => io.observe(el));
+
+  // export intro: under a second, never a gate
+  (function () {
+    const ex = document.getElementById('export'), fill = document.getElementById('export-fill'), pct = document.getElementById('export-pct');
+    if (reduce) { ex.classList.add('done'); return; }
+    const t0 = performance.now(), dur = 700;
+    (function tick(now) {
+      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 2);
+      fill.style.setProperty('--p', e); pct.textContent = String(Math.round(e * 100)).padStart(3, '0') + '%';
+      if (p < 1) requestAnimationFrame(tick); else setTimeout(() => ex.classList.add('done'), 120);
+    })(t0);
+  })();
+
+  // turnaround (sample promises, confirm before launch)
+  window.CUT = { due: new Date(Date.now() + 48 * 36e5), listeners: [] };
+  const F = {
+    thumb:   [['Brief in', 0], ['Three concepts', 3], ['Final art', 8]],
+    shorts:  [['VOD in', 0], ['Cut + captions', 16], ['Delivered', 24]],
+    video:   [['Raw in', 0], ['Rough cut', 20], ['Your notes', 28], ['Delivered', 48]],
+    podcast: [['Recording in', 0], ['Episode cut', 30], ['Your notes', 40], ['Delivered', 72]],
+  };
+  const when = h => new Date(Date.now() + h * 36e5).toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+  function show(k) {
+    const s = F[k], last = s[s.length - 1][1];
+    document.getElementById('due').textContent = when(last).toLowerCase();
+    document.getElementById('splits').innerHTML = s.map(([n, h]) => `<li><span>${n}</span><span>${String(h).padStart(2, '0')}:00</span><span>${when(h)}</span></li>`).join('');
+    document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.f === k));
+    CUT.due = new Date(Date.now() + last * 36e5);
+    CUT.listeners.forEach(fn => fn(CUT.due));
+  }
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => show(c.dataset.f)));
+  show('video');
+</script>
+
+<script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { Reflector } from 'three/addons/objects/Reflector.js';
+
+  const canvas = document.getElementById('world');
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' }); }
+  catch (e) { document.documentElement.classList.add('no-webgl'); throw e; }
+
+  THREE.ColorManagement.enabled = false;
+  renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+  const DPR = Math.min(devicePixelRatio || 1, 1.6);
+  renderer.setPixelRatio(DPR);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const phone = () => innerWidth < 820;
+
+  const scene = new THREE.Scene();
+  const FOG = new THREE.Color('#2a1630');
+  scene.fog = new THREE.FogExp2(FOG, 0.034);
+  const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 200);
+
+  // ── sky: dusk in the logo's colours ──
+  const sky = new THREE.Mesh(new THREE.SphereGeometry(90, 32, 16), new THREE.ShaderMaterial({
+    side: THREE.BackSide, depthWrite: false, fog: false,
+    uniforms: { cTop: { value: new THREE.Color('#0d0f2e') }, cMid: { value: new THREE.Color('#3f2740') }, cHor: { value: new THREE.Color('#6a2444') }, cGlow: { value: new THREE.Color('#fa7d31') } },
+    vertexShader: `varying vec3 vP; void main(){ vP = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+    fragmentShader: `uniform vec3 cTop, cMid, cHor, cGlow; varying vec3 vP;
+      void main(){ float y = vP.y;
+        vec3 col = mix(cHor, cMid, smoothstep(0.0, 0.22, y));
+        col = mix(col, cTop, smoothstep(0.22, 0.75, y));
+        col = mix(col, cGlow, (1.0 - smoothstep(0.0, 0.1, abs(y - 0.015))) * 0.85);
+        if (y < 0.0) col = mix(cHor, vec3(0.05, 0.04, 0.07), smoothstep(0.0, -0.25, y));
+        gl_FragColor = vec4(col, 1.0); }`,
+  }));
+  scene.add(sky);
+
+  // ── the lake ──
+  const FLOOR = -2.2;
+  const mirror = new Reflector(new THREE.PlaneGeometry(600, 600), { textureWidth: innerWidth * DPR * 0.5, textureHeight: innerHeight * DPR * 0.5, color: 0x6a6478 });
+  mirror.rotation.x = -Math.PI / 2; mirror.position.y = FLOOR; scene.add(mirror);
+  const tint = new THREE.Mesh(new THREE.PlaneGeometry(600, 600), new THREE.MeshBasicMaterial({ color: 0x0d0b16, transparent: true, opacity: 0.5 }));
+  tint.rotation.x = -Math.PI / 2; tint.position.y = FLOOR + 0.01; scene.add(tint);
+
+  // ── standing slices: the logo's cut stripes as monoliths ──
+  scene.add(new THREE.AmbientLight(0x4a3858, 1.1));
+  const sun = new THREE.DirectionalLight(0xfa7d31, 1.6); sun.position.set(0, 3, -30); scene.add(sun);
+  const fill = new THREE.DirectionalLight(0x2664f7, 0.45); fill.position.set(-6, 5, 12); scene.add(fill);
+  const SLICE = ['#b22546', '#8a2445', '#6a2444', '#52263f', '#3f2740', '#33283f', '#2d2844'];
+  const mulberry = a => () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const rng = mulberry(7);
+  // ── the route: one stop per chapter, a gentle S over the lake ──
+  const NCH = document.querySelectorAll('[data-shape]').length, STOP = 30;
+  const routePts = [];
+  for (let c = 0; c <= NCH; c++) routePts.push(new THREE.Vector3(Math.sin(c * 1.15) * 4.5, 0.6 + Math.sin(c * 0.8) * 0.45, 10 - c * STOP));
+  const route = new THREE.CatmullRomCurve3(routePts);
+  const routeAt = s => route.getPoint(Math.min(1, Math.max(0, s / NCH)));   // s is in chapter units
+  const LEN = NCH * STOP;
+
+  // standing slices line the route, leaving the corridor clear
+  const MONO = 150;
+  const monoliths = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({ roughness: 0.55, metalness: 0.15 }), MONO);
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e3 = new THREE.Euler(), v3 = new THREE.Vector3(), sc = new THREE.Vector3();
+  for (let i = 0; i < MONO; i++) {
+    const s = -0.2 + rng() * (NCH + 0.4), on = routeAt(s), side = i % 2 ? 1 : -1;
+    const h = 1.2 + rng() * 5.2, w = 0.35 + rng() * 1.1;
+    v3.set(on.x + side * (6.5 + rng() * 22), FLOOR + h / 2, on.z - (rng() - 0.5) * 8);
+    e3.set(0, (rng() - 0.5) * 0.9, (rng() - 0.5) * 0.08); q.setFromEuler(e3); sc.set(w, h, 0.22 + rng() * 0.2);
+    monoliths.setMatrixAt(i, m4.compose(v3, q, sc));
+    monoliths.setColorAt(i, new THREE.Color(SLICE[Math.floor(rng() * SLICE.length)]));
+  }
+  scene.add(monoliths);
+
+  // spectrum gates: the logo bar hung across the route between chapters, flown under like checkpoints
+  const gateTex = (() => {
+    const cv = document.createElement('canvas'); cv.width = 1024; cv.height = 256;
+    const g = cv.getContext('2d'); g.scale(1024 / 400, 256 / 100);
+    g.beginPath(); g.moveTo(4, 58); g.lineTo(396, 19); g.lineTo(396, 53); g.lineTo(4, 92); g.closePath(); g.clip();
+    const lg = g.createLinearGradient(4, 0, 270, 0);
+    ['#2136cd', '#2664f7', '#32a9f6', '#32d7f6', '#c5f9ed', '#fbf7c9', '#fef78e', '#f9e853', '#f5b843', '#fa7d31', '#ef462e', '#e32139'].forEach((c, k, a) => lg.addColorStop(k / (a.length - 1), c));
+    g.fillStyle = lg; g.fillRect(4, 0, 266, 100);
+    ['#eb1635', '#d41c40', '#b22546', '#8a2445', '#6a2444', '#52263f', '#3f2740', '#33283f', '#2d2844'].forEach((c, k) => { g.fillStyle = c; g.fillRect(276 + k * 13, 0, 7, 100); });
+    const t = new THREE.CanvasTexture(cv); t.anisotropy = 4; return t;
+  })();
+  const gateMat = new THREE.MeshBasicMaterial({ map: gateTex, transparent: true, side: THREE.DoubleSide, depthWrite: false });
+  for (let c = 0; c < NCH - 1; c++) {
+    const at = routeAt(c + 0.5), ahead = routeAt(c + 0.52);
+    const gate = new THREE.Mesh(new THREE.PlaneGeometry(18, 4.5), gateMat);
+    gate.position.set(at.x, at.y + 3.8, at.z);
+    gate.lookAt(ahead.x, at.y + 3.8, ahead.z);
+    gate.rotateY(Math.PI);                             // face the traveller, so the logo reads the right way round
+    scene.add(gate);
+  }
+
+  // ── the logo, in particles ──
+  const N = phone() ? 7000 : 12000;
+  const STOPS = ['#2136cd', '#2664f7', '#32a9f6', '#32d7f6', '#c5f9ed', '#fbf7c9', '#fef78e', '#f9e853', '#f5b843', '#fa7d31', '#ef462e', '#e32139'].map(c => new THREE.Color(c));
+  const STRIPES = ['#eb1635', '#d41c40', '#b22546', '#8a2445', '#6a2444', '#52263f', '#3f2740', '#33283f', '#2d2844'].map(c => new THREE.Color(c));
+  const spectrum = u => { const x = Math.min(0.9999, Math.max(0, u)) * (STOPS.length - 1), i = Math.floor(x); return STOPS[i].clone().lerp(STOPS[i + 1], x - i); };
+  const R = mulberry(42);
+
+  const home = new Float32Array(N * 2);       // each particle's place on the logo bar decides its colour
+  const colors = new Float32Array(N * 3), seeds = new Float32Array(N), delay = new Float32Array(N);
+  const SX = 8 / 392;
+  function barPoint(i) {
+    let x;
+    if (i % 100 < 78) x = 4 + R() * 266;
+    else { const k = Math.floor(R() * 9); x = 276 + k * 13 + R() * 7; }
+    const yTop = 58 - (x - 4) * (39 / 392), y = yTop + R() * 34;
+    return [x, y];
+  }
+  for (let i = 0; i < N; i++) {
+    const [x, y] = barPoint(i); home[i * 2] = x; home[i * 2 + 1] = y;
+    const c = x <= 270 ? spectrum((x - 4) / 266) : STRIPES[Math.min(8, Math.floor((x - 276) / 13))];
+    colors.set([c.r, c.g, c.b], i * 3); seeds[i] = R(); delay[i] = R();
+  }
+
+  const T = {};
+  const make = fn => { const a = new Float32Array(N * 3); for (let i = 0; i < N; i++) { const p = fn(i); a[i * 3] = p[0]; a[i * 3 + 1] = p[1]; a[i * 3 + 2] = p[2]; } return a; };
+  const jz = s => (R() - 0.5) * s;
+  T.bar = make(i => [(home[i * 2] - 200) * SX, -(home[i * 2 + 1] - 55) * SX, jz(0.4)]);
+  function rectEdge(w, h, t) {
+    const per = 2 * (w + h), d = R() * per, inset = R() * t;
+    if (d < w) return [-w / 2 + d, h / 2 - inset];
+    if (d < w + h) return [w / 2 - inset, h / 2 - (d - w)];
+    if (d < 2 * w + h) return [w / 2 - (d - w - h), -h / 2 + inset];
+    return [-w / 2 + inset, -h / 2 + (d - 2 * w - h)];
+  }
+  function tri(a, b, c) { let u = R(), v = R(); if (u + v > 1) { u = 1 - u; v = 1 - v; } return [a[0] + u * (b[0] - a[0]) + v * (c[0] - a[0]), a[1] + u * (b[1] - a[1]) + v * (c[1] - a[1])]; }
+  T.frame = make(i => {
+    const k = i % 100;
+    if (k < 48) { const p = rectEdge(6.4, 3.6, 0.14); return [p[0], p[1], jz(0.2)]; }
+    if (k < 68) { const p = tri([-0.55, -0.72], [-0.55, 0.72], [0.8, 0]); return [p[0], p[1], jz(0.25)]; }
+    if (k < 80) { const x = -2.9 + R() * 3.6; return [x, -1.42 + jz(0.08), jz(0.1)]; }
+    return [(R() - 0.5) * 6.1, (R() - 0.5) * 3.3, jz(1.2)];
+  });
+  T.phone = make(i => {
+    const k = i % 100;
+    if (k < 50) { const p = rectEdge(2.1, 3.8, 0.12); return [p[0], p[1], jz(0.2)]; }
+    if (k < 64) { const row = R() < 0.5; return [-0.75 + R() * (row ? 1.3 : 0.9), (row ? -1.0 : -1.25) + jz(0.07), jz(0.1)]; }
+    if (k < 74) { const p = tri([-0.3, 0.05], [-0.3, 0.75], [0.32, 0.4]); return [p[0], p[1], jz(0.2)]; }
+    if (k < 84) { const j = Math.floor(R() * 3), a = R() * 6.283, r = Math.sqrt(R()) * 0.13; return [0.72 + Math.cos(a) * r, -0.3 + j * 0.42 + Math.sin(a) * r, jz(0.1)]; }
+    return [(R() - 0.5) * 1.9, (R() - 0.5) * 3.6, jz(0.9)];
+  });
+  const BARS = 56, bh = Array.from({ length: BARS }, (_, j) => (0.18 + 0.82 * Math.abs(Math.sin(j * 0.47) * Math.cos(j * 0.13 + 1))) * (0.65 + 0.35 * R()) * 3);
+  T.wave = make(i => { const j = i % BARS, x = -4.4 + j * (8.8 / (BARS - 1)); return [x + jz(0.07), (R() * 2 - 1) * bh[j] / 2, jz(0.25)]; });
+  function clockTarget(d) {
+    const hFrac = ((d.getHours() % 12) + d.getMinutes() / 60) / 12, mFrac = d.getMinutes() / 60;
+    const ha = Math.PI / 2 - hFrac * Math.PI * 2, ma = Math.PI / 2 - mFrac * Math.PI * 2;
+    return make(i => {
+      const k = i % 100;
+      if (k < 48) { const a = R() * 6.283, r = 2.3 - R() * 0.16; return [Math.cos(a) * r, Math.sin(a) * r, jz(0.2)]; }
+      if (k < 58) { const t = Math.floor(R() * 12) * Math.PI / 6, r = 1.8 + R() * 0.26; return [Math.cos(t) * r + jz(0.05), Math.sin(t) * r + jz(0.05), jz(0.1)]; }
+      if (k < 72) { const r = R() * 1.25; return [Math.cos(ha) * r + jz(0.09), Math.sin(ha) * r + jz(0.09), jz(0.1)]; }
+      if (k < 88) { const r = R() * 1.95; return [Math.cos(ma) * r + jz(0.06), Math.sin(ma) * r + jz(0.06), jz(0.1)]; }
+      if (k < 92) { const a = R() * 6.283, r = Math.sqrt(R()) * 0.16; return [Math.cos(a) * r, Math.sin(a) * r, jz(0.1)]; }
+      const a = R() * 6.283, r = Math.sqrt(R()) * 2.1; return [Math.cos(a) * r, Math.sin(a) * r, jz(1)];
+    });
+  }
+  T.clock = clockTarget(window.CUT.due);
+  T.sphere = make(i => {
+    const y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.399963, rr = 2.4 + jz(0.3);
+    return [Math.cos(th) * r * rr, y * rr, Math.sin(th) * r * rr];
+  });
+  T.slices = make(i => { const k = i % 9, x = -3.6 + k * 0.9; return [x + (R() - 0.5) * 0.42, -1.6 + k * 0.1 + R() * 3.6, jz(0.35)]; });
+
+  const geo = new THREE.BufferGeometry();
+  const pos = new Float32Array(T.bar);
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  geo.setAttribute('seed', new THREE.BufferAttribute(seeds, 1));
+  const pmat = new THREE.ShaderMaterial({
+    transparent: true, depthWrite: false,
+    uniforms: { uTime: { value: 0 }, uSize: { value: phone() ? 40 : 46 }, uPR: { value: DPR }, uWob: { value: reduce ? 0 : 1 } },
+    vertexShader: `attribute vec3 color; attribute float seed; uniform float uTime, uSize, uPR, uWob; varying vec3 vC;
+      void main(){ vec3 p = position + uWob * 0.035 * vec3(sin(uTime*1.3 + seed*20.0), cos(uTime*1.1 + seed*13.0), sin(uTime*0.9 + seed*7.0));
+        vec4 mv = modelViewMatrix * vec4(p, 1.0); gl_Position = projectionMatrix * mv;
+        gl_PointSize = uSize * uPR * (0.55 + seed * 0.9) / -mv.z; vC = color; }`,
+    fragmentShader: `varying vec3 vC; void main(){ float d = length(gl_PointCoord - 0.5); if (d > 0.5) discard;
+        float a = smoothstep(0.5, 0.12, d); gl_FragColor = vec4(vC * (1.0 + 0.55 * smoothstep(0.28, 0.0, d)), a); }`,
+  });
+  const logo = new THREE.Points(geo, pmat);
+  const group = new THREE.Group(); group.add(logo); scene.add(group);
+
+  // drifting dust
+  const DN = phone() ? 1400 : 2600, dpos = new Float32Array(DN * 3), dcol = new Float32Array(DN * 3), dseed = new Float32Array(DN);
+  for (let i = 0; i < DN; i++) { const on = routeAt(-0.2 + R() * (NCH + 0.4)); dpos.set([on.x + (R() - 0.5) * 44, FLOOR + R() * 10, on.z + (R() - 0.5) * 30], i * 3); dcol.set([0.77, 0.97, 0.93], i * 3); dseed[i] = R() * 0.4; }
+  const dgeo = new THREE.BufferGeometry();
+  dgeo.setAttribute('position', new THREE.BufferAttribute(dpos, 3)); dgeo.setAttribute('color', new THREE.BufferAttribute(dcol, 3)); dgeo.setAttribute('seed', new THREE.BufferAttribute(dseed, 1));
+  const dmat = pmat.clone(); dmat.uniforms.uSize.value = 14;
+  const dust = new THREE.Points(dgeo, dmat); scene.add(dust);
+
+  // ── chapters → shapes, object placement and camera ──
+  const chapters = [...document.querySelectorAll('[data-shape]')];
+  const PLACE = {
+    bar:    { p: [0, 1.5, 0],    ry: 0,     s: 1.15 },
+    frame:  { p: [2.5, 0.7, 0],  ry: -0.32, s: 0.95 },
+    phone:  { p: [2.7, 0.6, 0],  ry: 0.3,   s: 1.0 },
+    wave:   { p: [1.9, 1.1, 0],  ry: -0.2,  s: 0.72 },
+    clock:  { p: [2.9, 0.7, 0],  ry: -0.22, s: 0.95 },
+    sphere: { p: [2.4, 0.9, -1], ry: 0,     s: 1.0 },
+    slices: { p: [2.6, 0.6, 0],  ry: -0.35, s: 0.85 },
+  };
+  // placement is relative to the travelling camera: p = [right, up (from eye level 0.6), extra depth]
+  const place = name => { const P = PLACE[name]; return phone() ? { p: [0, 2.6, 0], ry: P.ry * 0.5, s: P.s * 0.35 } : P; };
+  const AHEAD = 10;   // how far in front of the camera the logo flies
+
+  let centers = [];
+  const measure = () => { centers = chapters.map(c => { const r = c.getBoundingClientRect(); return r.top + scrollY + r.height / 2; }); };
+  measure();
+  function sectionPos() {
+    const y = scrollY + innerHeight / 2;
+    if (y <= centers[0]) return 0;
+    for (let i = 0; i < centers.length - 1; i++) if (y < centers[i + 1]) return i + (y - centers[i]) / (centers[i + 1] - centers[i]);
+    return centers.length - 1;
+  }
+
+  // keep the clock's hands on the due time
+  window.CUT.listeners.push(d => { T.clock = clockTarget(d); dirty = true; });
+
+  const ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const lerp = (a, b, t) => a + (b - a) * t;
+  let S = sectionPos(), Ssm = S, lastS = -1, dirty = true;
+  const mouse = { x: 0, y: 0, sx: 0, sy: 0 };
+  addEventListener('pointermove', e => { mouse.x = e.clientX / innerWidth - 0.5; mouse.y = e.clientY / innerHeight - 0.5; }, { passive: true });
+  addEventListener('scroll', () => { S = sectionPos(); }, { passive: true });
+  addEventListener('resize', () => {
+    renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+    mirror.getRenderTarget().setSize(innerWidth * DPR * 0.5, innerHeight * DPR * 0.5); measure(); S = sectionPos(); dirty = true;
+  });
+  renderer.setSize(innerWidth, innerHeight, false);
+  new ResizeObserver(() => { measure(); S = sectionPos(); }).observe(document.body);
+
+  function morph(from, to, f) {
+    const a = T[from], b = T[to];
+    const g = Math.min(1, Math.max(0, (f - 0.2) / 0.6));
+    for (let i = 0; i < N; i++) {
+      const t = Math.min(1, Math.max(0, g * 1.45 - delay[i] * 0.45)), e = ease(t), j = i * 3;
+      pos[j] = a[j] + (b[j] - a[j]) * e; pos[j + 1] = a[j + 1] + (b[j + 1] - a[j + 1]) * e; pos[j + 2] = a[j + 2] + (b[j + 2] - a[j + 2]) * e;
+    }
+    geo.attributes.position.needsUpdate = true;
+  }
+
+  const clock = new THREE.Clock();
+  function frame() {
+    const dt = Math.min(0.05, clock.getDelta()), t = clock.elapsedTime;
+    Ssm += (S - Ssm) * (reduce ? 1 : Math.min(1, dt * 4.5));
+    const i = Math.min(chapters.length - 1, Math.floor(Ssm)), f = Ssm - i, j = Math.min(chapters.length - 1, i + 1);
+    const A = chapters[i].dataset.shape, B = chapters[j].dataset.shape;
+    if (Math.abs(Ssm - lastS) > 1e-4 || dirty) { morph(A, B, f); lastS = Ssm; dirty = false; }
+
+    const PA = place(A), PB = place(B), k = ease(Math.min(1, Math.max(0, (f - 0.15) / 0.7)));
+
+    // travel: dwell at each chapter, fly between them
+    const travel = i + ease(f);
+    const eye = routeAt(travel), look = routeAt(travel + 0.3);
+    mouse.sx += (mouse.x - mouse.sx) * 0.05; mouse.sy += (mouse.y - mouse.sy) * 0.05;
+    camera.position.copy(eye);
+    camera.lookAt(look.x, eye.y, look.z);
+    camera.translateX(mouse.sx * 0.8); camera.translateY(-mouse.sy * 0.4);
+    camera.updateMatrixWorld();
+
+    // the logo rides along in front of the camera, trailing a little on the turns
+    const fwd = v3.set(0, 0, -1).applyQuaternion(camera.quaternion);
+    const right = sc.set(1, 0, 0).applyQuaternion(camera.quaternion);
+    const target = eye.clone().addScaledVector(fwd, AHEAD + lerp(PA.p[2], PB.p[2], k))
+      .addScaledVector(right, lerp(PA.p[0], PB.p[0], k)).add(new THREE.Vector3(0, lerp(PA.p[1], PB.p[1], k) - 0.6, 0));
+    if (reduce || !group.userData.placed) { group.position.copy(target); group.userData.placed = true; }
+    else group.position.lerp(target, 1 - Math.exp(-dt * 5));
+    const spin = (A === 'sphere' || B === 'sphere') && !reduce ? t * 0.25 : 0;
+    group.quaternion.copy(camera.quaternion);
+    group.rotateY(lerp(PA.ry, PB.ry, k) + spin + (reduce ? 0 : Math.sin(t * 0.3) * 0.06));
+    group.scale.setScalar(lerp(PA.s, PB.s, k));
+
+    // the sky and the lake travel with us, so the world never ends
+    sky.position.copy(camera.position);
+    mirror.position.x = tint.position.x = camera.position.x;
+    mirror.position.z = tint.position.z = camera.position.z - 120;
+
+    pmat.uniforms.uTime.value = t; dmat.uniforms.uTime.value = t;
+    if (!reduce) dust.position.y = Math.sin(t * 0.2) * 0.3;
+    renderer.render(scene, camera);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+</script>
+</body>
+</html>

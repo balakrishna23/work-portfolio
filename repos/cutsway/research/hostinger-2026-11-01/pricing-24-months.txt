@@ -1,0 +1,641 @@
+- link "Biggest deals of the year. 30-day money-back guarantee. Limited time deals. 24/7 support. Don't miss out":
+  - /url: "#pricing"
+  - generic: Biggest deals of the year. 30-day money-back guarantee. Limited time deals. 24/7 support. Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Limited time deals
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Limited time deals
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Limited time deals
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Limited time deals
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Limited time deals
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Limited time deals
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Limited time deals
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Limited time deals
+  - generic: 24/7 support
+  - generic: Don't miss out
+- navigation:
+  - link "homepage link":
+    - /url: /in/
+  - link "Pricing":
+    - /url: /in/pricing
+  - button "Products":
+    - text: Products
+  - button "Solutions":
+    - text: Solutions
+  - button "Developers":
+    - text: Developers
+  - button "Resources":
+    - text: Resources
+  - button "Agent":
+    - generic: Agent
+  - 'button "Select location & language: India, English"':
+    - generic: EN
+  - link "Log in":
+    - /url: https://auth.hostinger.com/in/login
+- main:
+  - paragraph: Plans & pricing
+  - heading "Get your Sale Season deal before it ends" [level=1]
+  - paragraph: 30-day money-back guarantee
+  - paragraph: 24/7 support
+  - paragraph: Cancel anytime
+  - link "Websites":
+    - /url: /in/pricing#plan-selector
+    - generic: Websites
+  - link "Domains":
+    - /url: /in/pricing/domains
+    - generic: Domains
+  - link "AI Builder":
+    - /url: /in/pricing/ai-builder#plan-selector
+    - generic: AI Builder
+  - link "VPS hosting":
+    - /url: /in/pricing/vps-hosting#plan-selector
+    - generic: VPS hosting
+  - link "AI agents & automation":
+    - /url: /in/pricing/ai-automations#plan-selector
+    - generic: AI agents & automation
+  - link "Business email":
+    - /url: /in/pricing/email-hosting#plan-selector
+    - generic: Business email
+  - link "Email marketing":
+    - /url: /in/pricing/email-marketing#plan-selector
+    - generic: Email marketing
+  - generic: Websites
+  - generic: "All plans include:"
+  - generic: Reliable hosting
+  - generic: Custom domain
+  - generic: Email
+  - generic: Building tools
+  - button "Individuals & business":
+    - generic: Individuals & business
+  - button "Agency":
+    - generic: Agency
+  - combobox "Length of subscription" [active]:
+    - generic: 24 months plan
+  - generic: 70% off
+  - generic: Single
+  - generic: Get your first website online. Best for beginners or simple projects.
+  - generic: ₹
+  - generic: "399"
+  - generic: ₹
+  - generic: "119"
+  - generic: /mo
+  - generic "Choose plan":
+    - generic: Choose plan
+  - generic: Today you pay ₹2,856 for 24 months. Renews at ₹289/mo for the same term. Cancel anytime.
+  - paragraph: 250 AI credits included or double them to 500 with the 48-month plan.
+  - generic: 1 website
+  - generic: Free domain
+  - generic: 10 GB SSD storage
+  - generic: Free weekly backups
+  - generic: Ecommerce available
+  - generic: CDN
+  - generic: Priority 24/7 expert support
+  - paragraph: "Build with:"
+  - generic: AI Builder
+  - generic: WordPress
+  - generic: Node.js
+  - paragraph: "Communicate & grow:"
+  - generic: Free mailbox
+  - generic: AI email marketing
+  - generic: 75% off
+  - generic: Premium
+  - generic: Run websites smoothly. Great for creators and small brands.
+  - generic: ₹
+  - generic: "679"
+  - generic: ₹
+  - generic: "169"
+  - generic: /mo
+  - generic "Choose plan":
+    - generic: Choose plan
+  - generic: Today you pay ₹4,056 for 24 months. Renews at ₹449/mo for the same term. Cancel anytime.
+  - paragraph: 250 AI credits included or double them to 500 with the 48-month plan.
+  - generic: 3 websites
+  - generic: Domain - free for 1 year
+  - generic: 20 GB SSD storage
+  - generic: Free weekly backups
+  - generic: Ecommerce available
+  - generic: CDN
+  - generic: Priority 24/7 expert support
+  - paragraph: "Build with:"
+  - generic: AI Builder
+  - generic: WordPress
+  - generic: AI assistant for your online store
+  - generic: Node.js
+  - paragraph: "Communicate & grow:"
+  - generic: 2 mailboxes per website - free for 1 year
+  - generic: AI email marketing
+  - generic: Special offer • 69% off
+  - text: Unlimited
+  - generic: Unlimited websites and mailboxes, plus AI tools and priority support for maximum flexibility.
+  - generic: ₹
+  - generic: "799"
+  - generic: ₹
+  - generic: "249"
+  - generic: /mo
+  - generic "Choose plan":
+    - generic: Choose plan
+  - generic: Today you pay ₹5,976 for 24 months. Renews at ₹649/mo for the same term. Cancel anytime.
+  - paragraph: 500 AI credits included or double them to 1000 with the 48-month plan.
+  - generic: Unlimited websites
+  - generic: Domain - free for 1 year
+  - generic: 50 GB NVMe storage
+  - generic: Daily backups + easy data restore
+  - generic: CDN included
+  - generic: Ecommerce available
+  - generic: Priority 24/7 expert support
+  - paragraph: "Build with:"
+  - generic: AI Builder
+  - generic: WordPress
+  - generic: AI assistant for your online store
+  - generic: Node.js
+  - paragraph: "Communicate & grow:"
+  - generic: Unlimited mailboxes per website - free for 1 year
+  - generic: Free AI email marketing for 1 year up to 100 subscribers
+  - generic: Why this plan?
+  - generic: A complete solution for long-term projects. Everything included.
+  - generic: 59% off
+  - generic: Cloud Startup
+  - generic: More resources. Slide to scale.
+  - slider "Customize your plan": "0"
+  - generic: ₹
+  - generic: 1,699
+  - generic: ₹
+  - generic: "699"
+  - generic: "4"
+  - generic: "5"
+  - generic: "6"
+  - generic: "7"
+  - generic: "8"
+  - generic: "9"
+  - generic: "7"
+  - generic: "8"
+  - generic: "9"
+  - generic: /mo
+  - generic "Choose plan":
+    - generic: Choose plan
+  - generic: Today you pay ₹16,776 for 24 months. Renews at ₹1,599/mo for the same term. Cancel anytime.
+  - paragraph: 1000 AI credits included or double them to 2000 with the 48-month plan.
+  - generic: Unlimited websites
+  - generic: Domain - free for 1 year
+  - generic: 100 GB NVMe storage
+  - generic: Daily and on demand backups
+  - generic: CDN included
+  - generic: Ecommerce available
+  - generic: Priority 24/7 expert support
+  - paragraph: "Build with:"
+  - generic: AI Builder
+  - generic: WordPress
+  - generic: AI assistant for your online store
+  - generic: Node.js
+  - paragraph: "Communicate & grow:"
+  - generic: Unlimited mailboxes per website - free for 1 year
+  - generic: Free AI email marketing for 1 year up to 100 subscribers
+  - paragraph:
+    - text: Unlimited features are subject to our
+    - link "Fair Usage Policy":
+      - /url: /in/legal/hosting-agreement
+    - text: .
+  - paragraph: All plans are paid upfront. The monthly rate reflects the total plan price divided by the number of months in your plan.
+  - link "Compare plans":
+    - /url: "#compare-table"
+    - generic: Compare plans
+  - link "Compare CMS":
+    - /url: "#compare-cms"
+    - generic: Compare CMS
+  - img "upi"
+  - img "rupay"
+  - img "visa"
+  - img "mastercard"
+  - img "paypal"
+  - heading "Compare our plans" [level=2]
+  - generic: See at a glance what each plan costs and what you get for your money.
+  - generic: Single
+  - generic: ₹
+  - generic: "119"
+  - generic: /mo
+  - button "Choose plan":
+    - generic: Claim Deal
+  - generic: Premium
+  - generic: ₹
+  - generic: "169"
+  - generic: /mo
+  - button "Choose plan":
+    - generic: Claim Deal
+  - generic: Unlimited
+  - generic: ₹
+  - generic: "249"
+  - generic: /mo
+  - button "Choose plan":
+    - generic: Claim Deal
+  - generic: Cloud Startup
+  - generic: ₹
+  - generic: "699"
+  - generic: /mo
+  - button "Choose plan":
+    - generic: Claim Deal
+  - text: Top features
+  - generic: Websites
+  - generic: "1"
+  - generic: "3"
+  - generic: Unlimited
+  - generic: Unlimited
+  - generic: GB storage
+  - generic: 10 GB
+  - generic: 20 GB
+  - generic: 50 GB
+  - generic: 100 GB
+  - generic: Daily backups
+  - generic: Free CDN
+  - generic: WordPress
+  - generic: AI Builder credits
+  - generic: "250"
+  - generic: "250"
+  - generic: "500"
+  - generic: "1000"
+  - generic: Web Apps
+  - generic: "5"
+  - generic: "10"
+  - generic: Free domain
+  - generic: Free domain WHOIS privacy protection value
+  - generic: ₹899
+  - generic: ₹899
+  - generic: ₹899
+  - generic: Mailboxes per website - free for 1 year
+  - generic: Unlimited
+  - generic: Free AI email marketing for 1 year up to 100 subscribers
+  - generic: Priority 24/7 expert support
+  - generic: AI SEO ready
+  - generic: 99.9% uptime guarantee
+  - generic: Global Data Centres
+  - generic: Free automatic website migration
+  - generic: Unlimited free SSL
+  - generic: Files and directories (inodes)
+  - generic: 200 000
+  - generic: 400 000
+  - generic: 600 000
+  - generic: 2 000 000
+  - generic: PHP workers
+  - generic: "20"
+  - generic: "40"
+  - generic: "60"
+  - generic: "100"
+  - generic: databases
+  - generic: "2"
+  - generic: "10"
+  - generic: "150"
+  - generic: "300"
+  - generic: Database size
+  - generic: 3 GB
+  - generic: 3 GB
+  - generic: 3 GB
+  - generic: 6 GB
+  - generic: RAM
+  - generic: 1 GB
+  - generic: 2 GB
+  - generic: 3 GB
+  - generic: 4 GB
+  - generic: CPU cores
+  - generic: "1"
+  - generic: "1"
+  - generic: "2"
+  - generic: "4"
+  - generic: Unlimited bandwidth
+  - generic: Dedicated IP address
+  - text: "AI Builder: Agentic mode"
+  - text: "AI Builder: Manual mode"
+  - text: Managed hosting for WordPress
+  - text: Security
+  - text: Service and support
+  - text: Node.js frameworks
+  - text: Technical details
+  - heading "Compare CMS features" [level=2]
+  - generic: AI Builder · Agentic
+  - generic: AI Builder · Manual
+  - generic: WordPress
+  - generic: Best for
+  - generic: Getting online fast — from simple websites to custom apps, online stores
+  - generic: Portfolios, blogs and classic business sites
+  - generic: Online stores, content sites, plugins
+  - generic: AI credits per plan
+  - generic: 250 with Single and Premium | 500 with Unlimited | 1000 with Cloud Startup
+  - button "How you build":
+    - generic: How you build
+  - button "What you can build":
+    - generic: What you can build
+  - button "Marketing tools":
+    - generic: Marketing tools
+  - heading "Websites FAQs" [level=2]
+  - button "How do I register the free domain included with annual hosting plans?" [expanded]:
+    - heading "How do I register the free domain included with annual hosting plans?" [level=3]
+  - paragraph: To activate the free 12-month domain name included with every annual managed hosting for WordPress, cloud hosting, or Website Builder plan, simply log in to your dashboard, click on the Claim domain button, find your perfect domain, and register it.
+  - button "How do I activate the free SSL certificate?":
+    - heading "How do I activate the free SSL certificate?" [level=3]
+  - button "Can I change my plan, if my circumstances change?":
+    - heading "Can I change my plan, if my circumstances change?" [level=3]
+  - button "Why do different plans cost different amounts?":
+    - heading "Why do different plans cost different amounts?" [level=3]
+  - button "Does Hostinger offer ecommerce hosting?":
+    - heading "Does Hostinger offer ecommerce hosting?" [level=3]
+  - button "Can I migrate existing websites to Hostinger?":
+    - heading "Can I migrate existing websites to Hostinger?" [level=3]
+  - button "I have a domain name at a different company. Can I transfer it to Hostinger?":
+    - heading "I have a domain name at a different company. Can I transfer it to Hostinger?" [level=3]
+  - button "I'm a professional web developer, which is better for me, web hosting, Cloud hosting, or VPS hosting?":
+    - heading "I'm a professional web developer, which is better for me, web hosting, Cloud hosting, or VPS hosting?" [level=3]
+  - button "Can I build a website on WordPress and host it with Hostinger?":
+    - heading "Can I build a website on WordPress and host it with Hostinger?" [level=3]
+- contentinfo:
+  - link "Hostinger":
+    - /url: /in/
+  - generic: Pricing
+  - generic: Hosting
+  - link "Web hosting":
+    - /url: /in/web-hosting
+  - link "Shared hosting":
+    - /url: /in/shared-hosting
+  - link "Hosting for WordPress":
+    - /url: /in/wordpress-hosting
+  - link "VPS hosting":
+    - /url: /in/vps-hosting
+  - link "Self-hosted n8n":
+    - /url: /in/self-hosted-n8n
+  - link "Business email":
+    - /url: /in/business-email
+  - link "Cloud hosting":
+    - /url: /in/cloud-hosting
+  - link "Hosting for WooCommerce":
+    - /url: /in/woocommerce-hosting
+  - link "Hosting for agencies":
+    - /url: /in/pro
+  - link "Minecraft hosting":
+    - /url: /in/vps/minecraft-hosting
+  - link "Hermes Agent VPS":
+    - /url: https://www.hostinger.com/in/applications/hermes-agent
+  - link "OpenClaw":
+    - /url: /in/ai-automation-apps
+  - link "Paperclip VPS":
+    - /url: https://www.hostinger.com/in/applications/paperclip
+  - link "Google Workspace":
+    - /url: /in/google-workspace
+  - generic: Domain
+  - link "Domains":
+    - /url: /in/domain-name-search
+  - link "Buy a domain":
+    - /url: /in/domains
+  - link "Cheap domains":
+    - /url: /in/cheap-domain
+  - link "Free Domain Name":
+    - /url: /in/free-domain
+  - link "WHOIS Lookup":
+    - /url: /in/whois
+  - link "Free SSL certificate":
+    - /url: /in/free-ssl-certificate
+  - link "Domain transfer":
+    - /url: /in/domain-transfer
+  - link "Domain Extensions":
+    - /url: /in/tld
+  - link "Personal domain name":
+    - /url: /in/personal-domain-name
+  - link "Premium domains":
+    - /url: /in/premium-domains
+  - generic: Tools
+  - link "AI Builder":
+    - /url: /in/ai-builder
+  - link "Drag-and-drop website builder":
+    - /url: /in/website-builder
+  - link "Ecommerce Website Builder":
+    - /url: /in/ecommerce-website
+  - link "Templates":
+    - /url: /in/templates
+  - link "Domain Name Generator":
+    - /url: /in/domain-name-generator
+  - link "Print on Demand":
+    - /url: /in/print-on-demand
+  - link "Link in bio":
+    - /url: /in/link-in-bio
+  - link "Business Name Generator":
+    - /url: /in/business-name-generator
+  - link "AI Newsletter Generator":
+    - /url: /in/ai-email-generator
+  - link "AI Logo Generator":
+    - /url: /in/logo-maker
+  - link "Migrate to Hostinger":
+    - /url: /in/website-migration
+  - link "Hostinger API":
+    - /url: https://developers.hostinger.com/
+  - generic: Information
+  - link "Pricing":
+    - /url: /in/pricing
+  - link "Hostinger Reviews":
+    - /url: /in/reviews
+  - link "Affiliate program":
+    - /url: /in/affiliates
+  - link "Educational partnership":
+    - /url: /in/educational-partnership
+  - link "Referral program":
+    - /url: /in/referral-program
+  - link "Agency directory":
+    - /url: /in/agency-directory
+  - link "Sale Season deals":
+    - /url: /in/black-friday
+  - link "Roadmap":
+    - /url: https://www.hostinger.com/roadmap
+  - link "Changelog":
+    - /url: https://www.hostinger.com/changelog
+  - link "System status":
+    - /url: https://statuspage.hostinger.com/
+  - link "Trust center":
+    - /url: https://trust.hostinger.com/
+  - link "Sitemap":
+    - /url: /in/sitemap
+  - link "EntityMap":
+    - /url: https://www.hostinger.com/entitymap.html
+  - generic: Company
+  - link "About Hostinger":
+    - /url: /in/about
+  - link "Our technology":
+    - /url: /in/technology
+  - link "Blog":
+    - /url: https://www.hostinger.com/blog/
+  - link "Student discount":
+    - /url: /in/student-discount
+  - generic: Support
+  - link "Tutorials":
+    - /url: https://www.hostinger.com/in/tutorials/
+  - link "Knowledge Base":
+    - /url: https://www.hostinger.com/support
+  - link "Hostinger Academy":
+    - /url: https://www.youtube.com/HostingerIndia
+  - link "Contact us":
+    - /url: /in/contacts
+  - link "Report Online Abuse":
+    - /url: /in/report-abuse
+  - link "Hire an expert":
+    - /url: /in/agency-directory
+  - link "ic-linkedin-monochrome-24":
+    - /url: https://www.linkedin.com/company/hostinger
+  - link "ic-facebook-monochrome-24":
+    - /url: https://www.facebook.com/Hostinger
+  - link "ic-instagram-monochrome-24":
+    - /url: https://www.instagram.com/hostinger_global
+  - link "ic-x-twitter-monochrome-24":
+    - /url: https://x.com/Hostinger
+  - link "ic-youtube-24":
+    - /url: https://www.youtube.com/@Hostinger
+  - link "ic-reddit-monochrome-24":
+    - /url: https://www.reddit.com/r/Hostinger/
+  - link "ic-tiktok-monochrome-24":
+    - /url: https://www.tiktok.com/@hostingeracademy
+  - link "ic-discord-monochrome-24":
+    - /url: https://discord.gg/Zp2FteMUea
+  - link "homepage link":
+    - /url: /in/
+  - link "NPRD request policy":
+    - /url: /in/legal/non-public-registrant-data-request-policy
+  - link "Privacy policy":
+    - /url: /in/legal/privacy-policy
+  - link "Refund policy":
+    - /url: /in/legal/refund-policy
+  - link "Terms of service":
+    - /url: /in/legal/universal-terms-of-service-agreement
+  - img "upi"
+  - img "rupay"
+  - img "visa"
+  - img "mastercard"
+  - img "paypal"
+  - link "and more":
+    - /url: /in/payment-methods
+  - generic: © 2004-2026 Hostinger - Premium Web Hosting, Cloud, VPS, AI Website Builder & Domain Registration Services.
+  - paragraph: Prices are listed without GST
+- generic: "Hostinger AI Builder: build with AI or drag and drop (up to 1000 AI credits included). WordPress: install in 1 click. Custom code: deploy web apps from GitHub, AI coding agents, or run Node.js apps on Unlimited plan and up."
+- generic: Credits are used each time AI builds, edits or creates content for you. They come as a one-time gift. Top-up anytime if you run out.
+- generic: Inodes are items that correspond to the number of files and folders you have on your account.
+- generic: Each mailbox includes 1GB storage. Upgrade anytime for more storage, features, or mailboxes. Renews at ₹39/mo (24-month term).
+- generic: Use AI credits to create and edit websites, generate content, and automate tasks. Get a one-time gift of double the usual credits with a 24-month plan.
+- generic: Your site's core files are secured and unauthorized changes are prevented.
+- generic: Invite a collaborator or your client to manage specific websites.
+- generic: Share a website dashboard with your client that shows no Hostinger branding.
+- generic: Set up alerts for site errors and stay one step ahead of any issues.
+- generic: Hostinger's CDN (Content Delivery Network) optimizes website speed by caching content on multiple servers globally and delivering it from the visitor's nearest location, resulting in up to 40% faster loading times. Hostinger CDN comes with built-in static website caching, cache purging, CSS and JavaScript minification, data center rerouting, CDN bypass mode, and other website security features.
+- generic: An exclusive IP for your site that enables better stability, reliability, and flexibility — ideal for advanced setups and direct access.
+- generic: Protect your website data with automatic backups. Daily backups are stored for 7 days, and weekly backups are stored for 7 weeks.
+- generic: For more information please check our Refund Policy (exclusions may apply).
+- generic: Use AI credits to create and edit websites, generate content and automate tasks. One-time credits included. Get double with a 48-month plan.
+- generic: WooCommerce is included at no extra cost. Or add Hostinger Ecommerce for ₹89 for 3 months, renews at ₹699/mo.
+- generic: Describe the website or web app you want, and AI Builder will build it for you. No coding or technical skills required.
+- generic: Use AI credits to create and edit websites, generate content and automate tasks. One-time credits included. Get double with a 48-month plan.
+- generic: Register a domain for free for one year when purchasing a yearly (or longer) plan. Additional terms apply, as not all TLDs are eligible for this promotion. Free domain must be registered within 12 months of acquiring the hosting plan, or it will be cancelled.
+- generic: WooCommerce is included at no extra cost. Or add Hostinger Ecommerce for ₹89 for 3 months, renews at ₹699/mo.
+- generic: Describe the website or web app you want, and AI Builder will build it for you. No coding or technical skills required.
+- generic: Connect any frontend with Hostinger Headless, or manage hosting via Hostinger Connector using Cursor, Claude, Codex & more.
+- generic: Each mailbox includes 1GB storage. Upgrade anytime for more storage, features, or mailboxes. Renews at ₹39/mo (12-month term).
+- generic: Unlimited features are subject to our Fair Usage Policy
+- generic: Use AI credits to create and edit websites, generate content and automate tasks. One-time credits included. Get double with a 48-month plan.
+- generic: Register a domain for free for one year when purchasing a yearly (or longer) plan. Additional terms apply, as not all TLDs are eligible for this promotion. Free domain must be registered within 12 months of acquiring the hosting plan, or it will be cancelled.
+- generic: Your site is backed up automatically every 24 hours. If something breaks, you can restore any previous version yourself — no support ticket needed.
+- generic: Hostinger's CDN (Content Delivery Network) optimizes website speed by caching content on multiple servers globally and delivering it from the visitor's nearest location, resulting in up to 40% faster loading times. Hostinger CDN comes with built-in static website caching, cache purging, CSS and JavaScript minification, data center rerouting, CDN bypass mode, and other website security features.
+- generic: WooCommerce is included at no extra cost. Or add Hostinger Ecommerce for ₹89 for 3 months, renews at ₹699/mo.
+- generic: Describe the website or web app you want, and AI Builder will build it for you. No coding or technical skills required.
+- generic: Connect any frontend with Hostinger Headless, or manage hosting via Hostinger Connector using Cursor, Claude, Codex & more.
+- generic: Deploy and host web applications built with frameworks like React, Next.js, Vite, Vue, and others.
+- generic: Unlimited mailboxes for 1 year. Auto-renews at ₹39/mo per 1 mailbox (12-month term). Cancel anytime.
+- generic: Use AI credits to create and edit websites, generate content and automate tasks. One-time credits included. Get double with a 48-month plan.
+- generic: Register a domain for free for one year when purchasing a yearly (or longer) plan. Additional terms apply, as not all TLDs are eligible for this promotion. Free domain must be registered within 12 months of acquiring the hosting plan, or it will be cancelled.
+- generic: Protect your website data with automatic backups. Daily backups are stored for 7 days, and weekly backups are stored for 7 weeks.
+- generic: Hostinger's CDN (Content Delivery Network) optimizes website speed by caching content on multiple servers globally and delivering it from the visitor's nearest location, resulting in up to 40% faster loading times. Hostinger CDN comes with built-in static website caching, cache purging, CSS and JavaScript minification, data center rerouting, CDN bypass mode, and other website security features.
+- generic: WooCommerce is included at no extra cost. Or add Hostinger Ecommerce for ₹89 for 3 months, renews at ₹699/mo.
+- generic: Describe the website or web app you want, and AI Builder will build it for you. No coding or technical skills required.
+- generic: Connect any frontend with Hostinger Headless, or manage hosting via Hostinger Connector using Cursor, Claude, Codex & more.
+- generic: Deploy and host web applications built with frameworks like React, Next.js, Vite, Vue, and others.
+- generic: Each mailbox includes 1GB storage. Upgrade anytime for more storage, features, or mailboxes. Renews at ₹39/mo (12-month term).
+- generic: Use AI credits to create and edit websites, generate content and automate tasks. One-time credits included. Get double with a 48-month plan.
+- generic: WooCommerce is included at no extra cost. Or add Hostinger Ecommerce for ₹89 for 3 months, renews at ₹699/mo.
+- generic: Describe the website or web app you want, and AI Builder will build it for you. No coding or technical skills required.
+- generic: Use AI credits to create and edit websites, generate content and automate tasks. One-time credits included. Get double with a 48-month plan.
+- generic: Register a domain for free for one year when purchasing a yearly (or longer) plan. Additional terms apply, as not all TLDs are eligible for this promotion. Free domain must be registered within 12 months of acquiring the hosting plan, or it will be cancelled.
+- generic: WooCommerce is included at no extra cost. Or add Hostinger Ecommerce for ₹89 for 3 months, renews at ₹699/mo.
+- generic: Describe the website or web app you want, and AI Builder will build it for you. No coding or technical skills required.
+- generic: Connect any frontend with Hostinger Headless, or manage hosting via Hostinger Connector using Cursor, Claude, Codex & more.
+- generic: Each mailbox includes 1GB storage. Upgrade anytime for more storage, features, or mailboxes. Renews at ₹39/mo (12-month term).
+- generic: Unlimited features are subject to our Fair Usage Policy
+- generic: Use AI credits to create and edit websites, generate content and automate tasks. One-time credits included. Get double with a 48-month plan.
+- generic: Register a domain for free for one year when purchasing a yearly (or longer) plan. Additional terms apply, as not all TLDs are eligible for this promotion. Free domain must be registered within 12 months of acquiring the hosting plan, or it will be cancelled.
+- generic: Your site is backed up automatically every 24 hours. If something breaks, you can restore any previous version yourself — no support ticket needed.
+- generic: Hostinger's CDN (Content Delivery Network) optimizes website speed by caching content on multiple servers globally and delivering it from the visitor's nearest location, resulting in up to 40% faster loading times. Hostinger CDN comes with built-in static website caching, cache purging, CSS and JavaScript minification, data center rerouting, CDN bypass mode, and other website security features.
+- generic: WooCommerce is included at no extra cost. Or add Hostinger Ecommerce for ₹89 for 3 months, renews at ₹699/mo.
+- generic: Describe the website or web app you want, and AI Builder will build it for you. No coding or technical skills required.
+- generic: Connect any frontend with Hostinger Headless, or manage hosting via Hostinger Connector using Cursor, Claude, Codex & more.
+- generic: Deploy and host web applications built with frameworks like React, Next.js, Vite, Vue, and others.
+- generic: Unlimited mailboxes for 1 year. Auto-renews at ₹39/mo per 1 mailbox (12-month term). Cancel anytime.
+- generic: Use AI credits to create and edit websites, generate content and automate tasks. One-time credits included. Get double with a 48-month plan.
+- generic: Register a domain for free for one year when purchasing a yearly (or longer) plan. Additional terms apply, as not all TLDs are eligible for this promotion. Free domain must be registered within 12 months of acquiring the hosting plan, or it will be cancelled.
+- generic: Protect your website data with automatic backups. Daily backups are stored for 7 days, and weekly backups are stored for 7 weeks.
+- generic: Hostinger's CDN (Content Delivery Network) optimizes website speed by caching content on multiple servers globally and delivering it from the visitor's nearest location, resulting in up to 40% faster loading times. Hostinger CDN comes with built-in static website caching, cache purging, CSS and JavaScript minification, data center rerouting, CDN bypass mode, and other website security features.
+- generic: WooCommerce is included at no extra cost. Or add Hostinger Ecommerce for ₹89 for 3 months, renews at ₹699/mo.
+- generic: Describe the website or web app you want, and AI Builder will build it for you. No coding or technical skills required.
+- generic: Connect any frontend with Hostinger Headless, or manage hosting via Hostinger Connector using Cursor, Claude, Codex & more.
+- generic: Deploy and host web applications built with frameworks like React, Next.js, Vite, Vue, and others.
+- generic: Each mailbox includes 1GB storage. Upgrade anytime for more storage, features, or mailboxes. Renews at ₹39/mo (12-month term).
+- generic: Hostinger's CDN (Content Delivery Network) optimizes website speed by caching content on multiple servers globally and delivering it from the visitor's nearest location, resulting in up to 40% faster loading times. Hostinger CDN comes with built-in static website caching, cache purging, CSS and JavaScript minification, data center rerouting, CDN bypass mode, and other website security features.
+- generic: Use AI credits to create and edit websites, generate content and automate tasks. One-time credits included. Get double with a 48-month plan.
+- generic: Each mailbox comes with 1 GB of storage. Upgrade to get more features, storage or additional mailboxes anytime.
+- generic: Future-proof your WordPress site and boost visibility in AI search. Auto-generated llms.txt will guide LLM agents to your site for faster content discovery and indexing.
+- generic: Maximize your presence online. We keep our annual uptime rates at a 99.9% height to ensure accessibility of your website at all times. When your website’s down, that’s a potentially missed opportunity to engage with a customer (or potential customer). That’s why we guarantee you one of the best service uptimes globally.
+- generic: Choose any of our server locations around the world to host your website.
+- generic: Move all your websites to Hostinger from another hosting provider for free. Submit a request, and our experts will take care of the rest. Only websites created with WordPress and other open-source platforms can be migrated.
+- generic: Protect all of your websites with an unlimited amount of automatic lifetime Let's Encrypt SSL certificates.
+- generic: Inodes are items that correspond to the number of files and folders you have on your account.
+- generic: PHP workers are directly responsible for loading products, processing orders, and handling customer requests. The more PHP workers available, the faster and more efficiently these tasks are performed, leading to a better shopping experience for customers.
+- generic: Generate unlimited traffic to your websites - we do not limit the amount of visitors that your websites receives. Fair usage policy applies.
+- generic: An exclusive IP for your site that enables better stability, reliability, and flexibility — ideal for advanced setups and direct access.
+- generic: Hostinger's CDN (Content Delivery Network) optimizes website speed by caching content on multiple servers globally and delivering it from the visitor's nearest location, resulting in up to 40% faster loading times. Hostinger CDN comes with built-in static website caching, cache purging, CSS and JavaScript minification, data center rerouting, CDN bypass mode, and other website security features.
+- generic: Use AI credits to create and edit websites, generate content and automate tasks. One-time credits included. Get double with a 48-month plan.
+- generic: Each mailbox comes with 1 GB of storage. Upgrade to get more features, storage or additional mailboxes anytime.
+- generic: Future-proof your WordPress site and boost visibility in AI search. Auto-generated llms.txt will guide LLM agents to your site for faster content discovery and indexing.
+- generic: Maximize your presence online. We keep our annual uptime rates at a 99.9% height to ensure accessibility of your website at all times. When your website’s down, that’s a potentially missed opportunity to engage with a customer (or potential customer). That’s why we guarantee you one of the best service uptimes globally.
+- generic: Choose any of our server locations around the world to host your website.
+- generic: Move all your websites to Hostinger from another hosting provider for free. Submit a request, and our experts will take care of the rest. Only websites created with WordPress and other open-source platforms can be migrated.
+- generic: Protect all of your websites with an unlimited amount of automatic lifetime Let's Encrypt SSL certificates.
+- generic: Inodes are items that correspond to the number of files and folders you have on your account.
+- generic: PHP workers are directly responsible for loading products, processing orders, and handling customer requests. The more PHP workers available, the faster and more efficiently these tasks are performed, leading to a better shopping experience for customers.
+- generic: Generate unlimited traffic to your websites - we do not limit the amount of visitors that your websites receives. Fair usage policy applies.
+- generic: An exclusive IP for your site that enables better stability, reliability, and flexibility — ideal for advanced setups and direct access.
+- dialog:
+  - listbox "Options":
+    - option "1 month":
+      - generic: 1 month
+    - option "12 months" [selected]:
+      - generic: 12 months
+    - option "24 months":
+      - generic: 24 months
+    - option "48 months Best value":
+      - generic: 48 months
+      - generic: Best value

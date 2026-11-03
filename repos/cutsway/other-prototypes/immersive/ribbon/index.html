@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Ribbon</title>
+<meta name="description" content="Ride one continuous take. Cutsway cuts the grey frames out.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --black: #070505; --paper: #f5ece0; --soft: #cdbdac; --gold: #ffc72e; --red: #f0163a; --m: clamp(18px, 3.4vw, 56px); }
+  * { box-sizing: border-box; }
+  html { background: var(--black); color: var(--paper); scrollbar-color: #3a1a12 var(--black); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .num { font-variant-numeric: tabular-nums; }
+  #gl { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+  .vig { position: fixed; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, rgb(7 5 5 / .75)); }
+  .nav { position: fixed; z-index: 10; inset: 0 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 20px var(--m); }
+  .nav svg { width: 116px; height: 48px; display: block; color: var(--paper); }
+  .nav nav { display: flex; gap: 30px; font-size: 16px; font-weight: 500; }
+  .nav nav a { text-decoration: none; color: var(--soft); transition: color .2s; } .nav nav a:hover, .nav nav a[aria-current="true"] { color: var(--paper); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: var(--paper); color: var(--black); font: inherit; font-weight: 700; font-size: 16px; text-decoration: none; border: 0; cursor: pointer; transition: transform .25s cubic-bezier(.16,1,.3,1), background .2s; }
+  .btn:hover { transform: translateY(-2px); background: var(--gold); } .btn:active { transform: scale(.97); }
+  .btn--line { background: transparent; color: var(--paper); box-shadow: inset 0 0 0 1.5px rgb(245 236 224 / .5); } .btn--line:hover { background: rgb(245 236 224 / .1); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  main { position: relative; z-index: 2; }
+  .ch { min-height: 130vh; display: flex; align-items: center; padding: 120px var(--m); }
+  .ch:first-child { min-height: 100vh; }
+  .ch--r { justify-content: flex-end; }
+  .copy { max-width: 33rem; opacity: 0; filter: blur(8px); transform: translateY(20px); transition: opacity 1s cubic-bezier(.16,1,.3,1), filter 1s, transform 1.2s cubic-bezier(.16,1,.3,1); }
+  .ch.is-on .copy { opacity: 1; filter: none; transform: none; }
+  h1, h2 { margin: 0 0 18px; font-family: "Instrument Serif", Georgia, serif; font-weight: 400; letter-spacing: -.02em; line-height: .92; }
+  h1 { font-size: clamp(4rem, 9vw, 10rem); }
+  h2 { font-size: clamp(3rem, 6vw, 6.6rem); }
+  h1 em, h2 em { font-style: italic; color: var(--gold); }
+  .copy p { margin: 0 0 24px; font-size: clamp(18px, 1.35vw, 21px); max-width: 36ch; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .stat { display: block; font-family: "Instrument Serif", serif; font-size: clamp(3rem, 5vw, 4.6rem); line-height: 1; color: var(--gold); }
+  .stat + span { font-size: 15px; color: var(--soft); }
+
+  .deck { position: fixed; z-index: 11; left: 50%; bottom: 22px; transform: translateX(-50%); display: flex; align-items: center; gap: 14px; background: rgb(7 5 5 / .78); padding: 10px 12px 10px 18px; border-radius: 999px; }
+  .tc { font-weight: 800; font-stretch: 112%; font-size: 18px; letter-spacing: -.01em; min-width: 8.6ch; }
+  .spd { font-size: 14px; font-weight: 700; color: var(--gold); min-width: 4.4ch; text-align: right; }
+  .keys { display: flex; gap: 6px; }
+  .keys button { width: 44px; height: 44px; border-radius: 12px; border: 0; background: #241a16; color: var(--paper); font: inherit; font-weight: 800; font-size: 16px; cursor: pointer; transition: background .15s, transform .1s; }
+  .keys button:hover { background: #33251f; }
+  .keys button[aria-pressed="true"] { background: var(--gold); color: var(--black); }
+  .keys button:active { transform: scale(.92); }
+
+  .after { position: relative; z-index: 3; background: var(--black); padding: clamp(120px, 12vw, 200px) var(--m) 32px; }
+  .faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px clamp(24px, 4vw, 72px); max-width: 1200px; }
+  .faq h3 { margin: 0 0 6px; font-family: "Instrument Serif", serif; font-weight: 400; font-size: 2rem; line-height: 1.05; } .faq p { margin: 0; }
+  .end { margin-top: clamp(120px, 12vw, 200px); display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 24px; }
+  .end h2 { font-size: clamp(4rem, 12vw, 13rem); margin: 0; }
+  .credits { margin-top: 40px; font-size: 13px; color: var(--soft); max-width: 90ch; }
+  .nogl #gl, .nogl .deck, .nogl .vig { display: none; }
+  @media (max-width: 860px) {
+    .nav nav { display: none; }
+    .ch, .ch--r { align-items: flex-end; justify-content: flex-start; padding-bottom: 150px; }
+    .copy { background: rgb(7 5 5 / .72); padding: 20px; border-radius: 18px; }
+    .deck { left: 12px; right: 12px; transform: none; justify-content: space-between; bottom: 12px; }
+    .faq, .end { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .copy { transition: none; filter: none; } }
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="An endless strip of film looping through the dark"></canvas>
+<div class="vig" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Chapters"><a href="#" data-go="1">The cut</a><a href="#" data-go="2">Videos</a><a href="#" data-go="3">Podcasts</a><a href="#" data-go="4">Shorts</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<div class="deck" aria-label="Shuttle">
+  <span class="tc num" id="tc" aria-hidden="true">00:00:00:00</span>
+  <div class="keys" role="group" aria-label="Shuttle: J reverse, K stop, L forward">
+    <button type="button" data-k="j" aria-label="Reverse (J)">J</button>
+    <button type="button" data-k="k" aria-label="Stop (K)">K</button>
+    <button type="button" data-k="l" aria-label="Forward (L)" aria-pressed="true">L</button>
+  </div>
+  <span class="spd num" id="spd" aria-live="polite">1×</span>
+</div>
+
+<main id="top">
+  <section class="ch" data-ch aria-labelledby="h1">
+    <div class="copy">
+      <h1 id="h1">One <em>continuous</em> take.</h1>
+      <p>Cutsway edits gaming videos, streams, shorts and podcasts. This is your footage, every frame of it, running past. Scroll to ride it. Hold <strong>L</strong> to run it faster.</p>
+      <div class="row"><a class="btn" href="#book">Book a call</a></div>
+    </div>
+  </section>
+  <section class="ch ch--r" data-ch aria-labelledby="c1">
+    <div class="copy">
+      <h2 id="c1">The <em>grey</em> frames go.</h2>
+      <p>Grey is dead air: loading, waiting, nothing. Watch them get snipped out of the strip as you pass. That is the first hour of every edit.</p>
+    </div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c2">
+    <div class="copy">
+      <h2 id="c2">Gaming <em>videos</em>.</h2>
+      <p>What stays gets an order and a rhythm: the setup, the fight, the payoff. Captions, sound design and three thumbnail options alongside.</p>
+      <span class="stat num">48h</span><span>from upload, sample turnaround</span>
+    </div>
+  </section>
+  <section class="ch ch--r" data-ch aria-labelledby="c3">
+    <div class="copy">
+      <h2 id="c3">Streams &amp; <em>podcasts</em>.</h2>
+      <p>An eight-hour VOD is a very long strip. A person watches all of it. The highlight video comes back in 48 hours; a podcast episode with six clips in 72.</p>
+    </div>
+  </section>
+  <section class="ch" data-ch aria-labelledby="c4">
+    <div class="copy">
+      <h2 id="c4">Turned <em>vertical</em>.</h2>
+      <p>The same strip, reframed to 9:16 for shorts and reels, captioned word by word. Ten per session, back in 24 hours.</p>
+    </div>
+  </section>
+  <section class="ch ch--r" data-ch aria-labelledby="c5">
+    <div class="copy">
+      <h2 id="c5">That's a <em>wrap</em> by <span id="due">Sunday</span>.</h2>
+      <p>Send a gaming video now and it's back then, cut and ready. One editor who knows your channel, every upload.</p>
+      <div class="row"><a class="btn" href="#book">Book a call</a><button class="btn btn--line" type="button" data-go="0">Ride it again</button></div>
+    </div>
+  </section>
+</main>
+
+<div class="after">
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h" style="margin-bottom:40px">Notes on the <em>reel</em></h2>
+    <div class="faq">
+      <div><h3>What do I send?</h3><p>All the footage, raw. Choosing frames is our job.</p></div>
+      <div><h3>What if you cut something I wanted?</h3><p>Ask for it back. Two revision rounds, as notes on the exact frame.</p></div>
+      <div><h3>Same editor every time?</h3><p>Yes, one editor who learns your channel and stays with it.</p></div>
+      <div><h3>Are those times fixed?</h3><p>They are samples. Yours are confirmed on the call.</p></div>
+    </div>
+  </section>
+  <footer class="end" id="book">
+    <h2>Roll <em>it</em>.</h2>
+    <a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a>
+  </footer>
+  <p class="credits">Every frame on the strip is drawn in code as a sample, not real footage. Times are samples.</p>
+</div>
+
+<script src="../../awwwards/_shared/brand.js"></script>
+<script src="../../awwwards/_shared/frames.js"></script>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+<script type="module">
+import { createStage, createAtlas, hasWebGL, seg, smooth, clamp, lerp } from '../_shared/stage.js';
+{ const d = Cutsway.due(48); document.getElementById('due').textContent = d.day; }
+if (!hasWebGL()) { document.documentElement.classList.add('nogl'); document.querySelectorAll('.ch').forEach(c => c.classList.add('is-on')); }
+else {
+const S = createStage({ canvas: document.getElementById('gl'), fov: 62, far: 700, exposure: 1.05, bloom: { strength: .7, radius: .65, threshold: .74 } });
+const { THREE, scene, camera, state } = S;
+scene.background = new THREE.Color('#070505');
+scene.fog = new THREE.FogExp2('#070505', .0062);
+
+// ---- the track: a trefoil knot ----
+class Knot extends THREE.Curve { getPoint(t, v = new THREE.Vector3()) { const a = t * Math.PI * 2;
+  return v.set(Math.sin(a) + 2 * Math.sin(2 * a), Math.cos(a) - 2 * Math.cos(2 * a), -Math.sin(3 * a) * 1.2).multiplyScalar(46); } }
+const curve = new Knot(), SEGS = 3000, FR = curve.computeFrenetFrames(SEGS, true), LEN = curve.getLength();
+const P = [], T = [], N = [], B = [];
+for (let i = 0; i <= SEGS; i++) { const u = i / SEGS; P.push(curve.getPointAt(u)); T.push(FR.tangents[i]); N.push(FR.normals[i]); B.push(FR.binormals[i]); }
+function frameAt(u, out) { u = ((u % 1) + 1) % 1; const f = u * SEGS, i = Math.floor(f), k = f - i, j = (i + 1) % (SEGS + 1);
+  out.p.copy(P[i]).lerp(P[j], k); out.t.copy(T[i]).lerp(T[j], k).normalize(); out.n.copy(N[i]).lerp(N[j], k).normalize(); out.b.copy(B[i]).lerp(B[j], k).normalize(); return out; }
+
+// ---- the film: one instanced quad per frame ----
+const FW = 4, FH = 1.9, GAP = .05, COUNT = Math.floor(LEN / (FH + GAP));
+const atlas = createAtlas({ cols: 8, rows: 8, cw: 256, ch: 144, kinds: ['fps', 'race', 'boss', 'podcast', 'chat', 'platform', 'map', 'menu'], fps: 10 });
+const geo = new THREE.PlaneGeometry(FW, FH);
+const aCell = new Float32Array(COUNT), aDead = new Float32Array(COUNT), aSnip = new Float32Array(COUNT), aU = new Float32Array(COUNT);
+let rr = 5; const R = () => (rr = (rr * 9301 + 49297) % 233280) / 233280;
+for (let i = 0; i < COUNT; i++) { aCell[i] = Math.floor(R() * 64); aDead[i] = R() < .26 ? 1 : 0; aU[i] = i / COUNT; }
+const mesh = new THREE.InstancedMesh(geo, null, COUNT);
+mesh.geometry.setAttribute('aCell', new THREE.InstancedBufferAttribute(aCell, 1));
+mesh.geometry.setAttribute('aDead', new THREE.InstancedBufferAttribute(aDead, 1));
+const snipAttr = new THREE.InstancedBufferAttribute(aSnip, 1); snipAttr.setUsage(THREE.DynamicDrawUsage); mesh.geometry.setAttribute('aSnip', snipAttr);
+mesh.geometry.setAttribute('aU', new THREE.InstancedBufferAttribute(aU, 1));
+const uni = Object.assign(THREE.UniformsUtils.clone(THREE.UniformsLib.fog), { uMap: { value: atlas.texture }, uVert: { value: 0 }, uTime: { value: 0 } });
+mesh.material = new THREE.ShaderMaterial({ uniforms: uni, side: THREE.DoubleSide, transparent: false, fog: true,
+  vertexShader: `
+    attribute float aCell, aDead, aSnip, aU; uniform float uVert;
+    varying vec2 vUv; varying float vCell, vDead, vSnip, vU; varying float vFog;
+    #include <fog_pars_vertex>
+    void main(){
+      vec3 p = position; vUv = uv; vCell = aCell; vDead = aDead; vSnip = aSnip; vU = aU;
+      vec4 mvPosition = modelViewMatrix * instanceMatrix * vec4(p, 1.);
+      gl_Position = projectionMatrix * mvPosition;
+      #include <fog_vertex>
+    }`,
+  fragmentShader: `
+    uniform sampler2D uMap; uniform float uVert, uTime;
+    varying vec2 vUv; varying float vCell, vDead, vSnip, vU;
+    #include <fog_pars_fragment>
+    vec3 lin(vec3 c){ return pow(c, vec3(2.2)); }
+    vec3 spec(float t){
+      vec3 a=lin(vec3(.83,.58,.06)), b=lin(vec3(1.,.86,.24)), c=lin(vec3(1.,.54,.13)), d=lin(vec3(1.,.24,.17)), e=lin(vec3(.93,.07,.25)), f=lin(vec3(.27,.09,.12));
+      t = fract(t) * 1.2; return t<.24?mix(a,b,t/.24):t<.48?mix(b,c,(t-.24)/.24):t<.72?mix(c,d,(t-.48)/.24):t<.96?mix(d,e,(t-.72)/.24):mix(e,f,clamp((t-.96)/.24,0.,1.));
+    }
+    float h(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }
+    void main(){
+      vec2 uv = vUv;
+      float border = .16;
+      vec3 col;
+      border = .12;
+      if (uv.x < border || uv.x > 1. - border) {
+        // film edge with sprocket holes, tinted along the logo bar
+        float yy = uv.x < border ? uv.x / border : (1. - uv.x) / border;
+        float hx = fract(uv.y * 4.);
+        if (hx > .28 && hx < .72 && yy > .3 && yy < .72) discard;
+        col = spec(vU * 3.) * .55 + .02;
+      } else {
+        vec2 iuv = vec2((uv.x - border) / (1. - 2. * border), uv.y);
+        if (iuv.y < .025 || iuv.y > .975) { gl_FragColor = vec4(vec3(.004), 1.); return; }
+        float side = abs(iuv.x - .5) * 2.;
+        vec2 cell = vec2(mod(vCell, 8.), floor(vCell / 8.));
+        vec2 cuv = iuv;
+        vec2 auv = vec2((cell.x + cuv.x) / 8., 1. - (cell.y + 1. - cuv.y) / 8.);
+        col = pow(texture2D(uMap, auv).rgb, vec3(2.2));
+        // the parts outside a vertical crop go dark
+        col *= mix(1., step(side, .3164) * .92 + .08, uVert);
+        col += lin(vec3(1., .78, .2)) * 2. * uVert * (1. - smoothstep(.0, .012, abs(side - .3164)));
+        float g = dot(col, vec3(.3, .59, .11));
+        vec3 grey = vec3(g * .35 + .03) + (h(uv * 80. + uTime) - .5) * .05;
+        col = mix(col * 1.35, grey, vDead);
+      }
+      col = mix(col, lin(vec3(1., .1, .2)) * 3., vSnip * (.6 + .4 * sin(uTime * 30.)));
+      gl_FragColor = vec4(col, 1.);
+      #include <fog_fragment>
+    }` });
+mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+mesh.frustumCulled = false;
+scene.add(mesh);
+
+// a far projector glow at the heart of the knot
+{ const g = document.createElement('canvas'); g.width = g.height = 256; const x = g.getContext('2d');
+  const r = x.createRadialGradient(128, 128, 0, 128, 128, 128); r.addColorStop(0, 'rgba(255,170,90,.42)'); r.addColorStop(.35, 'rgba(240,60,40,.1)'); r.addColorStop(1, 'rgba(0,0,0,0)');
+  x.fillStyle = r; x.fillRect(0, 0, 256, 256); const t = new THREE.CanvasTexture(g); t.colorSpace = THREE.SRGBColorSpace;
+  const glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false }));
+  glow.scale.setScalar(state.mobile ? 170 : 260); glow.position.set(0, 0, -30); scene.add(glow); }
+
+// dust in the projector dark
+const DN = state.mobile ? 900 : 2200, dp = new Float32Array(DN * 3);
+for (let i = 0; i < DN; i++) { const u = Math.random(), q = curve.getPointAt(u); dp[i * 3] = q.x + (Math.random() - .5) * 60; dp[i * 3 + 1] = q.y + (Math.random() - .5) * 60; dp[i * 3 + 2] = q.z + (Math.random() - .5) * 60; }
+const dg = new THREE.BufferGeometry(); dg.setAttribute('position', new THREE.BufferAttribute(dp, 3));
+const dust = new THREE.Points(dg, new THREE.PointsMaterial({ color: new THREE.Color(1.4, .8, .45), size: .22, transparent: true, opacity: .55, depthWrite: false, blending: THREE.AdditiveBlending }));
+scene.add(dust);
+
+// ---- shuttle: J K L ----
+let speed = 1, target = 1, flow = 0, holdL = false;
+const spdEl = document.getElementById('spd'), tcEl = document.getElementById('tc');
+const keyBtns = [...document.querySelectorAll('.keys button')];
+function press(k) {
+  if (k === 'k') target = 0;
+  if (k === 'l') target = target <= 0 ? 1 : Math.min(8, target * 2);
+  if (k === 'j') target = target >= 0 ? -1 : Math.max(-8, target * 2);
+  keyBtns.forEach(b => b.setAttribute('aria-pressed', (b.dataset.k === 'k' && target === 0) || (b.dataset.k === 'l' && target > 0) || (b.dataset.k === 'j' && target < 0) ? 'true' : 'false'));
+  spdEl.textContent = target === 0 ? 'stop' : (target > 0 ? '' : '−') + Math.abs(target) + '×';
+}
+keyBtns.forEach(b => b.addEventListener('click', () => press(b.dataset.k)));
+addEventListener('keydown', e => { if (e.target.closest('input,textarea') || e.repeat) return; const k = e.key.toLowerCase(); if ('jkl'.includes(k) && k.length === 1) press(k); });
+
+// ---- snipping dead frames ----
+const fallen = new Map(); // index -> { m: Matrix4, v: Vector3, w: Vector3, age }
+const tmp = { p: new THREE.Vector3(), t: new THREE.Vector3(), n: new THREE.Vector3(), b: new THREE.Vector3() };
+const cam = { p: new THREE.Vector3(), t: new THREE.Vector3(), n: new THREE.Vector3(), b: new THREE.Vector3() };
+const nb = new THREE.Vector3(), M = new THREE.Matrix4(), Q = new THREE.Quaternion(), Sc = new THREE.Vector3(1, 1, 1), basis = new THREE.Matrix4(), twistQ = new THREE.Quaternion();
+const look = new THREE.Vector3(), up = new THREE.Vector3(), camTarget = new THREE.Vector3();
+
+let wrapCount = 0;
+
+S.onFrame(s => {
+  const p = s.ps, dt = s.dt;
+  speed += (target - speed) * (1 - Math.exp(-dt * 3));
+  if (!s.reduce) flow += speed * dt * 3.2 / LEN;
+  const camU = .02 + p / 5 * .78;
+  const cutting = p > .55;
+  uni.uVert.value = smooth(seg(p, 3.45, 4)) * (1 - smooth(seg(p, 4.5, 5)));
+  uni.uTime.value = s.t;
+  frameAt(camU, cam);
+  for (let i = 0; i < COUNT; i++) {
+    const u = aU[i] + flow;
+    const f = fallen.get(i);
+    if (f) {
+      f.age += dt; f.v.y -= 9 * dt; f.pos.addScaledVector(f.v, dt); f.rot.x += f.w.x * dt; f.rot.y += f.w.y * dt; f.rot.z += f.w.z * dt;
+      Q.setFromEuler(f.rot); const k = Math.max(0, 1 - f.age / 2.6); Sc.set(k, k, k);
+      M.compose(f.pos, Q, Sc); mesh.setMatrixAt(i, M); aSnip[i] = Math.max(0, .9 - f.age * 1.5);
+      // a fallen frame returns, still grey, once the strip has looped past it
+      const ahead = ((u - camU) % 1 + 1) % 1;
+      if (f.age > 3 && ahead > .5 && ahead < .9) { fallen.delete(i); }
+      continue;
+    }
+    frameAt(u, tmp);
+    // twist the strip slowly around its tangent
+    const tw = Math.sin(u * Math.PI * 6) * .9;
+    basis.makeBasis(tmp.b, tmp.t, tmp.n); Q.setFromRotationMatrix(basis);
+    twistQ.setFromAxisAngle(tmp.t, tw); Q.premultiply(twistQ);
+    Sc.set(1, 1, 1); M.compose(tmp.p, Q, Sc); mesh.setMatrixAt(i, M);
+    aSnip[i] = 0;
+    if (cutting && aDead[i] && !s.reduce) {
+      const ahead = ((u - camU) % 1 + 1) % 1;
+      if (ahead > .004 && ahead < .02) {
+        aSnip[i] = 1;
+        if (ahead < .012) { fallen.set(i, { pos: tmp.p.clone(), v: tmp.n.clone().multiplyScalar(-2).add(tmp.b.clone().multiplyScalar((Math.random() - .5) * 6)), w: new THREE.Vector3((Math.random() - .5) * 4, (Math.random() - .5) * 4, (Math.random() - .5) * 4), rot: new THREE.Euler().setFromQuaternion(Q), age: 0 }); }
+      }
+    }
+  }
+  mesh.instanceMatrix.needsUpdate = true; snipAttr.needsUpdate = true;
+  atlas.tick(dt, s.t, 1);
+  // ride just above the strip
+  const tw = Math.sin((camU) * Math.PI * 6) * .9;
+  up.copy(cam.n).applyAxisAngle(cam.t, tw * .6);
+  camTarget.copy(cam.p).addScaledVector(up, 3.6 + s.py * .8).addScaledVector(cam.b, s.px * 1.6).addScaledVector(cam.t, -5);
+  camera.position.lerp(camTarget, s.reduce ? 1 : .18);
+  frameAt(camU + .045, tmp);
+  look.copy(tmp.p).addScaledVector(up, 1.2);
+  camera.up.lerp(up, .1); camera.lookAt(look);
+  // timecode follows the film under you
+  const fr = Math.floor(((camU + flow) * COUNT) * 6) % (30 * 60 * 60 * 10);
+  tcEl.textContent = `${String(Math.floor(fr / 108000)).padStart(2, '0')}:${String(Math.floor(fr / 1800) % 60).padStart(2, '0')}:${String(Math.floor(fr / 30) % 60).padStart(2, '0')}:${String(fr % 30).padStart(2, '0')}`;
+});
+}
+</script>
+</body>
+</html>

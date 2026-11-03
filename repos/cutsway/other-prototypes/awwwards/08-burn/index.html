@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Burn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #060404; --paper: #f4ebe0; --soft: #bfae9c; --gold: #ffc72e; --red: #f0163a; --m: clamp(16px, 2.6vw, 40px); }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); color: var(--paper); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .nav { position: fixed; inset: 0 0 auto; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 18px var(--m); }
+  .nav svg { width: 112px; height: 47px; display: block; }
+  .nav nav { display: flex; gap: 28px; font-weight: 700; font-size: 16px; }
+  .nav nav a { text-decoration: none; } .nav nav a:hover { color: var(--gold); }
+  .btn { display: inline-flex; padding: 13px 20px; border-radius: 999px; background: var(--paper); color: var(--bg); font-weight: 800; text-decoration: none; border: 0; font: inherit; font-weight: 800; cursor: pointer; transition: transform .2s, background .2s; user-select: none; -webkit-user-select: none; }
+  .btn:hover { transform: translateY(-2px); background: var(--gold); } .btn:active { transform: scale(.96); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  #fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; }
+  main, footer { position: relative; z-index: 1; }
+
+  .hero { min-height: 100svh; position: relative; padding: 0 var(--m); }
+  .hero__copy { position: absolute; left: var(--m); top: 24vh; max-width: 30ch; }
+  .hero__copy p { margin: 0 0 20px; font-size: 20px; }
+  .hold { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .hold small { font-size: 16px; color: var(--soft); }
+  .meter { position: absolute; left: var(--m); bottom: 5vh; }
+  .meter b { display: block; font-size: clamp(2rem, 3vw, 3rem); font-weight: 900; font-stretch: 125%; letter-spacing: -.04em; font-variant-numeric: tabular-nums; line-height: 1; }
+  .meter span { color: var(--soft); font-size: 16px; }
+  h1 { position: absolute; right: var(--m); bottom: 4vh; margin: 0; text-align: right; font-weight: 900; font-stretch: 62%; text-transform: uppercase; line-height: .8; letter-spacing: -.01em; font-size: clamp(5rem, 12.5vw, 14rem); color: var(--paper); }
+  h1 small { display: block; font-size: 15px; font-stretch: 100%; letter-spacing: 0; text-transform: none; font-weight: 700; margin-bottom: 10px; color: var(--soft); line-height: 1.3; }
+
+  section { padding: clamp(120px, 14vw, 220px) var(--m) 0; }
+  h2 { margin: 0 0 32px; font-weight: 900; font-stretch: 62%; text-transform: uppercase; line-height: .84; font-size: clamp(3.6rem, 9vw, 10rem); }
+  .burnlist { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+  .burnlist figure { margin: 0; position: relative; }
+  .burnlist img { width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(.5) saturate(1.4) hue-rotate(-12deg) brightness(.8); transition: filter .5s; }
+  .burnlist figure:hover img { filter: none; }
+  .burnlist figcaption { position: absolute; left: 0; bottom: 0; right: 0; padding: 18px; background: rgb(6 4 4 / .78); }
+  .burnlist figcaption b { display: block; font-size: 26px; font-weight: 900; font-stretch: 112%; letter-spacing: -.03em; }
+  .burnlist figcaption span { font-size: 16px; color: #e8d9c7; }
+  .a { grid-column: 1 / span 7; aspect-ratio: 16 / 10; } .b { grid-column: 8 / span 5; aspect-ratio: auto; }
+  .c { grid-column: 1 / span 4; aspect-ratio: 4 / 5; } .d { grid-column: 5 / span 8; aspect-ratio: auto; }
+  .times { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .times div { background: rgb(28 18 14 / .85); padding: 22px; border-radius: 14px; }
+  .times b { display: block; font-size: clamp(3rem, 5vw, 5rem); font-weight: 900; font-stretch: 62%; line-height: .9; color: var(--gold); }
+  .times p { margin: 6px 0 0; }
+  .qa { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px 48px; max-width: 1100px; }
+  .qa h3 { margin: 0 0 6px; font-size: 22px; } .qa p { margin: 0; color: #eadccb; }
+  footer { padding: clamp(140px, 16vw, 240px) var(--m) 28px; display: grid; gap: 28px; }
+  footer h2 { font-size: clamp(5rem, 20vw, 24rem); margin: 0; }
+  .credits { font-size: 13px; color: var(--soft); max-width: 90ch; }
+  @media (max-width: 860px) {
+    .nav nav { display: none; }
+    .hero__copy { top: 15vh; }
+    h1 { bottom: 14vh; font-size: 21vw; }
+    .meter { bottom: 4vh; }
+    .burnlist figure { grid-column: 1 / -1 !important; aspect-ratio: 4 / 3 !important; }
+    .times, .qa { grid-template-columns: 1fr 1fr; } .qa { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#work">What we cut</a><a href="#times">How fast</a><a href="#faq">Questions</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+<main id="top">
+  <section class="hero" aria-labelledby="h1" style="padding-top:0">
+    <div class="hero__copy">
+      <p>Cutsway edits gaming videos, streams, shorts and podcasts. Everything that isn't the moment goes in the fire.</p>
+      <div class="hold"><button class="btn" id="burn" type="button">Hold to burn</button><small>or move through it</small></div>
+    </div>
+    <div class="meter" aria-live="polite"><b id="left">4:12:00</b><span id="left-n">of raw footage</span></div>
+    <h1 id="h1"><small>Editing for gaming creators</small>Burn the<br>boring</h1>
+  </section>
+
+  <section id="work" aria-labelledby="work-h">
+    <h2 id="work-h" data-rise>What survives</h2>
+    <div class="burnlist" data-rise="kids">
+      <figure class="a"><img src="../_shared/img/stage-5.jpg" alt="A packed esports arena"><figcaption><b>Stream VODs</b><span>Eight hours live, one highlight video, ten shorts.</span></figcaption></figure>
+      <figure class="b"><img src="../_shared/img/stage-1.jpg" alt="Players at tournament PCs"><figcaption><b>Gaming videos</b><span>The story, the pacing, the sound.</span></figcaption></figure>
+      <figure class="c"><img src="../_shared/img/headset.jpg" alt="A gaming headset in RGB light"><figcaption><b>Shorts</b><span>Reframed and captioned.</span></figcaption></figure>
+      <figure class="d"><img src="../_shared/img/mic-2.jpg" alt="Podcast microphones around a table"><figcaption><b>Podcasts</b><span>A clean episode and the clips that travel.</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section id="times" aria-labelledby="times-h">
+    <h2 id="times-h" data-rise>How fast it burns</h2>
+    <div class="times" data-rise="kids">
+      <div><b>8h</b><p>Thumbnail, three options</p></div>
+      <div><b>24h</b><p>Shorts pack, ten clips</p></div>
+      <div><b>48h</b><p>Gaming video or VOD</p></div>
+      <div><b>72h</b><p>Podcast with six clips</p></div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h" data-rise>Before you light it</h2>
+    <div class="qa" data-rise="kids">
+      <div><h3>What do I send?</h3><p>All of it. The raw pile is the point.</p></div>
+      <div><h3>What if you cut my favourite bit?</h3><p>Ask for it back. Two revision rounds come with every edit.</p></div>
+      <div><h3>Do you post?</h3><p>Yes: titles, captions and a schedule on four platforms.</p></div>
+      <div><h3>Are those times real?</h3><p>They are samples. Yours are confirmed on the call.</p></div>
+    </div>
+  </section>
+</main>
+<footer id="book">
+  <h2>Light it.</h2>
+  <a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call" style="justify-self:start">Book a call</a>
+  <p class="credits">Photographs: esports events by Flickr users 23979265@N07 and 84584821@N08, CC BY 2.0; RGB headset, CC0; SPNN podcast studio, CC BY 4.0, Wikimedia Commons. Times are samples.</p>
+</footer>
+
+<script src="../_shared/brand.js"></script>
+<script>
+(function () {
+  const cv = document.getElementById('fx'), gl = cv.getContext('webgl', { antialias: false, premultipliedAlpha: false });
+  if (!gl) return;
+  const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+  const fs = `precision highp float;
+  uniform vec2 R; uniform float T; uniform vec2 M; uniform float B; uniform float S;
+  float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+  float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+  float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p*=2.03;a*=.5;}return v;}
+  vec3 spec(float t){t=clamp(t,0.,1.);
+    vec3 a=vec3(.83,.58,.06),b=vec3(1.,.86,.24),c=vec3(1.,.54,.13),d=vec3(1.,.24,.17),e=vec3(.93,.07,.25);
+    return t<.25?mix(a,b,t/.25):t<.5?mix(b,c,(t-.25)/.25):t<.75?mix(c,d,(t-.5)/.25):mix(d,e,(t-.75)/.25);}
+  void main(){
+    vec2 uv=gl_FragCoord.xy/R; float asp=R.x/R.y; vec2 p=(uv-.5)*vec2(asp,1.);
+    p.y+=S*.35;
+    // the logo band: slanted, from left-low to right-high
+    float x=p.x/ (asp*.42); float top=.06+x*.09, bot=top-.17;
+    vec2 m=(M-.5)*vec2(asp,1.); float md=length(p-m);
+    vec2 q=p*3.+vec2(0.,-T*.35); q+=.6*vec2(fbm(q+T*.2),fbm(q-T*.15)); q+=(p-m)*.8*exp(-md*4.);
+    float f=fbm(q);
+    float inband=smoothstep(.0,.04,p.y-bot)*smoothstep(.0,.04,top-p.y);
+    float span=smoothstep(-1.04,-.9,x+(fbm(p*6.+T*.3)-.5)*.12)*step(x,1.);
+    float sx=clamp((x+1.)/2.,0.,1.);
+    // slices at the right end
+    float slices=step(.66,sx)*step(.5,fract((sx-.66)*26.5));
+    float body=step(sx,.66);
+    float shape=inband*span*max(body,slices);
+    // burn front sweeps right to left as B grows
+    float front=1.-B*1.15; float burn=smoothstep(front-.08,front+.08,sx+ (f-.5)*.25);
+    float flame=pow(f,1.6)*1.8;
+    float glow=exp(-abs(p.y-(top+bot)*.5)*7.)*.35*span;
+    float k=shape*(1.-burn)*(.55+flame) + glow*(1.-burn)*f + burn*shape*smoothstep(.55,.9,f)*.9*(1.-B*.6);
+    vec3 col=spec(sx*.9+ (f-.5)*.25)*k;
+    col+=vec3(1.,.5,.15)*pow(max(0.,f-.55),3.)*2.*exp(-md*3.);
+    col+=vec3(.9,.25,.08)*burn*shape*pow(f,3.)*1.4;
+    gl_FragColor=vec4(col,1.);
+  }`;
+  const sh = (t, s) => { const o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); return o; };
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer()); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const U = n => gl.getUniformLocation(pr, n), uR = U('R'), uT = U('T'), uM = U('M'), uB = U('B'), uS = U('S');
+  const dpr = Math.min(devicePixelRatio, 1.5);
+  function size() { cv.width = innerWidth * dpr; cv.height = innerHeight * dpr; gl.viewport(0, 0, cv.width, cv.height); }
+  addEventListener('resize', size); size();
+  let mx = .7, my = .5, tx = .7, ty = .5, burn = 0, holding = false;
+  addEventListener('pointermove', e => { tx = e.clientX / innerWidth; ty = 1 - e.clientY / innerHeight; });
+  const btn = document.getElementById('burn'), left = document.getElementById('left'), leftN = document.getElementById('left-n');
+  const on = e => { e.preventDefault(); holding = true; }, off = () => holding = false;
+  btn.addEventListener('pointerdown', on); addEventListener('pointerup', off); btn.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') holding = true; }); btn.addEventListener('keyup', off);
+  const RAW = 15120, KEEP = 780;
+  const fmt = s => `${Math.floor(s / 3600)}:${String(Math.floor(s / 60) % 60).padStart(2, '0')}:${String(Math.floor(s) % 60).padStart(2, '0')}`;
+  const t0 = performance.now();
+  (function loop(now) {
+    mx += (tx - mx) * .06; my += (ty - my) * .06;
+    burn = Math.max(0, Math.min(1, burn + (holding ? .012 : -.004)));
+    const s = RAW - (RAW - KEEP) * burn; left.textContent = fmt(s); leftN.textContent = burn > .98 ? 'the video people finish' : burn > 0 ? 'still burning' : 'of raw footage';
+    gl.uniform2f(uR, cv.width, cv.height); gl.uniform1f(uT, Cutsway.reduce ? 4 : (now - t0) / 1000); gl.uniform2f(uM, mx, my); gl.uniform1f(uB, burn);
+    gl.uniform1f(uS, Math.min(1.5, scrollY / innerHeight)); gl.drawArrays(gl.TRIANGLES, 0, 3); requestAnimationFrame(loop);
+  })(t0);
+})();
+</script>
+</body>
+</html>

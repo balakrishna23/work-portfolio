@@ -1,0 +1,41 @@
+TASTESKILL · INSPECT   prototypes/a-fields/index.html
+
+MEASURED (first viewport listed)
+  hero headline   "cut fast. post more."  4 words · 2 line(s) · 178.6px (12.4vw) · Archivo 900 · tracking -0.035em · leading 0.9
+  @768px          2 line(s) · 95.2px
+  @390px          2 line(s) · 49.1px
+  typefaces       Archivo 100%
+  sizes in use    14 / 19 / 22 / 26 / 36 / 40 / 79 / 179 px   body 19px / 1.45
+  colour          page #0b0a10 · sections #2136cd #32d7f6 #fbf7c9 #f9e853 #fa7d31 #e32139 · button #e4d44d
+  page            6.5 screens · 359 words · 0 images · hero media none
+  headings        20 · longest 2 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [icon-cards] @768px (+390)  1 row(s) of identical cards each topped with a small icon (4 cards).
+      → Replace with one composed section from the direction: a narrative split, a list set in large type, or real imagery per item.
+
+WARN — fix, or be able to defend
+  [palette-cream] @1440px (+768, 390)  Yellow-cream background (section #fbf7c9, text #fffdf2, text #fbf7c9).
+      → Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [font-not-dealt] @1440px  The sheet dealt Chivo and Chivo, but the page renders Archivo.
+      → Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look.
+  [blank-gap] @1440px  A 480px stretch at 4980px holds nothing.
+      → Check that it is a deliberate rest (once per page at most); otherwise close it to the normal section gap.
+  [size-count] @768px  10 different font sizes (14, 18, 19, 22, 23, 26, 34, 50, 52, 95).
+      → A page needs about five: display, heading, lead, body, small.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect-a-fields/desktop-fold.jpg
+                  .taste-skill/inspect-a-fields/desktop-page-01.jpg
+                  .taste-skill/inspect-a-fields/desktop-page-02.jpg
+  tablet 768px    .taste-skill/inspect-a-fields/tablet-fold.jpg
+                  .taste-skill/inspect-a-fields/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect-a-fields/mobile-fold.jpg
+                  .taste-skill/inspect-a-fields/mobile-page-01.jpg
+
+report: .taste-skill/inspect-a-fields/report.json
+RESULT: 2 FAIL, 5 WARN — not done.

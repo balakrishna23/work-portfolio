@@ -1,0 +1,63 @@
+TASTESKILL · INSPECT   https://emotion-agency.com/
+
+MEASURED (first viewport listed)
+  hero headline   "Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE REMEMBER"  7 words · 4 line(s) · 96px (6.7vw) · Emotion Serif 300 · tracking 0em · leading 0.8
+  @390px          4 line(s) · 46px
+  typefaces       IBM Plex Mono 61%, Emotion Serif 22%, PP Neue Montreal 17%
+  sizes in use    10 / 12 / 14 / 16 / 20 / 24 / 32 / 48 / 72 / 96 px   body 12px / 1.15
+  colour          page #f5efff
+  page            1 screens · 585 words · 6 images · hero media 100% canvas
+  headings        18 · longest 4 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [headline-lines] @1440px  5 headline(s) wrap past two lines at 1440px: "We BUILD ↪ MORE THAN WEBSITES AND PRODUCTS" → 4 lines (8 words, 96px); "Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE R" → 4 lines (7 words, 96px); "We ↪ BUILD WITH PEOPLE WHO CARE HOW THINGS FEEL" → 3 lines (10 words, 96px); "↪ We design and engineer digital products for am" → 4 lines (28 words, 48px)
+      → Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less.
+  [mono] @1440px (+390)  Monospace type outside code: IBM Plex Mono — e.g. "Award-winning websites and digital produ", "A", "b", "o"
+      → Set it in the text face. Monospace is for literal code inside <pre>/<code> only.
+  [numbering] @1440px (+390)  Decorative index numbers: "(001)", "(002)", "(003)", "(004)", "(005)", "(006)"
+      → Remove them. If order truly matters, write it into the words ("First, …") or use a real <ol>.
+  [hairline] @1440px (+390)  16 thin rule(s)/divider line(s): span.awards__item-line 1344px rule | div.spec-list__item-line 551px rule | div.spec-list__item-line 551px rule | div.spec-list__item-line 551px rule
+      → Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.
+  [palette-purple] @1440px (+390)  Indigo / violet (text #581c87).
+      → Use the accent from the drawn palette.
+  [body-size] @1440px (+390)  Body text is 12px (the size most of the running text is set in).
+      → Body copy 16–20px. Map small sizes from blueprints onto your body step.
+  [few-pictures] @1440px  Only 2 picture(s) on the page (2 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [small-text] @1440px (+390)  13 text blocks under 13px.
+      → Nothing meant to be read goes below 13px.
+  [late-title] @1440px (+390)  The title is not readable 1.2s after the page loaded (it is at 0% opacity).
+      → Put the headline in the HTML, painted on the first frame; the load sequence only adds arrival and is settled by 1.2s (references/motion.md, "Load sequence in 1.2 seconds"). No preloader, no gate, no waiting for the load event.
+  [no-title] @1440px (+390)  The page has no visible h1.
+      → Give the first screen a clear title in an h1 that says what this is (a name with what it does, the product with what it is for, the event with its date and place).
+  [headline-lines] @390px  5 headline(s) wrap past two lines at 390px: "We BUILD ↪ MORE THAN WEBSITES AND PRODUCTS" → 4 lines (8 words, 46px); "Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE R" → 4 lines (7 words, 46px); "We BUILD WITH PEOPLE WHO CARE HOW THINGS FEEL" → 4 lines (9 words, 46px); "↪ We design and engineer digital products for am" → 5 lines (28 words, 28px)
+      → Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less.
+  [gradient] @390px  1 gradient fill(s): div.mobile-nav__surface → linear-gradient(90deg, rgba(45, 37, 125, 0.5) 0px, rgba(142, 45, 226, 0.5) 49%, rgba(142, 45, 226, 0.5) 100%)
+      → Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.
+  [reduced-hidden] @1440px  With reduced motion requested, 22 text block(s) on the first screen stay invisible: "Settings", "Let's talk", "Award-winning websites and digital produ", "Where"
+      → Put every hidden starting state inside @media (prefers-reduced-motion: no-preference); the reduced page is the finished page (references/motion.md §8).
+
+WARN — fix, or be able to defend
+  [mixed-font-headline] @1440px (+390)  8 headline(s) switch typeface or to italic mid-line (the "one italic serif word" move).
+      → Set the whole headline in one face. Emphasis comes from the words.
+  [glass] @1440px (+390)  6 backdrop-blur surfaces.
+      → One blurred sticky bar at most; glass cards are a tell.
+  [font-count] @1440px (+390)  3 typefaces in use (IBM Plex Mono, Emotion Serif, PP Neue Montreal).
+      → Two at most.
+  [size-count] @1440px  10 different font sizes (10, 12, 14, 16, 20, 24, 32, 48, 72, 96).
+      → A page needs about five: display, heading, lead, body, small.
+  [no-poster] @1440px (+390)  2 clip(s) without a poster.
+      → Give every clip a poster frame: in the study of 100 Sites of the Day only 31% had one, and the blank or grey boxes before the clips played were recorded as faults (references/imagery.md §11).
+  [font-not-dealt] @1440px  The sheet dealt Chivo and Chivo, but the page renders IBM Plex Mono, Emotion Serif.
+      → Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look.
+  [pinned-over-picture] @1440px (+390)  Pinned large text slides across pictures while the page scrolls: "Where" (screen 1, 100% over a picture); "AMBITIOUS IDEAS BECOME INTERFACES PEOPLE REMEMBE" (screen 1, 98% over a picture); "BUILD" (screen 1, 100% over a picture)
+      → Jurors read a pinned title crossing drawings or photographs as a collision. Keep the pictures in the column the title does not occupy, or unpin it.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/ref-emotion/desktop-fold.jpg
+                  .taste-skill/ref-emotion/desktop-page-01.jpg
+  mobile 390px    .taste-skill/ref-emotion/mobile-fold.jpg
+                  .taste-skill/ref-emotion/mobile-page-01.jpg
+
+report: .taste-skill/ref-emotion/report.json
+RESULT: 13 FAIL, 7 WARN — not done.

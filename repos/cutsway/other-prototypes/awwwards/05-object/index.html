@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Object</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #e6e2dc; --raise: #d9d4cc; --ink: #141110; --soft: #4f4843; --red: #f0163a; --gold: #ffc72e; --m: clamp(16px, 4vw, 96px); }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); color: var(--ink); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .nav { position: fixed; z-index: 20; top: 18px; left: var(--m); right: var(--m); display: flex; justify-content: space-between; align-items: center; pointer-events: none; }
+  .nav > * { pointer-events: auto; }
+  .nav__l { display: flex; align-items: center; gap: 28px; background: var(--raise); padding: 10px 22px; border-radius: 14px; }
+  .nav__l svg { width: 96px; height: 40px; display: block; }
+  .nav__l a:not(:first-child) { text-decoration: none; font-size: 16px; font-weight: 500; }
+  .nav__l a:not(:first-child):hover { color: var(--red); }
+  .btn { display: inline-flex; padding: 13px 20px; border-radius: 10px; background: var(--ink); color: var(--bg); font-weight: 700; text-decoration: none; font-size: 17px; transition: transform .25s cubic-bezier(.16,1,.3,1), background .2s; }
+  .btn:hover { transform: translateY(-2px); background: #2a2420; }
+  .btn:active { transform: scale(.97); }
+  a:focus-visible, input:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+  #gl { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; cursor: grab; touch-action: pan-y; }
+  #gl:active { cursor: grabbing; }
+  main, footer { position: relative; z-index: 1; pointer-events: none; }
+  main a, main input, main details, main summary, footer a { pointer-events: auto; }
+  .hero { min-height: 100svh; display: grid; align-content: end; justify-items: center; text-align: center; padding: 0 var(--m) 7vh; }
+  h1 { margin: 0; font-weight: 500; font-size: clamp(3.2rem, 8.6vw, 9.6rem); letter-spacing: -.055em; line-height: .95; }
+  .hero p { margin: 22px 0 26px; font-size: clamp(19px, 1.6vw, 24px); }
+
+  .cut { min-height: 110vh; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; padding: 0 var(--m) 10vh; gap: 40px; }
+  .panel { background: rgb(230 226 220 / .9); padding: 28px; border-radius: 18px; max-width: 520px; }
+  h2 { margin: 0 0 14px; font-weight: 500; letter-spacing: -.05em; line-height: .98; font-size: clamp(2.6rem, 5vw, 5.2rem); }
+  .panel p { margin: 0 0 18px; }
+  .slider { display: grid; gap: 10px; }
+  .slider label { font-weight: 700; }
+  input[type=range] { width: 100%; accent-color: var(--red); height: 32px; }
+  .read { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .read b { font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 600; letter-spacing: -.05em; font-variant-numeric: tabular-nums; line-height: 1; }
+  .read span { color: var(--soft); font-size: 16px; }
+
+  .what { padding: 20vh var(--m) 0; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 64px); }
+  .what h2 { position: sticky; top: 120px; align-self: start; }
+  .list { display: grid; gap: 14px; }
+  .item { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 24px; background: rgb(230 226 220 / .94); padding: 22px; border-radius: 18px; align-items: center; }
+  .item h3 { margin: 0 0 6px; font-size: 28px; font-weight: 600; letter-spacing: -.03em; }
+  .item p { margin: 0; color: var(--ink); }
+  .item b { display: inline-block; margin-top: 10px; font-weight: 800; color: #a30d26; }
+  .item img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; display: block; }
+
+  .faq { padding: 24vh var(--m) 0; display: grid; justify-items: center; }
+  .faq h2 { text-align: center; margin-bottom: 32px; }
+  .faq__in { width: min(860px, 100%); display: grid; gap: 10px; }
+  details { background: rgb(217 212 204 / .96); border-radius: 14px; }
+  summary { cursor: pointer; list-style: none; padding: 20px 24px; font-weight: 600; font-size: 21px; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-weight: 400; font-size: 28px; line-height: .8; transition: transform .3s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { margin: 0; padding: 0 24px 22px; max-width: 62ch; }
+  footer { padding: 28vh var(--m) 28px; text-align: center; display: grid; justify-items: center; gap: 24px; }
+  footer h2 { font-size: clamp(3.4rem, 10vw, 11rem); margin: 0; }
+  .credits { font-size: 13px; color: var(--soft); }
+  @media (max-width: 860px) {
+    .nav__l a:not(:first-child) { display: none; }
+    .cut, .what { grid-template-columns: 1fr; }
+    .what h2 { position: static; }
+    .item { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<canvas id="gl" aria-label="The Cutsway logo bar as a 3D object; drag to spin it"></canvas>
+<header class="nav">
+  <div class="nav__l"><a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a><a href="#cut">The cut</a><a href="#what">What we make</a><a href="#faq">Questions</a></div>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1">
+    <h1 id="h1">Cut to the frame.</h1>
+    <p>Cutsway is the editing studio for gaming creators, streamers and podcasters.</p>
+    <a class="btn" href="#book">Book a call</a>
+  </section>
+
+  <section class="cut" id="cut" aria-labelledby="cut-h">
+    <div></div>
+    <div class="panel" data-rise="kids">
+      <h2 id="cut-h">How much comes out?</h2>
+      <p>Every slice off the bar is time your audience never has to sit through. Slide it.</p>
+      <div class="slider">
+        <label for="amt">Dead air removed</label>
+        <input id="amt" type="range" min="0" max="9" step="1" value="0">
+        <div class="read" aria-live="polite"><b id="rt">4:12:00</b><span id="rt-n">raw stream, nothing cut yet</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="what" id="what" aria-labelledby="what-h">
+    <h2 id="what-h" data-rise>Made by hand, at speed.</h2>
+    <div class="list">
+      <div class="item" data-rise="kids"><div><h3>Gaming videos</h3><p>The story found in hours of gameplay. Pacing, captions, sound.</p><b>Back in 48 hours</b></div><img src="../_shared/img/stage-1.jpg" alt="Players at tournament PCs"></div>
+      <div class="item" data-rise="kids"><div><h3>Shorts &amp; reels</h3><p>Ten vertical clips per session, reframed and captioned.</p><b>Back in 24 hours</b></div><img src="../_shared/img/headset.jpg" alt="A gaming headset in RGB light"></div>
+      <div class="item" data-rise="kids"><div><h3>Podcasts</h3><p>Three mics, one clean episode, six clips that travel.</p><b>Back in 72 hours</b></div><img src="../_shared/img/mic-1.jpg" alt="A podcast microphone on a boom arm"></div>
+      <div class="item" data-rise="kids"><div><h3>Thumbnails &amp; posting</h3><p>Three thumbnail options, titles, and a schedule on four platforms.</p><b>From 8 hours</b></div><img src="../_shared/img/pad-xbox.jpg" alt="Two game controllers on a wooden table"></div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h" data-rise>Questions, answered.</h2>
+    <div class="faq__in" data-rise="kids">
+      <details open><summary>What do I send?</summary><p>The raw pile: recordings, VODs, facecam. Sorting it is the job.</p></details>
+      <details><summary>How many revisions?</summary><p>Two rounds per edit, as notes on the exact frame.</p></details>
+      <details><summary>Will it feel like my channel?</summary><p>Your editor studies your last ten uploads first and stays with you after.</p></details>
+      <details><summary>Are the turnaround times guaranteed?</summary><p>The times shown are samples. Yours are confirmed on the call.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <h2>Hand it over.</h2>
+  <a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a>
+  <p class="credits">Photographs: Flickr user 23979265@N07, CC BY 2.0; RGB headset, CC0; SPNN podcast studio, CC BY 4.0; InclusiveGameLab controllers, CC BY-SA 4.0, Wikimedia Commons. Times are samples.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../_shared/brand.js"></script>
+<script>
+(function () {
+  const cv = document.getElementById('gl');
+  const R = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+  R.setPixelRatio(Math.min(devicePixelRatio, 2)); R.outputEncoding = THREE.sRGBEncoding;
+  const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(32, 1, .1, 100);
+  cam.position.set(0, 0, 13);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8a7a70, .9));
+  const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(4, 6, 8); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xffd7a0, .8); rim.position.set(-6, -2, -4); scene.add(rim);
+
+  // the logo clip: a slanted band. x in [4,396], top y = 58 - (x-4)*39/392, height 34
+  const band = (x0, x1) => { const s = new THREE.Shape(); const ty = x => -(58 - (x - 4) * 39 / 392) / 40; const by = x => ty(x) - 34 / 40;
+    s.moveTo(x0 / 40, ty(x0)); s.lineTo(x1 / 40, ty(x1)); s.lineTo(x1 / 40, by(x1)); s.lineTo(x0 / 40, by(x0)); s.closePath(); return s; };
+  const ext = { depth: .55, bevelEnabled: true, bevelThickness: .06, bevelSize: .05, bevelSegments: 4 };
+  const group = new THREE.Group(); scene.add(group);
+  // gradient body with a canvas texture
+  const tc = document.createElement('canvas'); tc.width = 512; tc.height = 4; const tx = tc.getContext('2d');
+  const g = tx.createLinearGradient(0, 0, 512, 0); Cutsway.SPEC.forEach((c, i) => g.addColorStop(i / 9, c)); tx.fillStyle = g; tx.fillRect(0, 0, 512, 4);
+  const tex = new THREE.CanvasTexture(tc); tex.encoding = THREE.sRGBEncoding;
+  const bodyGeo = new THREE.ExtrudeGeometry(band(4, 270), ext);
+  bodyGeo.computeBoundingBox(); const bb = bodyGeo.boundingBox, uv = bodyGeo.attributes.uv, pos = bodyGeo.attributes.position;
+  for (let i = 0; i < pos.count; i++) uv.setXY(i, (pos.getX(i) - bb.min.x) / (bb.max.x - bb.min.x), .5);
+  const body = new THREE.Mesh(bodyGeo, new THREE.MeshStandardMaterial({ map: tex, roughness: .32, metalness: .15 }));
+  group.add(body);
+  const slices = Cutsway.SLICE.map((c, i) => {
+    const m = new THREE.Mesh(new THREE.ExtrudeGeometry(band(276 + i * 13, 283 + i * 13), ext), new THREE.MeshStandardMaterial({ color: new THREE.Color(c).convertSRGBToLinear(), roughness: .4, metalness: .1 }));
+    group.add(m); m.userData = { cut: 0, target: 0, spin: (i % 2 ? 1 : -1) * (1 + i * .15) }; return m;
+  });
+  group.children.forEach(m => m.geometry.translate(-5, 1.2, -.27));
+
+  function size() { const w = innerWidth, h = innerHeight; R.setSize(w, h, false); cam.aspect = w / h; cam.position.z = w < 760 ? 21 : 15; cam.updateProjectionMatrix(); }
+  addEventListener('resize', size); size();
+
+  let rx = -.15, ry = -.45, vx = 0, vy = 0, drag = null;
+  cv.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY }; });
+  addEventListener('pointerup', () => drag = null);
+  addEventListener('pointermove', e => { if (!drag) return; vy += (e.clientX - drag.x) * .0009; vx += (e.clientY - drag.y) * .0006; drag = { x: e.clientX, y: e.clientY }; });
+
+  const amt = document.getElementById('amt'), rt = document.getElementById('rt'), rtn = document.getElementById('rt-n');
+  const RAW = 4 * 3600 + 12 * 60, steps = [RAW, 9900, 7400, 5200, 3600, 2500, 1700, 1260, 1020, 840];
+  const fmt = s => `${Math.floor(s / 3600)}:${String(Math.floor(s / 60) % 60).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
+  function setCut(n) { slices.forEach((s, i) => s.userData.target = i >= 9 - n ? 1 : 0); rt.textContent = fmt(steps[n]);
+    rtn.textContent = n === 0 ? 'raw stream, nothing cut yet' : n === 9 ? 'the video people finish' : `${n} slice${n > 1 ? 's' : ''} of dead air gone`; }
+  amt.addEventListener('input', () => setCut(+amt.value)); setCut(0);
+
+  const clock = new THREE.Clock();
+  (function loop() {
+    const t = clock.getElapsedTime(), k = Math.min(1, scrollY / innerHeight);
+    if (!drag) { vy += (Cutsway.reduce ? 0 : .0012) * Math.sin(t * .4); }
+    vx *= .92; vy *= .92; rx += vx; ry += vy; rx += (-.15 - rx) * .02;
+    const ph = innerWidth < 760; group.rotation.set(rx + (Cutsway.reduce ? 0 : Math.sin(t * .6) * .05), ph ? ry * .35 : ry, (ph ? .95 : 0) + Math.sin(t * .5) * .03 * (Cutsway.reduce ? 0 : 1));
+    group.position.y = 1.1 - k * 1.2 + (Cutsway.reduce ? 0 : Math.sin(t * .9) * .08);
+    group.position.x = (innerWidth > 860 ? -k * 2.6 : 0);
+    slices.forEach((s, i) => { const u = s.userData; u.cut += (u.target - u.cut) * .08;
+      s.position.set(u.cut * (1.4 + i * .35), -u.cut * (1.2 + (i % 3) * .5), u.cut * (i % 2 ? 1 : -1) * 1.4); s.rotation.set(u.cut * u.spin, u.cut * u.spin * .5, u.cut * .6); });
+    R.render(scene, cam); requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>

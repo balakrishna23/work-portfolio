@@ -1,0 +1,2574 @@
+{
+ "url": "prototypes/awwwards/13-tour//index.html",
+ "at": "2026-10-23T14:21:31.299Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.79,
+    0.56,
+    0.65,
+    0.45,
+    0.58
+   ],
+   "motion": {
+    "elements": 18,
+    "css": 8,
+    "transitions": 10,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 3901,
+     "screens": 4.3,
+     "words": 287,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 2,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "stage-5.jpg",
+      "stage-1.jpg",
+      "mic-1.jpg",
+      "stage-3.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "THE UPLOAD TOUR",
+     "words": 3,
+     "chars": 15,
+     "lines": 3,
+     "size": 149.8,
+     "vw": 10.4,
+     "font": "Dela Gothic One",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 0.88,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.54,
+     "top": 371,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "THE UPLOAD TOUR",
+     "words": 3,
+     "lines": 3,
+     "size": 149.8,
+     "font": "Dela Gothic One"
+    },
+    "headings": [
+     {
+      "text": "YOUR CHANNEL ON SCHEDULE",
+      "words": 4,
+      "chars": 24,
+      "lines": 4,
+      "size": 66.2,
+      "vw": 4.6,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.34,
+      "top": 169,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "THE UPLOAD TOUR",
+      "words": 3,
+      "chars": 15,
+      "lines": 3,
+      "size": 149.8,
+      "vw": 10.4,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 371,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "TOUR DATES",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 115.2,
+      "vw": 8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 917,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "MON, OCT 26",
+      "words": 3,
+      "chars": 11,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 2,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 1060,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "WED, OCT 28",
+      "words": 3,
+      "chars": 11,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 2,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 1154,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "FRI, OCT 30",
+      "words": 3,
+      "chars": 11,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 2,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 1248,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "MON, NOV 2",
+      "words": 3,
+      "chars": 10,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 2,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 1341,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "WED, NOV 4",
+      "words": 3,
+      "chars": 10,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 2,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 1435,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "FRI, NOV 6",
+      "words": 3,
+      "chars": 10,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 2,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 1528,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "MON, NOV 9",
+      "words": 3,
+      "chars": 10,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 2,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 1622,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "WED, NOV 11",
+      "words": 3,
+      "chars": 11,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 2,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 1716,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "THE CREW",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 115.2,
+      "vw": 8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 1978,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "BACKSTAGE",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 115.2,
+      "vw": 8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 2931,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "SEE YOU ON TOUR",
+      "words": 4,
+      "chars": 15,
+      "lines": 2,
+      "size": 216,
+      "vw": 15,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 3416,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 14,
+     "maxLines": 4,
+     "over2Lines": 2,
+     "statements": 9,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 0.85,
+       "mono": false
+      },
+      {
+       "family": "Dela Gothic One",
+       "share": 0.15,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      16,
+      17,
+      18,
+      19,
+      22,
+      26,
+      29,
+      66,
+      115,
+      150,
+      216
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 13,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 15.8
+     },
+     "measureChars": 92,
+     "max": {
+      "size": 216,
+      "vw": 15,
+      "font": "Dela Gothic One",
+      "text": "See you on tour"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.15,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "Cutsway presents, every week of the year",
+      "above": "YOUR CHANNEL ON SCHEDULE",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 17,
+      "top": 126
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f4ecdc",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.52,
+      "l": 0.91
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffc72e",
+       "top": 86,
+       "hsl": {
+        "h": 44,
+        "s": 1,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#ee1240",
+       "top": 86,
+       "hsl": {
+        "h": 347,
+        "s": 0.87,
+        "l": 0.5
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1d0f12",
+       "share": 0.84
+      },
+      {
+       "color": "#ee1240",
+       "share": 0.12
+      },
+      {
+       "color": "#f4ecdc",
+       "share": 0.03
+      },
+      {
+       "color": "#ffc72e",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#ee1240",
+      "hsl": {
+       "h": 347,
+       "s": 0.87,
+       "l": 0.5
+      },
+      "fg": "#f4ecdc"
+     },
+     "lowContrast": [
+      {
+       "text": "Your channel",
+       "ratio": 2.8,
+       "need": 3,
+       "size": 66.2,
+       "fg": "#ee1240",
+       "bg": "#ffc72e"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 3.7,
+       "need": 4.5,
+       "size": 17,
+       "fg": "#f4ecdc",
+       "bg": "#ee1240"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 3.7,
+       "need": 4.5,
+       "size": 17,
+       "fg": "#f4ecdc",
+       "bg": "#ee1240"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 3.7,
+       "need": 4.5,
+       "size": 17,
+       "fg": "#f4ecdc",
+       "bg": "#ee1240"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 2,
+     "radius": 0,
+     "height": 54,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 3,
+     "heroLabels": [
+      "BOOK A CALL",
+      "BOOK A CALL"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 2112
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.43
+     }
+    ],
+    "nav": {
+     "links": 5,
+     "fixed": false,
+     "height": 86,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo",
+     "dela gothic one"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 3901,
+    "margins": {
+     "left": 43,
+     "right": 43
+    },
+    "sections": [
+     {
+      "sel": "div.poster",
+      "tag": "div",
+      "top": 86,
+      "height": 702,
+      "words": 43,
+      "media": 1,
+      "middle": 32,
+      "heading": {
+       "text": "The",
+       "size": 150,
+       "tag": "h1"
+      },
+      "left": 43,
+      "right": 105,
+      "textLeft": 67,
+      "textRight": 105,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div#dates.dates",
+      "tag": "div",
+      "top": 917,
+      "height": 874,
+      "words": 116,
+      "media": 0,
+      "middle": 354,
+      "heading": {
+       "text": "Mon, Oct 26",
+       "size": 29,
+       "tag": "b"
+      },
+      "left": 43,
+      "right": 43,
+      "textLeft": 43,
+      "textRight": 43,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#crew",
+      "tag": "section",
+      "top": 1791,
+      "height": 953,
+      "words": 29,
+      "media": 3,
+      "middle": 16,
+      "heading": {
+       "text": "The crew",
+       "size": 115,
+       "tag": "h2"
+      },
+      "left": 43,
+      "right": 43,
+      "textLeft": 43,
+      "textRight": 83,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 2744,
+      "height": 485,
+      "words": 62,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Backstage",
+       "size": 115,
+       "tag": "h2"
+      },
+      "left": 43,
+      "right": 124,
+      "textLeft": 43,
+      "textRight": 124,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 3228,
+      "height": 673,
+      "words": 34,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "See you on tour",
+       "size": 216,
+       "tag": "span"
+      },
+      "left": 43,
+      "right": 65,
+      "textLeft": 43,
+      "textRight": 65,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "THE UPLOAD TOUR",
+      "size": 150,
+      "top": 371,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 43,
+      "n": 5
+     },
+     {
+      "x": 67,
+      "n": 3
+     },
+     {
+      "x": 744,
+      "n": 3
+     },
+     {
+      "x": 873,
+      "n": 3
+     }
+    ],
+    "leftBlocks": 14,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.08,
+    "voidBox": {
+     "x": 1080,
+     "y": 600,
+     "w": 360,
+     "h": 300
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 7,
+   "filled": [
+    0.88,
+    0.74,
+    0.69,
+    0.88,
+    0.82,
+    0.43,
+    0.34
+   ],
+   "motion": {
+    "elements": 18,
+    "css": 8,
+    "transitions": 10,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 6401,
+     "screens": 6.3,
+     "words": 282,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 2,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "stage-5.jpg",
+      "stage-1.jpg",
+      "mic-1.jpg",
+      "stage-3.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "THE UPLOAD TOUR",
+     "words": 3,
+     "chars": 15,
+     "lines": 3,
+     "size": 79.9,
+     "vw": 10.4,
+     "font": "Dela Gothic One",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 0.88,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.54,
+     "top": 471,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "THE UPLOAD TOUR",
+     "words": 3,
+     "lines": 3,
+     "size": 79.9,
+     "font": "Dela Gothic One"
+    },
+    "headings": [
+     {
+      "text": "THE UPLOAD TOUR",
+      "words": 3,
+      "chars": 15,
+      "lines": 3,
+      "size": 79.9,
+      "vw": 10.4,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 471,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "YOUR CHANNEL ON SCHEDULE",
+      "words": 4,
+      "chars": 24,
+      "lines": 2,
+      "size": 41.6,
+      "vw": 5.4,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 766,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "TOUR DATES",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 61.4,
+      "vw": 8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 1195,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "MON, OCT 26",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 1291,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "WED, OCT 28",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 1423,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "FRI, OCT 30",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 1526,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "MON, NOV 2",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 1629,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "WED, NOV 4",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 1732,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "FRI, NOV 6",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 1835,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "MON, NOV 9",
+      "words": 3,
+      "chars": 10,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 1938,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "WED, NOV 11",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 2069,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "THE CREW",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 61.4,
+      "vw": 8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 2274,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "BACKSTAGE",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 61.4,
+      "vw": 8,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 5464,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "SEE YOU ON TOUR",
+      "words": 4,
+      "chars": 15,
+      "lines": 2,
+      "size": 115.2,
+      "vw": 15,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 6030,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 14,
+     "maxLines": 3,
+     "over2Lines": 1,
+     "statements": 9,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 0.85,
+       "mono": false
+      },
+      {
+       "family": "Dela Gothic One",
+       "share": 0.15,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      16,
+      17,
+      18,
+      19,
+      22,
+      26,
+      29,
+      42,
+      61,
+      80,
+      115
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 13,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 15.8
+     },
+     "measureChars": 92,
+     "max": {
+      "size": 115.2,
+      "vw": 15,
+      "font": "Dela Gothic One",
+      "text": "See you on tour"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.15,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "Cutsway presents, every week of the year",
+      "above": "YOUR CHANNEL ON SCHEDULE",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 17,
+      "top": 723
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f4ecdc",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.52,
+      "l": 0.91
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffc72e",
+       "top": 86,
+       "hsl": {
+        "h": 44,
+        "s": 1,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#ee1240",
+       "top": 86,
+       "hsl": {
+        "h": 347,
+        "s": 0.87,
+        "l": 0.5
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1d0f12",
+       "share": 0.84
+      },
+      {
+       "color": "#ee1240",
+       "share": 0.13
+      },
+      {
+       "color": "#f4ecdc",
+       "share": 0.03
+      },
+      {
+       "color": "#ffc72e",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#ee1240",
+      "hsl": {
+       "h": 347,
+       "s": 0.87,
+       "l": 0.5
+      },
+      "fg": "#f4ecdc"
+     },
+     "lowContrast": [
+      {
+       "text": "Your channel",
+       "ratio": 2.8,
+       "need": 3,
+       "size": 41.6,
+       "fg": "#ee1240",
+       "bg": "#ffc72e"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 3.7,
+       "need": 4.5,
+       "size": 17,
+       "fg": "#f4ecdc",
+       "bg": "#ee1240"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 3.7,
+       "need": 4.5,
+       "size": 17,
+       "fg": "#f4ecdc",
+       "bg": "#ee1240"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 1,
+     "radius": 0,
+     "height": 54,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 3,
+     "heroLabels": [
+      "BOOK A CALL"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.56
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 86,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo",
+     "dela gothic one"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 6401,
+    "margins": {
+     "left": 23,
+     "right": 23
+    },
+    "sections": [
+     {
+      "sel": "div.poster",
+      "tag": "div",
+      "top": 86,
+      "height": 1030,
+      "words": 44,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "The",
+       "size": 80,
+       "tag": "h1"
+      },
+      "left": 23,
+      "right": 23,
+      "textLeft": 45,
+      "textRight": 69,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div#dates.dates",
+      "tag": "div",
+      "top": 1195,
+      "height": 959,
+      "words": 116,
+      "media": 0,
+      "middle": 133,
+      "heading": {
+       "text": "Mon, Oct 26",
+       "size": 29,
+       "tag": "b"
+      },
+      "left": 23,
+      "right": 35,
+      "textLeft": 23,
+      "textRight": 35,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#crew",
+      "tag": "section",
+      "top": 2154,
+      "height": 3190,
+      "words": 29,
+      "media": 3,
+      "middle": 0,
+      "heading": {
+       "text": "The crew",
+       "size": 61,
+       "tag": "h2"
+      },
+      "left": 23,
+      "right": 23,
+      "textLeft": 23,
+      "textRight": 344,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 5344,
+      "height": 566,
+      "words": 62,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Backstage",
+       "size": 61,
+       "tag": "h2"
+      },
+      "left": 23,
+      "right": 173,
+      "textLeft": 23,
+      "textRight": 173,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 5910,
+      "height": 491,
+      "words": 34,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "See you on tour",
+       "size": 115,
+       "tag": "span"
+      },
+      "left": 23,
+      "right": 100,
+      "textLeft": 23,
+      "textRight": 100,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "THE UPLOAD TOUR",
+      "size": 80,
+      "top": 471,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 23,
+      "n": 8
+     },
+     {
+      "x": 45,
+      "n": 6
+     }
+    ],
+    "leftBlocks": 14,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 7,
+   "filled": [
+    0.88,
+    0.71,
+    0.72,
+    0.63,
+    0.83,
+    0.68,
+    0.5
+   ],
+   "motion": {
+    "elements": 18,
+    "css": 8,
+    "transitions": 10,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 417,
+     "h": 903
+    },
+    "page": {
+     "height": 5792,
+     "screens": 6.4,
+     "words": 282,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 2,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "stage-5.jpg",
+      "stage-1.jpg",
+      "mic-1.jpg",
+      "stage-3.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "THE UPLOAD TOUR",
+     "words": 3,
+     "chars": 15,
+     "lines": 3,
+     "size": 64,
+     "vw": 15.3,
+     "font": "Dela Gothic One",
+     "weight": 400,
+     "tracking": -0.02,
+     "leading": 0.88,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.79,
+     "top": 408,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "THE UPLOAD TOUR",
+     "words": 3,
+     "lines": 3,
+     "size": 64,
+     "font": "Dela Gothic One"
+    },
+    "headings": [
+     {
+      "text": "THE UPLOAD TOUR",
+      "words": 3,
+      "chars": 15,
+      "lines": 3,
+      "size": 64,
+      "vw": 15.3,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 408,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "YOUR CHANNEL ON SCHEDULE",
+      "words": 4,
+      "chars": 24,
+      "lines": 4,
+      "size": 41.6,
+      "vw": 10,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 681,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "TOUR DATES",
+      "words": 2,
+      "chars": 10,
+      "lines": 2,
+      "size": 51.2,
+      "vw": 12.3,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 1297,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "MON, OCT 26",
+      "words": 3,
+      "chars": 11,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 6.9,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 1429,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "WED, OCT 28",
+      "words": 3,
+      "chars": 11,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 6.9,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 1617,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "FRI, OCT 30",
+      "words": 3,
+      "chars": 11,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 6.9,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 1777,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "MON, NOV 2",
+      "words": 3,
+      "chars": 10,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 6.9,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 1937,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "WED, NOV 4",
+      "words": 3,
+      "chars": 10,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 6.9,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2126,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "FRI, NOV 6",
+      "words": 3,
+      "chars": 10,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 6.9,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2286,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "MON, NOV 9",
+      "words": 3,
+      "chars": 10,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 6.9,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2446,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "WED, NOV 11",
+      "words": 3,
+      "chars": 11,
+      "lines": 2,
+      "size": 28.8,
+      "vw": 6.9,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2634,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "THE CREW",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 51.2,
+      "vw": 12.3,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 2896,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "GAMING VIDEOS",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 25.6,
+      "vw": 6.1,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 3437,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "PODCASTS",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 25.6,
+      "vw": 6.1,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 3982,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "SHORTS & THUMBNAILS",
+      "words": 3,
+      "chars": 19,
+      "lines": 2,
+      "size": 25.6,
+      "vw": 6.1,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 4527,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "BACKSTAGE",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 51.2,
+      "vw": 12.3,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 4750,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "What do I send?",
+      "words": 4,
+      "chars": 15,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.3,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 4828,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "What if I miss a recording day?",
+      "words": 7,
+      "chars": 31,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.3,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 4953,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Who writes titles and captions?",
+      "words": 5,
+      "chars": 31,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.3,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 5078,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Are the turnaround times fixed?",
+      "words": 5,
+      "chars": 31,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.3,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 5203,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "SEE YOU ON TOUR",
+      "words": 4,
+      "chars": 15,
+      "lines": 3,
+      "size": 64,
+      "vw": 15.3,
+      "font": "Dela Gothic One",
+      "weight": 400,
+      "tracking": -0.02,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 5416,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 21,
+     "maxLines": 4,
+     "over2Lines": 2,
+     "statements": 12,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 0.85,
+       "mono": false
+      },
+      {
+       "family": "Dela Gothic One",
+       "share": 0.15,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      16,
+      17,
+      18,
+      19,
+      22,
+      26,
+      29,
+      42,
+      51,
+      64
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 13,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 15.8
+     },
+     "measureChars": 55,
+     "max": {
+      "size": 64,
+      "vw": 15.3,
+      "font": "Dela Gothic One",
+      "text": "The"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.15,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "Cutsway presents, every week of the year",
+      "above": "YOUR CHANNEL ON SCHEDULE",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 17,
+      "top": 612
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f4ecdc",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.52,
+      "l": 0.91
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffc72e",
+       "top": 86,
+       "hsl": {
+        "h": 44,
+        "s": 1,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#ee1240",
+       "top": 86,
+       "hsl": {
+        "h": 347,
+        "s": 0.87,
+        "l": 0.5
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1d0f12",
+       "share": 0.84
+      },
+      {
+       "color": "#ee1240",
+       "share": 0.13
+      },
+      {
+       "color": "#f4ecdc",
+       "share": 0.03
+      },
+      {
+       "color": "#ffc72e",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#ee1240",
+      "hsl": {
+       "h": 347,
+       "s": 0.87,
+       "l": 0.5
+      },
+      "fg": "#f4ecdc"
+     },
+     "lowContrast": [
+      {
+       "text": "Your channel",
+       "ratio": 2.8,
+       "need": 3,
+       "size": 41.6,
+       "fg": "#ee1240",
+       "bg": "#ffc72e"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 3.7,
+       "need": 4.5,
+       "size": 17,
+       "fg": "#f4ecdc",
+       "bg": "#ee1240"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 3.7,
+       "need": 4.5,
+       "size": 17,
+       "fg": "#f4ecdc",
+       "bg": "#ee1240"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 1,
+     "radius": 0,
+     "height": 54,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 3,
+     "heroLabels": [
+      "BOOK A CALL"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 2973
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.48
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 86,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo",
+     "dela gothic one"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 417,
+     "h": 903
+    },
+    "pageH": 5792,
+    "margins": {
+     "left": 16,
+     "right": 43
+    },
+    "sections": [
+     {
+      "sel": "div.poster",
+      "tag": "div",
+      "top": 86,
+      "height": 1131,
+      "words": 44,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "The",
+       "size": 64,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 43,
+      "textLeft": 27,
+      "textRight": 59,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div#dates.dates",
+      "tag": "div",
+      "top": 1297,
+      "height": 1480,
+      "words": 116,
+      "media": 0,
+      "middle": 22,
+      "heading": {
+       "text": "Mon, Oct 26",
+       "size": 29,
+       "tag": "b"
+      },
+      "left": 16,
+      "right": 50,
+      "textLeft": 16,
+      "textRight": 50,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#crew",
+      "tag": "section",
+      "top": 2776,
+      "height": 1854,
+      "words": 29,
+      "media": 3,
+      "middle": 0,
+      "heading": {
+       "text": "The crew",
+       "size": 51,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 43,
+      "textLeft": 16,
+      "textRight": 68,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 4630,
+      "height": 665,
+      "words": 62,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Backstage",
+       "size": 51,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 0,
+      "textLeft": 16,
+      "textRight": 0,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 5296,
+      "height": 496,
+      "words": 34,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "See you on tour",
+       "size": 64,
+       "tag": "span"
+      },
+      "left": 16,
+      "right": 50,
+      "textLeft": 16,
+      "textRight": 50,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "THE UPLOAD TOUR",
+      "size": 64,
+      "top": 408,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 8
+     },
+     {
+      "x": 27,
+      "n": 6
+     }
+    ],
+    "leftBlocks": 14,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "2 headline(s) wrap past two lines at 1440px: \"YOUR CHANNEL ON SCHEDULE\" → 4 lines (4 words, 66.2px); \"THE UPLOAD TOUR\" → 3 lines (3 words, 149.8px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "1 eyebrow/kicker label(s) above headings: \"Cutsway presents, every week of the year\" above \"YOUR CHANNEL ON SCHEDULE\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #f4ecdc, text #f4ecdc).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Low-contrast text: \"Your channel\" 2.8:1 needs 3:1; \"Book a call\" 3.7:1 needs 4.5:1; \"Book a call\" 3.7:1 needs 4.5:1; \"Book a call\" 3.7:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "12 different font sizes (13, 16, 17, 18, 19, 22, 26, 29, 66, 115, 150, 216).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 13px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "measure",
+   "width": 1440,
+   "message": "Longest paragraph runs about 92 characters per line.",
+   "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch).",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-not-dealt",
+   "width": 1440,
+   "message": "The sheet dealt Chivo and Chivo, but the page renders Archivo, Dela Gothic One.",
+   "fix": "Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 768,
+   "message": "1 headline(s) wrap past two lines at 768px: \"THE UPLOAD TOUR\" → 3 lines (3 words, 79.9px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 32px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "3 headline(s) wrap past two lines at 390px: \"THE UPLOAD TOUR\" → 3 lines (3 words, 64px); \"YOUR CHANNEL ON SCHEDULE\" → 4 lines (4 words, 41.6px); \"SEE YOU ON TOUR\" → 3 lines (4 words, 64px, a paragraph set above 24px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "off-centre",
+   "width": 390,
+   "message": "The page sits off-centre: its content comes to 16px from the left edge but only to 43px from the right, at 390px.",
+   "fix": "Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure)."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\13-tour\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\13-tour\\desktop-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\13-tour\\desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\13-tour\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\13-tour\\tablet-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\13-tour\\tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\13-tour\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\13-tour\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

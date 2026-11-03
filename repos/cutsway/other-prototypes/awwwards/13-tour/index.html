@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Upload Tour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --paper: #f4ecdc; --gold: #ffc72e; --red: #ee1240; --ink: #1d0f12; --m: clamp(16px, 3vw, 48px); }
+  * { box-sizing: border-box; }
+  html { background: var(--paper); color: var(--ink); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .d { font-family: "Dela Gothic One", Impact, sans-serif; font-weight: 400; line-height: .88; letter-spacing: -.02em; text-transform: uppercase; }
+  .riso { position: relative; display: inline-block; color: var(--red); mix-blend-mode: multiply; }
+  .riso::before { content: attr(data-t); position: absolute; left: .035em; top: .03em; color: var(--gold); z-index: -1; mix-blend-mode: multiply; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px var(--m); }
+  .nav svg { width: 110px; height: 46px; display: block; }
+  .nav nav { display: flex; gap: 24px; font-weight: 800; }
+  .nav nav a { text-decoration: none; } .nav nav a:hover { color: var(--red); }
+  .btn { display: inline-flex; padding: 14px 22px; background: #b80d30; color: var(--paper); font-family: "Dela Gothic One", Impact, sans-serif; font-size: 17px; text-transform: uppercase; text-decoration: none; transition: transform .2s, background .2s; }
+  .btn:hover { background: var(--ink); transform: rotate(-1.5deg); } .btn:active { transform: scale(.96); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  .poster { margin: 0 var(--m); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 0; background: var(--gold); position: relative; overflow: hidden; }
+  .poster__img { position: relative; min-height: 78vh; background: var(--red); }
+  .poster__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.5) brightness(1.1); mix-blend-mode: multiply; }
+  .poster__img::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgb(29 15 18 / .5) 30%, transparent 32%); background-size: 5px 5px; mix-blend-mode: multiply; opacity: .45; }
+  .poster h1 { position: absolute; left: 3%; bottom: 3%; z-index: 2; margin: 0; font-size: clamp(4rem, 10.4vw, 12rem); color: var(--paper); }
+  .poster h1 span { display: block; }
+  .poster__side { padding: clamp(20px, 3vw, 40px); display: flex; flex-direction: column; gap: 18px; }
+  .poster__side .presents { font-weight: 800; font-size: 17px; }
+  .poster__side h2 { margin: 0; font-size: clamp(2.2rem, 3.4vw, 3.8rem); }
+  .poster__side p { margin: 0; font-size: 19px; font-weight: 600; }
+  .days { display: flex; flex-wrap: wrap; gap: 6px; }
+  .days button { font-family: Archivo, sans-serif; font-weight: 900; font-size: 16px; width: 56px; height: 54px; border: 3px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: background .15s, color .15s, transform .1s; }
+  .days button[aria-pressed="true"] { background: var(--ink); color: var(--gold); }
+  .days button:active { transform: scale(.92); }
+  .days-label { font-weight: 800; font-size: 16px; margin-bottom: -8px; }
+
+  .dates { margin: clamp(80px, 9vw, 140px) var(--m) 0; }
+  .dates h2 { margin: 0 0 24px; font-size: clamp(3.2rem, 8vw, 9rem); }
+  .dates ol { list-style: none; margin: 0; padding: 0; }
+  .dates li { display: grid; grid-template-columns: 9rem minmax(0, 1fr) minmax(0, 1fr) auto; gap: 20px; padding: 18px 0; align-items: baseline; font-size: 19px; animation: stamp .45s cubic-bezier(.16,1,.3,1) both; }
+  .dates li:nth-child(odd) { background: #ece0c8; margin: 0 -14px; padding: 18px 14px; }
+  .dates li b { font-family: "Dela Gothic One", Impact; font-weight: 400; font-size: 1.8rem; text-transform: uppercase; line-height: 1; }
+  .dates li strong { font-weight: 800; }
+  .dates li span:last-child { font-weight: 800; color: var(--red); }
+  @keyframes stamp { from { opacity: 0; transform: translateY(14px) rotate(-1deg); } to { opacity: 1; transform: none; } }
+
+  section { padding: clamp(120px, 13vw, 200px) var(--m) 0; }
+  .crew { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .crew figure { margin: 0; background: var(--red); position: relative; }
+  .crew img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; filter: grayscale(1) contrast(1.4); mix-blend-mode: multiply; }
+  .crew figure:nth-child(2) { background: var(--gold); }
+  .crew figcaption { padding: 16px 0 0; background: var(--paper); }
+  .crew figcaption b { display: block; font-family: "Dela Gothic One", Impact; font-weight: 400; font-size: 1.6rem; text-transform: uppercase; }
+  .qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; }
+  .qa h3 { margin: 0 0 6px; font-size: 22px; } .qa p { margin: 0; }
+  footer { padding: clamp(120px, 13vw, 200px) var(--m) 28px; }
+  footer .d { font-size: clamp(4rem, 15vw, 17rem); margin: 0 0 24px; }
+  .foot { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+  .credits { font-size: 13px; max-width: 80ch; margin: 0; }
+  @media (max-width: 860px) {
+    .nav nav { display: none; }
+    .poster { grid-template-columns: 1fr; } .poster__img { min-height: 60vh; }
+    .dates li { grid-template-columns: 1fr 1fr; gap: 4px 16px; }
+    .crew, .qa { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#dates">Tour dates</a><a href="#crew">The crew</a><a href="#faq">Questions</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <div class="poster">
+    <div class="poster__img"><img src="../_shared/img/stage-5.jpg" alt="A packed esports arena full of players at screens">
+      <h1 class="d"><span>The</span><span>upload</span><span>tour</span></h1>
+    </div>
+    <div class="poster__side">
+      <span class="presents">Cutsway presents, every week of the year</span>
+      <h2 class="d"><span class="riso" data-t="Your channel">Your channel</span> on schedule</h2>
+      <p>Cutsway edits and posts gaming videos, streams, shorts and podcasts. You record. We keep the dates.</p>
+      <span class="days-label" id="days-l">Pick your upload days</span>
+      <div class="days" role="group" aria-labelledby="days-l" id="days">
+        <button data-d="1" aria-pressed="true">Mon</button><button data-d="2" aria-pressed="false">Tue</button><button data-d="3" aria-pressed="true">Wed</button><button data-d="4" aria-pressed="false">Thu</button><button data-d="5" aria-pressed="true">Fri</button><button data-d="6" aria-pressed="false">Sat</button><button data-d="0" aria-pressed="false">Sun</button>
+      </div>
+      <a class="btn" href="#book" style="align-self:flex-start">Book a call</a>
+    </div>
+  </div>
+
+  <div class="dates" id="dates">
+    <h2 class="d" data-rise>Tour dates</h2>
+    <ol id="list" aria-live="polite"></ol>
+  </div>
+
+  <section id="crew" aria-labelledby="crew-h">
+    <h2 class="d" id="crew-h" data-rise style="font-size:clamp(3.2rem,8vw,9rem);margin:0 0 32px">The crew</h2>
+    <div class="crew" data-rise="kids">
+      <figure><img src="../_shared/img/stage-1.jpg" alt="Two players in headsets at tournament PCs"><figcaption><b>Gaming videos</b>Story and pacing from hours of play. 48h.</figcaption></figure>
+      <figure><img src="../_shared/img/mic-1.jpg" alt="A podcast microphone on a boom arm"><figcaption><b>Podcasts</b>Clean episode and six clips. 72h.</figcaption></figure>
+      <figure><img src="../_shared/img/stage-3.jpg" alt="Two creators talking on a sofa at an event"><figcaption><b>Shorts &amp; thumbnails</b>Ten clips in 24h, thumbnails in 8h.</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 class="d" id="faq-h" data-rise style="font-size:clamp(3.2rem,8vw,9rem);margin:0 0 32px">Backstage</h2>
+    <div class="qa" data-rise="kids">
+      <div><h3>What do I send?</h3><p>Everything you recorded. We sort, cut and schedule it.</p></div>
+      <div><h3>What if I miss a recording day?</h3><p>We keep a buffer of shorts from earlier sessions so the dates still happen.</p></div>
+      <div><h3>Who writes titles and captions?</h3><p>We do, in your voice, for each platform separately.</p></div>
+      <div><h3>Are the turnaround times fixed?</h3><p>They're samples. Yours are confirmed on the call.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <p class="d"><span class="riso" data-t="See you on tour">See you on tour</span></p>
+  <div class="foot"><p class="credits">Photographs: esports events by Flickr users 84584821@N08 and 23979265@N07, CC BY 2.0; SPNN podcast studio, CC BY 4.0, Wikimedia Commons. Schedule and times are samples.</p><a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a></div>
+</footer>
+
+<script src="../_shared/brand.js"></script>
+<script>
+  const DROPS = [
+    { p: 'YouTube', w: 'Gaming video', note: 'edited from last week’s sessions' },
+    { p: 'TikTok', w: 'Short', note: 'the clutch, captioned' },
+    { p: 'Instagram', w: 'Reel', note: 'the funniest minute' },
+    { p: 'X', w: 'Clip and thread', note: 'the moment chat lost it' },
+    { p: 'YouTube Shorts', w: 'Short', note: 'reframed facecam and play' },
+    { p: 'Spotify', w: 'Podcast episode', note: 'with six clips' }
+  ];
+  const btns = [...document.querySelectorAll('#days button')], list = document.getElementById('list');
+  function render() {
+    const on = btns.filter(b => b.getAttribute('aria-pressed') === 'true').map(b => +b.dataset.d);
+    const out = []; const d = new Date(); let k = 0;
+    for (let i = 1; out.length < 8 && i < 60; i++) { const day = new Date(d.getTime() + i * 864e5);
+      if (on.includes(day.getDay())) { const x = DROPS[k++ % DROPS.length]; out.push({ day, ...x }); } }
+    list.innerHTML = out.length ? out.map((o, i) => `<li style="animation-delay:${i * 50}ms"><b>${o.day.toLocaleDateString(undefined, { weekday: 'short', day: 'numeric', month: 'short' })}</b><span><strong>${o.w}</strong>, ${o.note}</span><span>${o.p}</span><span>Ready ${o.w.includes('Gaming') || o.w.includes('Podcast') ? '2 days early' : 'the night before'}</span></li>`).join('')
+      : '<li><b>No dates</b><span>Pick at least one upload day.</span></li>';
+  }
+  btns.forEach(b => b.addEventListener('click', () => { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true'); render(); }));
+  render();
+</script>
+</body>
+</html>

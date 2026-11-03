@@ -1,0 +1,1705 @@
+{
+ "url": "https://emotion-agency.com/",
+ "at": "2026-10-22T16:52:35.237Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.39
+   ],
+   "motion": {
+    "elements": 146,
+    "css": 3,
+    "transitions": 1,
+    "scripted": 142,
+    "videos": 2,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 900,
+     "screens": 1,
+     "words": 585,
+     "img": 6,
+     "video": 2,
+     "canvas": 11,
+     "svg": 37,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 2,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 2
+    },
+    "hero": {
+     "text": "Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE REMEMBER",
+     "words": 7,
+     "chars": 55,
+     "lines": 4,
+     "size": 96,
+     "vw": 6.7,
+     "font": "Emotion Serif",
+     "weight": 300,
+     "tracking": 0,
+     "leading": 0.8,
+     "upper": false,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.93,
+     "top": 581,
+     "mixedFonts": [
+      "Emotion Serif italic",
+      "Emotion Serif"
+     ],
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE REMEMBER",
+     "words": 7,
+     "lines": 4,
+     "size": 96,
+     "font": "Emotion Serif"
+    },
+    "headings": [
+     {
+      "text": "We BUILD ↪ MORE THAN WEBSITES AND PRODUCTS",
+      "words": 8,
+      "chars": 42,
+      "lines": 4,
+      "size": 96,
+      "vw": 6.7,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 276,
+      "mixedFonts": [
+       "Emotion Serif italic",
+       "Emotion Serif"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "BEAUTY With A REASON",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 96,
+      "vw": 6.7,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.38,
+      "top": 352,
+      "mixedFonts": [
+       "Emotion Serif",
+       "Emotion Serif italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE REMEMBER",
+      "words": 7,
+      "chars": 55,
+      "lines": 4,
+      "size": 96,
+      "vw": 6.7,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 581,
+      "mixedFonts": [
+       "Emotion Serif italic",
+       "Emotion Serif"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "We ↪ BUILD WITH PEOPLE WHO CARE HOW THINGS FEEL",
+      "words": 10,
+      "chars": 47,
+      "lines": 3,
+      "size": 96,
+      "vw": 6.7,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 658,
+      "mixedFonts": [
+       "Emotion Serif italic",
+       "Emotion Serif"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "TECHNOLOGY ↪ AS EMOTION",
+      "words": 4,
+      "chars": 23,
+      "lines": 2,
+      "size": 96,
+      "vw": 6.7,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.46,
+      "top": 726,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "↪ We design and engineer digital products for ambitious teams — from launch sites to full-scale SaaS platforms. We start with why, then design and build the rest",
+      "words": 28,
+      "chars": 161,
+      "lines": 4,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 17022,
+      "mixedFonts": [
+       "Emotion Serif italic",
+       "Emotion Serif"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "SOME Of our ⟶ ⟶ PROJECTS",
+      "words": 6,
+      "chars": 24,
+      "lines": 1,
+      "size": 96,
+      "vw": 6.7,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 20632,
+      "mixedFonts": [
+       "Emotion Serif",
+       "Emotion Serif italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "E Promo",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.23,
+      "top": 21263,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Sofia Shcherbak",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.23,
+      "top": 21263,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Flashform",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.15,
+      "top": 21310,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Relive by Coco",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.15,
+      "top": 21671,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "smp fnnc.",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.23,
+      "top": 21839,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Aura",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.15,
+      "top": 22200,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Ksh Design",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.23,
+      "top": 22368,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Kairos Capital",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.23,
+      "top": 22508,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "AWARDS & RECOGNITIONS",
+      "words": 3,
+      "chars": 21,
+      "lines": 2,
+      "size": 96,
+      "vw": 6.7,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 22809,
+      "mixedFonts": [
+       "Emotion Serif",
+       "Emotion Serif italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Let’s BUILD ↪ SOMETHING MEANINGFUL",
+      "words": 5,
+      "chars": 34,
+      "lines": 3,
+      "size": 96,
+      "vw": 6.7,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 24123,
+      "mixedFonts": [
+       "Emotion Serif italic",
+       "Emotion Serif"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "About",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 72,
+      "vw": 5,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.1,
+      "top": 24841,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 18,
+     "maxLines": 4,
+     "over2Lines": 5,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 8
+    },
+    "type": {
+     "families": [
+      {
+       "family": "IBM Plex Mono",
+       "share": 0.61,
+       "mono": true
+      },
+      {
+       "family": "Emotion Serif",
+       "share": 0.22,
+       "mono": false
+      },
+      {
+       "family": "PP Neue Montreal",
+       "share": 0.17,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      12,
+      14,
+      16,
+      20,
+      24,
+      32,
+      48,
+      72,
+      96
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "IBM Plex Mono",
+      "size": 12,
+      "leading": 1.15,
+      "weight": 500,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 53,
+     "max": {
+      "size": 96,
+      "vw": 6.7,
+      "font": "Emotion Serif",
+      "text": "Where"
+     },
+     "monoShare": 0.61,
+     "monoProseShare": 0.61,
+     "monoFamilies": [
+      "IBM Plex Mono"
+     ],
+     "monoSamples": [
+      "Award-winning websites and digital produ",
+      "A",
+      "b",
+      "o",
+      "u",
+      "t"
+     ],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.7,
+     "centerShare": 0.04,
+     "smallText": 13
+    },
+    "eyebrows": [],
+    "numbered": [
+     {
+      "text": "(001)",
+      "size": 12,
+      "top": 17908
+     },
+     {
+      "text": "(002)",
+      "size": 12,
+      "top": 17957
+     },
+     {
+      "text": "(003)",
+      "size": 12,
+      "top": 18006
+     },
+     {
+      "text": "(004)",
+      "size": 12,
+      "top": 18055
+     },
+     {
+      "text": "(005)",
+      "size": 12,
+      "top": 18104
+     },
+     {
+      "text": "(006)",
+      "size": 12,
+      "top": 18152
+     },
+     {
+      "text": "(007)",
+      "size": 12,
+      "top": 18201
+     },
+     {
+      "text": "(008)",
+      "size": 12,
+      "top": 18250
+     },
+     {
+      "text": "(009)",
+      "size": 12,
+      "top": 18299
+     },
+     {
+      "text": "(010)",
+      "size": 12,
+      "top": 18348
+     },
+     {
+      "text": "(011)",
+      "size": 12,
+      "top": 18396
+     },
+     {
+      "text": "(012)",
+      "size": 12,
+      "top": 18445
+     }
+    ],
+    "color": {
+     "bodyBg": "#f5efff",
+     "bodyBgHsl": {
+      "h": 263,
+      "s": 1,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#2a1647",
+       "share": 0.47
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.45
+      },
+      {
+       "color": "#581c87",
+       "share": 0.04
+      },
+      {
+       "color": "#6b7280",
+       "share": 0.03
+      },
+      {
+       "color": "#94a3b8",
+       "share": 0.01
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Enter with audio Enter with audio",
+      "Let's talk Let's talk"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 16,
+     "hairlineSamples": [
+      "span.awards__item-line 1344px rule",
+      "div.spec-list__item-line 551px rule",
+      "div.spec-list__item-line 551px rule",
+      "div.spec-list__item-line 551px rule",
+      "div.spec-list__item-line 551px rule"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 6,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 8,
+     "mediaRadius": 24,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 5,
+     "fixed": true,
+     "height": 70,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "ibm plex mono",
+     "ibm plex mono fallback: courier new",
+     "pp neue montreal",
+     "emotion serif"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 900,
+    "margins": {
+     "left": null,
+     "right": null
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [],
+    "edgeText": [],
+    "edges": [],
+    "leftBlocks": 0,
+    "bodySize": 16,
+    "stage": true,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.32
+   ],
+   "motion": {
+    "elements": 186,
+    "css": 1,
+    "transitions": 1,
+    "scripted": 184,
+    "videos": 2,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 844,
+     "screens": 1,
+     "words": 529,
+     "img": 6,
+     "video": 2,
+     "canvas": 10,
+     "svg": 39,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 2,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 2
+    },
+    "hero": {
+     "text": "Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE REMEMBER",
+     "words": 7,
+     "chars": 55,
+     "lines": 4,
+     "size": 46,
+     "vw": 11.8,
+     "font": "Emotion Serif",
+     "weight": 300,
+     "tracking": 0,
+     "leading": 0.8,
+     "upper": false,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.92,
+     "top": 565,
+     "mixedFonts": [
+      "Emotion Serif italic",
+      "Emotion Serif"
+     ],
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE REMEMBER",
+     "words": 7,
+     "lines": 4,
+     "size": 46,
+     "font": "Emotion Serif"
+    },
+    "headings": [
+     {
+      "text": "We BUILD ↪ MORE THAN WEBSITES AND PRODUCTS",
+      "words": 8,
+      "chars": 42,
+      "lines": 4,
+      "size": 46,
+      "vw": 11.8,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 507,
+      "mixedFonts": [
+       "Emotion Serif italic",
+       "Emotion Serif"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE REMEMBER",
+      "words": 7,
+      "chars": 55,
+      "lines": 4,
+      "size": 46,
+      "vw": 11.8,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 565,
+      "mixedFonts": [
+       "Emotion Serif italic",
+       "Emotion Serif"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "We BUILD WITH PEOPLE WHO CARE HOW THINGS FEEL",
+      "words": 9,
+      "chars": 45,
+      "lines": 4,
+      "size": 46,
+      "vw": 11.8,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 565,
+      "mixedFonts": [
+       "Emotion Serif italic",
+       "Emotion Serif"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "TECHNOLOGY ↪ AS EMOTION",
+      "words": 4,
+      "chars": 23,
+      "lines": 2,
+      "size": 46,
+      "vw": 11.8,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 595,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "BEAUTY With A REASON",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 46,
+      "vw": 11.8,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 595,
+      "mixedFonts": [
+       "Emotion Serif",
+       "Emotion Serif italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "↪ We design and engineer digital products for ambitious teams — from launch sites to full-scale SaaS platforms. We start with why, then design and build the rest",
+      "words": 28,
+      "chars": 161,
+      "lines": 5,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 7497,
+      "mixedFonts": [
+       "Emotion Serif italic",
+       "Emotion Serif"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "SOME Of our PROJECTS",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 46,
+      "vw": 11.8,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 9089,
+      "mixedFonts": [
+       "Emotion Serif",
+       "Emotion Serif italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "E Promo",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 9499,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Flashform",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.44,
+      "top": 9499,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Sofia Shcherbak",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 9805,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Relive by Coco",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.44,
+      "top": 9805,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "smp fnnc.",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 10111,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Ksh Design",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.44,
+      "top": 10111,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Aura",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 10417,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Kairos Capital",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.44,
+      "top": 10417,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "AWARDS & RECOGNITIONS",
+      "words": 3,
+      "chars": 21,
+      "lines": 2,
+      "size": 46,
+      "vw": 11.8,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 10631,
+      "mixedFonts": [
+       "Emotion Serif",
+       "Emotion Serif italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Let’s BUILD ↪ SOMETHING MEANINGFUL",
+      "words": 5,
+      "chars": 34,
+      "lines": 3,
+      "size": 46,
+      "vw": 11.8,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 12187,
+      "mixedFonts": [
+       "Emotion Serif italic",
+       "Emotion Serif"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "About",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Emotion Serif",
+      "weight": 300,
+      "tracking": 0,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.18,
+      "top": 13031,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 18,
+     "maxLines": 5,
+     "over2Lines": 5,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 8
+    },
+    "type": {
+     "families": [
+      {
+       "family": "IBM Plex Mono",
+       "share": 0.42,
+       "mono": true
+      },
+      {
+       "family": "PP Neue Montreal",
+       "share": 0.34,
+       "mono": false
+      },
+      {
+       "family": "Emotion Serif",
+       "share": 0.24,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      12,
+      14,
+      16,
+      20,
+      28,
+      36,
+      46
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "IBM Plex Mono",
+      "size": 12,
+      "leading": 1.15,
+      "weight": 500,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 53,
+     "max": {
+      "size": 46,
+      "vw": 11.8,
+      "font": "Emotion Serif",
+      "text": "Where"
+     },
+     "monoShare": 0.42,
+     "monoProseShare": 0.42,
+     "monoFamilies": [
+      "IBM Plex Mono"
+     ],
+     "monoSamples": [
+      "Award-winning websites and digital produ",
+      "Menu",
+      "01",
+      "02",
+      "03",
+      "04"
+     ],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.52,
+     "centerShare": 0.04,
+     "smallText": 13
+    },
+    "eyebrows": [],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 12,
+      "top": 807
+     },
+     {
+      "text": "02",
+      "size": 12,
+      "top": 864
+     },
+     {
+      "text": "03",
+      "size": 12,
+      "top": 921
+     },
+     {
+      "text": "04",
+      "size": 12,
+      "top": 978
+     },
+     {
+      "text": "(001)",
+      "size": 12,
+      "top": 7261
+     },
+     {
+      "text": "(002)",
+      "size": 12,
+      "top": 7305
+     },
+     {
+      "text": "(004)",
+      "size": 12,
+      "top": 7393
+     },
+     {
+      "text": "(005)",
+      "size": 12,
+      "top": 7437
+     },
+     {
+      "text": "(006)",
+      "size": 12,
+      "top": 7481
+     },
+     {
+      "text": "(007)",
+      "size": 12,
+      "top": 7525
+     },
+     {
+      "text": "(008)",
+      "size": 12,
+      "top": 7569
+     },
+     {
+      "text": "(009)",
+      "size": 12,
+      "top": 7613
+     }
+    ],
+    "color": {
+     "bodyBg": "#f5efff",
+     "bodyBgHsl": {
+      "h": 263,
+      "s": 1,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#2a1647",
+       "share": 0.69
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.22
+      },
+      {
+       "color": "#581c87",
+       "share": 0.05
+      },
+      {
+       "color": "#6b7280",
+       "share": 0.03
+      },
+      {
+       "color": "#94a3b8",
+       "share": 0.01
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 1,
+     "radius": "pill",
+     "height": 48,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Enter with audio Enter with audio"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.mobile-nav__surface → linear-gradient(90deg, rgba(45, 37, 125, 0.5) 0px, rgba(142, 45, 226, 0.5) 49%, rgba(142, 45, 226, 0.5) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 23,
+     "hairlineSamples": [
+      "div.mobile-nav__hr 268px rule",
+      "div.mobile-nav__hr 214px rule",
+      "div.mobile-nav__hr 214px rule",
+      "div.mobile-nav__hr 214px rule",
+      "div.mobile-nav__hr 268px rule"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 7,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 0,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "ibm plex mono",
+     "ibm plex mono fallback: courier new",
+     "pp neue montreal",
+     "emotion serif"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 844,
+    "margins": {
+     "left": null,
+     "right": null
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [],
+    "edgeText": [],
+    "edges": [],
+    "leftBlocks": 0,
+    "bodySize": 16,
+    "stage": true,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "5 headline(s) wrap past two lines at 1440px: \"We BUILD ↪ MORE THAN WEBSITES AND PRODUCTS\" → 4 lines (8 words, 96px); \"Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE R\" → 4 lines (7 words, 96px); \"We ↪ BUILD WITH PEOPLE WHO CARE HOW THINGS FEEL\" → 3 lines (10 words, 96px); \"↪ We design and engineer digital products for am\" → 4 lines (28 words, 48px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "mixed-font-headline",
+   "width": 1440,
+   "message": "8 headline(s) switch typeface or to italic mid-line (the \"one italic serif word\" move).",
+   "fix": "Set the whole headline in one face. Emphasis comes from the words.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "mono",
+   "width": 1440,
+   "message": "Monospace type outside code: IBM Plex Mono — e.g. \"Award-winning websites and digital produ\", \"A\", \"b\", \"o\"",
+   "fix": "Set it in the text face. Monospace is for literal code inside <pre>/<code> only.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "numbering",
+   "width": 1440,
+   "message": "Decorative index numbers: \"(001)\", \"(002)\", \"(003)\", \"(004)\", \"(005)\", \"(006)\"",
+   "fix": "Remove them. If order truly matters, write it into the words (\"First, …\") or use a real <ol>.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "16 thin rule(s)/divider line(s): span.awards__item-line 1344px rule | div.spec-list__item-line 551px rule | div.spec-list__item-line 551px rule | div.spec-list__item-line 551px rule",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "glass",
+   "width": 1440,
+   "message": "6 backdrop-blur surfaces.",
+   "fix": "One blurred sticky bar at most; glass cards are a tell.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "palette-purple",
+   "width": 1440,
+   "message": "Indigo / violet (text #581c87).",
+   "fix": "Use the accent from the drawn palette.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-count",
+   "width": 1440,
+   "message": "3 typefaces in use (IBM Plex Mono, Emotion Serif, PP Neue Montreal).",
+   "fix": "Two at most.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "10 different font sizes (10, 12, 14, 16, 20, 24, 32, 48, 72, 96).",
+   "fix": "A page needs about five: display, heading, lead, body, small."
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 12px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 2 picture(s) on the page (2 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-poster",
+   "width": 1440,
+   "message": "2 clip(s) without a poster.",
+   "fix": "Give every clip a poster frame: in the study of 100 Sites of the Day only 31% had one, and the blank or grey boxes before the clips played were recorded as faults (references/imagery.md §11).",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "13 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-not-dealt",
+   "width": 1440,
+   "message": "The sheet dealt Chivo and Chivo, but the page renders IBM Plex Mono, Emotion Serif.",
+   "fix": "Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look."
+  },
+  {
+   "level": "FAIL",
+   "id": "late-title",
+   "width": 1440,
+   "message": "The title is not readable 1.2s after the page loaded (it is at 0% opacity).",
+   "fix": "Put the headline in the HTML, painted on the first frame; the load sequence only adds arrival and is settled by 1.2s (references/motion.md, \"Load sequence in 1.2 seconds\"). No preloader, no gate, no waiting for the load event.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "no-title",
+   "width": 1440,
+   "message": "The page has no visible h1.",
+   "fix": "Give the first screen a clear title in an h1 that says what this is (a name with what it does, the product with what it is for, the event with its date and place).",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "pinned-over-picture",
+   "width": 1440,
+   "message": "Pinned large text slides across pictures while the page scrolls: \"Where\" (screen 1, 100% over a picture); \"AMBITIOUS IDEAS BECOME INTERFACES PEOPLE REMEMBE\" (screen 1, 98% over a picture); \"BUILD\" (screen 1, 100% over a picture)",
+   "fix": "Jurors read a pinned title crossing drawings or photographs as a collision. Keep the pictures in the column the title does not occupy, or unpin it.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "5 headline(s) wrap past two lines at 390px: \"We BUILD ↪ MORE THAN WEBSITES AND PRODUCTS\" → 4 lines (8 words, 46px); \"Where AMBITIOUS IDEAS BECOME INTERFACES PEOPLE R\" → 4 lines (7 words, 46px); \"We BUILD WITH PEOPLE WHO CARE HOW THINGS FEEL\" → 4 lines (9 words, 46px); \"↪ We design and engineer digital products for am\" → 5 lines (28 words, 28px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 390,
+   "message": "1 gradient fill(s): div.mobile-nav__surface → linear-gradient(90deg, rgba(45, 37, 125, 0.5) 0px, rgba(142, 45, 226, 0.5) 49%, rgba(142, 45, 226, 0.5) 100%)",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility."
+  },
+  {
+   "level": "FAIL",
+   "id": "reduced-hidden",
+   "width": 1440,
+   "message": "With reduced motion requested, 22 text block(s) on the first screen stay invisible: \"Settings\", \"Let's talk\", \"Award-winning websites and digital produ\", \"Where\"",
+   "fix": "Put every hidden starting state inside @media (prefers-reduced-motion: no-preference); the reduced page is the finished page (references/motion.md §8)."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\ref-emotion\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\ref-emotion\\desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\ref-emotion\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\ref-emotion\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

@@ -1,0 +1,2762 @@
+{
+ "url": "prototypes/awwwards/06-thumbnail-lab//index.html",
+ "at": "2026-10-23T14:18:43.351Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.59,
+    0.67,
+    0.54,
+    0.33,
+    0.36
+   ],
+   "motion": {
+    "elements": 17,
+    "css": 0,
+    "transitions": 17,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4436,
+     "screens": 4.9,
+     "words": 371,
+     "img": 7,
+     "video": 0,
+     "canvas": 2,
+     "svg": 2,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 1,
+     "pictureSamples": [
+      "stage-2.jpg",
+      "podcave.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "MAKE THEM CLICK.",
+     "words": 3,
+     "chars": 16,
+     "lines": 3,
+     "size": 126.7,
+     "vw": 8.8,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 0.86,
+     "upper": true,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.38,
+     "top": 139,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "MAKE THEM CLICK.",
+     "words": 3,
+     "lines": 3,
+     "size": 126.7,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "MAKE THEM CLICK.",
+      "words": 3,
+      "chars": 16,
+      "lines": 3,
+      "size": 126.7,
+      "vw": 8.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 139,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "THE FEED TEST",
+      "words": 3,
+      "chars": 13,
+      "lines": 3,
+      "size": 92.2,
+      "vw": 6.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 1125,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "HOW WE MAKE THEM",
+      "words": 4,
+      "chars": 16,
+      "lines": 1,
+      "size": 92.2,
+      "vw": 6.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 1785,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "ONE IDEA",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 43.2,
+      "vw": 3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 1931,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "FOUR WORDS",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 43.2,
+      "vw": 3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 1931,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "THREE OPTIONS",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 43.2,
+      "vw": 3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2438,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "SWAP AND TEST",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 43.2,
+      "vw": 3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 2438,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "HOW FAST",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 92.2,
+      "vw": 6.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 3110,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "8H",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 3274,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "24H",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 3274,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "48H",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 3274,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "72H",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 3274,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "QUESTIONS",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 92.2,
+      "vw": 6.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 3536,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "CLICK THIS.",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 201.6,
+      "vw": 14,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 3970,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 14,
+     "maxLines": 3,
+     "over2Lines": 2,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 0.8,
+       "mono": false
+      },
+      {
+       "family": "Roboto",
+       "share": 0.2,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      15,
+      16,
+      18,
+      19,
+      20,
+      21,
+      22,
+      43,
+      48,
+      92,
+      127,
+      202
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 13,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 12.7
+     },
+     "measureChars": 92,
+     "max": {
+      "size": 201.6,
+      "vw": 14,
+      "font": "Archivo",
+      "text": "Click this."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.07,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffc72e",
+     "bodyBgHsl": {
+      "h": 44,
+      "s": 1,
+      "l": 0.59
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#0d0907",
+       "top": 139,
+       "hsl": {
+        "h": 20,
+        "s": 0.3,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#fff8ea",
+       "top": 1018,
+       "hsl": {
+        "h": 40,
+        "s": 1,
+        "l": 0.96
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0d0907",
+       "share": 0.77
+      },
+      {
+       "color": "#606060",
+       "share": 0.08
+      },
+      {
+       "color": "#fff8ea",
+       "share": 0.07
+      },
+      {
+       "color": "#e8dccb",
+       "share": 0.04
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#2a201b",
+      "hsl": {
+       "h": 20,
+       "s": 0.22,
+       "l": 0.14
+      },
+      "fg": "#fff8ea"
+     },
+     "lowContrast": [
+      {
+       "text": "Make them click.",
+       "ratio": 1.6,
+       "need": 3,
+       "size": 126.7,
+       "fg": "#ffffff",
+       "bg": "#ffc72e"
+      },
+      {
+       "text": "Click this.",
+       "ratio": 1.6,
+       "need": 3,
+       "size": 201.6,
+       "fg": "#ffffff",
+       "bg": "#ffc72e"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 18,
+       "fg": "#ffffff",
+       "bg": "#f0163a"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 18,
+       "fg": "#ffffff",
+       "bg": "#f0163a"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 18,
+       "fg": "#ffffff",
+       "bg": "#f0163a"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 7,
+     "radius": 0,
+     "height": 39,
+     "withShadow": 3,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call",
+      "Shooter",
+      "Platformer",
+      "Shock"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 3,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.btn → rgb(13, 9, 7) 6px 6px 0px 0px",
+      "a.btn → rgb(13, 9, 7) 6px 6px 0px 0px",
+      "a.btn → rgb(13, 9, 7) 6px 6px 0px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 3,
+     "roundedMedia": 6,
+     "mediaRadius": 10,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 1891
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 3211
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.23
+     }
+    ],
+    "nav": {
+     "links": 5,
+     "fixed": false,
+     "height": 99,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 4436,
+    "margins": {
+     "left": 43,
+     "right": 61
+    },
+    "sections": [
+     {
+      "sel": "div.hero",
+      "tag": "div",
+      "top": 99,
+      "height": 746,
+      "words": 47,
+      "media": 1,
+      "middle": 117,
+      "heading": {
+       "text": "Make them click.",
+       "size": 127,
+       "tag": "h1"
+      },
+      "left": 43,
+      "right": 61,
+      "textLeft": 43,
+      "textRight": 209,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div#feed.feed",
+      "tag": "div",
+      "top": 1018,
+      "height": 594,
+      "words": 109,
+      "media": 6,
+      "middle": 124,
+      "heading": {
+       "text": "The feed test",
+       "size": 92,
+       "tag": "h2"
+      },
+      "left": 43,
+      "right": 43,
+      "textLeft": 43,
+      "textRight": 87,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#rules",
+      "tag": "section",
+      "top": 1612,
+      "height": 1325,
+      "words": 64,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "How we make them",
+       "size": 92,
+       "tag": "h2"
+      },
+      "left": 43,
+      "right": 87,
+      "textLeft": 43,
+      "textRight": 129,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section",
+      "tag": "section",
+      "top": 2937,
+      "height": 426,
+      "words": 26,
+      "media": 0,
+      "middle": 197,
+      "heading": {
+       "text": "How fast",
+       "size": 92,
+       "tag": "h2"
+      },
+      "left": 43,
+      "right": 199,
+      "textLeft": 43,
+      "textRight": 199,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 3364,
+      "height": 434,
+      "words": 72,
+      "media": 0,
+      "middle": 56,
+      "heading": {
+       "text": "Questions",
+       "size": 92,
+       "tag": "h2"
+      },
+      "left": 43,
+      "right": 61,
+      "textLeft": 43,
+      "textRight": 61,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 3798,
+      "height": 639,
+      "words": 43,
+      "media": 0,
+      "middle": 520,
+      "heading": {
+       "text": "Click this.",
+       "size": 202,
+       "tag": "p"
+      },
+      "left": 43,
+      "right": 69,
+      "textLeft": 43,
+      "textRight": 69,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 824,
+      "height": 280
+     }
+    ],
+    "h1s": [
+     {
+      "text": "MAKE THEM CLICK.",
+      "size": 127,
+      "top": 139,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 43,
+      "n": 10
+     },
+     {
+      "x": 87,
+      "n": 4
+     },
+     {
+      "x": 751,
+      "n": 4
+     },
+     {
+      "x": 740,
+      "n": 3
+     },
+     {
+      "x": 67,
+      "n": 1
+     },
+     {
+      "x": 409,
+      "n": 1
+     },
+     {
+      "x": 1093,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 24,
+    "bodySize": 19,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.11,
+    "voidBox": {
+     "x": 0,
+     "y": 660,
+     "w": 600,
+     "h": 240
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.65,
+    0.85,
+    0.79,
+    0.66,
+    0.34,
+    0.34
+   ],
+   "motion": {
+    "elements": 17,
+    "css": 0,
+    "transitions": 17,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 5122,
+     "screens": 5,
+     "words": 337,
+     "img": 7,
+     "video": 0,
+     "canvas": 2,
+     "svg": 2,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 1,
+     "pictureSamples": [
+      "stage-2.jpg",
+      "podcave.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "MAKE THEM CLICK.",
+     "words": 3,
+     "chars": 16,
+     "lines": 2,
+     "size": 67.6,
+     "vw": 8.8,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 0.86,
+     "upper": true,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.94,
+     "top": 122,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "MAKE THEM CLICK.",
+     "words": 3,
+     "lines": 2,
+     "size": 67.6,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "MAKE THEM CLICK.",
+      "words": 3,
+      "chars": 16,
+      "lines": 2,
+      "size": 67.6,
+      "vw": 8.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 122,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "THE FEED TEST",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 49.2,
+      "vw": 6.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 1396,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "HOW WE MAKE THEM",
+      "words": 4,
+      "chars": 16,
+      "lines": 1,
+      "size": 49.2,
+      "vw": 6.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 2284,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "ONE IDEA",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 2375,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "FOUR WORDS",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 2484,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "THREE OPTIONS",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 2987,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "SWAP AND TEST",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 3.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 3490,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "HOW FAST",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 49.2,
+      "vw": 6.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 3700,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "8H",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.4,
+      "top": 3828,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "24H",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 3828,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "48H",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.4,
+      "top": 3994,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "72H",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 3994,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "QUESTIONS",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 49.2,
+      "vw": 6.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 4203,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "CLICK THIS.",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 107.5,
+      "vw": 14,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 4736,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 14,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 0.85,
+       "mono": false
+      },
+      {
+       "family": "Roboto",
+       "share": 0.15,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      15,
+      16,
+      18,
+      19,
+      20,
+      21,
+      22,
+      29,
+      48,
+      49,
+      68,
+      108
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 13,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 12.7
+     },
+     "measureChars": 92,
+     "max": {
+      "size": 107.5,
+      "vw": 14,
+      "font": "Archivo",
+      "text": "Click this."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.07,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffc72e",
+     "bodyBgHsl": {
+      "h": 44,
+      "s": 1,
+      "l": 0.59
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#0d0907",
+       "top": 467,
+       "hsl": {
+        "h": 20,
+        "s": 0.3,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#fff8ea",
+       "top": 1350,
+       "hsl": {
+        "h": 40,
+        "s": 1,
+        "l": 0.96
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0d0907",
+       "share": 0.77
+      },
+      {
+       "color": "#fff8ea",
+       "share": 0.08
+      },
+      {
+       "color": "#606060",
+       "share": 0.06
+      },
+      {
+       "color": "#e8dccb",
+       "share": 0.05
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#2a201b",
+      "hsl": {
+       "h": 20,
+       "s": 0.22,
+       "l": 0.14
+      },
+      "fg": "#fff8ea"
+     },
+     "lowContrast": [
+      {
+       "text": "Make them click.",
+       "ratio": 1.6,
+       "need": 3,
+       "size": 67.6,
+       "fg": "#ffffff",
+       "bg": "#ffc72e"
+      },
+      {
+       "text": "Click this.",
+       "ratio": 1.6,
+       "need": 3,
+       "size": 107.5,
+       "fg": "#ffffff",
+       "bg": "#ffc72e"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 18,
+       "fg": "#ffffff",
+       "bg": "#f0163a"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 18,
+       "fg": "#ffffff",
+       "bg": "#f0163a"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 18,
+       "fg": "#ffffff",
+       "bg": "#f0163a"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 4,
+     "radius": 0,
+     "height": 39,
+     "withShadow": 3,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call",
+      "Shooter",
+      "Platformer"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 3,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.btn → rgb(13, 9, 7) 6px 6px 0px 0px",
+      "a.btn → rgb(13, 9, 7) 6px 6px 0px 0px",
+      "a.btn → rgb(13, 9, 7) 6px 6px 0px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 3,
+     "roundedMedia": 4,
+     "mediaRadius": 10,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 3765
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.34
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 99,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 5122,
+    "margins": {
+     "left": 23,
+     "right": 41
+    },
+    "sections": [
+     {
+      "sel": "div.hero",
+      "tag": "div",
+      "top": 99,
+      "height": 1131,
+      "words": 47,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Make them click.",
+       "size": 68,
+       "tag": "h1"
+      },
+      "left": 23,
+      "right": 41,
+      "textLeft": 23,
+      "textRight": 264,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div#feed.feed",
+      "tag": "div",
+      "top": 1350,
+      "height": 813,
+      "words": 83,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "The feed test",
+       "size": 49,
+       "tag": "h2"
+      },
+      "left": 23,
+      "right": 23,
+      "textLeft": 23,
+      "textRight": 127,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#rules",
+      "tag": "section",
+      "top": 2164,
+      "height": 1417,
+      "words": 64,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "How we make them",
+       "size": 49,
+       "tag": "h2"
+      },
+      "left": 23,
+      "right": 50,
+      "textLeft": 23,
+      "textRight": 78,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section",
+      "tag": "section",
+      "top": 3580,
+      "height": 503,
+      "words": 26,
+      "media": 0,
+      "middle": 97,
+      "heading": {
+       "text": "How fast",
+       "size": 49,
+       "tag": "h2"
+      },
+      "left": 23,
+      "right": 205,
+      "textLeft": 23,
+      "textRight": 205,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 4083,
+      "height": 532,
+      "words": 72,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Questions",
+       "size": 49,
+       "tag": "h2"
+      },
+      "left": 23,
+      "right": 104,
+      "textLeft": 23,
+      "textRight": 104,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 4616,
+      "height": 506,
+      "words": 43,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Click this.",
+       "size": 108,
+       "tag": "p"
+      },
+      "left": 23,
+      "right": 160,
+      "textLeft": 23,
+      "textRight": 160,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "MAKE THEM CLICK.",
+      "size": 68,
+      "top": 122,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 23,
+      "n": 13
+     },
+     {
+      "x": 47,
+      "n": 9
+     },
+     {
+      "x": 415,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 24,
+    "bodySize": 19,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.76,
+    0.83,
+    0.64,
+    0.65,
+    0.72,
+    0.42
+   ],
+   "motion": {
+    "elements": 17,
+    "css": 0,
+    "transitions": 17,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 4829,
+     "screens": 5.7,
+     "words": 337,
+     "img": 7,
+     "video": 0,
+     "canvas": 2,
+     "svg": 2,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 1,
+     "pictureSamples": [
+      "stage-2.jpg",
+      "podcave.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "MAKE THEM CLICK.",
+     "words": 3,
+     "chars": 16,
+     "lines": 3,
+     "size": 57.6,
+     "vw": 14.8,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 0.86,
+     "upper": true,
+     "italic": true,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.92,
+     "top": 115,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "MAKE THEM CLICK.",
+     "words": 3,
+     "lines": 3,
+     "size": 57.6,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "MAKE THEM CLICK.",
+      "words": 3,
+      "chars": 16,
+      "lines": 3,
+      "size": 57.6,
+      "vw": 14.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 115,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "THE FEED TEST",
+      "words": 3,
+      "chars": 13,
+      "lines": 2,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1252,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "HOW WE MAKE THEM",
+      "words": 4,
+      "chars": 16,
+      "lines": 2,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2016,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "ONE IDEA",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 7.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 2144,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "FOUR WORDS",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 7.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 2304,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "THREE OPTIONS",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 7.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 2629,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "SWAP AND TEST",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 28.8,
+      "vw": 7.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 2981,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "HOW FAST",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3217,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Thumbnail",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 3304,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Shorts pack",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.32,
+      "top": 3304,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "8H",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 3343,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "24H",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.32,
+      "top": 3376,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "Gaming video",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 3527,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Podcast",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.32,
+      "top": 3527,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "72H",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.32,
+      "top": 3566,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "48H",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 3599,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "QUESTIONS",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3833,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Do I need to send a face photo?",
+      "words": 8,
+      "chars": 31,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3896,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Can you match my channel's look?",
+      "words": 6,
+      "chars": 32,
+      "lines": 2,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4017,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Thumbnails without the edit?",
+      "words": 4,
+      "chars": 28,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4171,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Are these times guaranteed?",
+      "words": 4,
+      "chars": 27,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4265,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "CLICK THIS.",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.86,
+      "upper": true,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4478,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 22,
+     "maxLines": 3,
+     "over2Lines": 1,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 0.85,
+       "mono": false
+      },
+      {
+       "family": "Roboto",
+       "share": 0.15,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      15,
+      16,
+      18,
+      19,
+      20,
+      21,
+      22,
+      29,
+      48,
+      58,
+      64
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 13,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 12.7
+     },
+     "measureChars": 55,
+     "max": {
+      "size": 64,
+      "vw": 16.4,
+      "font": "Archivo",
+      "text": "Click this."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.07,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffc72e",
+     "bodyBgHsl": {
+      "h": 44,
+      "s": 1,
+      "l": 0.59
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#0d0907",
+       "top": 489,
+       "hsl": {
+        "h": 20,
+        "s": 0.3,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#fff8ea",
+       "top": 1212,
+       "hsl": {
+        "h": 40,
+        "s": 1,
+        "l": 0.96
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0d0907",
+       "share": 0.77
+      },
+      {
+       "color": "#fff8ea",
+       "share": 0.08
+      },
+      {
+       "color": "#606060",
+       "share": 0.06
+      },
+      {
+       "color": "#e8dccb",
+       "share": 0.05
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#2a201b",
+      "hsl": {
+       "h": 20,
+       "s": 0.22,
+       "l": 0.14
+      },
+      "fg": "#fff8ea"
+     },
+     "lowContrast": [
+      {
+       "text": "Make them click.",
+       "ratio": 1.6,
+       "need": 3,
+       "size": 57.6,
+       "fg": "#ffffff",
+       "bg": "#ffc72e"
+      },
+      {
+       "text": "Click this.",
+       "ratio": 1.6,
+       "need": 3,
+       "size": 64,
+       "fg": "#ffffff",
+       "bg": "#ffc72e"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 18,
+       "fg": "#ffffff",
+       "bg": "#f0163a"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 18,
+       "fg": "#ffffff",
+       "bg": "#f0163a"
+      },
+      {
+       "text": "Book a call",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 18,
+       "fg": "#ffffff",
+       "bg": "#f0163a"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 3,
+     "radius": 0,
+     "height": 39,
+     "withShadow": 3,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call",
+      "Shooter"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 3,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.btn → rgb(13, 9, 7) 6px 6px 0px 0px",
+      "a.btn → rgb(13, 9, 7) 6px 6px 0px 0px",
+      "a.btn → rgb(13, 9, 7) 6px 6px 0px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 3,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 2124
+      },
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 3280
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.18
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 99,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 4829,
+    "margins": {
+     "left": 16,
+     "right": 17
+    },
+    "sections": [
+     {
+      "sel": "div.hero",
+      "tag": "div",
+      "top": 99,
+      "height": 993,
+      "words": 47,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Make them click.",
+       "size": 58,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 18,
+      "textLeft": 16,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div#feed.feed",
+      "tag": "div",
+      "top": 1212,
+      "height": 683,
+      "words": 83,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "The feed test",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 21,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#rules",
+      "tag": "section",
+      "top": 1896,
+      "height": 1201,
+      "words": 64,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "How we make them",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 32,
+      "textLeft": 16,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section",
+      "tag": "section",
+      "top": 3097,
+      "height": 616,
+      "words": 26,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "How fast",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 52,
+      "textLeft": 16,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 3713,
+      "height": 645,
+      "words": 72,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Questions",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 17,
+      "textLeft": 16,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 4358,
+      "height": 471,
+      "words": 43,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Click this.",
+       "size": 64,
+       "tag": "p"
+      },
+      "left": 16,
+      "right": 22,
+      "textLeft": 16,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "MAKE THEM CLICK.",
+      "size": 58,
+      "top": 115,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 13
+     },
+     {
+      "x": 40,
+      "n": 9
+     },
+     {
+      "x": 226,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 24,
+    "bodySize": 19,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "2 headline(s) wrap past two lines at 1440px: \"MAKE THEM CLICK.\" → 3 lines (3 words, 126.7px); \"THE FEED TEST\" → 3 lines (3 words, 92.2px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "3 box-shadow(s) on elements at rest: a.btn → rgb(13, 9, 7) 6px 6px 0px 0px | a.btn → rgb(13, 9, 7) 6px 6px 0px 0px | a.btn → rgb(13, 9, 7) 6px 6px 0px 0px",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "button-fx",
+   "width": 1440,
+   "message": "Buttons with shadow/glow.",
+   "fix": "Flat fill, one colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "card-rows",
+   "width": 1440,
+   "message": "2 rows of identical boxed cards.",
+   "fix": "Vary the composition; not every section is a card grid.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (section #fff8ea, text #fff8ea).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Unreadable text: \"Make them click.\" 1.6:1 (#ffffff on #ffc72e); \"Click this.\" 1.6:1 (#ffffff on #ffc72e)",
+   "fix": "Raise contrast to at least 4.5:1 for text, 3:1 for large display.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "13 different font sizes (13, 15, 16, 18, 19, 20, 21, 22, 43, 48, 92, 127, 202).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 13px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 3 picture(s) on the page (2 photographs, footage or raster images, 1 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "measure",
+   "width": 1440,
+   "message": "Longest paragraph runs about 92 characters per line.",
+   "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch).",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-not-dealt",
+   "width": 1440,
+   "message": "The sheet dealt Chivo and Chivo, but the page renders Archivo, Roboto.",
+   "fix": "Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look."
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 43px on the left, 61px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "1 headline(s) wrap past two lines at 390px: \"MAKE THEM CLICK.\" → 3 lines (3 words, 57.6px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\06-thumbnail-lab\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\06-thumbnail-lab\\desktop-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\06-thumbnail-lab\\desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\06-thumbnail-lab\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\06-thumbnail-lab\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\06-thumbnail-lab\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\06-thumbnail-lab\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

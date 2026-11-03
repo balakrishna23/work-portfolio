@@ -1,0 +1,2950 @@
+{
+ "url": "prototypes/a-fields/index.html",
+ "at": "2026-10-22T16:34:57.132Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 7,
+   "filled": [
+    1,
+    1,
+    0.96,
+    0.98,
+    1,
+    0.78,
+    0.52
+   ],
+   "motion": {
+    "elements": 24,
+    "css": 0,
+    "transitions": 24,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 5847,
+     "screens": 6.5,
+     "words": 359,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "cut fast. post more.",
+     "words": 4,
+     "chars": 20,
+     "lines": 2,
+     "size": 178.6,
+     "vw": 12.4,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.96,
+     "top": 135,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "cut fast. post more.",
+     "words": 4,
+     "lines": 2,
+     "size": 178.6,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "cut fast. post more.",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 178.6,
+      "vw": 12.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 135,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "WE LOST THE RAID",
+      "words": 4,
+      "chars": 16,
+      "lines": 2,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.35,
+      "top": 482,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "what we cut",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 1081,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 1233,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "youtube long-form",
+      "words": 2,
+      "chars": 17,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 1368,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 1503,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "shorts & reels",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 1611,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "thumbnails",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 1719,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "your socials, run",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 1827,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "the work",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 2158,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "100 DAYS HARDCORE",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.26,
+      "top": 2262,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "I QUIT MY JOB",
+      "words": 4,
+      "chars": 13,
+      "lines": 2,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.26,
+      "top": 2262,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "when's it back?",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 2880,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "back by sat 10:04 pm",
+      "words": 5,
+      "chars": 20,
+      "lines": 2,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.38,
+      "top": 2909,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "first, drop the files.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.64,
+      "top": 3582,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "then we cut it.",
+      "words": 4,
+      "chars": 15,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.64,
+      "top": 3776,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "you leave notes.",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.64,
+      "top": 3971,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "it goes live on time.",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 4165,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "fair questions",
+      "words": 2,
+      "chars": 14,
+      "lines": 2,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 4606,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "book a call.",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 178.6,
+      "vw": 12.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 5479,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 20,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      14,
+      19,
+      22,
+      26,
+      36,
+      40,
+      79,
+      179
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 19,
+      "leading": 1.45,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.4
+     },
+     "measureChars": 69,
+     "max": {
+      "size": 178.6,
+      "vw": 12.4,
+      "font": "Archivo",
+      "text": "cut fast."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.04,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b0a10",
+     "bodyBgHsl": {
+      "h": 250,
+      "s": 0.23,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#2136cd",
+       "top": 0,
+       "hsl": {
+        "h": 233,
+        "s": 0.72,
+        "l": 0.47
+       }
+      },
+      {
+       "color": "#32d7f6",
+       "top": 900,
+       "hsl": {
+        "h": 189,
+        "s": 0.92,
+        "l": 0.58
+       }
+      },
+      {
+       "color": "#fbf7c9",
+       "top": 2043,
+       "hsl": {
+        "h": 55,
+        "s": 0.86,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#f9e853",
+       "top": 2765,
+       "hsl": {
+        "h": 54,
+        "s": 0.93,
+        "l": 0.65
+       }
+      },
+      {
+       "color": "#fa7d31",
+       "top": 3467,
+       "hsl": {
+        "h": 23,
+        "s": 0.95,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#e32139",
+       "top": 4490,
+       "hsl": {
+        "h": 353,
+        "s": 0.78,
+        "l": 0.51
+       }
+      },
+      {
+       "color": "#0b0a10",
+       "top": 5048,
+       "hsl": {
+        "h": 250,
+        "s": 0.23,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0a10",
+       "share": 0.5
+      },
+      {
+       "color": "#fffdf2",
+       "share": 0.39
+      },
+      {
+       "color": "#fbf7c9",
+       "share": 0.04
+      },
+      {
+       "color": "#5b5730",
+       "share": 0.02
+      },
+      {
+       "color": "#4d4610",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#e4d44d",
+      "hsl": {
+       "h": 54,
+       "s": 0.74,
+       "l": 0.6
+      },
+      "fg": "#0b0a10"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 99,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 5847,
+    "margins": {
+     "left": 32,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "section.field.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 900,
+      "words": 53,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "cut fast.",
+       "size": 179,
+       "tag": "h1"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#formats.field.formats",
+      "tag": "section",
+      "top": 900,
+      "height": 1143,
+      "words": 96,
+      "media": 0,
+      "middle": 47,
+      "heading": {
+       "text": "what we cut",
+       "size": 79,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 120,
+      "textLeft": 32,
+      "textRight": 120,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.field.work",
+      "tag": "section",
+      "top": 2043,
+      "height": 722,
+      "words": 40,
+      "media": 0,
+      "middle": 81,
+      "heading": {
+       "text": "the work",
+       "size": 79,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#turnaround.field.turn",
+      "tag": "section",
+      "top": 2765,
+      "height": 702,
+      "words": 53,
+      "media": 0,
+      "middle": 109,
+      "heading": {
+       "text": "when's it back?",
+       "size": 79,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 48,
+      "textLeft": 32,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field.process",
+      "tag": "section",
+      "top": 3467,
+      "height": 1024,
+      "words": 71,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "first, drop the files.",
+       "size": 79,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 161,
+      "textLeft": 32,
+      "textRight": 161,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.field.faq",
+      "tag": "section",
+      "top": 4490,
+      "height": 558,
+      "words": 115,
+      "media": 0,
+      "middle": 110,
+      "heading": {
+       "text": "fair questions",
+       "size": 79,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 212,
+      "textLeft": 32,
+      "textRight": 212,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book.field.foot",
+      "tag": "footer",
+      "top": 5048,
+      "height": 799,
+      "words": 22,
+      "media": 0,
+      "middle": 58,
+      "heading": {
+       "text": "book a call.",
+       "size": 179,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 772,
+      "height": 304
+     },
+     {
+      "top": 4980,
+      "height": 480
+     }
+    ],
+    "h1s": [
+     {
+      "text": "cut fast. post more.",
+      "size": 179,
+      "top": 135,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 32,
+      "n": 8
+     },
+     {
+      "x": 623,
+      "n": 4
+     },
+     {
+      "x": 261,
+      "n": 2
+     },
+     {
+      "x": 491,
+      "n": 2
+     },
+     {
+      "x": 720,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 18,
+    "bodySize": 19,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.13,
+    "voidBox": {
+     "x": 0,
+     "y": 780,
+     "w": 1440,
+     "h": 120
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    1,
+    1,
+    0.96,
+    0.99,
+    0.92,
+    0.69
+   ],
+   "motion": {
+    "elements": 27,
+    "css": 0,
+    "transitions": 27,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 5453,
+     "screens": 5.3,
+     "words": 359,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "cut fast. post more.",
+     "words": 4,
+     "chars": 20,
+     "lines": 2,
+     "size": 95.2,
+     "vw": 12.4,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.95,
+     "top": 154,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "cut fast. post more.",
+     "words": 4,
+     "lines": 2,
+     "size": 95.2,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "cut fast. post more.",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 95.2,
+      "vw": 12.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 154,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "what we cut",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.61,
+      "top": 1137,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.61,
+      "top": 1235,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "youtube long-form",
+      "words": 2,
+      "chars": 17,
+      "lines": 2,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.61,
+      "top": 1394,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.61,
+      "top": 1527,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "shorts & reels",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.61,
+      "top": 1634,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "thumbnails",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.61,
+      "top": 1742,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "your socials, run",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.61,
+      "top": 1849,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "the work",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 2094,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "100 DAYS HARDCORE",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 33.5,
+      "vw": 4.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2173,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "I QUIT MY JOB",
+      "words": 4,
+      "chars": 13,
+      "lines": 2,
+      "size": 51.6,
+      "vw": 6.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 2593,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "when's it back?",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 3005,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "back by sat 10:05 pm",
+      "words": 5,
+      "chars": 20,
+      "lines": 2,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.45,
+      "top": 3033,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "first, drop the files.",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 3554,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "then we cut it.",
+      "words": 4,
+      "chars": 15,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.63,
+      "top": 3763,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "you leave notes.",
+      "words": 3,
+      "chars": 16,
+      "lines": 2,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.63,
+      "top": 3928,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "it goes live on time.",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.47,
+      "top": 4138,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "fair questions",
+      "words": 2,
+      "chars": 14,
+      "lines": 2,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.39,
+      "top": 4435,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "book a call.",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 95.2,
+      "vw": 12.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 5167,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 19,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      14,
+      18,
+      19,
+      22,
+      23,
+      26,
+      34,
+      50,
+      52,
+      95
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 17.9,
+      "leading": 1.45,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.4
+     },
+     "measureChars": 41,
+     "max": {
+      "size": 95.2,
+      "vw": 12.4,
+      "font": "Archivo",
+      "text": "cut fast."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.04,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b0a10",
+     "bodyBgHsl": {
+      "h": 250,
+      "s": 0.23,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#2136cd",
+       "top": 0,
+       "hsl": {
+        "h": 233,
+        "s": 0.72,
+        "l": 0.47
+       }
+      },
+      {
+       "color": "#32d7f6",
+       "top": 1024,
+       "hsl": {
+        "h": 189,
+        "s": 0.92,
+        "l": 0.58
+       }
+      },
+      {
+       "color": "#fbf7c9",
+       "top": 2022,
+       "hsl": {
+        "h": 55,
+        "s": 0.86,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#f9e853",
+       "top": 2933,
+       "hsl": {
+        "h": 54,
+        "s": 0.93,
+        "l": 0.65
+       }
+      },
+      {
+       "color": "#fa7d31",
+       "top": 3482,
+       "hsl": {
+        "h": 23,
+        "s": 0.95,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#e32139",
+       "top": 4363,
+       "hsl": {
+        "h": 353,
+        "s": 0.78,
+        "l": 0.51
+       }
+      },
+      {
+       "color": "#0b0a10",
+       "top": 4926,
+       "hsl": {
+        "h": 250,
+        "s": 0.23,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0a10",
+       "share": 0.5
+      },
+      {
+       "color": "#fffdf2",
+       "share": 0.39
+      },
+      {
+       "color": "#fbf7c9",
+       "share": 0.04
+      },
+      {
+       "color": "#5b5730",
+       "share": 0.02
+      },
+      {
+       "color": "#4d4610",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#e4d44d",
+      "hsl": {
+       "h": 54,
+       "s": 0.74,
+       "l": 0.6
+      },
+      "fg": "#0b0a10"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": false,
+       "top": 4435
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 81,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 5453,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "section.field.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 1024,
+      "words": 53,
+      "media": 0,
+      "middle": 1,
+      "heading": {
+       "text": "cut fast.",
+       "size": 95,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 40,
+      "textLeft": 20,
+      "textRight": 40,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#formats.field.formats",
+      "tag": "section",
+      "top": 1024,
+      "height": 998,
+      "words": 96,
+      "media": 0,
+      "middle": 57,
+      "heading": {
+       "text": "what we cut",
+       "size": 50,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 22,
+      "textLeft": 20,
+      "textRight": 22,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.field.work",
+      "tag": "section",
+      "top": 2022,
+      "height": 912,
+      "words": 40,
+      "media": 0,
+      "middle": 8,
+      "heading": {
+       "text": "the work",
+       "size": 50,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#turnaround.field.turn",
+      "tag": "section",
+      "top": 2933,
+      "height": 548,
+      "words": 53,
+      "media": 0,
+      "middle": 55,
+      "heading": {
+       "text": "when's it back?",
+       "size": 50,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 36,
+      "textLeft": 20,
+      "textRight": 36,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field.process",
+      "tag": "section",
+      "top": 3482,
+      "height": 882,
+      "words": 71,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "first, drop the files.",
+       "size": 50,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 42,
+      "textLeft": 20,
+      "textRight": 42,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.field.faq",
+      "tag": "section",
+      "top": 4363,
+      "height": 563,
+      "words": 115,
+      "media": 0,
+      "middle": 70,
+      "heading": {
+       "text": "fair questions",
+       "size": 50,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 45,
+      "textLeft": 20,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book.field.foot",
+      "tag": "footer",
+      "top": 4926,
+      "height": 527,
+      "words": 22,
+      "media": 0,
+      "middle": 31,
+      "heading": {
+       "text": "book a call.",
+       "size": 95,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "cut fast. post more.",
+      "size": 95,
+      "top": 154,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 8
+     },
+     {
+      "x": 384,
+      "n": 6
+     },
+     {
+      "x": 141,
+      "n": 2
+     },
+     {
+      "x": 263,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 18,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    1,
+    1,
+    1,
+    0.73,
+    0.99,
+    0.99,
+    1,
+    0.66
+   ],
+   "motion": {
+    "elements": 24,
+    "css": 0,
+    "transitions": 24,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 6575,
+     "screens": 7.8,
+     "words": 355,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "cut fast. post more.",
+     "words": 4,
+     "chars": 20,
+     "lines": 2,
+     "size": 49.1,
+     "vw": 12.6,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 127,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "cut fast. post more.",
+     "words": 4,
+     "lines": 2,
+     "size": 49.1,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "cut fast. post more.",
+      "words": 4,
+      "chars": 20,
+      "lines": 2,
+      "size": 49.1,
+      "vw": 12.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 127,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "WE LOST THE RAID",
+      "words": 4,
+      "chars": 16,
+      "lines": 2,
+      "size": 31.5,
+      "vw": 8.1,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.8,
+      "top": 251,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "what we cut",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 39,
+      "vw": 10,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 953,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 39,
+      "vw": 10,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1057,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "youtube long-form",
+      "words": 2,
+      "chars": 17,
+      "lines": 2,
+      "size": 39,
+      "vw": 10,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1202,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 39,
+      "vw": 10,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1385,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "shorts & reels",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 39,
+      "vw": 10,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1506,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "thumbnails",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 39,
+      "vw": 10,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1626,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "your socials, run",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 39,
+      "vw": 10,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1746,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "the work",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 36.8,
+      "vw": 9.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.51,
+      "top": 2043,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "100 DAYS HARDCORE",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 37.6,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2157,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "EP. 41 BURNOUT",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 37.6,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2577,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "1V5 CLUTCH",
+      "words": 2,
+      "chars": 10,
+      "lines": 2,
+      "size": 37.6,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2998,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "I QUIT MY JOB",
+      "words": 4,
+      "chars": 13,
+      "lines": 2,
+      "size": 37.6,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3298,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "NEW MAP FIRST LOOK",
+      "words": 4,
+      "chars": 18,
+      "lines": 2,
+      "size": 37.6,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3598,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "when's it back?",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 36.8,
+      "vw": 9.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4011,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "back by sat 10:05 pm",
+      "words": 5,
+      "chars": 20,
+      "lines": 2,
+      "size": 36.8,
+      "vw": 9.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.65,
+      "top": 4209,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "first, drop the files.",
+      "words": 4,
+      "chars": 22,
+      "lines": 2,
+      "size": 36.8,
+      "vw": 9.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4697,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "then we cut it.",
+      "words": 4,
+      "chars": 15,
+      "lines": 1,
+      "size": 36.8,
+      "vw": 9.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 4881,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "you leave notes.",
+      "words": 3,
+      "chars": 16,
+      "lines": 2,
+      "size": 36.8,
+      "vw": 9.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 5031,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "it goes live on time.",
+      "words": 5,
+      "chars": 21,
+      "lines": 2,
+      "size": 36.8,
+      "vw": 9.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.72,
+      "top": 5215,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "fair questions",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 36.8,
+      "vw": 9.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 5486,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "book a call.",
+      "words": 3,
+      "chars": 12,
+      "lines": 2,
+      "size": 66.3,
+      "vw": 17,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 6218,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 23,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 7,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      14,
+      17,
+      20,
+      32,
+      37,
+      38,
+      39,
+      49,
+      66
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 17,
+      "leading": 1.45,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11.4
+     },
+     "measureChars": 34,
+     "max": {
+      "size": 66.3,
+      "vw": 17,
+      "font": "Archivo",
+      "text": "book a call."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.03,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b0a10",
+     "bodyBgHsl": {
+      "h": 250,
+      "s": 0.23,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#2136cd",
+       "top": 0,
+       "hsl": {
+        "h": 233,
+        "s": 0.72,
+        "l": 0.47
+       }
+      },
+      {
+       "color": "#32d7f6",
+       "top": 849,
+       "hsl": {
+        "h": 189,
+        "s": 0.92,
+        "l": 0.58
+       }
+      },
+      {
+       "color": "#fbf7c9",
+       "top": 1971,
+       "hsl": {
+        "h": 55,
+        "s": 0.86,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#e32139",
+       "top": 2577,
+       "hsl": {
+        "h": 353,
+        "s": 0.78,
+        "l": 0.51
+       }
+      },
+      {
+       "color": "#f9e853",
+       "top": 3939,
+       "hsl": {
+        "h": 54,
+        "s": 0.93,
+        "l": 0.65
+       }
+      },
+      {
+       "color": "#fa7d31",
+       "top": 4625,
+       "hsl": {
+        "h": 23,
+        "s": 0.95,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#0b0a10",
+       "top": 6018,
+       "hsl": {
+        "h": 250,
+        "s": 0.23,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0a10",
+       "share": 0.51
+      },
+      {
+       "color": "#fffdf2",
+       "share": 0.38
+      },
+      {
+       "color": "#fbf7c9",
+       "share": 0.04
+      },
+      {
+       "color": "#5b5730",
+       "share": 0.02
+      },
+      {
+       "color": "#4d4610",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#e4d44d",
+      "hsl": {
+       "h": 54,
+       "s": 0.74,
+       "l": 0.6
+      },
+      "fg": "#0b0a10"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": false,
+       "top": 5551
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 81,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 6575,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "section.field.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 849,
+      "words": 49,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "cut fast.",
+       "size": 49,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#formats.field.formats",
+      "tag": "section",
+      "top": 849,
+      "height": 1122,
+      "words": 96,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "what we cut",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 28,
+      "textLeft": 20,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.field.work",
+      "tag": "section",
+      "top": 1971,
+      "height": 1967,
+      "words": 40,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "100 days",
+       "size": 38,
+       "tag": "b"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#turnaround.field.turn",
+      "tag": "section",
+      "top": 3939,
+      "height": 687,
+      "words": 53,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "when's it back?",
+       "size": 37,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 21,
+      "textLeft": 20,
+      "textRight": 21,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field.process",
+      "tag": "section",
+      "top": 4625,
+      "height": 789,
+      "words": 71,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "first, drop the files.",
+       "size": 37,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 28,
+      "textLeft": 20,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.field.faq",
+      "tag": "section",
+      "top": 5414,
+      "height": 604,
+      "words": 94,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "fair questions",
+       "size": 37,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 59,
+      "textLeft": 20,
+      "textRight": 59,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book.field.foot",
+      "tag": "footer",
+      "top": 6018,
+      "height": 557,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "book a call.",
+       "size": 66,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 44,
+      "textLeft": 20,
+      "textRight": 44,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 2124,
+      "height": 300
+     },
+     {
+      "top": 2544,
+      "height": 300
+     }
+    ],
+    "h1s": [
+     {
+      "text": "cut fast. post more.",
+      "size": 49,
+      "top": 127,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 8
+     },
+     {
+      "x": 43,
+      "n": 6
+     },
+     {
+      "x": 67,
+      "n": 2
+     },
+     {
+      "x": 90,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 18,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (section #fbf7c9, text #fffdf2, text #fbf7c9).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "font-not-dealt",
+   "width": 1440,
+   "message": "The sheet dealt Chivo and Chivo, but the page renders Archivo.",
+   "fix": "Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look."
+  },
+  {
+   "level": "WARN",
+   "id": "blank-gap",
+   "width": 1440,
+   "message": "A 480px stretch at 4980px holds nothing.",
+   "fix": "Check that it is a deliberate rest (once per page at most); otherwise close it to the normal section gap."
+  },
+  {
+   "level": "FAIL",
+   "id": "icon-cards",
+   "width": 768,
+   "message": "1 row(s) of identical cards each topped with a small icon (4 cards).",
+   "fix": "Replace with one composed section from the direction: a narrative split, a list set in large type, or real imagery per item.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 768,
+   "message": "10 different font sizes (14, 18, 19, 22, 23, 26, 34, 50, 52, 95).",
+   "fix": "A page needs about five: display, heading, lead, body, small."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a-fields\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a-fields\\desktop-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a-fields\\desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a-fields\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a-fields\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a-fields\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-a-fields\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

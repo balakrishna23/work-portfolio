@@ -1,0 +1,132 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Archivo";
+      src: url("assets/fonts/archivo-latin.woff2") format("woff2");
+      font-weight: 100 900;
+      font-stretch: 62% 125%;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      font-family: "Archivo";
+      pointer-events: none;
+    }
+    #en-feed {
+      position: absolute;
+      left: 60px;
+      width: 960px;
+      top: 262px;
+      text-align: center;
+      font-weight: 900;
+      font-stretch: 125%;
+      text-transform: uppercase;
+      line-height: 0.92;
+      color: #f4f2ec;
+      -webkit-text-stroke: 12px #07070a;
+      paint-order: stroke fill;
+      white-space: nowrap;
+    }
+    #en-feed .in {
+      display: inline-block;
+    }
+    #en-mark {
+      position: absolute;
+      left: 90px;
+      top: 650px;
+      width: 900px;
+      height: 112.5px;
+    }
+    #en-ghost,
+    #en-sweep {
+      position: absolute;
+      inset: 0;
+      -webkit-mask: url("assets/brand/logo.svg") center / 100% 100% no-repeat;
+      mask: url("assets/brand/logo.svg") center / 100% 100% no-repeat;
+    }
+    #en-ghost {
+      background: #f4f2ec;
+    }
+    #en-fill {
+      position: absolute;
+      inset: 0;
+      width: 900px;
+      height: 112.5px;
+    }
+    #en-sweep {
+      overflow: hidden;
+    }
+    #en-band {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: linear-gradient(90deg, rgb(255 255 255 / 0), rgb(255 255 255 / 0.85) 50%, rgb(255 255 255 / 0));
+    }
+    #en-url {
+      position: absolute;
+      left: 90px;
+      width: 900px;
+      top: 830px;
+      text-align: center;
+      font-weight: 800;
+      font-stretch: 110%;
+      font-size: 96px;
+      line-height: 1;
+      color: #f4f2ec;
+    }
+    #en-line {
+      position: absolute;
+      left: 240px;
+      top: 942px;
+      width: 600px;
+      height: 5px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #272ed2, #1c4cdd 7.1%, #108ae8 14.3%, #03c0f4 21.4%, #5ae2e8 28.6%, #a9f0dc 35.7%, #e8f8cd 42.9%, #fcf397 50%, #fddf4b 57.1%, #fcb51c 64.3%, #fc8020 71.4%, #fb3b27 78.6%, #e21c2f 85.7%, #a81d30 92.9%, #761a2b);
+    }
+    #en-phone {
+      position: absolute;
+      left: 90px;
+      width: 900px;
+      top: 982px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 52px;
+      color: #c4c4d0;
+    }
+    #en-phone b {
+      font-weight: 800;
+      color: #f4f2ec;
+    }
+  </style>
+  <div data-hf-id="hf-ks0s" id="root" data-composition-id="end" data-width="1080" data-height="1920">
+    <h1 data-hf-id="hf-5qm3" id="en-feed" class="clip" data-start="0.95" data-duration="4.675" data-track-index="1">
+      <span data-hf-id="hf-oxho" class="in" id="en-f1" style="font-size: 96px">Feed us your</span><br data-hf-id="hf-x5px" /><span data-hf-id="hf-0rf6" class="in" id="en-f2" style="font-size: 128px; color: #fddf4b">backlog.</span>
+    </h1>
+    <div data-hf-id="hf-orib" id="en-mark" class="clip" data-start="2.1" data-duration="3.525" data-track-index="2">
+      <div data-hf-id="hf-ea1a" id="en-ghost"></div>
+      <img data-hf-id="hf-p9z8" id="en-fill" src="assets/brand/logo.svg" alt="Cutsway" />
+      <div data-hf-id="hf-f54q" id="en-sweep" data-layout-allow-overflow><div data-hf-id="hf-kxgw" id="en-band"></div></div>
+    </div>
+    <div data-hf-id="hf-2tgx" id="en-url" class="clip" data-start="2.5" data-duration="3.125" data-track-index="3">cutsway.com</div>
+    <div data-hf-id="hf-sw2g" id="en-line" class="clip" data-start="2.6" data-duration="3.025" data-track-index="4"></div>
+    <div data-hf-id="hf-ypsj" id="en-phone" class="clip" data-start="2.85" data-duration="2.775" data-track-index="5">WhatsApp <b data-hf-id="hf-wtpc">+91 62813 01476</b></div>
+  </div>
+  <script>
+    (function () {
+      // Local time: the scene starts at 24.375 s. "Feed" 25.40, "Cutsway.com" 26.92.
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#en-f1", { scale: 0.3, rotation: 8, opacity: 0 }, { scale: 1, rotation: -2, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, 0.95);
+      tl.fromTo("#en-f2", { scale: 0.3, rotation: -10, opacity: 0 }, { scale: 1, rotation: 2, opacity: 1, duration: 0.32, ease: "back.out(2.2)" }, 1.35);
+      tl.fromTo("#en-ghost", { opacity: 0 }, { opacity: 0.12, duration: 0.12, ease: "power2.out" }, 2.1);
+      tl.fromTo("#en-fill", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power2.inOut" }, 2.15);
+      tl.fromTo("#en-url", { opacity: 0, y: 30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, 2.5);
+      tl.fromTo("#en-line", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "expo.out" }, 2.6);
+      tl.fromTo("#en-phone", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.22, ease: "power3.out" }, 2.85);
+      tl.fromTo("#en-band", { x: -280 }, { x: 920, duration: 0.55, ease: "power2.inOut" }, 3.2);
+      window.__timelines["end"] = tl;
+    })();
+  </script>
+</template>

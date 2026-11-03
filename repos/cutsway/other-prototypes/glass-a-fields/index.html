@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Glass A · Fields</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0b0a10;
+    --paper: #f2f0e6;
+    --yellow: #f9e853;
+    --red: #e32139;
+    --deep: #2136cd;
+    --cyan: #32d7f6;
+    --orange: #fa7d31;
+
+    --line: 3px solid var(--ink);
+    --hard: 8px 8px 0 var(--ink);
+    --hard-sm: 5px 5px 0 var(--ink);
+    --glass: color-mix(in srgb, #ffffff 52%, transparent);
+    --glass-blur: blur(22px) saturate(1.6);
+
+    --m: clamp(20px, 2.4vw, 36px);
+    --step-small: 0.875rem;
+    --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+    --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+    --step-head: clamp(2.3rem, 1rem + 4.4vw, 5.2rem);
+    --step-giant: clamp(3.2rem, 12.4vw, 13rem);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scrollbar-color: var(--ink) var(--paper); }
+  body { margin: 0; font-family: "Archivo", system-ui, sans-serif; font-size: var(--step-body); line-height: 1.45; color: var(--ink); background: var(--ink); -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--ink); color: var(--yellow); }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; box-shadow: 0 0 0 7px var(--yellow); }
+  a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 3px; }
+  svg { display: block; }
+
+  /* ── the sky: the brand's own spectrum, travelled through by scroll ── */
+  .sky {
+    position: fixed; inset: -6vh -6vw; z-index: -2;
+    background: url(../assets/spectrum.jpg) no-repeat;
+    background-size: 340vw 112vh;
+    background-position: var(--sx, 64%) 50%;
+    animation: breathe 18s ease-in-out infinite alternate;
+  }
+  @keyframes breathe { from { transform: scale(1) rotate(0deg); } to { transform: scale(1.08) rotate(-1.5deg); } }
+  .grain {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.22; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .glass {
+    background: var(--glass);
+    -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
+    border: var(--line); box-shadow: var(--hard);
+  }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .glass { background: color-mix(in srgb, var(--paper) 92%, transparent); } }
+
+  .display { font-weight: 900; font-stretch: 125%; letter-spacing: -0.04em; line-height: 0.88; text-transform: lowercase; margin: 0; text-wrap: balance; }
+  section { padding: clamp(56px, 7vw, 104px) var(--m); }
+
+  /* ── nav: a brutal glass bar ── */
+  .nav {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: stretch; justify-content: space-between;
+    border-bottom: var(--line);
+    background: color-mix(in srgb, #ffffff 34%, transparent);
+    -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .nav > * { display: flex; align-items: center; padding: 12px var(--m); }
+  .nav__logo svg { width: clamp(116px, 11vw, 150px); }
+  .nav__links { gap: 0; padding: 0; border-left: var(--line); border-right: var(--line); margin-left: auto; }
+  .nav__links a { height: 100%; display: flex; align-items: center; padding: 0 clamp(14px, 1.8vw, 28px); font-weight: 800; font-size: var(--step-small); text-decoration: none; transition: background-color 120ms; }
+  .nav__links a + a { border-left: var(--line); }
+  .nav__links a:hover { background: var(--ink); color: var(--yellow); }
+  .nav__cta { padding: 10px var(--m); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 0.9em 1.4em; border: var(--line); border-radius: 0;
+    background: var(--yellow); color: var(--ink);
+    font-weight: 900; font-stretch: 115%; font-size: var(--step-small); text-decoration: none; text-transform: lowercase;
+    box-shadow: var(--hard-sm); cursor: pointer;
+    transition: transform 140ms var(--ease-out), box-shadow 140ms var(--ease-out), background-color 120ms;
+  }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+  .btn:active { transform: translate(5px, 5px); box-shadow: 0 0 0 var(--ink); }
+
+  /* ── hero ── */
+  .hero { min-height: calc(100svh - 70px); display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: auto 1fr; gap: 32px var(--m); padding-top: clamp(40px, 6vw, 88px); }
+  .hero h1 { grid-column: 1 / -1; font-size: var(--step-giant); }
+  .hero__card { grid-column: 1 / span 5; align-self: end; padding: clamp(20px, 2.4vw, 32px); }
+  .hero__card p { margin: 0 0 24px; font-size: var(--step-lead); line-height: 1.28; font-weight: 600; }
+  .hero__fact { grid-column: 6 / span 3; align-self: end; padding: 20px; font-weight: 900; font-stretch: 115%; font-size: var(--step-lead); line-height: 1.05; background: var(--ink); color: var(--yellow); border: var(--line); box-shadow: 8px 8px 0 var(--paper); }
+  .hero__fact small { display: block; font-weight: 600; font-stretch: 100%; font-size: var(--step-small); color: var(--paper); margin-top: 8px; }
+  .hero__thumb { grid-column: 9 / -1; align-self: end; transform: rotate(-4deg); }
+
+  /* placeholder thumbnail, framed brutally */
+  .thumb { container-type: inline-size; position: relative; overflow: hidden; display: grid; align-content: end; aspect-ratio: var(--r, 16 / 9); padding: 7%; background: var(--c, var(--orange)); color: var(--k, var(--ink)); border: var(--line); box-shadow: var(--hard); }
+  .thumb b { font-weight: 900; font-stretch: 125%; text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.88; font-size: var(--fs, 12.5cqw); }
+
+  /* ── formats: one glass slab, rows split by heavy rules ── */
+  .slab { padding: 0; }
+  .slab__head { display: flex; justify-content: space-between; align-items: end; gap: 24px; padding: clamp(20px, 2.4vw, 32px); border-bottom: var(--line); }
+  .slab__head h2 { font-size: var(--step-head); }
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .rows li { display: grid; grid-template-columns: 7fr 5fr; gap: 24px; align-items: baseline; padding: 18px clamp(20px, 2.4vw, 32px); transition: background-color 140ms, color 140ms; }
+  .rows li + li { border-top: var(--line); }
+  .rows li:hover { background: var(--ink); color: var(--paper); }
+  .rows .name { font-weight: 900; font-stretch: 125%; letter-spacing: -0.035em; line-height: 1; text-transform: lowercase; font-size: clamp(1.9rem, 3.8vw, 3.8rem); }
+
+  /* ── work ── */
+  .work__head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 24px; margin-bottom: 36px; }
+  .work__head h2 { font-size: var(--step-head); }
+  .wall { display: grid; grid-template-columns: repeat(12, 1fr); gap: 36px 24px; align-items: start; }
+  .wall figure { margin: 0; display: grid; gap: 14px; }
+  .wall figcaption { display: inline-flex; justify-self: start; align-self: start; gap: 12px; padding: 6px 10px; font-size: var(--step-small); font-weight: 800; background: var(--paper); border: var(--line); }
+  .wall figcaption em { font-style: normal; font-weight: 600; }
+
+  /* ── turnaround ── */
+  .turn { display: grid; grid-template-columns: 5fr 7fr; }
+  .turn > div { padding: clamp(20px, 2.4vw, 32px); }
+  .turn > div + div { border-left: var(--line); }
+  .turn h2 { font-size: var(--step-head); }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .chip { border: var(--line); border-radius: 0; padding: 0.65em 0.95em; background: var(--paper); color: var(--ink); font: 800 var(--step-small)/1 "Archivo", sans-serif; cursor: pointer; box-shadow: 3px 3px 0 var(--ink); transition: transform 120ms var(--ease-out), box-shadow 120ms var(--ease-out); }
+  .chip:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .chip:active, .chip[aria-pressed="true"] { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); background: var(--ink); color: var(--yellow); }
+  .answer { font-weight: 900; font-stretch: 125%; letter-spacing: -0.04em; line-height: 0.95; text-transform: lowercase; font-size: var(--step-head); margin: 0 0 24px; }
+  .answer small { display: block; font-size: var(--step-small); font-weight: 700; font-stretch: 100%; letter-spacing: 0; text-transform: none; margin-bottom: 10px; }
+  .splits { list-style: none; margin: 0; padding: 0; border: var(--line); font-variant-numeric: tabular-nums; }
+  .splits li { display: grid; grid-template-columns: 1fr auto auto; gap: 20px; padding: 12px 16px; font-weight: 700; background: color-mix(in srgb, var(--paper) 55%, transparent); }
+  .splits li + li { border-top: var(--line); }
+  .splits li:last-child { background: var(--ink); color: var(--yellow); font-weight: 900; }
+
+  /* ── process: offset glass slabs ── */
+  .stair { display: grid; grid-template-columns: repeat(12, 1fr); gap: 28px var(--m); }
+  .stair .glass { padding: clamp(20px, 2.4vw, 32px); }
+  .stair .glass:nth-child(1) { grid-column: 1 / span 6; }
+  .stair .glass:nth-child(2) { grid-column: 4 / span 6; }
+  .stair .glass:nth-child(3) { grid-column: 7 / span 6; }
+  .stair .glass:nth-child(4) { grid-column: 3 / span 8; background: var(--ink); color: var(--paper); box-shadow: 8px 8px 0 var(--yellow); }
+  .stair h2, .stair h3 { font-size: clamp(2rem, 3.6vw, 3.6rem); }
+  .stair p { margin: 12px 0 0; max-width: 40ch; font-weight: 500; }
+
+  /* ── faq ── */
+  .faq { display: grid; grid-template-columns: 4fr 8fr; gap: 32px var(--m); align-items: start; }
+  .faq h2 { font-size: var(--step-head); }
+  .faq details { margin-bottom: 18px; }
+  .faq summary { list-style: none; cursor: pointer; padding: 20px 22px; display: flex; justify-content: space-between; gap: 16px; font-weight: 900; font-stretch: 112%; font-size: var(--step-lead); line-height: 1.15; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary svg { flex: none; width: 22px; transition: transform 260ms var(--ease-out); }
+  .faq details[open] summary { border-bottom: var(--line); }
+  .faq details[open] summary svg { transform: rotate(45deg); }
+  .faq details p { margin: 0; padding: 18px 22px 22px; max-width: 60ch; font-weight: 500; }
+
+  /* ── footer ── */
+  .foot { color: var(--paper); padding: clamp(56px, 7vw, 104px) var(--m) calc(40px + env(safe-area-inset-bottom, 0px)); }
+  .foot__slices { display: flex; gap: clamp(6px, 1vw, 14px); height: clamp(70px, 11vw, 160px); margin-bottom: clamp(40px, 6vw, 88px); }
+  .foot__slices i { flex: 1; background: var(--s); border: 3px solid var(--paper); }
+  .foot h2 { font-size: var(--step-giant); }
+  .foot h2 a { text-decoration: none; }
+  .foot h2 a:hover { color: var(--yellow); }
+  .foot__row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-top: 48px; padding-top: 20px; border-top: 3px solid var(--paper); font-size: var(--step-small); font-weight: 700; }
+  .foot__row nav { display: flex; gap: 24px; }
+
+  /* ── motion ── */
+  .js .rise { opacity: 0; transform: translateY(26px); transition: opacity 650ms var(--ease-out), transform 850ms var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
+  .js .rise.in { opacity: 1; transform: none; }
+  .js .rise.hero__thumb { transform: rotate(-4deg) translateY(40px); }
+  .js .rise.hero__thumb.in { transform: rotate(-4deg); }
+  .js .hero h1 .ln { display: block; overflow: hidden; padding-bottom: 0.05em; }
+  .js .hero h1 .ln > span { display: block; transform: translateY(105%); transition: transform 950ms var(--ease-out); transition-delay: calc(var(--i, 0) * 110ms + 100ms); }
+  .js .loaded .hero h1 .ln > span { transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .sky { animation: none; }
+    .js .rise, .js .hero h1 .ln > span { transition: opacity 300ms; transform: none !important; }
+    .js .rise.hero__thumb { transform: rotate(-4deg) !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  @media (max-width: 900px) {
+    .nav__links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: 0; }
+    .hero > * { grid-column: 1 / -1 !important; }
+    .hero h1 { font-size: 12.6vw; }
+    .hero__thumb { width: 88%; justify-self: end; }
+    .rows li { grid-template-columns: 1fr; gap: 6px; }
+    .rows .name { font-size: 9vw; }
+    .wall figure { grid-column: 1 / -1 !important; }
+    .turn, .faq { grid-template-columns: 1fr; }
+    .turn > div + div { border-left: 0; border-top: var(--line); }
+    .stair .glass { grid-column: 1 / -1 !important; }
+    .foot h2 { font-size: 17vw; }
+  }
+</style>
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spec" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#2136cd"/><stop offset=".08" stop-color="#2664f7"/><stop offset=".2" stop-color="#32a9f6"/>
+      <stop offset=".3" stop-color="#32d7f6"/><stop offset=".38" stop-color="#c5f9ed"/><stop offset=".45" stop-color="#fbf7c9"/>
+      <stop offset=".53" stop-color="#fef78e"/><stop offset=".61" stop-color="#f9e853"/><stop offset=".69" stop-color="#f5b843"/>
+      <stop offset=".77" stop-color="#fa7d31"/><stop offset=".87" stop-color="#ef462e"/><stop offset="1" stop-color="#e32139"/>
+    </linearGradient>
+    <clipPath id="barclip"><polygon points="4,58 396,19 396,53 4,92"/></clipPath>
+    <symbol id="logo" viewBox="0 0 400 166">
+      <g clip-path="url(#barclip)">
+        <rect x="4" y="0" width="266" height="100" fill="url(#spec)"/>
+        <rect x="276" y="0" width="7" height="100" fill="#eb1635"/><rect x="289" y="0" width="7" height="100" fill="#d41c40"/>
+        <rect x="302" y="0" width="7" height="100" fill="#b22546"/><rect x="315" y="0" width="7" height="100" fill="#8a2445"/>
+        <rect x="328" y="0" width="7" height="100" fill="#6a2444"/><rect x="341" y="0" width="7" height="100" fill="#52263f"/>
+        <rect x="354" y="0" width="7" height="100" fill="#3f2740"/><rect x="367" y="0" width="7" height="100" fill="#33283f"/>
+        <rect x="380" y="0" width="7" height="100" fill="#2d2844"/>
+      </g>
+      <text x="0" y="146" font-family="Archivo, sans-serif" font-weight="900" font-stretch="125%" font-size="74" letter-spacing="-3" fill="currentColor">cutsway</text>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <a class="nav__logo" href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#logo"/></svg></a>
+  <nav class="nav__links" aria-label="Main"><a href="#formats">What we cut</a><a href="#work">Work</a><a href="#turnaround">Turnaround</a><a href="#faq">FAQ</a></nav>
+  <div class="nav__cta"><a class="btn" href="#book">book a call</a></div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1">
+    <h1 class="display" id="h1"><span class="ln"><span>cut fast.</span></span><span class="ln"><span style="--i:1">post more.</span></span></h1>
+    <div class="glass hero__card rise">
+      <p>Cutsway edits gaming videos, YouTube long-form, podcasts and shorts, designs the thumbnails, and runs your socials.</p>
+      <a class="btn" href="#book">book a call</a>
+    </div>
+    <p class="hero__fact rise" style="--i:1">Most edits back in 48 hours<small>Sample promise, confirm before launch</small></p>
+    <div class="thumb hero__thumb rise" style="--i:2;--c:var(--red);--k:var(--paper)" role="img" aria-label="Sample slot: a gaming video thumbnail"><b>we lost<br>the raid</b></div>
+  </section>
+
+  <section id="formats" aria-labelledby="formats-h">
+    <div class="glass slab rise">
+      <div class="slab__head"><h2 class="display" id="formats-h">what we cut</h2></div>
+      <ul class="rows">
+        <li><span class="name">gaming videos</span><span>Hours of gameplay into the minutes worth watching, with sound design that makes a clutch land.</span></li>
+        <li><span class="name">youtube long-form</span><span>Story, pacing and retention edits for videos that need people past minute one.</span></li>
+        <li><span class="name">podcasts</span><span>Multi-cam episodes cut clean, plus the clips that bring new listeners in.</span></li>
+        <li><span class="name">shorts &amp; reels</span><span>Vertical, captioned, built for the first second of a scroll.</span></li>
+        <li><span class="name">thumbnails</span><span>The image that decides whether anyone sees the edit at all.</span></li>
+        <li><span class="name">your socials, run</span><span>Scheduling, posting and captions on YouTube, Instagram, TikTok and X.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="work__head rise">
+      <h2 class="display" id="work-h">the work</h2>
+    </div>
+    <div class="wall">
+      <figure class="rise" style="grid-column: 1 / span 7"><div class="thumb" style="--c:var(--deep);--k:var(--paper);--fs:10cqw"><b>100 days<br>hardcore</b></div><figcaption>Gaming video <em>sample slot</em></figcaption></figure>
+      <figure class="rise" style="grid-column: 8 / span 5;--i:1"><div class="thumb" style="--c:var(--yellow)"><b>ep. 41<br>burnout</b></div><figcaption>Podcast <em>sample slot</em></figcaption></figure>
+      <figure class="rise" style="grid-column: 2 / span 3"><div class="thumb" style="--c:var(--ink);--k:var(--yellow);--r:9/16;--fs:17cqw"><b>1v5<br>clutch</b></div><figcaption>Short <em>sample</em></figcaption></figure>
+      <figure class="rise" style="grid-column: 6 / span 7;--i:1"><div class="thumb" style="--c:var(--cyan)"><b>i quit<br>my job</b></div><figcaption>Long-form <em>sample slot</em></figcaption></figure>
+    </div>
+    <p style="margin:40px 0 0"><a class="btn" href="#book">ask for the full reel</a></p>
+  </section>
+
+  <section id="turnaround" aria-labelledby="turn-h">
+    <div class="glass turn rise">
+      <div>
+        <h2 class="display" id="turn-h">when's it back?</h2>
+        <div class="chips" role="group" aria-label="Pick what you'd send">
+          <button class="chip" data-f="thumb">Thumbnail</button>
+          <button class="chip" data-f="shorts">Shorts pack</button>
+          <button class="chip" data-f="video" aria-pressed="true">Gaming video</button>
+          <button class="chip" data-f="podcast">Podcast</button>
+        </div>
+      </div>
+      <div aria-live="polite">
+        <p class="answer"><small id="ans-lead">Send a gaming video now, have it</small><span id="ans">back by …</span></p>
+        <ol class="splits" id="splits"></ol>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="process-h">
+    <div class="stair">
+      <div class="glass rise"><h2 class="display" id="process-h">drop the files.</h2><p>A Drive or Dropbox link to the raw recording or the VOD. No forms, no tickets.</p></div>
+      <div class="glass rise"><h3 class="display">we cut it.</h3><p>Edit, captions, sound and thumbnail, made together so they tell one story.</p></div>
+      <div class="glass rise"><h3 class="display">you leave notes.</h3><p>Right on the frame you want changed. Two rounds included.</p></div>
+      <div class="glass rise"><h3 class="display">it goes live on time.</h3><p>Delivered ready to upload, or posted for you if we run your socials.</p></div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <h2 class="display rise" id="faq-h">fair questions</h2>
+    <div>
+      <details class="glass rise"><summary>What do I actually send you?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3.5" fill="none"/></svg></summary><p>The raw recording, your channel link, a past video whose feel you like, and the date it needs to go up.</p></details>
+      <details class="glass rise" style="--i:1"><summary>Can you edit from a stream VOD?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3.5" fill="none"/></svg></summary><p>Yes. One VOD becomes a highlight video and a shorts pack from the same session.</p></details>
+      <details class="glass rise" style="--i:2"><summary>How many revisions do I get?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3.5" fill="none"/></svg></summary><p>Two rounds on every edit, left as notes on the exact frame. Sample policy, confirm before launch.</p></details>
+      <details class="glass rise" style="--i:3"><summary>Will you post it for me too?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3.5" fill="none"/></svg></summary><p>If you want. We schedule and post with titles and captions written for each platform.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="book" aria-labelledby="book-h">
+  <div class="foot__slices" aria-hidden="true">
+    <i style="--s:#eb1635"></i><i style="--s:#d41c40"></i><i style="--s:#b22546"></i><i style="--s:#8a2445"></i><i style="--s:#6a2444"></i><i style="--s:#52263f"></i><i style="--s:#3f2740"></i><i style="--s:#33283f"></i><i style="--s:#2d2844"></i>
+  </div>
+  <h2 class="display" id="book-h"><a href="#book">book a call.</a></h2>
+  <p style="max-width:38ch;margin:24px 0 0;font-size:var(--step-lead);line-height:1.3;font-weight:600">Twenty minutes. Bring your channel; we'll tell you what we'd cut first.</p>
+  <div class="foot__row">
+    <span>cutsway.socialmanager@gmail.com · sample address</span>
+    <nav aria-label="Social"><a href="#">YouTube</a><a href="#">Instagram</a><a href="#">X</a><a href="#">Discord</a></nav>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('loaded')));
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.rise').forEach(el => io.observe(el));
+
+  // travel through the spectrum: yellow at the top, the dark end at the footer
+  const sky = document.getElementById('sky');
+  let ticking = false;
+  addEventListener('scroll', () => {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      const p = scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      sky.style.setProperty('--sx', (64 - p * 50).toFixed(2) + '%');
+      ticking = false;
+    });
+  }, { passive: true });
+
+  // turnaround (sample promises, confirm before launch)
+  const F = {
+    thumb:   { lead: 'Order a thumbnail now, have it',       s: [['Brief in', 0], ['Three concepts', 3], ['Your pick', 5], ['Final art', 8]] },
+    shorts:  { lead: 'Send a VOD for shorts now, have them', s: [['VOD in', 0], ['Moments picked', 4], ['Cut + captions', 16], ['Your notes', 20], ['Delivered', 24]] },
+    video:   { lead: 'Send a gaming video now, have it',     s: [['Raw in', 0], ['Rough cut', 20], ['Your notes', 28], ['Final + thumbnail', 44], ['Delivered', 48]] },
+    podcast: { lead: 'Send a podcast episode now, have it',  s: [['Recording in', 0], ['Episode cut', 30], ['Your notes', 40], ['Clips + thumbnail', 64], ['Delivered', 72]] },
+  };
+  const when = h => new Date(Date.now() + h * 36e5).toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+  const pad = h => `${String(h).padStart(2, '0')}:00`;
+  function show(k) {
+    const f = F[k], last = f.s[f.s.length - 1][1];
+    document.getElementById('ans-lead').textContent = f.lead;
+    document.getElementById('ans').textContent = 'back by ' + when(last).toLowerCase();
+    document.getElementById('splits').innerHTML = f.s.map(([n, h]) => `<li><span>${n}</span><span>${pad(h)}</span><span>${when(h)}</span></li>`).join('');
+    document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.f === k));
+  }
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => show(c.dataset.f)));
+  show('video');
+</script>
+</body>
+</html>

@@ -1,0 +1,1454 @@
+{
+ "url": "prototypes/awwwards/07-sequence//index.html",
+ "at": "2026-10-23T14:19:06.083Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 11,
+   "filled": [
+    0.82,
+    0.81,
+    0.82,
+    0.81,
+    0.81,
+    0.81,
+    0.81,
+    0.81,
+    0.81,
+    0.43,
+    0.48
+   ],
+   "motion": {
+    "elements": 14,
+    "css": 0,
+    "transitions": 13,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 9022,
+     "screens": 10,
+     "words": 185,
+     "img": 5,
+     "video": 0,
+     "canvas": 11,
+     "svg": 3,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 5,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "stage-1.jpg",
+      "stage-5.jpg",
+      "mic-2.jpg",
+      "headset.jpg",
+      "podcave.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "sent now, back by sunday, 7:49 pm",
+     "words": 7,
+     "chars": 33,
+     "lines": 4,
+     "size": 89.3,
+     "vw": 6.2,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.05,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.47,
+     "top": 121,
+     "tag": "h2",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "your channel, on a timeline.",
+     "words": 5,
+     "lines": 3,
+     "size": 89.3,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "sent now, back by sunday, 7:49 pm",
+      "words": 7,
+      "chars": 33,
+      "lines": 4,
+      "size": 89.3,
+      "vw": 6.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 121,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "your channel, on a timeline.",
+      "words": 5,
+      "chars": 28,
+      "lines": 3,
+      "size": 89.3,
+      "vw": 6.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 130,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "notes on the cut",
+      "words": 4,
+      "chars": 16,
+      "lines": 1,
+      "size": 89.3,
+      "vw": 6.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 8273,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 4,
+     "over2Lines": 2,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      15,
+      18,
+      20,
+      22,
+      89
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 13,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 10.3
+     },
+     "measureChars": 187,
+     "max": {
+      "size": 89.3,
+      "vw": 6.2,
+      "font": "Archivo",
+      "text": "your channel, on a timeline."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#100c0a",
+     "bodyBgHsl": {
+      "h": 20,
+      "s": 0.23,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#1a1411",
+       "top": 72,
+       "hsl": {
+        "h": 20,
+        "s": 0.21,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f6efe4",
+       "share": 0.49
+      },
+      {
+       "color": "#c9baa9",
+       "share": 0.36
+      },
+      {
+       "color": "#1a0b06",
+       "share": 0.1
+      },
+      {
+       "color": "#100c0a",
+       "share": 0.04
+      },
+      {
+       "color": "#ffc72e",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#ffc72e",
+      "hsl": {
+       "h": 44,
+       "s": 1,
+       "l": 0.59
+      },
+      "fg": "#1a0b06"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 12,
+     "inHero": 11,
+     "radius": 5,
+     "height": 73,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call",
+      "Book a call",
+      "intro.mp4",
+      "gaming_video.mp4"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 6,
+     "boxRadius": 10,
+     "squareMedia": 0,
+     "roundedMedia": 2,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 8389
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.15
+     },
+     {
+      "type": "img",
+      "ratio": 0.15
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 79,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 9022,
+    "margins": {
+     "left": 35,
+     "right": 53
+    },
+    "sections": [
+     {
+      "sel": "div#seq.seq",
+      "tag": "div",
+      "top": 0,
+      "height": 8100,
+      "words": 59,
+      "media": 7,
+      "middle": 2640,
+      "heading": {
+       "text": "your channel, on a timeline.",
+       "size": 89,
+       "tag": "h1"
+      },
+      "left": 53,
+      "right": 0,
+      "textLeft": 53,
+      "textRight": -2692,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 8100,
+      "height": 533,
+      "words": 66,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "notes on the cut",
+       "size": 89,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 232,
+      "textLeft": 35,
+      "textRight": 232,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 8633,
+      "height": 389,
+      "words": 34,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 35,
+      "right": 35,
+      "textLeft": 35,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "your channel, on a timeline.",
+      "size": 89,
+      "top": 130,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 59,
+      "n": 3
+     },
+     {
+      "x": 750,
+      "n": 3
+     },
+     {
+      "x": 84,
+      "n": 2
+     },
+     {
+      "x": 35,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 9,
+    "bodySize": 13,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.17,
+    "voidBox": {
+     "x": 120,
+     "y": 540,
+     "w": 600,
+     "h": 360
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 10,
+   "filled": [
+    0.88,
+    0.88,
+    0.88,
+    0.88,
+    0.88,
+    0.88,
+    0.88,
+    0.88,
+    0.88,
+    0.63
+   ],
+   "motion": {
+    "elements": 14,
+    "css": 0,
+    "transitions": 13,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 10211,
+     "screens": 10,
+     "words": 151,
+     "img": 5,
+     "video": 0,
+     "canvas": 11,
+     "svg": 3,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 5,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "stage-1.jpg",
+      "stage-5.jpg",
+      "mic-2.jpg",
+      "headset.jpg",
+      "podcave.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "your channel, on a timeline.",
+     "words": 5,
+     "chars": 28,
+     "lines": 1,
+     "size": 41.6,
+     "vw": 5.4,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.05,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.88,
+     "top": 98,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "your channel, on a timeline.",
+     "words": 5,
+     "lines": 1,
+     "size": 41.6,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "your channel, on a timeline.",
+      "words": 5,
+      "chars": 28,
+      "lines": 1,
+      "size": 41.6,
+      "vw": 5.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 98,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "notes on the cut",
+      "words": 4,
+      "chars": 16,
+      "lines": 1,
+      "size": 47.6,
+      "vw": 6.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 9336,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      15,
+      18,
+      22,
+      42,
+      48
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 18,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 88,
+     "max": {
+      "size": 47.6,
+      "vw": 6.2,
+      "font": "Archivo",
+      "text": "notes on the cut"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#100c0a",
+     "bodyBgHsl": {
+      "h": 20,
+      "s": 0.23,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#1a1411",
+       "top": 72,
+       "hsl": {
+        "h": 20,
+        "s": 0.21,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f6efe4",
+       "share": 0.48
+      },
+      {
+       "color": "#c9baa9",
+       "share": 0.36
+      },
+      {
+       "color": "#1a0b06",
+       "share": 0.12
+      },
+      {
+       "color": "#100c0a",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#ffc72e",
+      "hsl": {
+       "h": 44,
+       "s": 1,
+       "l": 0.59
+      },
+      "fg": "#1a0b06"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 12,
+     "inHero": 11,
+     "radius": 5,
+     "height": 75,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call",
+      "intro.mp4",
+      "gaming_video.mp4",
+      "stream_vod.mp4"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 6,
+     "boxRadius": 10,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.19
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 79,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 10211,
+    "margins": {
+     "left": 18,
+     "right": 18
+    },
+    "sections": [
+     {
+      "sel": "div#seq.seq",
+      "tag": "div",
+      "top": 0,
+      "height": 9216,
+      "words": 50,
+      "media": 2,
+      "middle": 1716,
+      "heading": {
+       "text": "your channel, on a timeline.",
+       "size": 42,
+       "tag": "h1"
+      },
+      "left": 36,
+      "right": 0,
+      "textLeft": 36,
+      "textRight": -1768,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 9216,
+      "height": 699,
+      "words": 66,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "notes on the cut",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 18,
+      "right": 229,
+      "textLeft": 18,
+      "textRight": 229,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 9915,
+      "height": 296,
+      "words": 34,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 18,
+      "right": 18,
+      "textLeft": 18,
+      "textRight": 36,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "your channel, on a timeline.",
+      "size": 42,
+      "top": 98,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 42,
+      "n": 8
+     },
+     {
+      "x": 18,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 9,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 11,
+   "filled": [
+    0.84,
+    0.83,
+    0.83,
+    0.83,
+    0.83,
+    0.83,
+    0.83,
+    0.83,
+    0.83,
+    0.78,
+    0.64
+   ],
+   "motion": {
+    "elements": 14,
+    "css": 0,
+    "transitions": 13,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 8774,
+     "screens": 10.4,
+     "words": 151,
+     "img": 5,
+     "video": 0,
+     "canvas": 11,
+     "svg": 3,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 5,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "stage-1.jpg",
+      "stage-5.jpg",
+      "mic-2.jpg",
+      "headset.jpg",
+      "podcave.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "your channel, on a timeline.",
+     "words": 5,
+     "chars": 28,
+     "lines": 3,
+     "size": 41.6,
+     "vw": 10.7,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.05,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.82,
+     "top": 92,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "your channel, on a timeline.",
+     "words": 5,
+     "lines": 3,
+     "size": 41.6,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "your channel, on a timeline.",
+      "words": 5,
+      "chars": 28,
+      "lines": 3,
+      "size": 41.6,
+      "vw": 10.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 92,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "notes on the cut",
+      "words": 4,
+      "chars": 16,
+      "lines": 2,
+      "size": 44.8,
+      "vw": 11.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 7716,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "What do I send?",
+      "words": 4,
+      "chars": 15,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 7857,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "How do I give notes?",
+      "words": 5,
+      "chars": 20,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 7985,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Will it feel like my channel?",
+      "words": 6,
+      "chars": 29,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 8140,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Can you post it?",
+      "words": 4,
+      "chars": 16,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 8295,
+      "tag": "h3",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 6,
+     "maxLines": 3,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      15,
+      18,
+      22,
+      42,
+      45
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 18,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 31,
+     "max": {
+      "size": 44.8,
+      "vw": 11.5,
+      "font": "Archivo",
+      "text": "notes on the cut"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#100c0a",
+     "bodyBgHsl": {
+      "h": 20,
+      "s": 0.23,
+      "l": 0.05
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#1a1411",
+       "top": 72,
+       "hsl": {
+        "h": 20,
+        "s": 0.21,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f6efe4",
+       "share": 0.48
+      },
+      {
+       "color": "#c9baa9",
+       "share": 0.36
+      },
+      {
+       "color": "#1a0b06",
+       "share": 0.12
+      },
+      {
+       "color": "#100c0a",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#ffc72e",
+      "hsl": {
+       "h": 44,
+       "s": 1,
+       "l": 0.59
+      },
+      "fg": "#1a0b06"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 12,
+     "inHero": 11,
+     "radius": 5,
+     "height": 68,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Book a call",
+      "intro.mp4",
+      "gaming_video.mp4",
+      "stream_vod.mp4"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 6,
+     "boxRadius": 10,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.17
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 79,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 8774,
+    "margins": {
+     "left": 16,
+     "right": 3
+    },
+    "sections": [
+     {
+      "sel": "div#seq.seq",
+      "tag": "div",
+      "top": 0,
+      "height": 7596,
+      "words": 50,
+      "media": 1,
+      "middle": 1905,
+      "heading": {
+       "text": "your channel, on a timeline.",
+       "size": 42,
+       "tag": "h1"
+      },
+      "left": 34,
+      "right": 0,
+      "textLeft": 34,
+      "textRight": -1957,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": true
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 7596,
+      "height": 818,
+      "words": 66,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "notes on the cut",
+       "size": 45,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 41,
+      "textLeft": 16,
+      "textRight": 41,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 8414,
+      "height": 361,
+      "words": 34,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 34,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "your channel, on a timeline.",
+      "size": 42,
+      "top": 92,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [
+     {
+      "text": "00:00:10",
+      "side": "right",
+      "px": 3
+     }
+    ],
+    "edges": [
+     {
+      "x": 36,
+      "n": 8
+     },
+     {
+      "x": 16,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 9,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "2 headline(s) wrap past two lines at 1440px: \"sent now, back by sunday, 7:49 pm\" → 4 lines (7 words, 89.3px); \"your channel, on a timeline.\" → 3 lines (5 words, 89.3px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (text #f6efe4).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 13px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "measure",
+   "width": 1440,
+   "message": "Longest paragraph runs about 187 characters per line.",
+   "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+  },
+  {
+   "level": "WARN",
+   "id": "font-not-dealt",
+   "width": 1440,
+   "message": "The sheet dealt Chivo and Chivo, but the page renders Archivo.",
+   "fix": "Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look."
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 35px on the left, 53px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 14 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "1 headline(s) wrap past two lines at 390px: \"your channel, on a timeline.\" → 3 lines (5 words, 41.6px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "edge-text",
+   "width": 390,
+   "message": "1 text block(s) sit within 12px of the screen edge: \"00:00:10\" (3px from the right)",
+   "fix": "Keep text inside the page margin (16–20px). Only display type deliberately bled past the edge may touch it."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\07-sequence\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\07-sequence\\desktop-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\07-sequence\\desktop-page-02.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\07-sequence\\desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\07-sequence\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\07-sequence\\tablet-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\07-sequence\\tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\07-sequence\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\07-sequence\\mobile-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\07-sequence\\mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

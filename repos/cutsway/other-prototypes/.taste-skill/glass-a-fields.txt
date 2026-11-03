@@ -1,0 +1,48 @@
+TASTESKILL · INSPECT   prototypes/glass-a-fields/index.html
+
+MEASURED (first viewport listed)
+  hero headline   "cut fast. post more."  4 words · 2 line(s) · 178.6px (12.4vw) · Archivo 900 · tracking -0.04em · leading 0.88
+  @768px          2 line(s) · 96.8px
+  @390px          2 line(s) · 49.1px
+  typefaces       Archivo 100%
+  sizes in use    14 / 19 / 26 / 46 / 47 / 52 / 55 / 59 / 67 / 79 / 84 / 179 px   body 19px / 1.45
+  colour          page #0b0a10 · button #f9e853
+  page            7.3 screens · 333 words · 0 images · hero media 100% bg-image
+  headings        22 · longest 2 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [eyebrow] @1440px (+768, 390)  1 eyebrow/kicker label(s) above headings: "Send a gaming video now, have it" above "back by sat 10:21 pm"
+      → Delete them. If the label carried real information, fold it into the headline or the supporting sentence.
+  [contrast] @1440px (+768, 390)  Unreadable text: "what we cut" 1:1 (#0b0a10 on #0b0a10); "gaming videos" 1:1 (#0b0a10 on #0b0a10); "Hours of gameplay into the minutes worth" 1:1 (#0b0a10 on #0b0a10); "youtube long-form" 1:1 (#0b0a10 on #0b0a10)
+      → Raise contrast to at least 4.5:1 for text, 3:1 for large display.
+  [few-pictures] @1440px  Only 1 picture(s) on the page (1 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [icon-cards] @390px  1 row(s) of identical cards each topped with a small icon (4 cards).
+      → Replace with one composed section from the direction: a narrative split, a list set in large type, or real imagery per item.
+  [off-centre] @390px  The page sits off-centre: its content comes to 20px from the left edge but only to 48px from the right, at 390px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+
+WARN — fix, or be able to defend
+  [size-count] @1440px (+768, 390)  12 different font sizes (14, 19, 26, 46, 47, 52, 55, 59, 67, 79, 84, 179).
+      → A page needs about five: display, heading, lead, body, small.
+  [grey-body] @1440px (+768, 390)  The running text is a soft grey on its ground (1:1).
+      → Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px (+768)  The margins differ: 35px on the left, 75px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [lopsided] @768px  A section keeps its content on one side and leaves 324px of the width empty: "drop the files.".
+      → Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect-glass-a-fields/desktop-fold.jpg
+                  .taste-skill/inspect-glass-a-fields/desktop-page-01.jpg
+                  .taste-skill/inspect-glass-a-fields/desktop-page-02.jpg
+  tablet 768px    .taste-skill/inspect-glass-a-fields/tablet-fold.jpg
+                  .taste-skill/inspect-glass-a-fields/tablet-page-01.jpg
+                  .taste-skill/inspect-glass-a-fields/tablet-page-02.jpg
+  mobile 390px    .taste-skill/inspect-glass-a-fields/mobile-fold.jpg
+                  .taste-skill/inspect-glass-a-fields/mobile-page-01.jpg
+
+report: .taste-skill/inspect-glass-a-fields/report.json
+RESULT: 5 FAIL, 5 WARN — not done.

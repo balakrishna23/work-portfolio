@@ -1,0 +1,17 @@
+# dependencies and caches (rebuilt on demand)
+node_modules/
+__pycache__/
+*.pyc
+.cache/
+.hyperframes/
+
+# OS and editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+~$*
+
+# local secrets, if any ever appear
+.env
+.env.*

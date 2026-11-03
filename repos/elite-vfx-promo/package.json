@@ -1,0 +1,44 @@
+{
+  "name": "elite-vfx-promo",
+  "version": "1.0.0",
+  "description": "Elite VFX Services 30s promo: landscape 1920x1080 and vertical 1080x1920",
+  "repository": {},
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/google-fonts": "4.0.539",
+    "@remotion/media": "4.0.539",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.539",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "10.12.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc",
+    "render:landscape": "remotion render Promo-Landscape out/FINAL/Elite-VFX-Promo_30s_Landscape-16x9_1920x1080.mp4 --codec=h264 --color-space=bt709 --crf=18",
+    "render:vertical": "remotion render Promo-Vertical out/FINAL/Elite-VFX-Promo_30s_Vertical-9x16_1080x1920.mp4 --codec=h264 --color-space=bt709 --crf=18",
+    "render:15:landscape": "remotion render Promo15-Landscape out/FINAL/Elite-VFX-Promo_15s_Landscape-16x9_1920x1080.mp4 --codec=h264 --color-space=bt709 --crf=18",
+    "render:15:vertical": "remotion render Promo15-Vertical out/FINAL/Elite-VFX-Promo_15s_Vertical-9x16_1080x1920.mp4 --codec=h264 --color-space=bt709 --crf=18",
+    "render:thumbnails": "remotion still Thumbnail-Landscape out/FINAL/Elite-VFX-Promo_Thumbnail_Landscape-16x9_1920x1080.png && remotion still Thumbnail-Vertical out/FINAL/Elite-VFX-Promo_Thumbnail_Vertical-9x16_1080x1920.png",
+    "render:all": "npm run render:landscape && npm run render:vertical && npm run render:15:landscape && npm run render:15:vertical && npm run render:thumbnails",
+    "render:4k:landscape": "remotion render Promo-Landscape out/FINAL/Elite-VFX-Promo_30s_Landscape-16x9_3840x2160-4K.mp4 --codec=h264 --color-space=bt709 --scale=2 --crf=17",
+    "render:4k:vertical": "remotion render Promo-Vertical out/FINAL/Elite-VFX-Promo_30s_Vertical-9x16_2160x3840-4K.mp4 --codec=h264 --color-space=bt709 --scale=2 --crf=17"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}

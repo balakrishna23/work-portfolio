@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Channel Surf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --room: #2a1d17; --plastic: #d9cdb9; --plastic2: #c4b59c; --tube: #120c0a; --paper: #fff4e2; --gold: #ffc72e; --red: #f0163a; --m: clamp(12px, 2.4vw, 36px); }
+  * { box-sizing: border-box; }
+  html { background: var(--room); color: var(--paper); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .nav { position: fixed; z-index: 30; inset: 0 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 12px var(--m); }
+  .nav svg { width: 104px; height: 44px; display: block; color: var(--paper); }
+  .btn { display: inline-flex; padding: 12px 20px; background: var(--gold); color: var(--tube); font-weight: 800; text-decoration: none; border-radius: 8px; transition: transform .2s; }
+  .btn:hover { transform: translateY(-2px); } .btn:active { transform: scale(.96); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .surf { height: 760vh; position: relative; }
+  .room { position: sticky; top: 0; height: 100vh; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(16px, 2.4vw, 40px); align-items: center; padding: 70px var(--m) var(--m); }
+  .tv { background: var(--plastic); border-radius: 28px; padding: clamp(14px, 2vw, 30px) clamp(14px, 2vw, 30px) clamp(40px, 5vh, 60px); position: relative; height: 100%; max-height: 82vh; }
+  .tv::after { content: "cutsway"; position: absolute; left: 50%; bottom: clamp(10px, 1.6vh, 18px); transform: translateX(-50%); font-weight: 900; font-stretch: 125%; letter-spacing: -.04em; font-size: 20px; color: #7d6c58; }
+  .tube { position: relative; height: 100%; border-radius: 30px / 40px; overflow: hidden; background: var(--tube); }
+  .tube::before { content: ""; position: absolute; inset: 0; z-index: 5; pointer-events: none; background: repeating-linear-gradient(to bottom, rgb(0 0 0 / .22) 0 1px, transparent 1px 3px); }
+  .tube::after { content: ""; position: absolute; inset: 0; z-index: 6; pointer-events: none; box-shadow: inset 0 0 90px 30px rgb(0 0 0 / .75); border-radius: inherit; }
+  #static { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 4; opacity: 0; pointer-events: none; image-rendering: pixelated; }
+  .ch { position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(16px, 3vw, 48px); align-items: center; padding: clamp(24px, 5vw, 72px); visibility: hidden; }
+  .ch.on { visibility: visible; animation: tuneIn .35s steps(5); }
+  @keyframes tuneIn { 0% { transform: scaleY(.02) scaleX(1.2); filter: brightness(3); } 60% { transform: scaleY(1.04); } 100% { transform: none; filter: none; } }
+  .ch h1, .ch h2 { margin: 0 0 16px; font-weight: 900; font-stretch: 125%; letter-spacing: -.045em; line-height: .9; font-size: clamp(2.6rem, 5.6vw, 6.4rem); text-transform: lowercase; text-shadow: 3px 0 rgb(240 22 58 / .7), -3px 0 rgb(50 200 255 / .35); }
+  .ch p { margin: 0 0 18px; font-size: clamp(18px, 1.4vw, 21px); max-width: 36ch; }
+  .ch img, .ch canvas { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 6px; filter: saturate(1.3) contrast(1.1); }
+  .osd { position: absolute; top: clamp(18px, 3vw, 40px); right: clamp(24px, 3.4vw, 56px); z-index: 3; font-weight: 900; font-stretch: 125%; font-size: clamp(1.6rem, 3vw, 3rem); color: #7dff8a; text-shadow: 0 0 12px rgb(125 255 138 / .6); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .osd small { display: block; font-size: 16px; text-align: right; letter-spacing: 0; font-stretch: 100%; }
+  .k { color: var(--gold); font-weight: 900; font-stretch: 125%; font-size: 1.6rem; letter-spacing: -.03em; }
+
+  .remote { width: clamp(150px, 13vw, 200px); background: #1a1310; border-radius: 40px; padding: 26px 18px; display: grid; gap: 12px; align-self: center; }
+  .remote p { margin: 0 0 4px; font-size: 14px; color: #cdbba6; text-align: center; }
+  .pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .pad button, .rk { aspect-ratio: 1; border-radius: 50%; border: 0; background: #3a2c25; color: var(--paper); font: inherit; font-weight: 800; font-size: 17px; cursor: pointer; transition: background .15s, transform .1s; }
+  .pad button:hover, .rk:hover { background: #54413a; }
+  .pad button:active, .rk:active { transform: scale(.9); }
+  .pad button[aria-current="true"] { background: var(--gold); color: var(--tube); }
+  .rocker { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .rk { aspect-ratio: auto; border-radius: 14px; padding: 12px 0; }
+  .power { background: var(--red) !important; }
+
+  section { padding: clamp(120px, 13vw, 200px) var(--m) 0; }
+  h2.big { margin: 0 0 32px; font-weight: 900; font-stretch: 125%; letter-spacing: -.045em; line-height: .9; font-size: clamp(2.8rem, 6vw, 6.4rem); text-transform: lowercase; }
+  .qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .qa div { background: #352620; border-radius: 16px; padding: 24px; }
+  .qa h3 { margin: 0 0 8px; font-size: 22px; } .qa p { margin: 0; }
+  footer { padding: clamp(120px, 13vw, 200px) var(--m) 28px; display: grid; gap: 24px; }
+  footer h2 { margin: 0; }
+  .credits { font-size: 13px; color: #cdbba6; max-width: 90ch; }
+  @media (max-width: 860px) {
+    .room { grid-template-columns: 1fr; grid-template-rows: 1fr auto; padding-top: 64px; }
+    .tv { max-height: none; }
+    .ch { grid-template-columns: 1fr; align-content: center; gap: 10px; padding: 22px; }
+    .ch img, .ch canvas { aspect-ratio: 16 / 9; max-height: 24vh; }
+    .ch h1, .ch h2 { font-size: 2.3rem; }
+    .remote { width: 100%; grid-template-columns: 1fr auto; border-radius: 22px; padding: 12px; } .remote p { display: none; }
+    .pad { grid-template-columns: repeat(7, 1fr); } .pad button:nth-child(n+8) { display: none; }
+    .rocker { grid-template-columns: 1fr; } .rocker .rk:nth-child(n+2) { display: none; }
+    .qa { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .ch.on { animation: none; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <div class="surf" id="surf">
+    <div class="room">
+      <div class="tv">
+        <div class="tube" id="tube">
+          <canvas id="static" width="240" height="160" aria-hidden="true"></canvas>
+          <div class="osd" aria-hidden="true"><span id="osd">CH 01</span><small id="osd-n">cutsway</small></div>
+          <article class="ch on" data-n="cutsway"><div><h1>now showing: you.</h1><p>Cutsway edits gaming videos, streams, shorts and podcasts, and posts them on schedule. Scroll, or use the remote.</p><a class="btn" href="#book">Book a call</a></div><canvas data-k="chat" width="800" height="600" aria-hidden="true"></canvas></article>
+          <article class="ch" data-n="gaming videos"><div><h2>gaming videos</h2><p>Hours of play, cut to the story. Pacing, zooms, captions, sound design.</p><span class="k">48h</span></div><canvas data-k="fps" width="800" height="600" aria-hidden="true"></canvas></article>
+          <article class="ch" data-n="streams"><div><h2>stream VODs</h2><p>Last night's eight hours live, as one highlight video and ten shorts.</p><span class="k">48h</span></div><img src="../_shared/img/stage-5.jpg" alt="A packed esports arena"></article>
+          <article class="ch" data-n="shorts"><div><h2>shorts &amp; reels</h2><p>Reframed by a person, captioned word by word, posted when your audience is awake.</p><span class="k">24h</span></div><canvas data-k="race" width="800" height="600" aria-hidden="true"></canvas></article>
+          <article class="ch" data-n="podcasts"><div><h2>podcasts</h2><p>Three mics, two cameras, one clean episode, six clips.</p><span class="k">72h</span></div><img src="../_shared/img/mic-1.jpg" alt="A podcast microphone on a boom arm"></article>
+          <article class="ch" data-n="thumbnails"><div><h2>thumbnails</h2><p>Three options per video, checked at feed size before you see them.</p><span class="k">8h</span></div><canvas data-k="boss" width="800" height="600" aria-hidden="true"></canvas></article>
+          <article class="ch" data-n="book a call"><div><h2>stay tuned.</h2><p>One editor who knows your channel, every upload. Sample times, confirmed on the call.</p><a class="btn" href="#book">Book a call</a></div><img src="../_shared/img/headset.jpg" alt="A gaming headset lit by RGB light"></article>
+        </div>
+      </div>
+      <div class="remote" aria-label="Remote control">
+        <p>channels</p>
+        <div class="pad" id="pad"></div>
+        <div class="rocker"><button class="rk" id="up" type="button" aria-label="Channel up">CH ▲</button><button class="rk" id="down" type="button" aria-label="Channel down">CH ▼</button></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 class="big" id="faq-h" data-rise>viewer mail</h2>
+    <div class="qa" data-rise="kids">
+      <div><h3>What do I send?</h3><p>All of it, raw. Choosing is the job.</p></div>
+      <div><h3>How many revisions?</h3><p>Two rounds per edit, as notes on the exact frame.</p></div>
+      <div><h3>Will it feel like my channel?</h3><p>Your editor learns from your last ten uploads and stays with you.</p></div>
+      <div><h3>Do you post?</h3><p>On YouTube, TikTok, Instagram and X, on a schedule.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <h2 class="big">don't touch that dial.</h2>
+  <a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call" style="justify-self:start">Book a call</a>
+  <p class="credits">Photographs: esports arena by Flickr user 84584821@N08, CC BY 2.0; SPNN podcast studio, CC BY 4.0; RGB headset, CC0, Wikimedia Commons. Gameplay is drawn. Times are samples.</p>
+</footer>
+
+<script src="../_shared/frames.js"></script>
+<script src="../_shared/brand.js"></script>
+<script>
+  const chs = [...document.querySelectorAll('.ch')], N = chs.length, surf = document.getElementById('surf');
+  const osd = document.getElementById('osd'), osdN = document.getElementById('osd-n'), st = document.getElementById('static'), sx = st.getContext('2d');
+  const pad = document.getElementById('pad');
+  chs.forEach((c, i) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = i + 1; b.setAttribute('aria-label', 'Channel ' + (i + 1) + ', ' + c.dataset.n); b.onclick = () => jump(i); pad.appendChild(b); });
+  for (let i = N; i < 9; i++) { const b = document.createElement('button'); b.type = 'button'; b.textContent = i + 1; b.setAttribute('aria-label', 'No signal'); b.onclick = () => noise(500); pad.appendChild(b); }
+  const pb = [...pad.children];
+  let cur = 0, noiseUntil = 0;
+  function noise(ms) { if (!Cutsway.reduce) noiseUntil = performance.now() + ms; }
+  function show(i) { if (i === cur) return; chs[cur].classList.remove('on'); chs[i].classList.add('on'); cur = i; noise(260);
+    osd.textContent = 'CH ' + String(i + 1).padStart(2, '0'); osdN.textContent = chs[i].dataset.n; pb.forEach((b, n) => b.setAttribute('aria-current', n === i)); }
+  function jump(i) { const r = surf.getBoundingClientRect(), span = r.height - innerHeight; scrollTo({ top: scrollY + r.top + span * (i + .5) / N, behavior: 'auto' }); show(i); }
+  document.getElementById('up').onclick = () => jump((cur + 1) % N); document.getElementById('down').onclick = () => jump((cur - 1 + N) % N);
+  addEventListener('scroll', () => { const r = surf.getBoundingClientRect(), k = Math.max(0, Math.min(.999, -r.top / (r.height - innerHeight))); show(Math.floor(k * N)); }, { passive: true });
+  pb[0].setAttribute('aria-current', true);
+  const cvs = [...document.querySelectorAll('.ch canvas')];
+  (function loop(t) {
+    const on = t < noiseUntil; st.style.opacity = on ? 1 : 0;
+    if (on) { const img = sx.createImageData(240, 160); for (let i = 0; i < img.data.length; i += 4) { const v = Math.random() * 255; img.data[i] = v; img.data[i + 1] = v * .92; img.data[i + 2] = v * .8; img.data[i + 3] = 255; } sx.putImageData(img, 0, 0); }
+    cvs.forEach((c, i) => { if (c.closest('.on')) CutFrames.draw(c.getContext('2d'), 800, 600, c.dataset.k, i + 2, Cutsway.reduce ? 2 : t / 1000); });
+    requestAnimationFrame(loop);
+  })(0);
+</script>
+</body>
+</html>

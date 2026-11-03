@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Channel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/page.css">
+<style>
+  :root { --bg: #0d0c12; --raise: #17151f; --raise-2: #211e2b; --line: rgb(242 240 230 / 0.12); --w: min(1320px, 100% - 2 * var(--m)); }
+  body { background: var(--bg); }
+  .wrap { width: var(--w); margin: 0 auto; }
+  .nav { position: sticky; top: 0; background: rgb(13 12 18 / 0.86); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .nav::before { display: none; }
+  .search { justify-self: center; display: flex; align-items: center; gap: 10px; width: min(460px, 36vw); padding: 0.62em 1em; border-radius: 999px; background: var(--raise); border: 1px solid var(--line); color: var(--soft); font-size: var(--step-small); font-weight: 600; }
+  .search svg { width: 16px; flex: none; }
+
+  /* ── channel header ── */
+  .banner { margin-top: 22px; aspect-ratio: 6.2 / 1; min-height: 120px; border-radius: 20px; overflow: hidden; position: relative; background: #120d1c; }
+  .banner canvas { width: 100%; height: 100%; display: block; }
+  .chan { display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center; padding: 26px 0 8px; }
+  .avatar { width: clamp(84px, 9vw, 132px); aspect-ratio: 1; border-radius: 50%; background: #0b0a10; display: grid; place-items: center; border: 2px solid var(--line); }
+  .avatar svg { width: 76%; color: var(--paper); }
+  .chan h1 { font-size: clamp(2.4rem, 1rem + 4vw, 4.6rem); line-height: 0.9; }
+  .chan__meta { margin: 10px 0 0; color: var(--soft); font-weight: 600; font-size: var(--step-small); }
+  .chan__meta b { color: var(--paper); }
+  .chan__desc { margin: 8px 0 0; max-width: 62ch; color: var(--soft); }
+  .tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--line); margin-top: 18px; overflow-x: auto; scrollbar-width: none; }
+  .tabs a { padding: 14px 16px; font-weight: 800; font-size: var(--step-small); text-decoration: none; color: var(--soft); border-bottom: 3px solid transparent; white-space: nowrap; }
+  .tabs a:hover, .tabs a[aria-current] { color: var(--paper); border-color: var(--paper); }
+
+  /* ── the trailer: a pinned player that scrubs through how it was made ── */
+  .story { height: 820vh; position: relative; margin-top: 24px; }
+  .stage { position: sticky; top: 64px; height: calc(100svh - 64px); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 3vw, 48px); align-items: center; }
+  .stage__text { align-self: center; }
+  .stage__kicker { display: none; }
+  .stage__text h2 { font-size: clamp(2.4rem, 1rem + 3.6vw, 5rem); }
+  .stage__text p { margin: 18px 0 0; font-size: var(--step-lead); line-height: 1.3; font-weight: 500; max-width: 30ch; }
+  .stage__text .copy-swap { transition: opacity 260ms ease, transform 400ms var(--ease-out); }
+  .stage__text .copy-swap.out { opacity: 0; transform: translateY(10px); }
+  .player { position: relative; border-radius: 18px; overflow: hidden; background: #000; box-shadow: 0 30px 80px -30px rgb(0 0 0 / 0.8); }
+  .player canvas { display: block; width: 100%; aspect-ratio: 16 / 9; }
+  .chrome { position: absolute; inset: auto 0 0 0; padding: 40px 18px 12px; background: linear-gradient(to top, rgb(0 0 0 / 0.75), rgb(0 0 0 / 0)); }
+  .bar { display: flex; gap: 3px; height: 6px; margin-bottom: 10px; }
+  .bar i { flex: var(--f); position: relative; background: rgb(242 240 230 / 0.25); border-radius: 2px; overflow: hidden; }
+  .bar i b { position: absolute; inset: 0; background: var(--c); transform-origin: left; transform: scaleX(var(--p, 0)); }
+  .ctrl { display: flex; align-items: center; gap: 16px; font-size: var(--step-small); font-weight: 700; color: var(--paper); font-variant-numeric: tabular-nums; }
+  .ctrl svg { width: 18px; }
+  .ctrl .chap { margin-left: auto; color: var(--soft); }
+  .under { margin-top: 14px; }
+  .under h3 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem); font-weight: 800; font-stretch: 112%; }
+  .under p { margin: 4px 0 0; color: var(--soft); font-size: var(--step-small); font-weight: 600; }
+
+  /* ── shelves ── */
+  .shelf { padding: clamp(56px, 7vw, 96px) 0 0; }
+  .shelf__head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 22px; }
+  .shelf__head h2 { font-size: var(--step-head); }
+  .shelf__head p { margin: 0; max-width: 40ch; color: var(--soft); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 18px; }
+  .vid { text-decoration: none; display: grid; gap: 10px; }
+  .thumb { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16 / 9; background: var(--raise); }
+  .thumb canvas { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity 260ms ease, transform 500ms var(--ease-out); }
+  .thumb .raw { opacity: 0; }
+  .vid:hover .thumb .raw, .vid:focus-visible .thumb .raw { opacity: 1; }
+  .vid:hover .thumb .fin { transform: scale(1.04); }
+  .dur { position: absolute; right: 8px; bottom: 8px; padding: 2px 6px; border-radius: 6px; background: rgb(0 0 0 / 0.78); font-size: 0.8125rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .rawtag { position: absolute; left: 8px; top: 8px; padding: 2px 8px; border-radius: 6px; background: var(--paper); color: var(--night); font-size: 0.75rem; font-weight: 900; opacity: 0; transition: opacity 200ms; }
+  .vid:hover .rawtag, .vid:focus-visible .rawtag { opacity: 1; }
+  .vid h3 { margin: 0; font-size: 1rem; font-weight: 800; line-height: 1.25; }
+  .vid p { margin: 0; color: var(--soft); font-size: var(--step-small); font-weight: 600; }
+  .row { display: grid; grid-auto-flow: column; grid-auto-columns: clamp(170px, 17vw, 230px); gap: 16px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; scrollbar-color: var(--raise-2) transparent; }
+  .short { scroll-snap-align: start; display: grid; gap: 10px; text-decoration: none; }
+  .short canvas { width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; display: block; background: var(--raise); }
+  .short h3 { margin: 0; font-size: 0.9375rem; font-weight: 800; }
+  .pods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .pod { border-radius: 16px; background: var(--raise); padding: 14px; display: grid; gap: 12px; text-decoration: none; }
+  .pod canvas { width: 100%; aspect-ratio: 16 / 9; border-radius: 10px; display: block; }
+  .pod h3 { margin: 0; font-size: 1rem; font-weight: 800; }
+  .pod p { margin: 0; color: var(--soft); font-size: var(--step-small); }
+  .ch { min-height: 0; padding: clamp(56px, 7vw, 96px) 0 0; }
+  .turn { grid-column: 1 / span 7; }
+  .faq { grid-column: 1 / span 8; }
+  .foot { min-height: 70svh; }
+
+  @media (max-width: 980px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .pods { grid-template-columns: 1fr; }
+    .stage { grid-template-columns: 1fr; align-content: center; gap: 18px; }
+    .stage__text p { font-size: var(--step-body); }
+    .search { display: none; }
+  }
+  @media (max-width: 820px) {
+    .nav { grid-template-columns: 1fr auto; }
+    .chan { grid-template-columns: auto 1fr; }
+    .chan .pill { grid-column: 1 / -1; justify-self: start; }
+    .stage__text h2 { font-size: clamp(2rem, 9vw, 2.6rem); }
+    .turn, .faq { grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+<div class="export" id="export" aria-hidden="true">
+  <div class="export__bar"><i id="export-fill"></i></div>
+  <div class="export__row"><span>loading channel</span><span class="num" id="export-pct">000%</span></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spec" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#2136cd"/><stop offset=".08" stop-color="#2664f7"/><stop offset=".2" stop-color="#32a9f6"/>
+      <stop offset=".3" stop-color="#32d7f6"/><stop offset=".38" stop-color="#c5f9ed"/><stop offset=".45" stop-color="#fbf7c9"/>
+      <stop offset=".53" stop-color="#fef78e"/><stop offset=".61" stop-color="#f9e853"/><stop offset=".69" stop-color="#f5b843"/>
+      <stop offset=".77" stop-color="#fa7d31"/><stop offset=".87" stop-color="#ef462e"/><stop offset="1" stop-color="#e32139"/>
+    </linearGradient>
+    <clipPath id="barclip"><polygon points="4,58 396,19 396,53 4,92"/></clipPath>
+    <symbol id="logo" viewBox="0 0 400 166">
+      <g clip-path="url(#barclip)">
+        <rect x="4" y="0" width="266" height="100" fill="url(#spec)"/>
+        <rect x="276" y="0" width="7" height="100" fill="#eb1635"/><rect x="289" y="0" width="7" height="100" fill="#d41c40"/>
+        <rect x="302" y="0" width="7" height="100" fill="#b22546"/><rect x="315" y="0" width="7" height="100" fill="#8a2445"/>
+        <rect x="328" y="0" width="7" height="100" fill="#6a2444"/><rect x="341" y="0" width="7" height="100" fill="#52263f"/>
+        <rect x="354" y="0" width="7" height="100" fill="#3f2740"/><rect x="367" y="0" width="7" height="100" fill="#33283f"/>
+        <rect x="380" y="0" width="7" height="100" fill="#2d2844"/>
+      </g>
+      <text x="0" y="146" font-family="Archivo, sans-serif" font-weight="900" font-stretch="125%" font-size="74" letter-spacing="-3" fill="currentColor">cutsway</text>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 16 16"><path d="M3 2v7h10M9 5l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <a class="nav__logo" href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#logo"/></svg></a>
+  <div class="search" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.8"/></svg>gaming edits that people finish</div>
+  <div class="nav__cta"><a class="pill pill--solid" href="#book">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+</header>
+
+<main id="top" class="wrap">
+  <div class="banner" aria-hidden="true"><canvas id="banner"></canvas></div>
+  <div class="chan">
+    <div class="avatar" aria-hidden="true"><svg viewBox="0 0 400 166"><use href="#logo"/></svg></div>
+    <div>
+      <h1 class="display">cutsway</h1>
+      <p class="chan__meta"><b>@cutsway</b> · editing and social media studio · gaming, long-form, podcasts, shorts</p>
+      <p class="chan__desc">We edit your videos while you make the next one. Fast turnaround, no dead air, captions and thumbnails included.</p>
+    </div>
+    <a class="pill pill--solid" href="#book">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a>
+  </div>
+  <nav class="tabs" aria-label="Channel">
+    <a href="#trailer" aria-current="page">Trailer</a><a href="#videos">Videos</a><a href="#shorts">Shorts</a><a href="#podcasts">Podcasts</a><a href="#turnaround">Turnaround</a><a href="#faq">About</a>
+  </nav>
+
+  <!-- the trailer: scroll scrubs the player through every step of one edit -->
+  <section class="story" id="trailer" aria-labelledby="stage-h">
+    <div class="stage">
+      <div class="stage__text">
+        <div class="copy-swap" id="copy">
+          <h2 class="display" id="stage-h">raw footage.</h2>
+          <p id="stage-p">Four hours of gameplay. Most of it is walking, loading and waiting.</p>
+        </div>
+      </div>
+      <div>
+        <div class="player">
+          <canvas id="player" width="1280" height="720" aria-label="Trailer: how one gaming video gets edited"></canvas>
+          <div class="chrome">
+            <div class="bar" id="bar"></div>
+            <div class="ctrl"><svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg><span class="num" id="time">0:00 / 12:04</span><span class="chap" id="chap">Raw footage</span></div>
+          </div>
+        </div>
+        <div class="under"><h3>How one video gets made, in eight steps (channel trailer)</h3><p>Scroll to scrub · sample edit</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shelf" id="videos" aria-labelledby="vid-h">
+    <div class="shelf__head"><h2 class="display" id="vid-h">videos</h2><p>Sample slots for your edits. Hover any thumbnail to see the raw footage it came from.</p></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="shelf" id="shorts" aria-labelledby="sh-h">
+    <div class="shelf__head"><h2 class="display" id="sh-h">shorts</h2><p>One VOD becomes a week of verticals, captioned for the first second of a scroll.</p></div>
+    <div class="row" id="shortrow"></div>
+  </section>
+
+  <section class="shelf" id="podcasts" aria-labelledby="pod-h">
+    <div class="shelf__head"><h2 class="display" id="pod-h">podcasts</h2><p>Three mics become one clean conversation, plus the clips that bring new listeners in.</p></div>
+    <div class="pods" id="pods"></div>
+  </section>
+
+  <section class="ch" id="turnaround" aria-labelledby="turn-h">
+    <div class="glass turn rise">
+      <h2 class="display" id="turn-h">when is it yours?</h2>
+      <div class="chips" role="group" aria-label="What would you send?">
+        <button class="chip" data-f="thumb">Thumbnail</button>
+        <button class="chip" data-f="shorts">Shorts pack</button>
+        <button class="chip" data-f="video" aria-pressed="true">Gaming video</button>
+        <button class="chip" data-f="podcast">Podcast</button>
+      </div>
+      <p class="due" aria-live="polite">Sent now, it's back by<strong class="num" id="due">…</strong></p>
+      <ol class="splits num" id="splits"></ol>
+      <p class="note">Sample turnaround times. Confirm before launch.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="faq" aria-labelledby="faq-h">
+    <h2 class="display faq-h rise" id="faq-h">about</h2>
+    <div class="glass faq rise" style="--i:1">
+      <details><summary>What do I send you?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>The raw recording, your channel link, a past video whose feel you like, and the date it needs to go up.</p></details>
+      <details><summary>Can you work from a stream VOD?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Yes. One VOD becomes a highlight video and a shorts pack from the same session.</p></details>
+      <details><summary>How many revisions?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Two rounds on every edit, left as notes on the exact frame. Sample policy, confirm before launch.</p></details>
+      <details><summary>Will you post it for me?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>If you want. We schedule and post with titles and captions written for each platform.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot wrap" id="book" aria-labelledby="book-h">
+  <h2 class="display rise" id="book-h"><a href="#book">book a call.</a></h2>
+  <p class="rise" style="--i:1">Your channel, edited like this one. Twenty minutes and we'll tell you what we'd cut first.</p>
+  <div class="foot__row rise" style="--i:2">
+    <span>cutsway.socialmanager@gmail.com · sample address</span>
+    <nav aria-label="Social"><a href="#">YouTube</a><a href="#">Instagram</a><a href="#">X</a><a href="#">Discord</a></nav>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="../shared/page.js"></script>
+<script>
+(async function () {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  try { await document.fonts.load('900 100px Archivo'); } catch {}
+  const SPEC = ['#2136cd', '#2664f7', '#32a9f6', '#32d7f6', '#c5f9ed', '#fbf7c9', '#fef78e', '#f9e853', '#f5b843', '#fa7d31', '#ef462e', '#e32139'];
+  const SLICES = ['#eb1635', '#d41c40', '#b22546', '#8a2445', '#6a2444', '#52263f', '#3f2740', '#33283f', '#2d2844'];
+  const font = (w, px) => `${w} ${px}px Archivo, sans-serif`;
+  const clamp01 = x => Math.min(1, Math.max(0, x)), ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const specGrad = (g, x0, x1) => { const lg = g.createLinearGradient(x0, 0, x1, 0); SPEC.forEach((c, k) => lg.addColorStop(k / (SPEC.length - 1), c)); return lg; };
+
+  // ── shared drawing: the footage, a thumbnail, a face ──
+  function drawGame(g, x, y, w, h, t, o = {}) {
+    const sky = g.createLinearGradient(0, y, 0, y + h); sky.addColorStop(0, o.top || '#2b1d4d'); sky.addColorStop(0.55, o.mid || '#b22546'); sky.addColorStop(0.75, o.low || '#fa7d31');
+    g.fillStyle = sky; g.fillRect(x, y, w, h);
+    g.fillStyle = '#1a1024'; for (let k = 0; k < 7; k++) { const bx = x + ((k * 173 * w / 1280 + t * 22 * w / 1280) % (w + 120)) - 60; g.fillRect(bx, y + h * 0.42 - (k % 3) * h * 0.04, w * 0.045, h * 0.2 + (k % 3) * h * 0.04); }
+    g.fillStyle = '#140c1c'; g.fillRect(x, y + h * 0.62, w, h * 0.38);
+    g.strokeStyle = 'rgba(250,125,49,0.45)'; g.lineWidth = Math.max(1, w / 600); g.beginPath();
+    for (let k = -8; k <= 8; k++) { g.moveTo(x + w / 2 + k * w * 0.023, y + h * 0.62); g.lineTo(x + w / 2 + k * w * 0.16, y + h); }
+    for (let k = 0; k < 6; k++) { const yy = y + h * 0.62 + Math.pow((k + (t * 0.8 % 1)) / 6, 2) * h * 0.38; g.moveTo(x, yy); g.lineTo(x + w, yy); }
+    g.stroke();
+    const ex = x + w * (0.55 + Math.sin(t * 0.9) * 0.12), u = h / 440;
+    g.fillStyle = '#0b0a10'; g.fillRect(ex - 14 * u, y + h * 0.5, 28 * u, 56 * u); g.beginPath(); g.arc(ex, y + h * 0.48, 14 * u, 0, 7); g.fill();
+    g.strokeStyle = '#f2f0e6'; g.lineWidth = 3 * u; const cx = x + w / 2, cy = y + h * 0.52, a = 18 * u, b = 6 * u;
+    g.beginPath(); g.moveTo(cx - a, cy); g.lineTo(cx - b, cy); g.moveTo(cx + b, cy); g.lineTo(cx + a, cy); g.moveTo(cx, cy - a); g.lineTo(cx, cy - b); g.moveTo(cx, cy + b); g.lineTo(cx, cy + a); g.stroke();
+  }
+  function caption(g, text, x, y, px, color, pop = 1) {
+    g.save(); g.translate(x, y); g.scale(pop, pop); g.textAlign = 'center'; g.font = font(900, px); g.lineJoin = 'round';
+    g.lineWidth = px * 0.18; g.strokeStyle = '#0b0a10'; g.strokeText(text, 0, 0); g.fillStyle = color; g.fillText(text, 0, 0); g.restore();
+  }
+  function face(g, cx, cy, r, mood = 'shock') {
+    g.fillStyle = '#c48a67'; g.beginPath(); g.arc(cx, cy, r, 0, 7); g.fill();
+    g.fillStyle = '#1a1317'; g.beginPath(); g.arc(cx, cy - r * 0.18, r * 1.02, Math.PI * 1.05, Math.PI * 1.95); g.fill();
+    g.fillStyle = '#0b0a10'; g.beginPath(); g.arc(cx - r * 0.33, cy - r * 0.05, r * 0.09, 0, 7); g.arc(cx + r * 0.33, cy - r * 0.05, r * 0.09, 0, 7); g.fill();
+    g.lineWidth = r * 0.08; g.strokeStyle = '#1a1317'; g.lineCap = 'round'; g.beginPath(); g.moveTo(cx - r * 0.48, cy - r * (mood === 'shock' ? 0.36 : 0.26)); g.lineTo(cx - r * 0.2, cy - r * 0.28); g.moveTo(cx + r * 0.48, cy - r * (mood === 'shock' ? 0.36 : 0.26)); g.lineTo(cx + r * 0.2, cy - r * 0.28); g.stroke();
+    g.lineWidth = r * 0.12; g.strokeStyle = '#0e0d12'; g.beginPath(); g.arc(cx, cy, r * 1.1, Math.PI * 1.08, Math.PI * 1.92); g.stroke();
+    [-1, 1].forEach(sd => { g.fillStyle = '#0e0d12'; g.beginPath(); g.ellipse(cx + sd * r * 1.02, cy + r * 0.05, r * 0.2, r * 0.32, 0, 0, 7); g.fill(); g.strokeStyle = '#e32139'; g.lineWidth = r * 0.05; g.beginPath(); g.ellipse(cx + sd * r * 1.02, cy + r * 0.05, r * 0.14, r * 0.25, 0, 0, 7); g.stroke(); });
+    g.beginPath(); if (mood === 'shock') g.ellipse(cx, cy + r * 0.4, r * 0.16, r * 0.22, 0, 0, 7); else { g.lineWidth = r * 0.07; g.strokeStyle = '#0b0a10'; g.arc(cx, cy + r * 0.2, r * 0.3, 0.2, Math.PI - 0.2); g.stroke(); } g.fill();
+  }
+  function drawThumbArt(g, w, h, d, k = 1) {
+    g.fillStyle = d.bg; g.fillRect(0, 0, w, h);
+    g.fillStyle = d.bg2; g.beginPath(); g.moveTo(w * 0.56, 0); g.lineTo(w, 0); g.lineTo(w, h); g.lineTo(w * 0.42, h); g.fill();
+    if (d.game) { g.save(); g.beginPath(); g.moveTo(w * 0.56, 0); g.lineTo(w, 0); g.lineTo(w, h); g.lineTo(w * 0.42, h); g.clip(); drawGame(g, w * 0.4, 0, w * 0.6, h, d.seed); g.restore(); }
+    face(g, w * 0.79, h * 0.52, h * 0.24 * k, d.mood);
+    g.fillStyle = d.ink; g.font = font(900, Math.round(h * 0.135)); g.textAlign = 'left';
+    d.lines.forEach((l, n) => g.fillText(l, w * 0.045, h * (0.34 + n * 0.19)));
+    if (d.chip) { g.fillStyle = '#f9e853'; const cw = g.measureText(d.chip).width; g.font = font(900, Math.round(h * 0.085)); const tw = g.measureText(d.chip).width; g.fillRect(w * 0.045, h * 0.72, tw + h * 0.08, h * 0.13); g.fillStyle = '#0b0a10'; g.fillText(d.chip, w * 0.045 + h * 0.04, h * 0.82); }
+  }
+
+  // ── banner ──
+  (function () {
+    const cv = document.getElementById('banner'), r = cv.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
+    cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr); const g = cv.getContext('2d'), W = cv.width, H = cv.height;
+    const sky = g.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, '#0d0f2e'); sky.addColorStop(0.5, '#3f2740'); sky.addColorStop(0.85, '#b22546'); sky.addColorStop(1, '#fa7d31');
+    g.fillStyle = sky; g.fillRect(0, 0, W, H);
+    const R = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(4); let x = 0;
+    while (x < W) { const bw = W * (0.02 + R() * 0.05), bh = H * (0.25 + R() * 0.6); g.fillStyle = '#120d1a'; g.fillRect(x, H - bh, bw, bh); for (let k = 0; k < 14; k++) if (R() < 0.4) { g.fillStyle = R() < 0.5 ? '#f5b843' : '#c5f9ed'; g.fillRect(x + R() * (bw - 6), H - bh + R() * (bh - 10), 4 * dpr, 6 * dpr); } x += bw + 4; }
+    const s = H / 120; g.save(); g.beginPath(); g.moveTo(W * 0.52 + 4 * s, H * 0.18 + 58 * s); g.lineTo(W * 0.52 + 396 * s, H * 0.18 + 19 * s); g.lineTo(W * 0.52 + 396 * s, H * 0.18 + 53 * s); g.lineTo(W * 0.52 + 4 * s, H * 0.18 + 92 * s); g.closePath(); g.clip();
+    g.fillStyle = specGrad(g, W * 0.52, W * 0.52 + 270 * s); g.fillRect(W * 0.52, 0, 270 * s, H); SLICES.forEach((c, k) => { g.fillStyle = c; g.fillRect(W * 0.52 + (276 + k * 13) * s, 0, 7 * s, H); }); g.restore();
+  })();
+
+  // ── the trailer stages ──
+  const STAGES = [
+    ['raw footage.', 'Four hours of gameplay. Most of it is walking, loading and waiting.', 'Raw footage', 1.2],
+    ['the cut.', 'We keep the twelve minutes that matter and cut on the beat, so it never drags.', 'The cut', 1.0],
+    ['captions.', 'Every line captioned, every big moment hit with type that lands on the frame.', 'Captions', 0.9],
+    ['colour.', 'A grade that makes the game look the way it felt to play.', 'Colour', 0.8],
+    ['sound.', 'Voice up, music ducked underneath, the clutch with the hit it deserves.', 'Sound', 0.8],
+    ['thumbnail.', 'Made from the edit, not after it. The image that decides whether anyone clicks.', 'Thumbnail', 0.9],
+    ['shorts.', 'The best nine seconds, reframed to vertical and captioned for a scroll.', 'Shorts', 0.9],
+    ['posted.', 'Uploaded with its title and caption, scheduled for when your audience is awake.', 'Posted', 0.7],
+  ];
+  const player = document.getElementById('player'), pg = player.getContext('2d'), PW = 1280, PH = 720;
+  const barEl = document.getElementById('bar');
+  const total = STAGES.reduce((a, s) => a + s[3], 0);
+  barEl.innerHTML = STAGES.map((s, k) => `<i style="--f:${s[3]};--c:${k === STAGES.length - 1 ? SLICES[2] : SPEC[Math.round(k / (STAGES.length - 1) * (SPEC.length - 1))]}"><b></b></i>`).join('');
+  const segs = [...barEl.children].map(i => i.firstChild);
+  const copy = document.getElementById('copy'), hEl = document.getElementById('stage-h'), pEl = document.getElementById('stage-p'), timeEl = document.getElementById('time'), chapEl = document.getElementById('chap');
+  let shown = 0;
+
+  const THUMB = { bg: '#fa7d31', bg2: '#e32139', ink: '#0b0a10', lines: ['WE LOST', 'THE RAID'], chip: 'AT 1 HP', mood: 'shock', game: false, seed: 3 };
+  function drawStage(k, u, t) {
+    const g = pg; g.save();
+    if (k === 0) {                                   // raw: flat, shaky, loading screens
+      const jx = reduce ? 0 : Math.sin(t * 23) * 6, jy = reduce ? 0 : Math.cos(t * 19) * 5;
+      if ((Math.floor(t * 0.9) % 3) === 2) { g.fillStyle = '#121019'; g.fillRect(0, 0, PW, PH); g.fillStyle = '#aaa6b9'; g.font = font(800, 40); g.textAlign = 'center'; g.fillText('LOADING…', PW / 2, PH / 2); g.textAlign = 'left'; }
+      else { g.translate(jx, jy); drawGame(g, -20, -20, PW + 40, PH + 40, t * 0.25); g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = 'rgba(70,66,80,0.55)'; g.fillRect(0, 0, PW, PH); }
+      g.fillStyle = 'rgba(11,10,16,0.7)'; g.fillRect(24, 24, 300, 46); g.fillStyle = '#f2f0e6'; g.font = font(800, 22); g.fillText(`RAW · ${3 - Math.floor(u * 2)}:58:12 left`, 40, 55);
+    } else if (k === 1) {                            // the cut: jump cuts with flashes; a strip of clips collapsing
+      const cutEvery = 0.55, ph = (t % cutEvery) / cutEvery;
+      drawGame(g, 0, 0, PW, PH, Math.floor(t / cutEvery) * 3.7 + ph * 0.3);
+      if (ph < 0.12) { g.fillStyle = `rgba(242,240,230,${0.35 * (1 - ph / 0.12)})`; g.fillRect(0, 0, PW, PH); }
+      const n = 28, kept = Math.round(n - u * 18);
+      for (let c = 0; c < n; c++) { const x = 40 + c * ((PW - 80) / n), cut = c >= kept || (c % 3 === 1 && u > 0.3); g.fillStyle = cut ? 'rgba(242,240,230,0.12)' : SPEC[c % SPEC.length]; g.fillRect(x, PH - 120, (PW - 80) / n - 4, cut ? 6 : 22); }
+    } else if (k === 2) {                            // captions
+      drawGame(g, 0, 0, PW, PH, t);
+      const words = ['THEY', 'DID NOT', 'SEE IT', 'COMING'], wi = Math.floor(t * 1.6) % words.length, pop = 1 + Math.max(0, 0.22 - ((t * 1.6) % 1) * 0.7);
+      caption(g, words[wi], PW / 2, PH * 0.84, 96, wi % 2 ? '#f9e853' : '#f2f0e6', pop);
+    } else if (k === 3) {                            // colour: before | after wipe
+      const wx = PW * (0.15 + ease(u) * 0.7);
+      drawGame(g, 0, 0, PW, PH, t, { top: '#1b1530', mid: '#7d2a40', low: '#c46a3a' });
+      g.save(); g.beginPath(); g.rect(0, 0, wx, PH); g.clip(); drawGame(g, 0, 0, PW, PH, t, { top: '#3a3842', mid: '#6d6672', low: '#8a827a' }); g.restore();
+      g.fillStyle = '#f2f0e6'; g.fillRect(wx - 2, 0, 4, PH);
+      g.font = font(900, 26); g.fillStyle = 'rgba(11,10,16,0.7)'; g.fillRect(24, 24, 128, 44); g.fillRect(PW - 152, 24, 128, 44); g.fillStyle = '#f2f0e6'; g.fillText('BEFORE', 40, 55); g.fillText('AFTER', PW - 132, 55);
+    } else if (k === 4) {                            // sound: voice and music lanes, music ducks under the voice
+      drawGame(g, 0, 0, PW, PH, t); g.fillStyle = 'rgba(11,10,16,0.62)'; g.fillRect(0, PH - 250, PW, 250);
+      const talk = Math.sin(t * 2.2) > -0.2;
+      [['VOICE', '#32d7f6', talk ? 1 : 0.25], ['MUSIC', '#f9e853', talk ? 0.35 : 0.9], ['SFX', '#e32139', Math.max(0, Math.sin(t * 5)) > 0.85 ? 1 : 0.15]].forEach(([n, c, lv], r) => {
+        const y0 = PH - 210 + r * 70; g.fillStyle = '#aaa6b9'; g.font = font(800, 18); g.fillText(n, 30, y0 + 8);
+        g.fillStyle = c; for (let x = 0; x < PW - 160; x += 8) { const a = (Math.abs(Math.sin(x * 0.04 + t * 4 + r)) * 0.7 + 0.3) * 26 * lv; g.fillRect(130 + x, y0 - a, 4, a * 2); }
+      });
+    } else if (k === 5) {                            // thumbnail composes itself
+      const a = ease(clamp01(u * 1.6));
+      drawGame(g, 0, 0, PW, PH, 4.2); g.fillStyle = `rgba(11,10,16,${0.5 * (1 - a)})`; g.fillRect(0, 0, PW, PH);
+      g.save(); g.globalAlpha = a; drawThumbArt(g, PW, PH, THUMB, 0.6 + 0.4 * a); g.restore();
+      g.strokeStyle = '#f2f0e6'; g.lineWidth = 4; g.setLineDash([14, 10]); g.strokeRect(12, 12, PW - 24, PH - 24); g.setLineDash([]);
+    } else if (k === 6) {                            // shorts: the vertical crop finds the action, then fills
+      drawGame(g, 0, 0, PW, PH, t);
+      const cw = PH * 9 / 16, cx = PW * (0.45 + Math.sin(t * 0.9) * 0.08) - cw / 2;
+      g.fillStyle = `rgba(11,10,16,${0.7})`; g.fillRect(0, 0, cx, PH); g.fillRect(cx + cw, 0, PW - cx - cw, PH);
+      g.strokeStyle = '#f9e853'; g.lineWidth = 5; g.strokeRect(cx, 2, cw, PH - 4);
+      const caps = ['1V5', 'CLUTCH', 'IN 9', 'SECONDS'], ci = Math.floor(t * 2) % caps.length; caption(g, caps[ci], cx + cw / 2, PH * 0.6, 64, ci % 2 ? '#f9e853' : '#f2f0e6', 1 + Math.max(0, 0.2 - ((t * 2) % 1) * 0.6));
+    } else {                                         // posted
+      drawThumbArt(g, PW, PH, THUMB, 1); g.fillStyle = 'rgba(11,10,16,0.84)'; g.fillRect(0, 0, PW, 170);
+      g.fillStyle = '#32d7f6'; g.beginPath(); g.arc(90, 85, 40, 0, 7); g.fill(); g.strokeStyle = '#0b0a10'; g.lineWidth = 9; g.beginPath(); g.moveTo(70, 85); g.lineTo(85, 101); g.lineTo(112, 69); g.stroke();
+      g.fillStyle = '#f2f0e6'; g.font = font(900, 44); g.fillText('Uploaded', 160, 78); g.fillStyle = '#aaa6b9'; g.font = font(700, 26); g.fillText('Scheduled · goes live 9:00 pm', 160, 118);
+      [['YT', '#e32139'], ['IG', '#fa7d31'], ['TT', '#32d7f6'], ['X', '#f2f0e6']].forEach(([n, c], i) => { const on = u > i * 0.2; g.fillStyle = on ? c : '#2a2733'; g.fillRect(PW - 430 + i * 100, 43, 84, 84); g.fillStyle = on ? '#0b0a10' : '#6d6a78'; g.font = font(900, 32); g.textAlign = 'center'; g.fillText(n, PW - 388 + i * 100, 97); g.textAlign = 'left'; });
+    }
+    g.restore();
+  }
+
+  // ── the videos grid: finished thumbnail, raw frame on hover ──
+  const VIDS = [
+    ['We lost the raid at 1 HP', 'Gaming video', '18:42', { bg: '#fa7d31', bg2: '#e32139', ink: '#0b0a10', lines: ['WE LOST', 'THE RAID'], chip: 'AT 1 HP', mood: 'shock', game: false, seed: 1 }],
+    ['100 days in hardcore', 'Long-form', '41:07', { bg: '#2136cd', bg2: '#32d7f6', ink: '#f2f0e6', lines: ['100 DAYS', 'HARDCORE'], chip: '', mood: 'smile', game: true, seed: 5 }],
+    ['Ep. 41: burnout', 'Podcast', '1:12:30', { bg: '#2d2844', bg2: '#b22546', ink: '#f2f0e6', lines: ['EP. 41', 'BURNOUT'], chip: 'FULL EP', mood: 'smile', game: false, seed: 2 }],
+    ['I quit my job to stream', 'Long-form', '22:15', { bg: '#f9e853', bg2: '#0b0a10', ink: '#0b0a10', lines: ['I QUIT', 'MY JOB'], chip: 'TO STREAM', mood: 'shock', game: false, seed: 7 }],
+    ['New map, first look', 'Gaming video', '14:03', { bg: '#32d7f6', bg2: '#2664f7', ink: '#0b0a10', lines: ['NEW MAP', 'FIRST LOOK'], chip: '', mood: 'shock', game: true, seed: 9 }],
+    ['Ranking every boss', 'Gaming video', '27:49', { bg: '#e32139', bg2: '#3f2740', ink: '#f2f0e6', lines: ['EVERY', 'BOSS'], chip: 'RANKED', mood: 'smile', game: true, seed: 4 }],
+    ['Ep. 42: the comeback', 'Podcast', '58:11', { bg: '#c5f9ed', bg2: '#2136cd', ink: '#0b0a10', lines: ['EP. 42', 'COMEBACK'], chip: '', mood: 'smile', game: false, seed: 6 }],
+    ['1v5 in nine seconds', 'Gaming video', '9:58', { bg: '#0b0a10', bg2: '#fa7d31', ink: '#f9e853', lines: ['1V5', 'CLUTCH'], chip: '9 SECONDS', mood: 'shock', game: true, seed: 8 }],
+  ];
+  const grid = document.getElementById('grid');
+  grid.innerHTML = VIDS.map(([title, kind, dur], k) => `<a class="vid rise" style="--i:${k % 4}" href="#book"><div class="thumb"><canvas class="fin" width="640" height="360"></canvas><canvas class="raw" width="640" height="360"></canvas><span class="rawtag">RAW</span><span class="dur">${dur}</span></div><h3>${title}</h3><p>${kind} · sample slot</p></a>`).join('');
+  [...grid.children].forEach((a, k) => {
+    const [fin, raw] = a.querySelectorAll('canvas'), d = VIDS[k][3];
+    drawThumbArt(fin.getContext('2d'), 640, 360, d, 1);
+    const rg = raw.getContext('2d'); drawGame(rg, 0, 0, 640, 360, d.seed * 7, { top: '#3a3842', mid: '#6d6672', low: '#8a827a' }); rg.fillStyle = 'rgba(11,10,16,0.25)'; rg.fillRect(0, 0, 640, 360);
+    rg.fillStyle = 'rgba(11,10,16,0.75)'; rg.fillRect(420, 300, 200, 40); rg.fillStyle = '#f2f0e6'; rg.font = font(800, 20); rg.fillText(`3:${50 + k}:${10 + k * 3} raw`, 436, 327);
+    a.querySelectorAll('.rise').forEach(() => {});
+  });
+  document.querySelectorAll('#grid .rise').forEach(el => { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.disconnect(); } })); io.observe(el); });
+
+  // ── shorts: little live verticals, animated only while on screen ──
+  const SHORTS = [['1v5 clutch', ['1V5', 'CLUTCH']], ['the last bullet', ['ONE', 'BULLET']], ['he heard me', ['HE', 'HEARD', 'ME']], ['speedrun skip', ['SKIP', 'FOUND']], ['worst teammate', ['WHY', 'WOULD', 'YOU']], ['burnout, in 30s', ['I NEARLY', 'QUIT']]];
+  const srow = document.getElementById('shortrow');
+  srow.innerHTML = SHORTS.map(([t]) => `<a class="short" href="#book"><canvas width="270" height="480"></canvas><h3>${t}</h3></a>`).join('');
+  const shortCanvases = [...srow.querySelectorAll('canvas')].map((c, k) => ({ c, g: c.getContext('2d'), k, on: false }));
+  const sio = new IntersectionObserver(es => es.forEach(e => { const s = shortCanvases.find(x => x.c === e.target); if (s) s.on = e.isIntersecting; }));
+  shortCanvases.forEach(s => sio.observe(s.c));
+  function drawShortCard(s, t) {
+    const { g, k } = s, W = 270, H = 480, words = SHORTS[k][1], tt = t + k * 1.7;
+    drawGame(g, 0, 0, W, H, tt * 1.1 + k * 5, k % 3 === 1 ? { top: '#0d0f2e', mid: '#2664f7', low: '#32d7f6' } : k % 3 === 2 ? { top: '#2d2844', mid: '#3f2740', low: '#f5b843' } : {});
+    const wi = Math.floor(tt * 1.8) % words.length; caption(g, words[wi], W / 2, H * 0.58, 46, wi % 2 ? '#f9e853' : '#f2f0e6', 1 + Math.max(0, 0.22 - ((tt * 1.8) % 1) * 0.7));
+    g.fillStyle = 'rgba(242,240,230,0.3)'; g.fillRect(0, H - 4, W, 4); g.fillStyle = '#f2f0e6'; g.fillRect(0, H - 4, W * ((tt * 0.15) % 1), 4);
+  }
+
+  // ── podcasts ──
+  const PODS = [['Ep. 41: burnout', '1 h 12 min · 3 mics, 2 cameras'], ['Ep. 42: the comeback', '58 min · remote guest'], ['Ep. 43: what views mean', '1 h 04 min · live recording']];
+  const pods = document.getElementById('pods');
+  pods.innerHTML = PODS.map(([t, m], k) => `<a class="pod rise" style="--i:${k}" href="#book"><canvas width="640" height="360"></canvas><h3>${t}</h3><p>${m} · sample slot</p></a>`).join('');
+  [...pods.querySelectorAll('canvas')].forEach((c, k) => {
+    const g = c.getContext('2d'), W = 640, H = 360; g.fillStyle = ['#1c1426', '#141a2a', '#221624'][k]; g.fillRect(0, 0, W, H); g.fillStyle = '#2a1e36'; g.fillRect(0, H * 0.7, W, H * 0.3);
+    [[0.3, '#e32139', 'smile'], [0.7, '#2664f7', k === 1 ? 'shock' : 'smile']].forEach(([fx, ac, mood]) => { const px = W * fx; g.fillStyle = '#3f2740'; g.fillRect(px - 70, H * 0.55, 140, H * 0.3); face(g, px, H * 0.42, 44, mood); g.fillStyle = ac; g.fillRect(px - 70, H * 0.55, 140, 6); g.fillStyle = '#0b0a10'; g.fillRect(px + (fx < 0.5 ? 56 : -76), H * 0.46, 18, 60); });
+    g.fillStyle = '#f2f0e6'; g.fillRect(18, H - 58, 220, 40); g.fillStyle = '#0b0a10'; g.font = font(900, 22); g.fillText(PODS[k][0].split(':')[0].toLowerCase(), 32, H - 30);
+  });
+  document.querySelectorAll('#pods .rise').forEach(el => { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.disconnect(); } })); io.observe(el); });
+
+  // ── the loop: lenis, the scrubbed trailer, the shorts ──
+  const story = document.getElementById('trailer');
+  let last = -1;
+  function frame(now) {
+    if (window.tickLenis) window.tickLenis(now);
+    const t = now / 1000;
+    const r = story.getBoundingClientRect(), span = r.height - innerHeight;
+    const p = clamp01(-r.top / span) * 0.9999;
+    // which stage, and how far through it
+    let acc = 0, k = 0; const pt = p * total; for (; k < STAGES.length; k++) { if (pt < acc + STAGES[k][3]) break; acc += STAGES[k][3]; }
+    k = Math.min(STAGES.length - 1, k); const u = clamp01((pt - acc) / STAGES[k][3]);
+    if (t - last > 1 / 30 || last < 0) { drawStage(k, u, t); last = t; shortCanvases.forEach(s => { if (s.on) drawShortCard(s, t); }); }
+    segs.forEach((b, n) => b.style.setProperty('--p', n < k ? 1 : n === k ? u : 0));
+    const secs = Math.round(p * 724); timeEl.textContent = `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')} / 12:04`; chapEl.textContent = STAGES[k][2];
+    if (k !== shown) {
+      shown = k; copy.classList.add('out');
+      setTimeout(() => { hEl.textContent = STAGES[k][0]; pEl.textContent = STAGES[k][1]; copy.classList.remove('out'); }, reduce ? 0 : 200);
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

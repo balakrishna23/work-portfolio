@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Thumbnail Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --gold: #ffc72e; --ink: #0d0907; --paper: #fff8ea; --red: #f0163a; --orange: #ff6420; --m: clamp(16px, 3vw, 48px); }
+  * { box-sizing: border-box; }
+  html { background: var(--gold); color: var(--ink); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px var(--m); }
+  .nav svg { width: 120px; height: 50px; display: block; }
+  .nav nav { display: flex; gap: 24px; font-weight: 800; }
+  .nav nav a { text-decoration: none; } .nav nav a:hover { text-decoration: underline; text-decoration-thickness: 3px; }
+  .btn { display: inline-flex; padding: 14px 22px; background: var(--red); color: #fff; font-weight: 900; text-decoration: none; font-size: 18px; border: 4px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); transition: transform .15s, box-shadow .15s; }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--ink); }
+  .btn:active { transform: translate(4px, 4px); box-shadow: 2px 2px 0 var(--ink); }
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 4px solid var(--ink); outline-offset: 3px; }
+  .loud { font-weight: 900; font-stretch: 112%; font-style: italic; text-transform: uppercase; letter-spacing: -.035em; line-height: .86; }
+
+  .hero { padding: clamp(16px, 3vw, 40px) var(--m) 0; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(20px, 3vw, 48px); align-items: start; }
+  h1 { margin: 0; font-size: clamp(3.6rem, 8.8vw, 10rem); color: #fff; -webkit-text-stroke: clamp(3px, .5vw, 8px) var(--ink); paint-order: stroke fill; }
+  .hero p.lede { font-size: 21px; font-weight: 600; max-width: 30ch; margin: 22px 0 26px; }
+  .lab { background: var(--ink); color: var(--paper); padding: 14px; border: 4px solid var(--ink); }
+  .lab canvas { width: 100%; aspect-ratio: 16 / 9; display: block; }
+  .ctrl { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 16px 4px 4px; }
+  .ctrl label, .ctrl legend { font-weight: 800; font-size: 15px; display: block; margin-bottom: 6px; padding: 0; }
+  .ctrl fieldset { border: 0; margin: 0; padding: 0; }
+  .ctrl input[type=text] { width: 100%; font: inherit; font-weight: 800; font-size: 20px; padding: 10px 12px; background: var(--paper); color: var(--ink); border: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips button { font: inherit; font-size: 15px; font-weight: 800; padding: 8px 12px; background: #2a201b; color: var(--paper); border: 0; cursor: pointer; transition: transform .15s; }
+  .chips button[aria-pressed="true"] { background: var(--gold); color: var(--ink); }
+  .chips button:active { transform: scale(.94); }
+  .full { grid-column: 1 / -1; }
+
+  .feed { margin-top: clamp(120px, 12vw, 180px); background: var(--paper); padding: clamp(40px, 6vw, 96px) var(--m); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+  h2 { margin: 0 0 22px; font-size: clamp(3rem, 6.4vw, 7rem); }
+  .feed p { font-size: 20px; max-width: 34ch; margin: 0; }
+  .yt { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 14px; font-family: Roboto, Arial, sans-serif; }
+  .yt figure { margin: 0; }
+  .yt canvas, .yt img { width: 100%; aspect-ratio: 16 / 9; display: block; border-radius: 10px; object-fit: cover; }
+  .yt figcaption { font-size: 14px; line-height: 1.3; margin-top: 8px; font-weight: 600; }
+  .yt figcaption span { display: block; font-weight: 400; color: #606060; font-size: 13px; margin-top: 2px; }
+  .yt .mine canvas { outline: 4px solid var(--red); outline-offset: 3px; }
+
+  section { padding: clamp(120px, 12vw, 180px) var(--m) 0; }
+  .rules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border: 4px solid var(--ink); background: var(--ink); }
+  .rules > div { background: var(--gold); padding: clamp(20px, 3vw, 40px); }
+  .rules > div:nth-child(2), .rules > div:nth-child(3) { background: var(--paper); }
+  .rules h3 { margin: 0 0 10px; font-size: clamp(1.8rem, 3vw, 3rem); }
+  .rules p { margin: 0; font-size: 19px; }
+  .rules img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; margin-top: 18px; border: 4px solid var(--ink); }
+  .grid2 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .price { background: var(--ink); color: var(--paper); padding: 24px; }
+  .price h3 { margin: 0 0 6px; font-size: 22px; }
+  .price b { display: block; font-size: 3rem; color: var(--gold); }
+  .price p { margin: 0; color: #e8dccb; font-size: 16px; }
+  .qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; }
+  .qa h3 { margin: 0 0 6px; font-size: 22px; font-weight: 900; }
+  .qa p { margin: 0; }
+  footer { padding: clamp(120px, 12vw, 180px) var(--m) 28px; }
+  footer .loud { font-size: clamp(4rem, 14vw, 16rem); margin: 0 0 28px; color: #fff; -webkit-text-stroke: clamp(3px, .6vw, 10px) var(--ink); paint-order: stroke fill; }
+  .foot { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+  .credits { font-size: 13px; max-width: 80ch; margin: 0; }
+  @media (max-width: 900px) {
+    .nav nav { display: none; }
+    .hero, .feed { grid-template-columns: 1fr; }
+    .ctrl { grid-template-columns: 1fr; }
+    .yt { grid-template-columns: 1fr 1fr; } .yt figure:nth-child(n+5) { display: none; }
+    .rules, .qa { grid-template-columns: 1fr; } .grid2 { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#feed">The feed test</a><a href="#rules">How we make them</a><a href="#faq">Questions</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div>
+      <h1 class="loud">Make them click.</h1>
+      <p class="lede">Cutsway makes the thumbnails, edits and shorts for gaming creators. Build one here, then see it in the feed.</p>
+      <a class="btn" href="#book">Book a call</a>
+    </div>
+    <div class="lab">
+      <canvas id="thumb" width="1280" height="720" aria-label="Your thumbnail preview"></canvas>
+      <div class="ctrl">
+        <div class="full"><label for="title">Thumbnail text, four words at most</label><input id="title" type="text" maxlength="28" value="1 HP CLUTCH"></div>
+        <fieldset><legend>Behind it</legend><div class="chips" id="bg"><button data-v="boss" aria-pressed="true">Boss</button><button data-v="race">Race</button><button data-v="fps">Shooter</button><button data-v="platform">Platformer</button></div></fieldset>
+        <fieldset><legend>The face</legend><div class="chips" id="face"><button data-v="shock" aria-pressed="true">Shock</button><button data-v="grin">Grin</button><button data-v="none">No face</button></div></fieldset>
+        <fieldset class="full"><legend>Pop colour</legend><div class="chips" id="pop"><button data-v="#ffc72e" aria-pressed="true">Gold</button><button data-v="#f0163a">Red</button><button data-v="#ffffff">White</button></div></fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="feed" id="feed">
+    <div data-rise="kids">
+      <h2 class="loud">The feed test</h2>
+      <p>Your thumbnail is seen at 168 pixels wide, between eleven others, for half a second. Every one we make is checked at this size before you see it.</p>
+    </div>
+    <div class="yt" data-ui id="yt">
+      <figure class="mine"><canvas width="640" height="360" id="mini"></canvas><figcaption id="mini-t">1 HP CLUTCH (I can't believe this worked)<span>Your channel · 2 hours ago</span></figcaption></figure>
+      <figure><img src="../_shared/img/stage-5.jpg" alt=""><figcaption>The biggest LAN of the year, every round<span>Another channel · 1 day ago</span></figcaption></figure>
+      <figure><img src="../_shared/img/mic-2.jpg" alt=""><figcaption>We need to talk about the patch notes<span>Podcast channel · 5 hours ago</span></figcaption></figure>
+      <figure><img src="../_shared/img/stage-1.jpg" alt=""><figcaption>Pro players react to my ranked games<span>Another channel · 3 days ago</span></figcaption></figure>
+      <figure><img src="../_shared/img/pad-xbox.jpg" alt=""><figcaption>I tried every controller so you don't have to<span>Tech channel · 1 week ago</span></figcaption></figure>
+      <figure><img src="../_shared/img/stage-3.jpg" alt=""><figcaption>Our most chaotic episode yet<span>Podcast channel · 2 days ago</span></figcaption></figure>
+    </div>
+  </div>
+
+  <section id="rules" aria-labelledby="rules-h">
+    <h2 class="loud" id="rules-h" data-rise>How we make them</h2>
+    <div class="rules" data-rise="kids">
+      <div><h3 class="loud">One idea</h3><p>One face, one object, one promise. If it needs explaining, it is two thumbnails.</p></div>
+      <div><h3 class="loud">Four words</h3><p>Or none. The title already says the rest.</p><img src="../_shared/img/stage-2.jpg" alt="A presenter on a dark stage"></div>
+      <div><h3 class="loud">Three options</h3><p>Every video gets three directions to choose from, made alongside the edit.</p><img src="../_shared/img/podcave.jpg" alt="An editing desk with a mixer and a monitor"></div>
+      <div><h3 class="loud">Swap and test</h3><p>We hand over the alternates, so you can swap one in when the first stalls.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="price-h">
+    <h2 class="loud" id="price-h" data-rise>How fast</h2>
+    <div class="grid2" data-rise="kids">
+      <div class="price"><h3>Thumbnail</h3><b class="loud">8h</b><p>Three options, one final</p></div>
+      <div class="price"><h3>Shorts pack</h3><b class="loud">24h</b><p>Ten clips, captioned</p></div>
+      <div class="price"><h3>Gaming video</h3><b class="loud">48h</b><p>Edit plus thumbnails</p></div>
+      <div class="price"><h3>Podcast</h3><b class="loud">72h</b><p>Episode and six clips</p></div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 class="loud" id="faq-h" data-rise>Questions</h2>
+    <div class="qa" data-rise="kids">
+      <div><h3>Do I need to send a face photo?</h3><p>A short shoot of reactions from your camera, once. We build from that library after.</p></div>
+      <div><h3>Can you match my channel's look?</h3><p>Yes. Fonts, colours, the way you frame yourself. It should look like you, but louder.</p></div>
+      <div><h3>Thumbnails without the edit?</h3><p>Yes, from 8 hours. Most channels take both.</p></div>
+      <div><h3>Are these times guaranteed?</h3><p>They are samples. Your times are confirmed on the call.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <p class="loud">Click this.</p>
+  <div class="foot"><p class="credits">Photographs: esports events by Flickr users 23979265@N07, 48254827@N00 and 84584821@N08, CC BY 2.0; SPNN podcast studio, CC BY 4.0; The Podcave, CC BY 2.0; InclusiveGameLab, CC BY-SA 4.0. Feed titles and channels are made-up examples.</p><a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a></div>
+</footer>
+
+<script src="../_shared/frames.js"></script>
+<script src="../_shared/brand.js"></script>
+<script>
+  const c = document.getElementById('thumb'), x = c.getContext('2d'), mini = document.getElementById('mini').getContext('2d');
+  const st = { bg: 'boss', face: 'shock', pop: '#ffc72e' };
+  const title = document.getElementById('title');
+  function face(x, cx, cy, s, kind) {
+    x.save(); x.translate(cx, cy); x.scale(s, s);
+    x.fillStyle = '#0d0907'; x.beginPath(); x.ellipse(0, 40, 200, 230, 0, 0, 7); x.fill();
+    x.fillStyle = '#e0a77c'; x.beginPath(); x.ellipse(0, 0, 160, 190, 0, 0, 7); x.fill();
+    x.fillStyle = '#2a1a12'; x.beginPath(); x.ellipse(0, -150, 170, 80, 0, Math.PI, 0); x.fill(); x.fillRect(-170, -160, 340, 50);
+    x.fillStyle = '#fff'; const ey = -10;
+    if (kind === 'shock') { x.beginPath(); x.ellipse(-62, ey, 40, 46, 0, 0, 7); x.ellipse(62, ey, 40, 46, 0, 0, 7); x.fill(); x.fillStyle = '#0d0907'; x.beginPath(); x.arc(-58, ey + 4, 16, 0, 7); x.arc(66, ey + 4, 16, 0, 7); x.fill();
+      x.fillStyle = '#5a0f1c'; x.beginPath(); x.ellipse(0, 110, 52, 64, 0, 0, 7); x.fill(); x.strokeStyle = '#2a1a12'; x.lineWidth = 12; x.beginPath(); x.moveTo(-100, -80); x.lineTo(-30, -95); x.moveTo(100, -80); x.lineTo(30, -95); x.stroke(); }
+    else { x.beginPath(); x.ellipse(-62, ey, 34, 22, 0, 0, 7); x.ellipse(62, ey, 34, 22, 0, 0, 7); x.fill(); x.fillStyle = '#0d0907'; x.beginPath(); x.arc(-56, ey, 12, 0, 7); x.arc(68, ey, 12, 0, 7); x.fill();
+      x.fillStyle = '#fff'; x.beginPath(); x.moveTo(-90, 80); x.quadraticCurveTo(0, 190, 90, 80); x.closePath(); x.fill(); x.strokeStyle = '#2a1a12'; x.lineWidth = 12; x.beginPath(); x.moveTo(-100, -70); x.lineTo(-30, -60); x.moveTo(100, -90); x.lineTo(30, -70); x.stroke(); }
+    x.restore();
+  }
+  function render(t) {
+    CutFrames.draw(x, 1280, 720, st.bg, 9, t || 1.5);
+    x.fillStyle = 'rgba(13,9,7,.25)'; x.fillRect(0, 0, 1280, 720);
+    const has = st.face !== 'none';
+    if (has) face(x, 330, 440, 1.25, st.face);
+    // arrow and circle
+    x.strokeStyle = '#f0163a'; x.lineWidth = 18; x.lineCap = 'round';
+    x.beginPath(); x.ellipse(has ? 930 : 860, 470, 150, 120, -.2, 0, 7); x.stroke();
+    x.fillStyle = '#f0163a'; x.beginPath(); x.moveTo(has ? 610 : 500, 610); x.lineTo(has ? 760 : 680, 520); x.lineTo(has ? 740 : 660, 580); x.lineTo(has ? 820 : 740, 600); x.lineTo(has ? 720 : 640, 640); x.closePath(); x.fill();
+    // text
+    const words = (title.value || ' ').toUpperCase().split(/\s+/).slice(0, 4);
+    const lines = words.length > 2 ? [words.slice(0, 2).join(' '), words.slice(2).join(' ')] : [words.join(' ')];
+    const size = lines.length > 1 ? 150 : 190;
+    x.font = `italic 900 ${size}px Archivo, sans-serif`; x.textAlign = has ? 'right' : 'center'; x.lineJoin = 'round';
+    lines.forEach((l, i) => { const tx = has ? 1240 : 640, ty = 70 + size * .9 * (i + 1);
+      x.lineWidth = 28; x.strokeStyle = '#0d0907'; x.strokeText(l, tx, ty); x.fillStyle = i === lines.length - 1 ? st.pop : '#fff'; x.fillText(l, tx, ty); });
+    mini.drawImage(c, 0, 0, 640, 360);
+    document.getElementById('mini-t').firstChild.nodeValue = (title.value || 'Untitled') + ' (I can’t believe this worked)';
+  }
+  ['bg', 'face', 'pop'].forEach(k => document.getElementById(k).addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return;
+    st[k] = b.dataset.v; b.parentNode.querySelectorAll('button').forEach(o => o.setAttribute('aria-pressed', o === b)); render(); }));
+  title.addEventListener('input', () => render());
+  document.fonts.ready.then(() => render()); render();
+</script>
+</body>
+</html>

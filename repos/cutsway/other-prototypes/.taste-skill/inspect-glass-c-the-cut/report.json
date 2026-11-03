@@ -1,0 +1,2532 @@
+{
+ "url": "prototypes/glass-c-the-cut/index.html",
+ "at": "2026-10-22T16:51:56.266Z",
+ "allow": [
+  "glass",
+  "shadow",
+  "button-fx",
+  "font-not-dealt",
+  "palette-cream"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.59,
+    0.56,
+    0.44,
+    0.7,
+    0.76,
+    1
+   ],
+   "motion": {
+    "elements": 71,
+    "css": 0,
+    "transitions": 71,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 5115,
+     "screens": 5.7,
+     "words": 168,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 5,
+     "horizontalOverflow": 95,
+     "overflowCulprits": [
+      "div.leak (+58px)",
+      "div#pv-leak.leak (+95px)",
+      "div.leak (+86px)"
+     ],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "we cut fast.",
+     "words": 3,
+     "chars": 12,
+     "lines": 2,
+     "size": 230.4,
+     "vw": 16,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.04,
+     "leading": 0.86,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.95,
+     "top": 132,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "we cut fast.",
+     "words": 3,
+     "lines": 2,
+     "size": 230.4,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "we cut fast.",
+      "words": 3,
+      "chars": 12,
+      "lines": 2,
+      "size": 230.4,
+      "vw": 16,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 132,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Editing and social media for gaming channels, YouTubers and podcasts.",
+      "words": 10,
+      "chars": 69,
+      "lines": 3,
+      "size": 33.4,
+      "vw": 2.3,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.18,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.38,
+      "top": 711,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "when is it yours?",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 1188,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "If you send a thumbnail brief a VOD for shorts a gaming video a podcast episode right now, it's back by",
+      "words": 21,
+      "chars": 103,
+      "lines": 2,
+      "size": 33.4,
+      "vw": 2.3,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.35,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 1288,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "sat 10:21 pm.",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 144,
+      "vw": 10,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 1399,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "what we cut",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 1811,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 4.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 1907,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "100 DAYS HARDCORE",
+      "words": 3,
+      "chars": 17,
+      "lines": 2,
+      "size": 50.8,
+      "vw": 3.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.29,
+      "top": 1986,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "long-form",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 4.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 2000,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 4.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 2094,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "shorts & reels",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 4.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 2187,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "thumbnails",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 4.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 2281,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "socials, run",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 4.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 2374,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "the work",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 2669,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "WE LOST THE RAID",
+      "words": 4,
+      "chars": 16,
+      "lines": 2,
+      "size": 117.3,
+      "vw": 8.1,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 2769,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "fair questions",
+      "words": 2,
+      "chars": 14,
+      "lines": 2,
+      "size": 79.4,
+      "vw": 5.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 3698,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "book a call.",
+      "words": 3,
+      "chars": 12,
+      "lines": 2,
+      "size": 230.4,
+      "vw": 16,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 4452,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Twenty minutes. Bring your channel; we'll tell you what we'd cut first.",
+      "words": 12,
+      "chars": 71,
+      "lines": 2,
+      "size": 33.4,
+      "vw": 2.3,
+      "font": "Archivo",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 4876,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 18,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 10,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      14,
+      19,
+      26,
+      33,
+      51,
+      69,
+      79,
+      117,
+      144,
+      230
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 19,
+      "leading": 1.45,
+      "weight": 600,
+      "tracking": 0,
+      "contrast": 16.8
+     },
+     "measureChars": 69,
+     "max": {
+      "size": 230.4,
+      "vw": 16,
+      "font": "Archivo",
+      "text": "we cut"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.03,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#efede6",
+     "bodyBgHsl": {
+      "h": 47,
+      "s": 0.22,
+      "l": 0.92
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fa7d31",
+       "top": 2769,
+       "hsl": {
+        "h": 23,
+        "s": 0.95,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#0b0a10",
+       "top": 4108,
+       "hsl": {
+        "h": 250,
+        "s": 0.23,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0a10",
+       "share": 0.73
+      },
+      {
+       "color": "#efede6",
+       "share": 0.19
+      },
+      {
+       "color": "#4a4753",
+       "share": 0.06
+      },
+      {
+       "color": "#e32139",
+       "share": 0.01
+      },
+      {
+       "color": "#f9e853",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#0b0a10",
+      "hsl": {
+       "h": 250,
+       "s": 0.23,
+       "l": 0.05
+      },
+      "fg": "#efede6"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 2,
+     "radius": 0,
+     "height": 51,
+     "withShadow": 3,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "book a call",
+      "book a call"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 7,
+     "shadowOverlay": 2,
+     "shadowSamples": [
+      "div.glass.hero__card → rgb(11, 10, 16) 8px 8px 0px 0px",
+      "a.btn → rgb(227, 33, 57) 5px 5px 0px 0px",
+      "div.glass.rise → rgb(11, 10, 16) 8px 8px 0px 0px",
+      "select#fmt → rgb(227, 33, 57) 4px 4px 0px 0px"
+     ],
+     "gradients": 3,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23%",
+      "div#pv-leak.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23%",
+      "div.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23%"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 5,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 6,
+     "fixed": true,
+     "height": 89,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 5115,
+    "margins": {
+     "left": 35,
+     "right": 57
+    },
+    "sections": [
+     {
+      "sel": "section.hero",
+      "tag": "section",
+      "top": 89,
+      "height": 952,
+      "words": 17,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "we cut",
+       "size": 230,
+       "tag": "h1"
+      },
+      "left": 35,
+      "right": 96,
+      "textLeft": 35,
+      "textRight": 96,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#when.when",
+      "tag": "section",
+      "top": 1041,
+      "height": 670,
+      "words": 27,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "sat 10:21 pm.",
+       "size": 144,
+       "tag": "p"
+      },
+      "left": 81,
+      "right": 183,
+      "textLeft": 81,
+      "textRight": 183,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#formats.formats",
+      "tag": "section",
+      "top": 1711,
+      "height": 858,
+      "words": 35,
+      "media": 0,
+      "middle": 93,
+      "heading": {
+       "text": "what we cut",
+       "size": 79,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 91,
+      "textLeft": 35,
+      "textRight": 91,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.work",
+      "tag": "section",
+      "top": 2568,
+      "height": 1029,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "we lost",
+       "size": 117,
+       "tag": "b"
+      },
+      "left": 35,
+      "right": 610,
+      "textLeft": 35,
+      "textRight": 610,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.faq",
+      "tag": "section",
+      "top": 3597,
+      "height": 510,
+      "words": 92,
+      "media": 0,
+      "middle": 113,
+      "heading": {
+       "text": "fair questions",
+       "size": 79,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 227,
+      "textLeft": 35,
+      "textRight": 227,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book.foot",
+      "tag": "footer",
+      "top": 4108,
+      "height": 1007,
+      "words": 22,
+      "media": 0,
+      "middle": 303,
+      "heading": {
+       "text": "book",
+       "size": 230,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 35,
+      "textLeft": 35,
+      "textRight": 35,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "we cut fast.",
+      "size": 230,
+      "top": 132,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 35,
+      "n": 5
+     },
+     {
+      "x": 625,
+      "n": 4
+     },
+     {
+      "x": 81,
+      "n": 1
+     },
+     {
+      "x": 820,
+      "n": 1
+     },
+     {
+      "x": 885,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 12,
+    "bodySize": 19,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.18,
+    "voidBox": {
+     "x": 0,
+     "y": 600,
+     "w": 780,
+     "h": 300
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.7,
+    0.46,
+    0.63,
+    0.81,
+    0.98
+   ],
+   "motion": {
+    "elements": 71,
+    "css": 0,
+    "transitions": 71,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 4304,
+     "screens": 4.2,
+     "words": 185,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 5,
+     "horizontalOverflow": 46,
+     "overflowCulprits": [
+      "div.leak (+31px)",
+      "div.leak (+46px)"
+     ],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "we cut fast.",
+     "words": 3,
+     "chars": 12,
+     "lines": 2,
+     "size": 161.3,
+     "vw": 21,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.04,
+     "leading": 0.86,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.95,
+     "top": 102,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "we cut fast.",
+     "words": 3,
+     "lines": 2,
+     "size": 161.3,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "we cut fast.",
+      "words": 3,
+      "chars": 12,
+      "lines": 2,
+      "size": 161.3,
+      "vw": 21,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 102,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Editing and social media for gaming channels, YouTubers and podcasts.",
+      "words": 10,
+      "chars": 69,
+      "lines": 2,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.18,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 624,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "when is it yours?",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 923,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "If you send a thumbnail brief a VOD for shorts a gaming video a podcast episode right now, it's back by",
+      "words": 21,
+      "chars": 103,
+      "lines": 2,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.35,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.65,
+      "top": 998,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "sat 10:22 pm.",
+      "words": 3,
+      "chars": 13,
+      "lines": 1,
+      "size": 76.8,
+      "vw": 10,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 1088,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "what we cut",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1333,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 73.7,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1403,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "long-form",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 73.7,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1541,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 73.7,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1680,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "shorts & reels",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 73.7,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1818,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "thumbnails",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 73.7,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1956,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "socials, run",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 73.7,
+      "vw": 9.6,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 2094,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "the work",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 2344,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "WE LOST THE RAID",
+      "words": 4,
+      "chars": 16,
+      "lines": 2,
+      "size": 80.6,
+      "vw": 10.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 2419,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "fair questions",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 49.8,
+      "vw": 6.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 3217,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "book a call.",
+      "words": 3,
+      "chars": 12,
+      "lines": 2,
+      "size": 122.9,
+      "vw": 16,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 3844,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Twenty minutes. Bring your channel; we'll tell you what we'd cut first.",
+      "words": 12,
+      "chars": 71,
+      "lines": 2,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.62,
+      "top": 4083,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 17,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 10,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      14,
+      18,
+      22,
+      26,
+      50,
+      74,
+      77,
+      81,
+      123,
+      161
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 17.9,
+      "leading": 1.45,
+      "weight": 500,
+      "tracking": 0,
+      "contrast": 16.8
+     },
+     "measureChars": 69,
+     "max": {
+      "size": 161.3,
+      "vw": 21,
+      "font": "Archivo",
+      "text": "we cut"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#efede6",
+     "bodyBgHsl": {
+      "h": 47,
+      "s": 0.22,
+      "l": 0.92
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fa7d31",
+       "top": 2419,
+       "hsl": {
+        "h": 23,
+        "s": 0.95,
+        "l": 0.59
+       }
+      },
+      {
+       "color": "#0b0a10",
+       "top": 3655,
+       "hsl": {
+        "h": 250,
+        "s": 0.23,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0a10",
+       "share": 0.79
+      },
+      {
+       "color": "#efede6",
+       "share": 0.15
+      },
+      {
+       "color": "#4a4753",
+       "share": 0.05
+      },
+      {
+       "color": "#e32139",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#0b0a10",
+      "hsl": {
+       "h": 250,
+       "s": 0.23,
+       "l": 0.05
+      },
+      "fg": "#efede6"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 2,
+     "radius": 0,
+     "height": 51,
+     "withShadow": 3,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "book a call",
+      "book a call"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 7,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "div.glass.hero__card → rgb(11, 10, 16) 8px 8px 0px 0px",
+      "a.btn → rgb(227, 33, 57) 5px 5px 0px 0px",
+      "div.glass.rise → rgb(11, 10, 16) 8px 8px 0px 0px",
+      "select#fmt → rgb(227, 33, 57) 4px 4px 0px 0px"
+     ],
+     "gradients": 2,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23%",
+      "div.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23%"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 4,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 78,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 4304,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "section.hero",
+      "tag": "section",
+      "top": 78,
+      "height": 762,
+      "words": 17,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "we cut",
+       "size": 161,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 53,
+      "textLeft": 20,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#when.when",
+      "tag": "section",
+      "top": 840,
+      "height": 437,
+      "words": 27,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "sat 10:22 pm.",
+       "size": 77,
+       "tag": "p"
+      },
+      "left": 47,
+      "right": 94,
+      "textLeft": 47,
+      "textRight": 94,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#formats.formats",
+      "tag": "section",
+      "top": 1277,
+      "height": 1011,
+      "words": 60,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "gaming videos",
+       "size": 74,
+       "tag": "button"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 90,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.work",
+      "tag": "section",
+      "top": 2288,
+      "height": 873,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "we lost",
+       "size": 81,
+       "tag": "b"
+      },
+      "left": 20,
+      "right": 215,
+      "textLeft": 20,
+      "textRight": 215,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.faq",
+      "tag": "section",
+      "top": 3161,
+      "height": 494,
+      "words": 92,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "fair questions",
+       "size": 50,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 167,
+      "textLeft": 20,
+      "textRight": 167,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book.foot",
+      "tag": "footer",
+      "top": 3655,
+      "height": 649,
+      "words": 22,
+      "media": 0,
+      "middle": 58,
+      "heading": {
+       "text": "book",
+       "size": 123,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "we cut fast.",
+      "size": 161,
+      "top": 102,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 5
+     },
+     {
+      "x": 47,
+      "n": 5
+     },
+     {
+      "x": 151,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 11,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.71,
+    0.64,
+    0.52,
+    0.7,
+    0.93
+   ],
+   "motion": {
+    "elements": 71,
+    "css": 0,
+    "transitions": 71,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 413,
+     "h": 894
+    },
+    "page": {
+     "height": 3848,
+     "screens": 4.3,
+     "words": 185,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 6,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "we cut fast.",
+     "words": 3,
+     "chars": 12,
+     "lines": 2,
+     "size": 81.9,
+     "vw": 19.8,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.04,
+     "leading": 0.86,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.85,
+     "top": 102,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "we cut fast.",
+     "words": 3,
+     "lines": 2,
+     "size": 81.9,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "we cut fast.",
+      "words": 3,
+      "chars": 12,
+      "lines": 2,
+      "size": 81.9,
+      "vw": 19.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 102,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Editing and social media for gaming channels, YouTubers and podcasts.",
+      "words": 10,
+      "chars": 69,
+      "lines": 3,
+      "size": 22,
+      "vw": 5.3,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.18,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.74,
+      "top": 439,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "when is it yours?",
+      "words": 4,
+      "chars": 17,
+      "lines": 2,
+      "size": 36.8,
+      "vw": 8.9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.72,
+      "top": 754,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "If you send a thumbnail brief a VOD for shorts a gaming video a podcast episode right now, it's back by",
+      "words": 21,
+      "chars": 103,
+      "lines": 3,
+      "size": 22,
+      "vw": 5.3,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.35,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.72,
+      "top": 849,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "sat 10:22 pm.",
+      "words": 3,
+      "chars": 13,
+      "lines": 3,
+      "size": 54.4,
+      "vw": 13.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.72,
+      "top": 958,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "what we cut",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 36.8,
+      "vw": 8.9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 1297,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 2,
+      "size": 37.4,
+      "vw": 9.1,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 1356,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "long-form",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 37.4,
+      "vw": 9.1,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 1519,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 37.4,
+      "vw": 9.1,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 1643,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "shorts & reels",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 37.4,
+      "vw": 9.1,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 1768,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "thumbnails",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 37.4,
+      "vw": 9.1,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 1906,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "socials, run",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 37.4,
+      "vw": 9.1,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 2030,
+      "tag": "button",
+      "kind": "statement"
+     },
+     {
+      "text": "the work",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 36.8,
+      "vw": 8.9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 2242,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "WE LOST THE RAID",
+      "words": 4,
+      "chars": 16,
+      "lines": 2,
+      "size": 38.4,
+      "vw": 9.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 2306,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "fair questions",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 36.8,
+      "vw": 8.9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 2840,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "book a call.",
+      "words": 3,
+      "chars": 12,
+      "lines": 2,
+      "size": 64,
+      "vw": 15.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.86,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 3428,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Twenty minutes. Bring your channel; we'll tell you what we'd cut first.",
+      "words": 12,
+      "chars": 71,
+      "lines": 3,
+      "size": 22,
+      "vw": 5.3,
+      "font": "Archivo",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.85,
+      "top": 3566,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 17,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 10,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      14,
+      17,
+      19,
+      22,
+      37,
+      38,
+      54,
+      64,
+      82
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 17,
+      "leading": 1.45,
+      "weight": 500,
+      "tracking": 0,
+      "contrast": 16.8
+     },
+     "measureChars": 40,
+     "max": {
+      "size": 81.9,
+      "vw": 19.8,
+      "font": "Archivo",
+      "text": "we cut"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.01,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#efede6",
+     "bodyBgHsl": {
+      "h": 47,
+      "s": 0.22,
+      "l": 0.92
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#0b0a10",
+       "top": 3261,
+       "hsl": {
+        "h": 250,
+        "s": 0.23,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0a10",
+       "share": 0.79
+      },
+      {
+       "color": "#efede6",
+       "share": 0.15
+      },
+      {
+       "color": "#4a4753",
+       "share": 0.05
+      },
+      {
+       "color": "#e32139",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#0b0a10",
+      "hsl": {
+       "h": 250,
+       "s": 0.23,
+       "l": 0.05
+      },
+      "fg": "#efede6"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 2,
+     "radius": 0,
+     "height": 51,
+     "withShadow": 3,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "book a call",
+      "book a call"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 7,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "div.glass.hero__card → rgb(11, 10, 16) 8px 8px 0px 0px",
+      "a.btn → rgb(227, 33, 57) 5px 5px 0px 0px",
+      "div.glass.rise → rgb(11, 10, 16) 8px 8px 0px 0px",
+      "select#fmt → rgb(227, 33, 57) 4px 4px 0px 0px"
+     ],
+     "gradients": 2,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23%",
+      "div.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23%"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 4,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 78,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 413,
+     "h": 894
+    },
+    "pageH": 3848,
+    "margins": {
+     "left": 20,
+     "right": 43
+    },
+    "sections": [
+     {
+      "sel": "section.hero",
+      "tag": "section",
+      "top": 78,
+      "height": 592,
+      "words": 17,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "we cut",
+       "size": 82,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 53,
+      "textLeft": 20,
+      "textRight": 53,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#when.when",
+      "tag": "section",
+      "top": 671,
+      "height": 571,
+      "words": 27,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "sat 10:22 pm.",
+       "size": 54,
+       "tag": "p"
+      },
+      "left": 47,
+      "right": 76,
+      "textLeft": 47,
+      "textRight": 76,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#formats.formats",
+      "tag": "section",
+      "top": 1241,
+      "height": 944,
+      "words": 60,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "gaming videos",
+       "size": 37,
+       "tag": "button"
+      },
+      "left": 20,
+      "right": 43,
+      "textLeft": 20,
+      "textRight": 56,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.work",
+      "tag": "section",
+      "top": 2186,
+      "height": 598,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "we lost",
+       "size": 38,
+       "tag": "b"
+      },
+      "left": 20,
+      "right": 79,
+      "textLeft": 20,
+      "textRight": 79,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq.faq",
+      "tag": "section",
+      "top": 2784,
+      "height": 477,
+      "words": 75,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "fair questions",
+       "size": 37,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 74,
+      "textLeft": 20,
+      "textRight": 74,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book.foot",
+      "tag": "footer",
+      "top": 3261,
+      "height": 587,
+      "words": 22,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "book",
+       "size": 64,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 74,
+      "textLeft": 20,
+      "textRight": 74,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "we cut fast.",
+      "size": 82,
+      "top": 102,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 43,
+      "n": 6
+     },
+     {
+      "x": 20,
+      "n": 5
+     }
+    ],
+    "leftBlocks": 11,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "3 gradient fill(s): div.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23% | div#pv-leak.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23% | div.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23%",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "11 different font sizes (13, 14, 19, 26, 33, 51, 69, 79, 117, 144, 230).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "overflow",
+   "width": 1440,
+   "message": "Page scrolls sideways by 95px at 1440px. Widest offenders: div.leak (+58px), div#pv-leak.leak (+95px), div.leak (+86px).",
+   "fix": "Constrain the element that is wider than the viewport (max-width: 100%, or overflow: clip on its section)."
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 35px on the left, 57px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
+  },
+  {
+   "level": "WARN",
+   "id": "lopsided",
+   "width": 1440,
+   "message": "A section keeps its content on one side and leaves 610px of the width empty: \"we lost\".",
+   "fix": "Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence."
+  },
+  {
+   "level": "FAIL",
+   "id": "overflow",
+   "width": 768,
+   "message": "Page scrolls sideways by 46px at 768px. Widest offenders: div.leak (+31px), div.leak (+46px).",
+   "fix": "Constrain the element that is wider than the viewport (max-width: 100%, or overflow: clip on its section)."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "1 headline(s) wrap past two lines at 390px: \"sat 10:22 pm.\" → 3 lines (3 words, 54.4px, a paragraph set above 24px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "off-centre",
+   "width": 390,
+   "message": "The page sits off-centre: its content comes to 20px from the left edge but only to 43px from the right, at 390px.",
+   "fix": "Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure)."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-glass-c-the-cut\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-glass-c-the-cut\\desktop-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-glass-c-the-cut\\desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-glass-c-the-cut\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-glass-c-the-cut\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-glass-c-the-cut\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\inspect-glass-c-the-cut\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

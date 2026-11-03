@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Prototypes</title>
+<link rel="icon" href="shared/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #07070a; --raise: #121218; --paper: #f4f2ec; --soft: #a3a3b5; --yellow: #fddf4b; --m: clamp(20px, 3vw, 48px);
+    --spec: linear-gradient(90deg, #272ed2, #1c4cdd, #108ae8, #03c0f4, #5ae2e8, #a9f0dc, #e8f8cd, #fcf397, #fddf4b, #fcb51c, #fc8020, #fb3b27, #e21c2f, #a81d30, #761a2b); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--paper); font-family: "Archivo", system-ui, sans-serif; -webkit-font-smoothing: antialiased; padding: clamp(32px, 5vw, 72px) var(--m) 64px; }
+  ::selection { background: var(--yellow); color: var(--bg); }
+  a { color: inherit; }
+  .logo { width: min(520px, 80vw); aspect-ratio: 8.001 / 1; background: var(--spec); -webkit-mask: url(shared/logo.svg) center / contain no-repeat; mask: url(shared/logo.svg) center / contain no-repeat; }
+  .lede { max-width: 56ch; color: var(--soft); font-size: 1.125rem; line-height: 1.45; margin: 22px 0 40px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; max-width: 980px; }
+  .card { display: grid; gap: 8px; align-content: start; padding: 22px; border-radius: 16px; background: var(--raise); text-decoration: none; border: 1.5px solid transparent; transition: border-color 160ms, transform 240ms cubic-bezier(0.16, 1, 0.3, 1); }
+  .card:hover { border-color: rgb(244 242 236 / 0.4); transform: translateY(-2px); }
+  .card:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
+  .card b { font-size: 1.35rem; font-weight: 900; font-stretch: 125%; text-transform: uppercase; letter-spacing: -0.01em; }
+  .card span { color: var(--soft); line-height: 1.4; }
+  .card i { font-style: normal; font-size: 0.8125rem; font-weight: 800; color: var(--yellow); }
+  .more { display: inline-block; margin-top: 36px; color: var(--soft); }
+</style>
+</head>
+<body>
+<div class="logo" role="img" aria-label="Cutsway"></div>
+<p class="lede">The two directions going forward. Open this through start-prototypes.bat, not by double-clicking: the 3D pages need a local server.</p>
+<div class="grid">
+  <a class="card" href="rawpile/"><b>Raw Pile</b><span>Grey raw clips get razored; the keepers become your real thumbnails and the podcast reel, four platform decks, and the Cutsway wordmark with a light sweeping it.</span><i>3D · launch build in launch/rawpile</i></a>
+  <a class="card" href="nightshift/"><b>Night Shift</b><span>One night in the studio, 9 pm to 9 am: the editor at the desk under the neon Cutsway sign, the reel on the phone, the clock sweeping to your due time.</span><i>3D · launch build in launch/nightshift</i></a>
+</div>
+<a class="more" href="../other-prototypes/">Every other prototype so far →</a>
+</body>
+</html>

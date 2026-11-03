@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Prototype A · Fields</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* sampled from the logo bar, left to right */
+    --deep: #2136cd;
+    --blue: #2664f7;
+    --cyan: #32d7f6;
+    --cream: #fbf7c9;
+    --yellow: #f9e853;
+    --orange: #fa7d31;
+    --red: #e32139;
+    --slice: #2d2844;
+    --black: #0b0a10;
+    --white: #fffdf2;
+
+    --m: clamp(20px, 2.2vw, 32px);
+    --step-small: 0.875rem;
+    --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+    --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+    --step-head: clamp(2.3rem, 1rem + 4.4vw, 5.2rem);
+    --step-giant: clamp(3.2rem, 12.4vw, 13rem);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --radius: 999px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scrollbar-color: var(--slice) var(--cream); }
+  body {
+    margin: 0;
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: var(--step-body);
+    line-height: 1.45;
+    color: var(--black);
+    background: var(--black);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--yellow); color: var(--black); }
+  :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+  a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 2px; }
+  img, svg { display: block; max-width: 100%; }
+
+  .display {
+    font-weight: 900;
+    font-stretch: 125%;
+    letter-spacing: -0.035em;
+    line-height: 0.9;
+    text-transform: lowercase;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .field { padding: clamp(72px, 8vw, 120px) var(--m); position: relative; overflow: hidden; }
+
+  /* ── nav ── */
+  .nav {
+    position: absolute; inset: 0 0 auto 0; z-index: 5;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    padding: calc(18px + env(safe-area-inset-top, 0px)) var(--m) 18px;
+    color: var(--white);
+  }
+  .nav__logo { width: clamp(120px, 12vw, 168px); }
+  .nav__links { display: flex; gap: clamp(16px, 2.4vw, 36px); font-weight: 700; font-size: var(--step-small); }
+  .nav__links a { text-decoration: none; }
+  .nav__links a:hover { text-decoration: underline; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 0.85em 1.4em;
+    border-radius: var(--radius);
+    background: var(--yellow); color: var(--black);
+    font-weight: 800; font-stretch: 112%; text-decoration: none;
+    border: 0; cursor: pointer; font-size: var(--step-small);
+    transition: transform 240ms var(--ease-out), background-color 160ms;
+  }
+  .btn:hover { transform: translateY(-2px); background: var(--white); }
+  .btn:active { transform: translateY(1px) scale(0.98); }
+
+  /* ── hero: deep blue field ── */
+  .hero {
+    background: var(--deep); color: var(--white);
+    min-height: 100svh;
+    padding-top: clamp(120px, 15vh, 180px);
+    display: grid; grid-template-rows: auto 1fr auto;
+  }
+  .hero h1 { font-size: var(--step-giant); position: relative; z-index: 2; }
+  .thumb.hero__thumb {
+    position: absolute; right: calc(var(--m) + 3vw); bottom: 14%;
+    width: min(34vw, 520px); aspect-ratio: 16 / 9;
+    transform: rotate(-4deg); z-index: 1;
+  }
+  .hero__foot {
+    display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap;
+    position: relative; z-index: 3; margin-top: 48px;
+  }
+  .hero__foot p { max-width: 36ch; margin: 0 0 20px; font-size: var(--step-lead); line-height: 1.3; }
+  .hero__fact { font-weight: 800; font-stretch: 115%; font-size: var(--step-lead); text-align: right; line-height: 1.1; }
+  .hero__fact small { display: block; font-weight: 500; font-stretch: 100%; font-size: var(--step-small); color: var(--cream); margin-top: 6px; }
+
+  /* placeholder thumbnail: a designed title card, clearly a sample slot */
+  .thumb {
+    position: relative; overflow: hidden; container-type: inline-size;
+    display: grid; align-content: end;
+    padding: 6% 7%;
+    background: var(--c, var(--orange)); color: var(--ink, var(--black));
+  }
+  .thumb b { font-weight: 900; font-stretch: 125%; line-height: 0.88; letter-spacing: -0.04em; text-transform: uppercase; font-size: 12.5cqw; }
+  .thumb::after { /* the logo's slices, as the card's edge */
+    content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 22%;
+    background: repeating-linear-gradient(90deg, transparent 0 10px, color-mix(in srgb, var(--ink, #000) 22%, transparent) 10px 18px);
+  }
+
+  /* ── formats: cyan field, poster list ── */
+  .formats { background: var(--cyan); }
+  .formats ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35em; }
+  .formats li {
+    display: grid; grid-template-columns: 8fr 4fr; gap: 24px; align-items: first baseline;
+  }
+  .formats .name { font-size: var(--step-head); font-weight: 900; font-stretch: 125%; letter-spacing: -0.04em; line-height: 1; text-transform: lowercase; }
+  .formats li:first-child .name { color: #0c5b6b; }
+  .formats .desc { font-size: var(--step-body); max-width: 34ch; }
+  .formats li:not(:first-child) { transition: transform 300ms var(--ease-out); }
+  .formats li:not(:first-child):hover { transform: translateX(12px); }
+
+  /* ── work: cream field, uneven wall ── */
+  .work { background: var(--cream); }
+  .work__head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+  .work__head h2 { font-size: var(--step-head); }
+  .wall { display: flex; flex-wrap: wrap; gap: 32px 8px; }
+  .wall .thumb { flex: var(--g, 1) 1 0; min-width: 200px; height: var(--h, 300px); }
+  .wall figure { margin: 0; flex: var(--g, 1) 1 0; min-width: 200px; display: grid; gap: 8px; }
+  .wall figure .thumb { height: var(--h, 300px); }
+  .wall figcaption { display: flex; justify-content: space-between; font-size: var(--step-small); font-weight: 600; }
+  .wall figcaption em { font-style: normal; color: #5b5730; }
+
+  /* ── turnaround: yellow field, the live thing ── */
+  .turn { background: var(--yellow); }
+  .turn__grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .turn h2 { font-size: var(--step-head); }
+  .turn__pick { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0 0; }
+  .chip {
+    border: 0; cursor: pointer; border-radius: var(--radius);
+    padding: 0.7em 1.15em; font: 700 var(--step-small)/1 "Archivo", sans-serif;
+    background: color-mix(in srgb, var(--black) 9%, var(--yellow)); color: var(--black);
+    transition: background-color 160ms, transform 200ms var(--ease-out);
+  }
+  .chip:hover { background: color-mix(in srgb, var(--black) 16%, var(--yellow)); }
+  .chip:active { transform: scale(0.97); }
+  .chip[aria-pressed="true"] { background: var(--black); color: var(--yellow); }
+  .answer { font-size: var(--step-head); font-weight: 900; font-stretch: 125%; letter-spacing: -0.04em; line-height: 0.95; margin: 0 0 28px; text-transform: lowercase; }
+  .answer small { display: block; font-size: var(--step-lead); font-weight: 600; font-stretch: 100%; letter-spacing: 0; margin-bottom: 10px; text-transform: none; }
+  .splits { margin: 0; padding: 0; list-style: none; font-variant-numeric: tabular-nums; }
+  .splits li {
+    display: grid; grid-template-columns: 1fr auto auto; gap: 20px; align-items: baseline;
+    padding: 12px 16px; font-weight: 600;
+  }
+  .splits li:nth-child(odd) { background: color-mix(in srgb, var(--black) 7%, var(--yellow)); }
+  .splits li:last-child { background: var(--black); color: var(--yellow); font-weight: 800; }
+  .splits .t { font-weight: 800; }
+  .splits .w { color: #4d4610; }
+  .splits li:last-child .w { color: var(--cream); }
+
+  /* ── process: orange field, staircase ── */
+  .process { background: var(--orange); }
+  .stair { display: grid; grid-template-columns: repeat(12, 1fr); row-gap: 56px; }
+  .stair div:nth-child(1) { grid-column: 1 / span 8; }
+  .stair div:nth-child(2) { grid-column: 3 / span 8; }
+  .stair div:nth-child(3) { grid-column: 5 / span 8; }
+  .stair div:nth-child(4) { grid-column: 7 / span 6; }
+  .stair h3, .stair h2 { font-size: var(--step-head); }
+  .stair p { margin: 12px 0 0; max-width: 34ch; }
+  .stair div:nth-child(4) h3 { color: var(--deep); }
+
+  /* ── faq: red field, filled tiles ── */
+  .faq { background: var(--red); color: var(--white); }
+  .faq__grid { display: grid; grid-template-columns: 4fr 8fr; gap: clamp(32px, 6vw, 96px); }
+  .faq h2 { font-size: var(--step-head); }
+  .faq details { background: color-mix(in srgb, var(--black) 14%, var(--red)); margin-bottom: 8px; }
+  .faq summary {
+    list-style: none; cursor: pointer; padding: 22px 24px;
+    display: flex; justify-content: space-between; gap: 16px;
+    font-weight: 800; font-stretch: 112%; font-size: var(--step-lead); line-height: 1.15;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary svg { flex: none; width: 22px; transition: transform 300ms var(--ease-out); }
+  .faq details[open] summary svg { transform: rotate(45deg); }
+  .faq details p { margin: 0; padding: 0 24px 24px; max-width: 60ch; }
+
+  /* ── footer: the cut ── */
+  .foot { background: var(--black); color: var(--white); padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px)); }
+  .foot__slices { display: flex; gap: clamp(6px, 1vw, 14px); height: clamp(80px, 14vw, 200px); margin: 0 calc(var(--m) * -1) clamp(48px, 8vw, 120px); }
+  .foot__slices i { flex: 1; background: var(--s); }
+  .foot h2 { font-size: var(--step-giant); }
+  .foot h2 a { text-decoration: none; display: inline-block; transition: color 200ms; }
+  .foot h2 a:hover { color: var(--yellow); }
+  .foot__row { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 56px; font-size: var(--step-small); color: var(--cream); }
+  .foot__row nav { display: flex; gap: 24px; }
+
+  /* ── motion: content is visible by default; js opts in ── */
+  .js .rise { opacity: 0; transform: translateY(28px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
+  .js .rise.in { opacity: 1; transform: none; }
+  .js .mask { display: block; overflow: hidden; padding-bottom: 0.06em; }
+  .js .mask > span { display: block; transform: translateY(105%); transition: transform 1000ms var(--ease-out); transition-delay: calc(var(--i, 0) * 110ms + 120ms); }
+  .js .loaded .mask > span { transform: none; }
+  .js .thumb.hero__thumb { opacity: 0; transform: rotate(-4deg) translateY(60px); transition: opacity 800ms 500ms, transform 1100ms 500ms var(--ease-out); }
+  .js .loaded .thumb.hero__thumb { opacity: 1; transform: rotate(-4deg); }
+  @media (prefers-reduced-motion: reduce) {
+    .js .rise, .js .mask > span, .js .thumb.hero__thumb { transition: opacity 300ms; transform: none !important; }
+    .js .thumb.hero__thumb { transform: rotate(-4deg) !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ── phone ── */
+  @media (max-width: 760px) {
+    .nav__links { display: none; }
+    .hero h1 { font-size: 12.6vw; }
+    .thumb.hero__thumb { position: relative; right: auto; bottom: auto; width: 86%; margin: 40px 0 0 auto; }
+    .hero { grid-template-rows: auto auto auto; }
+    .hero__fact { text-align: left; }
+    .formats li { grid-template-columns: 1fr; gap: 6px; margin-bottom: 20px; }
+    .formats .name { font-size: 10vw; }
+    .turn__grid, .faq__grid { grid-template-columns: 1fr; }
+    .stair div { grid-column: 1 / -1 !important; }
+    .stair div:nth-child(2) { padding-left: 6vw; } .stair div:nth-child(3) { padding-left: 12vw; } .stair div:nth-child(4) { padding-left: 18vw; }
+    .wall figure { flex-basis: 100%; }
+    .foot h2 { font-size: 17vw; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spec" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#2136cd"/><stop offset=".08" stop-color="#2664f7"/><stop offset=".2" stop-color="#32a9f6"/>
+      <stop offset=".3" stop-color="#32d7f6"/><stop offset=".38" stop-color="#c5f9ed"/><stop offset=".45" stop-color="#fbf7c9"/>
+      <stop offset=".53" stop-color="#fef78e"/><stop offset=".61" stop-color="#f9e853"/><stop offset=".69" stop-color="#f5b843"/>
+      <stop offset=".77" stop-color="#fa7d31"/><stop offset=".87" stop-color="#ef462e"/><stop offset="1" stop-color="#e32139"/>
+    </linearGradient>
+    <clipPath id="barclip"><polygon points="4,58 396,19 396,53 4,92"/></clipPath>
+    <symbol id="logo" viewBox="0 0 400 166">
+      <g clip-path="url(#barclip)">
+        <rect x="4" y="0" width="266" height="100" fill="url(#spec)"/>
+        <rect x="276" y="0" width="7" height="100" fill="#eb1635"/><rect x="289" y="0" width="7" height="100" fill="#d41c40"/>
+        <rect x="302" y="0" width="7" height="100" fill="#b22546"/><rect x="315" y="0" width="7" height="100" fill="#8a2445"/>
+        <rect x="328" y="0" width="7" height="100" fill="#6a2444"/><rect x="341" y="0" width="7" height="100" fill="#52263f"/>
+        <rect x="354" y="0" width="7" height="100" fill="#3f2740"/><rect x="367" y="0" width="7" height="100" fill="#33283f"/>
+        <rect x="380" y="0" width="7" height="100" fill="#2d2844"/>
+      </g>
+      <text x="0" y="146" font-family="Archivo, sans-serif" font-weight="900" font-stretch="125%" font-size="74" letter-spacing="-3" fill="currentColor">cutsway</text>
+    </symbol>
+  </defs>
+</svg>
+
+<main id="top">
+  <section class="field hero" aria-labelledby="h1">
+    <header class="nav">
+      <a href="#top" aria-label="Cutsway home"><svg class="nav__logo" viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#logo"/></svg></a>
+      <nav class="nav__links" aria-label="Main">
+        <a href="#work">Work</a><a href="#formats">Formats</a><a href="#turnaround">Turnaround</a><a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn" href="#book">Book a call</a>
+    </header>
+
+    <h1 id="h1" class="display">
+      <span class="mask"><span style="--i:0">cut fast.</span></span>
+      <span class="mask"><span style="--i:1">post more.</span></span>
+    </h1>
+
+    <div class="thumb hero__thumb" style="--c:var(--orange)" role="img" aria-label="Sample slot: a gaming video thumbnail">
+      <b>we lost<br>the raid</b>
+    </div>
+
+    <div class="hero__foot">
+      <div>
+        <p>Cutsway edits gaming videos, YouTube long-form, podcasts and shorts, designs the thumbnails, and runs your socials. Fast, because your upload schedule is.</p>
+        <a class="btn" href="#book">Book a call</a>
+      </div>
+      <p class="hero__fact">Most edits back in 48 hours<small>sample promise: confirm before launch</small></p>
+    </div>
+  </section>
+
+  <section class="field formats" id="formats" aria-labelledby="formats-h">
+    <ul>
+      <li class="rise"><h2 class="name" id="formats-h">what we cut</h2><span></span></li>
+      <li class="rise" style="--i:1"><span class="name">gaming videos</span><span class="desc">Hours of gameplay into the twelve minutes worth watching, with the sound design that makes a clutch land.</span></li>
+      <li class="rise" style="--i:2"><span class="name">youtube long-form</span><span class="desc">Story, pacing and retention edits for videos that need people to stay past the first minute.</span></li>
+      <li class="rise" style="--i:3"><span class="name">podcasts</span><span class="desc">Multi-cam episodes cut clean, plus the clips that bring new listeners in.</span></li>
+      <li class="rise" style="--i:4"><span class="name">shorts &amp; reels</span><span class="desc">Vertical cuts with captions, built for the first second of a scroll.</span></li>
+      <li class="rise" style="--i:5"><span class="name">thumbnails</span><span class="desc">The image that decides whether anyone sees the edit at all.</span></li>
+      <li class="rise" style="--i:6"><span class="name">your socials, run</span><span class="desc">Scheduling, posting and captions across YouTube, Instagram, TikTok and X.</span></li>
+    </ul>
+  </section>
+
+  <section class="field work" id="work" aria-labelledby="work-h">
+    <div class="work__head rise">
+      <h2 class="display" id="work-h">the work</h2>
+      <a href="#book">Ask for the full reel</a>
+    </div>
+    <div class="wall">
+      <figure class="rise" style="--g:2;--h:360px"><div class="thumb" style="--c:var(--deep);--ink:var(--white)"><b>100 days<br>hardcore</b></div><figcaption>Gaming video <em>sample slot</em></figcaption></figure>
+      <figure class="rise" style="--g:1;--h:360px;--i:1"><div class="thumb" style="--c:var(--red);--ink:var(--white)"><b>ep. 41<br>burnout</b></div><figcaption>Podcast episode <em>sample slot</em></figcaption></figure>
+      <figure class="rise" style="--g:1;--h:240px"><div class="thumb" style="--c:var(--black);--ink:var(--yellow)"><b>1v5<br>clutch</b></div><figcaption>Short <em>sample slot</em></figcaption></figure>
+      <figure class="rise" style="--g:2;--h:240px;--i:1"><div class="thumb" style="--c:var(--cyan)"><b>i quit<br>my job</b></div><figcaption>Long-form <em>sample slot</em></figcaption></figure>
+      <figure class="rise" style="--g:1;--h:240px;--i:2"><div class="thumb" style="--c:var(--orange)"><b>new map<br>first look</b></div><figcaption>Thumbnail <em>sample slot</em></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="field turn" id="turnaround" aria-labelledby="turn-h">
+    <div class="turn__grid">
+      <div class="rise">
+        <h2 class="display" id="turn-h">when's it back?</h2>
+        <div class="turn__pick" role="group" aria-label="Pick what you'd send">
+          <button class="chip" data-f="thumb">A thumbnail</button>
+          <button class="chip" data-f="shorts">Shorts pack</button>
+          <button class="chip" data-f="video" aria-pressed="true">Gaming video</button>
+          <button class="chip" data-f="podcast">Podcast episode</button>
+        </div>
+      </div>
+      <div class="rise" style="--i:1" aria-live="polite">
+        <p class="answer"><small id="ans-lead">Send a gaming video now, have it</small><span id="ans">back by …</span></p>
+        <ol class="splits" id="splits"></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="field process" aria-labelledby="process-h">
+    <div class="stair">
+      <div class="rise"><h2 class="display" id="process-h">first, drop the files.</h2><p>A Drive or Dropbox link to the raw recording. No forms, no ticket numbers.</p></div>
+      <div class="rise"><h3 class="display">then we cut it.</h3><p>Edit, captions, sound and the thumbnail, made together so they tell the same story.</p></div>
+      <div class="rise"><h3 class="display">you leave notes.</h3><p>Comment right on the frame you want changed. Two rounds are included.</p></div>
+      <div class="rise"><h3 class="display">it goes live on time.</h3><p>Delivered ready to upload, or posted for you if we run your socials.</p></div>
+    </div>
+  </section>
+
+  <section class="field faq" id="faq" aria-labelledby="faq-h">
+    <div class="faq__grid">
+      <h2 class="display rise" id="faq-h">fair questions</h2>
+      <div>
+        <details class="rise"><summary>What do I actually send you?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3" fill="none"/></svg></summary><p>The raw recording and anything you want kept in: a link to your channel, a past video you like the feel of, and the date it needs to go up.</p></details>
+        <details class="rise" style="--i:1"><summary>Can you edit from a stream VOD?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3" fill="none"/></svg></summary><p>Yes. Send the VOD link and we pull the moments, cut a highlight video and a pack of shorts from the same session.</p></details>
+        <details class="rise" style="--i:2"><summary>How many revisions do I get?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3" fill="none"/></svg></summary><p>Two rounds on every edit, left as notes on the exact frame. Sample policy: confirm before launch.</p></details>
+        <details class="rise" style="--i:3"><summary>Will you post it for me too?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3" fill="none"/></svg></summary><p>If you want. We schedule and post across YouTube, Instagram, TikTok and X, with titles and captions written for each.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="field foot" id="book" aria-labelledby="book-h">
+    <div class="foot__slices" aria-hidden="true">
+      <i style="--s:#eb1635"></i><i style="--s:#d41c40"></i><i style="--s:#b22546"></i><i style="--s:#8a2445"></i><i style="--s:#6a2444"></i><i style="--s:#52263f"></i><i style="--s:#3f2740"></i><i style="--s:#33283f"></i><i style="--s:#2d2844"></i>
+    </div>
+    <h2 class="display" id="book-h"><a href="#book" data-book>book a call.</a></h2>
+    <p style="max-width:40ch;margin:24px 0 0;font-size:var(--step-lead);line-height:1.3">Twenty minutes. Bring your channel; we'll tell you what we'd cut first.</p>
+    <div class="foot__row">
+      <span>cutsway.socialmanager@gmail.com · sample address</span>
+      <nav aria-label="Social"><a href="#">YouTube</a><a href="#">Instagram</a><a href="#">X</a><a href="#">Discord</a></nav>
+    </div>
+  </footer>
+</main>
+
+<script>
+  document.documentElement.classList.add('js');
+  requestAnimationFrame(() => document.body.classList.add('loaded'));
+
+  const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+  document.querySelectorAll('.rise').forEach(el => io.observe(el));
+
+  // turnaround clock: sample promises, confirm before launch
+  const F = {
+    thumb:   { lead: 'Order a thumbnail now, have it',        splits: [['Brief in', 0], ['Three concepts', 3], ['Your pick', 5], ['Final art', 8]] },
+    shorts:  { lead: 'Send a VOD for shorts now, have them',  splits: [['VOD in', 0], ['Moments picked', 4], ['Cut + captions', 16], ['Your notes', 20], ['Delivered', 24]] },
+    video:   { lead: 'Send a gaming video now, have it',      splits: [['Raw in', 0], ['Rough cut', 20], ['Your notes', 28], ['Final + thumbnail', 44], ['Delivered', 48]] },
+    podcast: { lead: 'Send a podcast episode now, have it',   splits: [['Recording in', 0], ['Episode cut', 30], ['Your notes', 40], ['Clips + thumbnail', 64], ['Delivered', 72]] },
+  };
+  const when = h => new Date(Date.now() + h * 36e5).toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+  const hrs = h => `${String(h).padStart(2, '0')}:00`;
+  function show(k) {
+    const f = F[k], last = f.splits[f.splits.length - 1][1];
+    document.getElementById('ans-lead').textContent = f.lead;
+    document.getElementById('ans').textContent = 'back by ' + when(last).toLowerCase();
+    document.getElementById('splits').innerHTML = f.splits.map(([n, h]) => `<li><span>${n}</span><span class="t">${hrs(h)}</span><span class="w">${when(h)}</span></li>`).join('');
+    document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.f === k));
+  }
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => show(c.dataset.f)));
+  show('video');
+</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+- paragraph: Sale Season price applied. Complete your order to keep it
+- banner:
+  - button "Agent":
+    - generic: Agent
+- heading "Your cart" [level=1]
+- heading "Premium plan" [level=3]
+- paragraph: Website creation and hosting
+- generic: Period
+- combobox "Period":
+  - generic: 12 months
+- generic: Save 71%
+- text: ₹199
+- generic: /mo
+- text: ₹679
+- generic: /mo
+- generic: Renews after 12 months at ₹449/mo for 12 months. Cancel anytime.
+- img "Image"
+- paragraph: Unlock the biggest savings
+- paragraph: Get 500 AI credits with a 48-month subscription
+- button "Switch to 48 mo":
+  - generic: Switch to 48 mo
+- generic: Your domain is free for 1 year - included in your Premium plan.
+- generic: Your 2 mailboxes are free for 1 year - 1 GB each
+- generic: cutsway.com
+- generic: Domain
+- button "Remove":
+- generic: Period
+- combobox "Period" [active]:
+  - generic: 1 year
+- generic: Free
+- generic: ₹0
+- generic: ₹1,499
+- generic: Renews after 1 year at ₹1,499.00/year for 1 year.
+- paragraph: Premium protection with Domain Shield
+- paragraph: Keep your domain protected for up to 40 days after expiry, with 2FA for critical domain changes.
+- switch "Premium protection with Domain Shield"
+- generic: ₹1,068/1 year
+- paragraph:
+  - strong: Free
+  - text: domain privacy protection included
+- checkbox "Add Hostinger Ecommerce"
+- heading "Add Hostinger Ecommerce" [level=3]
+- generic: Recommended
+- paragraph: Sell unlimited digital and physical products with 0% transaction fees - on your site or through a shareable checkout link to sell on social, in a bio or over DMs.
+- generic: ₹89
+- generic: for first 3 months
+- paragraph: Renews after 3 months at ₹699/mo for 12 months. Cancel anytime.
+- img "Image"
+- generic: Hostinger Reach
+- paragraph: Email marketing for your business — all in one place
+- generic: Contacts auto-synced from your site
+- generic: Welcome, re-engagement email automations
+- generic: Al-powered campaigns & audience segmentation
+- text: ₹199
+- generic: /mo
+- generic: Recipients/mo
+- combobox "Recipients/mo":
+  - generic: 0-500
+- button "Add email marketing":
+  - generic: Add email marketing
+- generic: For 1yr term. You pay ₹2,388 today.
+- heading "Protect your brand" [level=3]
+- generic: Secure these popular domain extensions to keep competitors away from your name
+- button "Previous" [disabled]:
+- button "Next":
+- generic: .net
+- generic: ₹1,749
+- generic: ₹1,459
+- text: /year
+- button "Add":
+  - generic: Add
+- generic: .org
+- generic: ₹1,749
+- generic: ₹879
+- text: /year
+- button "Add":
+  - generic: Add
+- generic: .xyz
+- generic: ₹1,939
+- generic: ₹199
+- text: /year
+- button "Add":
+  - generic: Add
+- generic: .shop
+- generic: ₹3,879
+- generic: ₹99
+- text: /year
+- button "Add":
+  - generic: Add
+- generic: .in
+- generic: ₹899
+- generic: ₹549
+- text: /year
+- button "Add":
+  - generic: Add
+- generic: .online
+- generic: ₹3,489
+- generic: ₹99
+- text: /year
+- button "Add":
+  - generic: Add
+- generic: .info
+- generic: ₹3,099
+- generic: ₹389
+- text: /year
+- button "Add":
+  - generic: Add
+- generic: Order summary
+- generic: Premium plan
+- generic: 12-month period
+- generic: ₹8,148
+- generic: ₹2,388
+- generic: cutsway.com
+- generic: Domain registration - 1 year
+- generic: ₹1,499
+- generic: ₹0
+- generic: ICANN fee
+- generic: ₹17.44
+- generic: ₹0
+- generic: Domain privacy protection
+- generic: ₹0
+- text: Taxes
+- generic: ₹429.84
+- generic: Total
+- generic: ₹10,094.28
+- generic: ₹2,817.84
+- generic "Have a coupon code?"
+- generic: You're saving ₹7,276.44 today
+- button "Continue":
+  - generic: Continue
+- generic: 30-day money-back guarantee
+- iframe:
+  - link "Trustpilot reviews":
+    - /url: https://www.trustpilot.com/review/hostinger.com?utm_medium=trustbox&utm_source=MicroCombo
+    - generic: Excellent
+    - img "4.6 out of 5 star rating on Trustpilot"
+    - strong: 73,633
+    - text: reviews on
+    - img "Trustpilot"
+  - generic: Rated Excellent. 4.6 out of 5. 73633 reviews on Trustpilot
+  - generic: Click to view the company's Trustpilot profile
+- paragraph: © 2004-2026 hostinger.com
+- link "Terms of service":
+  - /url: https://www.hostinger.com/in/legal/universal-terms-of-service-agreement
+- link "Privacy policy":
+  - /url: https://www.hostinger.com/in/legal/privacy-policy

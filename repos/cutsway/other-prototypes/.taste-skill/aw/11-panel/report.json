@@ -1,0 +1,2466 @@
+{
+ "url": "prototypes/awwwards/11-panel//index.html",
+ "at": "2026-10-23T14:20:48.184Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.8,
+    0.62,
+    0.26,
+    0.33
+   ],
+   "motion": {
+    "elements": 10,
+    "css": 0,
+    "transitions": 10,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 3086,
+     "screens": 3.4,
+     "words": 246,
+     "img": 2,
+     "video": 0,
+     "canvas": 2,
+     "svg": 4,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "pad-ps5.jpg",
+      "podcave.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "SHHK!",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 144,
+     "vw": 10,
+     "font": "Bangers",
+     "weight": 400,
+     "tracking": 0.02,
+     "leading": 0.9,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.34,
+     "top": 597,
+     "tag": "span",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "You log off. We cut.",
+     "words": 5,
+     "lines": 2,
+     "size": 138.2,
+     "font": "Bangers"
+    },
+    "headings": [
+     {
+      "text": "You log off. We cut.",
+      "words": 5,
+      "chars": 20,
+      "lines": 2,
+      "size": 138.2,
+      "vw": 9.6,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.49,
+      "top": 148,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "SHHK!",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 144,
+      "vw": 10,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.34,
+      "top": 597,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "\"How is this already up?\"",
+      "words": 5,
+      "chars": 25,
+      "lines": 2,
+      "size": 86.4,
+      "vw": 6,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.5,
+      "top": 1080,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The cast",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 100.8,
+      "vw": 7,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1601,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "8h",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 3.8,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 1742,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "24h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 3.8,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 1742,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "48h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 3.8,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 1742,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "72h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 3.8,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 1742,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "Questions!",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 100.8,
+      "vw": 7,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 2087,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The end?",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 259.2,
+      "vw": 18,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 2750,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 0.91,
+       "mono": false
+      },
+      {
+       "family": "Bangers",
+       "share": 0.09,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      16,
+      17,
+      18,
+      19,
+      20,
+      22,
+      24,
+      54,
+      86,
+      101,
+      138,
+      144,
+      259
+     ],
+     "sizeCount": 14,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 20,
+      "leading": 1.45,
+      "weight": 600,
+      "tracking": 0,
+      "contrast": 18.7
+     },
+     "measureChars": 103,
+     "max": {
+      "size": 259.2,
+      "vw": 18,
+      "font": "Bangers",
+      "text": "The end?"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.06,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "My stream ends at",
+      "above": "SHHK!",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 16,
+      "top": 534
+     },
+     {
+      "text": "8:30 AM. You wake up.",
+      "above": "\"How is this already up?\"",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 16,
+      "top": 1021
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf8f1",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.56,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#0b0908",
+       "top": 93,
+       "hsl": {
+        "h": 20,
+        "s": 0.16,
+        "l": 0.04
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0908",
+       "share": 0.63
+      },
+      {
+       "color": "#fbf8f1",
+       "share": 0.32
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      },
+      {
+       "color": "#ffc72e",
+       "share": 0.01
+      },
+      {
+       "color": "#ee1240",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#ee1240",
+      "hsl": {
+       "h": 347,
+       "s": 0.87,
+       "l": 0.5
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 1,
+     "radius": 0,
+     "height": 70,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call!"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 2,
+     "boxRadius": 50,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 0.49
+     },
+     {
+      "type": "img",
+      "ratio": 0.19
+     },
+     {
+      "type": "img",
+      "ratio": 0.11
+     },
+     {
+      "type": "canvas",
+      "ratio": 0.11
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 93,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo",
+     "bangers"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 3086,
+    "margins": {
+     "left": 35,
+     "right": 35
+    },
+    "sections": [
+     {
+      "sel": "div.page",
+      "tag": "div",
+      "top": 93,
+      "height": 1336,
+      "words": 97,
+      "media": 6,
+      "middle": 0,
+      "heading": {
+       "text": "You log off.",
+       "size": 138,
+       "tag": "h1"
+      },
+      "left": 35,
+      "right": 35,
+      "textLeft": 51,
+      "textRight": 115,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#cast",
+      "tag": "section",
+      "top": 1428,
+      "height": 486,
+      "words": 38,
+      "media": 0,
+      "middle": 103,
+      "heading": {
+       "text": "The cast",
+       "size": 101,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 125,
+      "textLeft": 35,
+      "textRight": 125,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 1914,
+      "height": 663,
+      "words": 63,
+      "media": 0,
+      "middle": 101,
+      "heading": {
+       "text": "Questions!",
+       "size": 101,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 77,
+      "textLeft": 35,
+      "textRight": 77,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 2577,
+      "height": 509,
+      "words": 34,
+      "media": 0,
+      "middle": 408,
+      "heading": {
+       "text": "The end?",
+       "size": 259,
+       "tag": "p"
+      },
+      "left": 35,
+      "right": 57,
+      "textLeft": 35,
+      "textRight": 57,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "You log off. We cut.",
+      "size": 138,
+      "top": 148,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 78,
+      "n": 3
+     },
+     {
+      "x": 35,
+      "n": 2
+     },
+     {
+      "x": 652,
+      "n": 2
+     },
+     {
+      "x": 57,
+      "n": 1
+     },
+     {
+      "x": 403,
+      "n": 1
+     },
+     {
+      "x": 749,
+      "n": 1
+     },
+     {
+      "x": 1095,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 11,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.87,
+    0.91,
+    0.46,
+    0.25,
+    0.27
+   ],
+   "motion": {
+    "elements": 10,
+    "css": 0,
+    "transitions": 10,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 4244,
+     "screens": 4.1,
+     "words": 243,
+     "img": 2,
+     "video": 0,
+     "canvas": 2,
+     "svg": 4,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "pad-ps5.jpg",
+      "podcave.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "You log off. We cut.",
+     "words": 5,
+     "chars": 20,
+     "lines": 2,
+     "size": 73.7,
+     "vw": 9.6,
+     "font": "Bangers",
+     "weight": 400,
+     "tracking": 0.02,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.89,
+     "top": 173,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "You log off. We cut.",
+     "words": 5,
+     "lines": 2,
+     "size": 73.7,
+     "font": "Bangers"
+    },
+    "headings": [
+     {
+      "text": "You log off. We cut.",
+      "words": 5,
+      "chars": 20,
+      "lines": 2,
+      "size": 73.7,
+      "vw": 9.6,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 173,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "SHHK!",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 80,
+      "vw": 10.4,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1,
+      "top": 976,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "\"How is this already up?\"",
+      "words": 5,
+      "chars": 25,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 2112,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The cast",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 7.1,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 2451,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "8h",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 7.1,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2550,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "24h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 7.1,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 2550,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "48h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 7.1,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 2752,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "72h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 7.1,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 2752,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "Questions!",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 7.1,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 3019,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The end?",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 138.2,
+      "vw": 18,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 3928,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 0.9,
+       "mono": false
+      },
+      {
+       "family": "Bangers",
+       "share": 0.1,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      15,
+      16,
+      18,
+      19,
+      20,
+      22,
+      24,
+      48,
+      54,
+      74,
+      80,
+      138
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 20,
+      "leading": 1.45,
+      "weight": 600,
+      "tracking": 0,
+      "contrast": 18.7
+     },
+     "measureChars": 103,
+     "max": {
+      "size": 138.2,
+      "vw": 18,
+      "font": "Bangers",
+      "text": "The end?"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.06,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "8:30 AM. You wake up.",
+      "above": "\"How is this already up?\"",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 16,
+      "top": 2053
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf8f1",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.56,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#0b0908",
+       "top": 93,
+       "hsl": {
+        "h": 20,
+        "s": 0.16,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#ee1240",
+       "top": 1026,
+       "hsl": {
+        "h": 347,
+        "s": 0.87,
+        "l": 0.5
+       }
+      },
+      {
+       "color": "#fbf8f1",
+       "top": 1374,
+       "hsl": {
+        "h": 42,
+        "s": 0.56,
+        "l": 0.96
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0908",
+       "share": 0.62
+      },
+      {
+       "color": "#fbf8f1",
+       "share": 0.33
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      },
+      {
+       "color": "#ffc72e",
+       "share": 0.01
+      },
+      {
+       "color": "#ee1240",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#ee1240",
+      "hsl": {
+       "h": 347,
+       "s": 0.87,
+       "l": 0.5
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 1,
+     "radius": 0,
+     "height": 70,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call!"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 0.68
+     },
+     {
+      "type": "img",
+      "ratio": 0.23
+     },
+     {
+      "type": "canvas",
+      "ratio": 0.23
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 93,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo",
+     "bangers"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 4244,
+    "margins": {
+     "left": 18,
+     "right": 18
+    },
+    "sections": [
+     {
+      "sel": "div.p.p1",
+      "tag": "div",
+      "top": 93,
+      "height": 409,
+      "words": 26,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "You log off.",
+       "size": 74,
+       "tag": "h1"
+      },
+      "left": 41,
+      "right": 369,
+      "textLeft": 41,
+      "textRight": 369,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p2",
+      "tag": "div",
+      "top": 510,
+      "height": 250,
+      "words": 4,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 18,
+      "right": 18,
+      "textLeft": 34,
+      "textRight": 576,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p3",
+      "tag": "div",
+      "top": 768,
+      "height": 250,
+      "words": 13,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 18,
+      "right": 18,
+      "textLeft": 34,
+      "textRight": 89,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p4",
+      "tag": "div",
+      "top": 1026,
+      "height": 340,
+      "words": 6,
+      "media": 0,
+      "middle": 65,
+      "heading": {
+       "text": "SHHK!",
+       "size": 80,
+       "tag": "span"
+      },
+      "left": 34,
+      "right": 292,
+      "textLeft": 34,
+      "textRight": 292,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p5",
+      "tag": "div",
+      "top": 1374,
+      "height": 340,
+      "words": 15,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 18,
+      "right": 18,
+      "textLeft": 34,
+      "textRight": 158,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p6",
+      "tag": "div",
+      "top": 1722,
+      "height": 300,
+      "words": 5,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 18,
+      "right": 18,
+      "textLeft": 34,
+      "textRight": 479,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p7",
+      "tag": "div",
+      "top": 2030,
+      "height": 301,
+      "words": 28,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "\"How is this already up?\"",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 41,
+      "right": 259,
+      "textLeft": 41,
+      "textRight": 259,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#cast",
+      "tag": "section",
+      "top": 2331,
+      "height": 568,
+      "words": 38,
+      "media": 0,
+      "middle": 69,
+      "heading": {
+       "text": "The cast",
+       "size": 54,
+       "tag": "h2"
+      },
+      "left": 18,
+      "right": 112,
+      "textLeft": 18,
+      "textRight": 112,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 2899,
+      "height": 910,
+      "words": 63,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Questions!",
+       "size": 54,
+       "tag": "h2"
+      },
+      "left": 18,
+      "right": 60,
+      "textLeft": 18,
+      "textRight": 60,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 3808,
+      "height": 436,
+      "words": 34,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "The end?",
+       "size": 138,
+       "tag": "p"
+      },
+      "left": 18,
+      "right": 96,
+      "textLeft": 18,
+      "textRight": 96,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "You log off. We cut.",
+      "size": 74,
+      "top": 173,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 40,
+      "n": 7
+     },
+     {
+      "x": 18,
+      "n": 2
+     },
+     {
+      "x": 410,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 11,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.86,
+    0.81,
+    0.76,
+    0.45,
+    0.56,
+    0.51
+   ],
+   "motion": {
+    "elements": 10,
+    "css": 0,
+    "transitions": 10,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 4636,
+     "screens": 5.5,
+     "words": 243,
+     "img": 2,
+     "video": 0,
+     "canvas": 2,
+     "svg": 4,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "pad-ps5.jpg",
+      "podcave.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "You log off. We cut.",
+     "words": 5,
+     "chars": 20,
+     "lines": 2,
+     "size": 70.4,
+     "vw": 18.1,
+     "font": "Bangers",
+     "weight": 400,
+     "tracking": 0.02,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.84,
+     "top": 173,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "You log off. We cut.",
+     "words": 5,
+     "lines": 2,
+     "size": 70.4,
+     "font": "Bangers"
+    },
+    "headings": [
+     {
+      "text": "Book a call!",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.04,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.42,
+      "top": 11,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "You log off. We cut.",
+      "words": 5,
+      "chars": 20,
+      "lines": 2,
+      "size": 70.4,
+      "vw": 18.1,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 173,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "SHHK!",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 80,
+      "vw": 20.5,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1.05,
+      "top": 1022,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "\"How is this already up?\"",
+      "words": 5,
+      "chars": 25,
+      "lines": 2,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 2129,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Book a call!",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.04,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 2329,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "The cast",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 13.9,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 2537,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "8h",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 13.9,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 2636,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "24h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 13.9,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.35,
+      "top": 2636,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "Thumbnails",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 2696,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Shorts packs",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.35,
+      "top": 2696,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "48h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 13.9,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 2896,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "72h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 13.9,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.35,
+      "top": 2896,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "Gaming videos & VODs",
+      "words": 4,
+      "chars": 20,
+      "lines": 3,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 2957,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.35,
+      "top": 2957,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Questions!",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 54.4,
+      "vw": 13.9,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 3303,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "The end?",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 96,
+      "vw": 24.6,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.02,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 4320,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Book a call!",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Bangers",
+      "weight": 400,
+      "tracking": 0.04,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 4424,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 17,
+     "maxLines": 3,
+     "over2Lines": 1,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 0.9,
+       "mono": false
+      },
+      {
+       "family": "Bangers",
+       "share": 0.1,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      15,
+      16,
+      18,
+      19,
+      20,
+      22,
+      24,
+      48,
+      54,
+      70,
+      80,
+      96
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 20,
+      "leading": 1.45,
+      "weight": 600,
+      "tracking": 0,
+      "contrast": 18.7
+     },
+     "measureChars": 56,
+     "max": {
+      "size": 96,
+      "vw": 24.6,
+      "font": "Bangers",
+      "text": "The end?"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.06,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "6 hours. 41 good minutes in there somewhere.",
+      "above": "SHHK!",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 15,
+      "top": 930
+     },
+     {
+      "text": "8:30 AM. You wake up.",
+      "above": "\"How is this already up?\"",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 16,
+      "top": 2070
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fbf8f1",
+     "bodyBgHsl": {
+      "h": 42,
+      "s": 0.56,
+      "l": 0.96
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#0b0908",
+       "top": 93,
+       "hsl": {
+        "h": 20,
+        "s": 0.16,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#ee1240",
+       "top": 1046,
+       "hsl": {
+        "h": 347,
+        "s": 0.87,
+        "l": 0.5
+       }
+      },
+      {
+       "color": "#fbf8f1",
+       "top": 1394,
+       "hsl": {
+        "h": 42,
+        "s": 0.56,
+        "l": 0.96
+       }
+      },
+      {
+       "color": "#ffc72e",
+       "top": 2050,
+       "hsl": {
+        "h": 44,
+        "s": 1,
+        "l": 0.59
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0b0908",
+       "share": 0.62
+      },
+      {
+       "color": "#fbf8f1",
+       "share": 0.33
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.03
+      },
+      {
+       "color": "#ffc72e",
+       "share": 0.01
+      },
+      {
+       "color": "#ee1240",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#ee1240",
+      "hsl": {
+       "h": 347,
+       "s": 0.87,
+       "l": 0.5
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 1,
+     "radius": 0,
+     "height": 70,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call!"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 3,
+     "boxRadius": 26,
+     "squareMedia": 4,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "svg",
+      "ratio": 0.41
+     },
+     {
+      "type": "img",
+      "ratio": 0.28
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 93,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo",
+     "bangers"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 4636,
+    "margins": {
+     "left": 12,
+     "right": 12
+    },
+    "sections": [
+     {
+      "sel": "div.p.p1",
+      "tag": "div",
+      "top": 93,
+      "height": 429,
+      "words": 26,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "You log off.",
+       "size": 70,
+       "tag": "h1"
+      },
+      "left": 12,
+      "right": 12,
+      "textLeft": 32,
+      "textRight": 33,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p2",
+      "tag": "div",
+      "top": 530,
+      "height": 250,
+      "words": 4,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 12,
+      "right": 12,
+      "textLeft": 28,
+      "textRight": 204,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p3",
+      "tag": "div",
+      "top": 788,
+      "height": 250,
+      "words": 13,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 12,
+      "right": 12,
+      "textLeft": 28,
+      "textRight": 61,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p4",
+      "tag": "div",
+      "top": 1046,
+      "height": 340,
+      "words": 6,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "SHHK!",
+       "size": 80,
+       "tag": "span"
+      },
+      "left": 28,
+      "right": 103,
+      "textLeft": 28,
+      "textRight": 103,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p5",
+      "tag": "div",
+      "top": 1394,
+      "height": 340,
+      "words": 15,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 12,
+      "right": 12,
+      "textLeft": 28,
+      "textRight": 44,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p6",
+      "tag": "div",
+      "top": 1742,
+      "height": 300,
+      "words": 5,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 12,
+      "right": 12,
+      "textLeft": 28,
+      "textRight": 108,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.p.p7",
+      "tag": "div",
+      "top": 2050,
+      "height": 367,
+      "words": 28,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "\"How is this already up?\"",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 49,
+      "textLeft": 32,
+      "textRight": 49,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#cast",
+      "tag": "section",
+      "top": 2417,
+      "height": 742,
+      "words": 38,
+      "media": 0,
+      "middle": 38,
+      "heading": {
+       "text": "The cast",
+       "size": 54,
+       "tag": "h2"
+      },
+      "left": 12,
+      "right": 51,
+      "textLeft": 12,
+      "textRight": 51,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 3159,
+      "height": 1042,
+      "words": 62,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 54,
+      "right": 56,
+      "textLeft": 54,
+      "textRight": 56,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 4200,
+      "height": 436,
+      "words": 34,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "The end?",
+       "size": 96,
+       "tag": "p"
+      },
+      "left": 12,
+      "right": 28,
+      "textLeft": 12,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 3136,
+      "height": 256
+     }
+    ],
+    "h1s": [
+     {
+      "text": "You log off. We cut.",
+      "size": 70,
+      "top": 173,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [
+     {
+      "text": "Photographs: InclusiveGameLab person with PS5 cont",
+      "side": "left",
+      "px": 12
+     }
+    ],
+    "edges": [
+     {
+      "x": 32,
+      "n": 7
+     },
+     {
+      "x": 221,
+      "n": 2
+     },
+     {
+      "x": 12,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 10,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "2 eyebrow/kicker label(s) above headings: \"My stream ends at\" above \"SHHK!\"; \"8:30 AM. You wake up.\" above \"\"How is this already up?\"\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #fbf8f1, text #fbf8f1).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "14 different font sizes (13, 16, 17, 18, 19, 20, 22, 24, 54, 86, 101, 138, 144, 259).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 2 picture(s) on the page (2 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "measure",
+   "width": 1440,
+   "message": "Longest paragraph runs about 103 characters per line.",
+   "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch).",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-not-dealt",
+   "width": 1440,
+   "message": "The sheet dealt Chivo and Chivo, but the page renders Archivo, Bangers.",
+   "fix": "Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look."
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 10 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "1 headline(s) wrap past two lines at 390px: \"Gaming videos & VODs\" → 3 lines (4 words, 22px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "edge-text",
+   "width": 390,
+   "message": "1 text block(s) sit 12–15px from the phone's edge: \"Photographs: InclusiveGameLab \" (12px)",
+   "fix": "The page margin is 16–20px on a phone; the header and the corner labels sit on it too."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\11-panel\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\11-panel\\desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\11-panel\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\11-panel\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\11-panel\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\11-panel\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

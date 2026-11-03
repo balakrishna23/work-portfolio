@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — The Line</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --paper: #f7f3ea; --ink: #121010; --soft: #5e5650; --board: #161210; --gold: #ffc72e; --m: clamp(16px, 3vw, 48px);
+    --l-thumb: #f5bf1e; --l-shorts: #ff8a22; --l-video: #ff3d2c; --l-pod: #b51231; }
+  * { box-sizing: border-box; }
+  html { background: var(--paper); color: var(--ink); }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .num { font-variant-numeric: tabular-nums; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px var(--m); }
+  .nav svg { width: 112px; height: 47px; display: block; }
+  .nav nav { display: flex; gap: 26px; font-weight: 700; }
+  .nav nav a { text-decoration: none; } .nav nav a:hover { text-decoration: underline; text-decoration-thickness: 3px; }
+  .btn { display: inline-flex; padding: 13px 22px; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 800; text-decoration: none; transition: transform .2s; }
+  .btn:hover { transform: translateY(-2px); } .btn:active { transform: scale(.97); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--l-video); outline-offset: 3px; }
+
+  .head { padding: clamp(12px, 3vw, 40px) var(--m) 0; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(20px, 3vw, 48px); align-items: end; }
+  h1 { margin: 0; font-weight: 800; font-stretch: 100%; letter-spacing: -.045em; line-height: .92; font-size: clamp(3.4rem, 8vw, 9rem); }
+  .head p { margin: 0 0 6px; font-size: 20px; max-width: 34ch; }
+
+  .map { margin: clamp(28px, 4vw, 56px) var(--m) 0; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 16px; }
+  .map__svg { background: #fff; padding: clamp(10px, 2vw, 24px); border-radius: 18px; }
+  .map svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .map text { font-family: Archivo, sans-serif; font-size: 15px; font-weight: 700; fill: var(--ink); }
+  .map .line { fill: none; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; transition: opacity .3s, stroke-width .3s; }
+  .map .dim .line { opacity: .14; }
+  .map .dim .line.on { opacity: 1; stroke-width: 15; }
+  .map .stn { fill: #fff; stroke: var(--ink); stroke-width: 4; }
+  .map .train { transition: opacity .3s; }
+  .side { display: grid; gap: 16px; align-content: start; }
+  .lines { display: grid; gap: 8px; }
+  .lines button { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 12px; align-items: center; text-align: left; font: inherit; font-weight: 800; padding: 14px 16px; border: 0; border-radius: 14px; background: #ece5d8; cursor: pointer; transition: background .2s, transform .15s; }
+  .lines button i { width: 28px; height: 28px; border-radius: 50%; background: var(--c); }
+  .lines button span { font-weight: 600; color: var(--soft); font-size: 15px; display: block; }
+  .lines button b { font-size: 1.3rem; }
+  .lines button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .lines button[aria-pressed="true"] span { color: #d8cfc4; }
+  .lines button:active { transform: scale(.98); }
+  .board { background: var(--board); color: var(--gold); border-radius: 14px; padding: 18px; }
+  .board p { margin: 0 0 8px; color: #e3d8ca; font-size: 15px; }
+  .flaps { display: flex; gap: 3px; flex-wrap: wrap; }
+  .flap { width: 1.25em; height: 1.6em; display: grid; place-items: center; background: #2a2320; border-radius: 4px; font-weight: 900; font-stretch: 100%; font-size: clamp(18px, 1.6vw, 24px); position: relative; overflow: hidden; }
+  .flap::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: var(--board); }
+  .flap.flip { animation: flip .09s linear; }
+  @keyframes flip { 50% { transform: scaleY(.1); } }
+
+  section { padding: clamp(120px, 13vw, 200px) var(--m) 0; }
+  h2 { margin: 0 0 36px; font-weight: 800; letter-spacing: -.045em; line-height: .92; font-size: clamp(2.8rem, 6vw, 6.4rem); }
+  .stations { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .stations figure { margin: 0; }
+  .stations img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 14px; }
+  .stations h3 { margin: 14px 0 4px; font-size: 24px; display: flex; align-items: center; gap: 10px; }
+  .stations h3::before { content: ""; width: 18px; height: 18px; border-radius: 50%; border: 4px solid var(--ink); background: #fff; flex: none; }
+  .stations p { margin: 0; }
+  .qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .qa div { background: #ece5d8; border-radius: 16px; padding: 24px; }
+  .qa h3 { margin: 0 0 6px; font-size: 22px; } .qa p { margin: 0; }
+  footer { padding: clamp(120px, 13vw, 200px) var(--m) 28px; }
+  .end { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; }
+  .end h2 { margin: 0; font-size: clamp(3.4rem, 10vw, 11rem); }
+  .credits { font-size: 13px; color: var(--soft); margin-top: 28px; max-width: 90ch; }
+  .stripe { display: flex; height: 16px; margin-bottom: 36px; border-radius: 999px; overflow: hidden; }
+  .stripe i { flex: 1; }
+  @media (max-width: 900px) {
+    .nav nav { display: none; }
+    .head, .map, .stations, .qa, .end { grid-template-columns: 1fr; }
+    .map__svg { overflow-x: auto; } .map svg { min-width: 640px; }
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#map">The map</a><a href="#stations">Stations</a><a href="#faq">Questions</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <div class="head">
+    <h1>Every edit runs on time.</h1>
+    <p>Cutsway edits gaming videos, streams, shorts and podcasts. Four lines, one network, each with its own arrival time.</p>
+  </div>
+
+  <div class="map" id="map">
+    <div class="map__svg"><svg viewBox="30 50 860 380" id="net" role="img" aria-label="Transit map of the Cutsway network: thumbnail, shorts, video and podcast lines through upload, cut, sound, thumbnail, notes and posted"></svg></div>
+    <div class="side">
+      <div class="lines" role="group" aria-label="Choose a line" id="pick">
+        <button data-l="thumb" style="--c:var(--l-thumb)"><i></i><div>Thumbnail line<span>3 stops · three options</span></div><b class="num">8h</b></button>
+        <button data-l="shorts" style="--c:var(--l-shorts)"><i></i><div>Shorts line<span>5 stops · ten clips</span></div><b class="num">24h</b></button>
+        <button data-l="video" style="--c:var(--l-video)" aria-pressed="true"><i></i><div>Video line<span>6 stops · VODs too</span></div><b class="num">48h</b></button>
+        <button data-l="pod" style="--c:var(--l-pod)"><i></i><div>Podcast line<span>6 stops · plus six clips</span></div><b class="num">72h</b></button>
+      </div>
+      <div class="board" aria-live="polite"><p>Sent now, arriving</p><div class="flaps" id="flaps" aria-label=""></div></div>
+      <a class="btn" href="#book" style="justify-self:start">Book a call</a>
+    </div>
+  </div>
+
+  <section id="stations" aria-labelledby="st-h">
+    <h2 id="st-h" data-rise>The stations</h2>
+    <div class="stations" data-rise="kids">
+      <figure><img src="../_shared/img/stage-1.jpg" alt="Players in headsets at tournament PCs"><h3>Upload</h3><p>Send the raw recording, the VOD, the facecam. No sorting first.</p></figure>
+      <figure><img src="../_shared/img/podcave.jpg" alt="An editing desk with a mixer and a monitor"><h3>Cut &amp; sound</h3><p>Dead air out, story in. Pacing, captions, levels, music.</p></figure>
+      <figure><img src="../_shared/img/stage-4.jpg" alt="A crew filming an interview at an event"><h3>Notes &amp; posted</h3><p>Two rounds of notes on the frame, then scheduled on four platforms.</p></figure>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h" data-rise>Passenger information</h2>
+    <div class="qa" data-rise="kids">
+      <div><h3>Does the clock run on weekends?</h3><p>Yes. The times start when your files land.</p></div>
+      <div><h3>Can I change lines?</h3><p>Any video can also ride the shorts line. Most channels take both.</p></div>
+      <div><h3>What if I'm running late?</h3><p>Tell us when you book. Rush slots exist most days.</p></div>
+      <div><h3>Are these times promised?</h3><p>They are samples. Yours are confirmed on the call.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <div class="stripe" aria-hidden="true" id="stripe"></div>
+  <div class="end"><h2>All aboard.</h2><a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a></div>
+  <p class="credits">Photographs: esports events by Flickr users 23979265@N07 and 48254827@N00, CC BY 2.0; The Podcave home studio, CC BY 2.0, Wikimedia Commons. Lines and times are samples.</p>
+</footer>
+
+<script src="../_shared/brand.js"></script>
+<script>
+  // stations on a 45° transit grid
+  const S = { up: [70, 380, 'Upload'], cut: [250, 380, 'Cut'], snd: [400, 230, 'Sound'], th: [560, 230, 'Thumbnail'], nt: [700, 90, 'Notes'], po: [840, 90, 'Posted'], qk: [400, 380, 'Quick cut'], cap: [560, 380, 'Captions'], mix: [250, 230, 'Mix'] };
+  const L = {
+    thumb: { c: 'var(--l-thumb)', off: [0, 10], path: ['up', 'th', 'po'], h: 8 },
+    shorts: { c: 'var(--l-shorts)', off: [0, -10], path: ['up', 'qk', 'cap', 'nt', 'po'], h: 24 },
+    video: { c: 'var(--l-video)', off: [0, 0], path: ['up', 'cut', 'snd', 'th', 'nt', 'po'], h: 48 },
+    pod: { c: 'var(--l-pod)', off: [0, -20], path: ['up', 'mix', 'snd', 'cap', 'nt', 'po'], h: 72 }
+  };
+  const net = document.getElementById('net');
+  // route between stations with one 45° bend
+  function route(a, b) { const [x1, y1] = a, [x2, y2] = b, dx = x2 - x1, dy = y2 - y1; if (!dx || !dy) return `L${x2} ${y2}`;
+    const d = Math.min(Math.abs(dx), Math.abs(dy)); const mx = x2 - Math.sign(dx) * d; return `L${mx} ${y1} L${x2} ${y2}`; }
+  let svg = '<g id="g">';
+  Object.entries(L).forEach(([k, l]) => { const pts = l.path.map(s => [S[s][0] + l.off[0], S[s][1] + l.off[1]]);
+    let d = `M${pts[0][0]} ${pts[0][1]}`; for (let i = 1; i < pts.length; i++) d += route(pts[i - 1], pts[i]);
+    svg += `<path class="line" id="ln-${k}" d="${d}" stroke="${l.c}"/>`; });
+  Object.values(S).forEach(([x, y, n]) => { svg += `<circle class="stn" cx="${x}" cy="${y - 5}" r="13"/><text x="${x}" y="${y + 40}" text-anchor="middle">${n}</text>`; });
+  svg += '<circle class="train" id="train" r="10" fill="#121010" stroke="#fff" stroke-width="4"/></g>';
+  net.innerHTML = svg;
+  const g = document.getElementById('g'), train = document.getElementById('train');
+  let cur = 'video', t0 = performance.now();
+  function pick(k) { cur = k; t0 = performance.now(); g.classList.add('dim');
+    document.querySelectorAll('.line').forEach(p => p.classList.toggle('on', p.id === 'ln-' + k));
+    document.querySelectorAll('#pick button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === k)); flapTo(Cutsway.due(L[k].h)); }
+  document.querySelectorAll('#pick button').forEach(b => b.addEventListener('click', () => pick(b.dataset.l)));
+  // split-flap board
+  const flaps = document.getElementById('flaps'), CH = ' ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:';
+  function flapTo(d) { const txt = (d.day.slice(0, 3) + ' ' + d.time).toUpperCase().replace(/\s?[AP]M/, m => m.trim()), n = txt.length; while (flaps.children.length > n) flaps.lastChild.remove();
+    flaps.setAttribute('aria-label', d.text); while (flaps.children.length < n) { const s = document.createElement('span'); s.className = 'flap'; s.textContent = ' '; flaps.appendChild(s); }
+    [...flaps.children].forEach((f, i) => { const want = txt[i] || ' '; let steps = Cutsway.reduce ? 0 : 6 + i * 2;
+      (function tick() { if (steps-- > 0) { f.textContent = CH[Math.floor(Math.random() * CH.length)]; f.classList.remove('flip'); void f.offsetWidth; f.classList.add('flip'); setTimeout(tick, 55); } else f.textContent = want; })(); }); }
+  pick('video');
+  (function run(now) { const p = document.getElementById('ln-' + cur), len = p.getTotalLength(), k = Cutsway.reduce ? 1 : ((now - t0) / 4200) % 1.25;
+    const pt = p.getPointAtLength(Math.min(1, k) * len); train.setAttribute('cx', pt.x); train.setAttribute('cy', pt.y); requestAnimationFrame(run); })(performance.now());
+  document.getElementById('stripe').innerHTML = Cutsway.SPEC.concat(Cutsway.SLICE.slice(0, 5)).map(c => `<i style="background:${c}"></i>`).join('');
+</script>
+</body>
+</html>

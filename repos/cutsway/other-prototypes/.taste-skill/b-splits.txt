@@ -1,0 +1,35 @@
+TASTESKILL · INSPECT   prototypes/b-splits/index.html
+
+MEASURED (first viewport listed)
+  hero headline   "back before you respawn."  4 words · 2 line(s) · 149.8px (10.4vw) · Archivo 900 · tracking -0.035em · leading 0.92
+  @768px          2 line(s) · 81.4px
+  @390px          1 line(s) · 48px
+  typefaces       Archivo 100%
+  sizes in use    14 / 19 / 26 / 30 / 39 / 56 / 79 / 150 / 187 px   body 19px / 1.45
+  colour          page #0b0a10 · sections #16141d #f9e853 · button #201d29
+  page            4.9 screens · 365 words · 0 images · hero media none
+  headings        11 · longest 2 line(s) · median 2 words
+
+FAIL — fix every one of these
+  [few-pictures] @1440px  Only 1 picture(s) on the page (0 photographs, footage or raster images, 1 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+
+WARN — fix, or be able to defend
+  [palette-cream] @1440px (+768, 390)  Yellow-cream background (text #f2f0e6).
+      → Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [font-not-dealt] @1440px  The sheet dealt Chivo and Chivo, but the page renders Archivo.
+      → Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect-b-splits/desktop-fold.jpg
+                  .taste-skill/inspect-b-splits/desktop-page-01.jpg
+                  .taste-skill/inspect-b-splits/desktop-page-02.jpg
+  tablet 768px    .taste-skill/inspect-b-splits/tablet-fold.jpg
+                  .taste-skill/inspect-b-splits/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect-b-splits/mobile-fold.jpg
+                  .taste-skill/inspect-b-splits/mobile-page-01.jpg
+
+report: .taste-skill/inspect-b-splits/report.json
+RESULT: 1 FAIL, 3 WARN — not done.

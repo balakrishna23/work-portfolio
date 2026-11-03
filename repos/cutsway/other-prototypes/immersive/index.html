@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Immersive Set</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0b0706; --raise: #171010; --paper: #f6efe4; --soft: #cdbfae; --gold: #ffc72e; --m: clamp(16px, 3vw, 48px); }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--paper); font-family: Archivo, system-ui, sans-serif; font-size: 17px; line-height: 1.45; -webkit-font-smoothing: antialiased; padding: clamp(28px, 4vw, 64px) var(--m) 64px; }
+  a { color: inherit; }
+  .top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 30rem); gap: 24px 48px; align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
+  h1 { margin: 0; font-weight: 900; font-stretch: 125%; letter-spacing: -.05em; line-height: .88; font-size: clamp(3rem, 8vw, 8rem); text-transform: lowercase; }
+  .top p { margin: 0; }
+  .top a { color: var(--gold); font-weight: 700; }
+  .bar { height: 12px; width: min(460px, 70vw); margin-top: 20px; }
+  .bar svg { width: 100%; height: 100%; display: block; }
+  .list { display: grid; gap: clamp(48px, 6vw, 88px); }
+  .item { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(20px, 3vw, 48px); align-items: center; text-decoration: none; }
+  .item:nth-child(even) { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .item:nth-child(even) .shot { order: 2; }
+  .shot { aspect-ratio: 16 / 10; overflow: hidden; border-radius: 14px; background: var(--raise); }
+  .shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s cubic-bezier(.16,1,.3,1); }
+  .item:hover img { transform: scale(1.035); }
+  .item:focus-visible { outline: 3px solid var(--gold); outline-offset: 6px; border-radius: 14px; }
+  h2 { margin: 0 0 12px; font-weight: 900; font-stretch: 125%; letter-spacing: -.045em; line-height: .92; font-size: clamp(2.4rem, 4.4vw, 4.4rem); text-transform: lowercase; }
+  .item p { margin: 0 0 12px; max-width: 46ch; }
+  .item .live { color: var(--gold); font-weight: 700; }
+  .item .open { display: inline-flex; margin-top: 8px; padding: 12px 20px; border-radius: 999px; background: var(--paper); color: var(--bg); font-weight: 800; transition: background .2s; }
+  .item:hover .open { background: var(--gold); }
+  .notes { margin-top: clamp(80px, 9vw, 140px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 32px; color: var(--soft); font-size: 15px; }
+  .notes h3 { color: var(--paper); margin: 0 0 8px; font-size: 18px; }
+  .notes p { margin: 0; }
+  @media (max-width: 860px) { .top, .item, .item:nth-child(even) { grid-template-columns: 1fr; } .item:nth-child(even) .shot { order: 0; } }
+</style>
+</head>
+<body>
+<div class="top">
+  <div>
+    <h1>the immersive set.</h1>
+    <div class="bar"><svg viewBox="0 15 400 80" preserveAspectRatio="none" aria-hidden="true"><use href="#cw-bar"/></svg></div>
+  </div>
+  <p>Five full 3D worlds, each a different kind of space with its own thing to do in it. All in the gold to red logo colourway. Open them through start-prototypes.bat (they need http). <a href="../">All earlier prototypes</a></p>
+</div>
+
+<div class="list">
+  <a class="item" href="canyon/"><div class="shot"><img src="_shared/shots/canyon.jpg" alt=""></div><div>
+    <h2>canyon</h2><p>Fly low over an hour of raw audio built as stepped waveform terrain at dusk. Speech forms the canyon walls; silence is grey ash ground.</p>
+    <p class="live">Press cut (or C): the silence drops into glowing red chasms and the runtime falls. Later the loudest peaks light up gold as the shorts.</p><span class="open">Open canyon</span></div></a>
+  <a class="item" href="multiview/"><div class="shot"><img src="_shared/shots/multiview.jpg" alt=""></div><div>
+    <h2>multiview</h2><p>A broadcast control room: a curved wall of 128 live feeds, Program and Preview monitors, a mixer desk, an ON AIR sign. Chapter copy is set as lower thirds.</p>
+    <p class="live">Click a feed to preview it, then Take (or Space) to cut it to Program. Each chapter lights only that service's feeds; shorts turn Program vertical.</p><span class="open">Open multiview</span></div></a>
+  <a class="item" href="ribbon/"><div class="shot"><img src="_shared/shots/ribbon.jpg" alt=""></div><div>
+    <h2>ribbon</h2><p>Ride an endless film strip looping a trefoil track through the dark. Its sprocket edges run gold to red like the logo; grey dead-air frames get snipped and tumble away.</p>
+    <p class="live">J, K and L shuttle the film like a real editor. In the shorts chapter every frame on the strip turns vertical.</p><span class="open">Open ribbon</span></div></a>
+  <a class="item" href="monoliths/"><div class="shot"><img src="_shared/shots/monoliths.jpg" alt=""></div><div>
+    <h2>monoliths</h2><p>The logo's nine slices stand in a desert, the bar laid before them as a causeway, each stone carved with a turnaround. It opens at your real local time.</p>
+    <p class="live">Drag the sun (or the dial) to when you'd send your files: dawn, bleached noon, ember dusk, starry night. The last stone carves when it's back.</p><span class="open">Open monoliths</span></div></a>
+  <a class="item" href="feed/"><div class="shot"><img src="_shared/shots/feed.jpg" alt=""></div><div>
+    <h2>feed</h2><p>Descend a glowing tower of 110 phones playing shorts, captions word by word. Rims run gold to red to maroon down the spiral.</p>
+    <p class="live">Drag to flick the feed with momentum. Tap a phone and it rises to you full size; double-tap for hearts.</p><span class="open">Open feed</span></div></a>
+</div>
+
+<div class="notes">
+  <div><h3>Built on</h3><p>three.js 0.160 with bloom, one shared stage (scroll chapters, camera easing, reduced-motion and no-WebGL fallbacks). Add ?at=2.5 to any URL to open at a scroll position.</p></div>
+  <div><h3>Pictures</h3><p>Everything on screen is drawn in code: the gameplay, feeds and shorts are samples, not real footage.</p></div>
+  <div><h3>To confirm before launch</h3><p>Turnaround hours (8 / 24 / 48 / 72), two revision rounds, platforms, the email address, and runtimes shown as examples.</p></div>
+</div>
+<script src="../awwwards/_shared/brand.js"></script>
+</body>
+</html>

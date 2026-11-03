@@ -1,0 +1,47 @@
+TASTESKILL · INSPECT   prototypes/glass-c-the-cut/index.html
+
+MEASURED (first viewport listed)
+  hero headline   "we cut fast."  3 words · 2 line(s) · 230.4px (16vw) · Archivo 900 · tracking -0.04em · leading 0.86
+  @768px          2 line(s) · 161.3px
+  @390px          2 line(s) · 81.9px
+  typefaces       Archivo 100%
+  sizes in use    13 / 14 / 19 / 26 / 33 / 51 / 69 / 79 / 117 / 144 / 230 px   body 19px / 1.45
+  colour          page #efede6 · sections #fa7d31 #0b0a10 · button #0b0a10
+  page            5.7 screens · 168 words · 0 images · hero media none
+  headings        18 · longest 3 line(s) · median 3 words
+
+FAIL — fix every one of these
+  [gradient] @1440px (+768, 390)  3 gradient fill(s): div.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23% | div#pv-leak.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23% | div.leak → linear-gradient(90deg, rgb(33, 54, 205) 0%, rgb(38, 100, 247) 6%, rgb(50, 169, 246) 15%, rgb(50, 215, 246) 23%
+      → Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.
+  [few-pictures] @1440px  Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.
+      → Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve.
+  [overflow] @1440px  Page scrolls sideways by 95px at 1440px. Widest offenders: div.leak (+58px), div#pv-leak.leak (+95px), div.leak (+86px).
+      → Constrain the element that is wider than the viewport (max-width: 100%, or overflow: clip on its section).
+  [overflow] @768px  Page scrolls sideways by 46px at 768px. Widest offenders: div.leak (+31px), div.leak (+46px).
+      → Constrain the element that is wider than the viewport (max-width: 100%, or overflow: clip on its section).
+  [headline-lines] @390px  1 headline(s) wrap past two lines at 390px: "sat 10:22 pm." → 3 lines (3 words, 54.4px, a paragraph set above 24px)
+      → Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less.
+  [off-centre] @390px  The page sits off-centre: its content comes to 20px from the left edge but only to 43px from the right, at 390px.
+      → Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure).
+
+WARN — fix, or be able to defend
+  [size-count] @1440px (+768)  11 different font sizes (13, 14, 19, 26, 33, 51, 69, 79, 117, 144, 230).
+      → A page needs about five: display, heading, lead, body, small.
+  [no-footage] @1440px  No video anywhere on the page.
+      → Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject.
+  [off-centre] @1440px  The margins differ: 35px on the left, 57px on the right, at 1440px.
+      → Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.
+  [lopsided] @1440px  A section keeps its content on one side and leaves 610px of the width empty: "we lost".
+      → Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect-glass-c-the-cut/desktop-fold.jpg
+                  .taste-skill/inspect-glass-c-the-cut/desktop-page-01.jpg
+                  .taste-skill/inspect-glass-c-the-cut/desktop-page-02.jpg
+  tablet 768px    .taste-skill/inspect-glass-c-the-cut/tablet-fold.jpg
+                  .taste-skill/inspect-glass-c-the-cut/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect-glass-c-the-cut/mobile-fold.jpg
+                  .taste-skill/inspect-glass-c-the-cut/mobile-page-01.jpg
+
+report: .taste-skill/inspect-glass-c-the-cut/report.json
+RESULT: 6 FAIL, 4 WARN — not done.

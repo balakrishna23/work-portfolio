@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway · Video editing for gaming creators, streamers and podcasters</title>
+<meta name="description" content="Hyderabad video editing agency for gaming creators, streamers and podcasters: long-form, shorts and reels, podcasts, thumbnails and posting, in English, Hindi and Telugu.">
+<meta name="theme-color" content="#07070a">
+<link rel="canonical" href="https://cutsway.com/">
+<link rel="icon" href="../shared/favicon.ico" sizes="48x48">
+<link rel="icon" href="../shared/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../shared/apple-touch-icon.png">
+<link rel="manifest" href="../shared/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cutsway">
+<meta property="og:title" content="Cutsway · Video editing for gaming creators">
+<meta property="og:description" content="Hyderabad video editing agency for gaming creators, streamers and podcasters: long-form, shorts and reels, podcasts, thumbnails and posting, in English, Hindi and Telugu.">
+<meta property="og:url" content="https://cutsway.com/">
+<meta property="og:image" content="https://cutsway.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cutsway: video editing for gaming creators, streamers and podcasters, with three of our thumbnails">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cutsway · Video editing for gaming creators">
+<meta name="twitter:description" content="Hyderabad video editing agency for gaming creators, streamers and podcasters: long-form, shorts and reels, podcasts, thumbnails and posting, in English, Hindi and Telugu.">
+<meta name="twitter:image" content="https://cutsway.com/og.jpg">
+<!-- who Cutsway is, for search engines; the build adds the FAQ from the page's own questions -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [
+  {"@type": "Organization", "@id": "https://cutsway.com/#org", "name": "Cutsway", "url": "https://cutsway.com/",
+   "logo": {"@type": "ImageObject", "url": "https://cutsway.com/shared/icon-512.png", "width": 512, "height": 512},
+   "image": "https://cutsway.com/og.jpg",
+   "description": "Cutsway is a video editing and social media agency for gaming YouTubers, streamers and podcasters: long-form edits, shorts and reels, podcast episodes, thumbnails and posting, delivered fast.",
+   "email": "cutsway.socialmanager@gmail.com", "telephone": "+91-6281301476",
+   "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "email": "cutsway.socialmanager@gmail.com", "telephone": "+91-6281301476", "url": "https://wa.me/916281301476", "availableLanguage": ["English", "Hindi", "Telugu"]},
+   "address": {"@type": "PostalAddress", "addressLocality": "Hyderabad", "addressRegion": "Telangana", "addressCountry": "IN"},
+   "knowsLanguage": ["en", "hi", "te"],
+   "sameAs": ["https://www.youtube.com/@cutsway", "https://www.instagram.com/cutsway/"],
+   "areaServed": [{"@type": "City", "name": "Hyderabad"}, {"@type": "Country", "name": "India"}, "Worldwide"],
+   "knowsAbout": ["Gaming video editing", "YouTube editing", "Stream highlights", "Shorts and reels", "Podcast editing", "Thumbnail design", "Social media management"],
+   "makesOffer": [
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gaming video and long-form YouTube editing"}},
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Shorts and reels editing"}},
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Podcast editing"}},
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Thumbnail design"}},
+     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Social media posting and scheduling"}}]},
+  {"@type": "WebSite", "@id": "https://cutsway.com/#website", "url": "https://cutsway.com/", "name": "Cutsway", "inLanguage": "en", "publisher": {"@id": "https://cutsway.com/#org"}}
+]}</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/page.css">
+<link rel="stylesheet" href="../shared/brand.css">
+<style>
+  /* the poster, when there is no 3D (no WebGL, data saver, a blocked CDN); set here so the url resolves next to this page */
+  .no-webgl body { background: linear-gradient(to top, rgb(7 7 10 / 0.7), transparent 55%), url(poster.jpg) center / cover fixed, var(--night); }
+  .counter { position: fixed; z-index: 25; right: var(--m); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); display: grid; justify-items: end; gap: 4px; pointer-events: none; text-align: right; }
+  .counter b { font-weight: 900; font-stretch: 125%; letter-spacing: -0.03em; font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1; }
+  .counter small { font-size: var(--step-small); font-weight: 800; color: var(--yellow); }
+  .counter span { font-size: var(--step-small); font-weight: 700; color: var(--soft); }
+  .hero__row--stack { flex-direction: column; align-items: flex-start; gap: 18px; }
+  @media (max-width: 820px) {
+    .counter { top: calc(80px + env(safe-area-inset-top, 0px)); bottom: auto; gap: 2px; padding: 8px 12px; border-radius: 14px; background: rgb(14 14 22 / 0.62); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+    .counter b { font-size: 1.35rem; }
+    .counter span { display: none; }
+    .hint { display: none; }
+  }
+  @media (hover: none) { .hint { display: none; } }
+  /* room for the razor: the burn plays across a screen of its own */
+  .burn-gap { height: 120svh; }
+</style>
+</head>
+<body>
+<a class="skip" href="#top">Skip to content</a>
+<canvas id="world" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<div class="export" id="export" aria-hidden="true">
+  <div class="export__logo"><svg viewBox="0 0 800.1 100"><use href="#logo"/></svg><svg class="export__fill" id="export-fill" viewBox="0 0 800.1 100"><use href="#logo"/></svg></div>
+  <div class="export__row"><span>importing raw_footage/</span><span class="num" id="export-pct">000%</span></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spec" gradientUnits="userSpaceOnUse" x1="0" x2="800.1" y1="0" y2="0"><stop offset="0.000" stop-color="#272ed2"/><stop offset="0.071" stop-color="#1c4cdd"/><stop offset="0.143" stop-color="#108ae8"/><stop offset="0.214" stop-color="#03c0f4"/><stop offset="0.286" stop-color="#5ae2e8"/><stop offset="0.357" stop-color="#a9f0dc"/><stop offset="0.429" stop-color="#e8f8cd"/><stop offset="0.500" stop-color="#fcf397"/><stop offset="0.571" stop-color="#fddf4b"/><stop offset="0.643" stop-color="#fcb51c"/><stop offset="0.714" stop-color="#fc8020"/><stop offset="0.786" stop-color="#fb3b27"/><stop offset="0.857" stop-color="#e21c2f"/><stop offset="0.929" stop-color="#a81d30"/><stop offset="1.000" stop-color="#761a2b"/></linearGradient>
+    <symbol id="logo" viewBox="0 0 800.1 100"><path fill="url(#spec)" fill-rule="evenodd" d="M679.5 2.3L680.5 4.3Q681.4 6.3 723.9 64.9L723.9 64.9L723.9 97.4L727 97.4Q730 97.3 755.7 97.3L755.7 97.3L755.9 95.4Q756.1 93.5 756.2 85.4Q756.2 77.3 756.2 64.1L756.2 64.1L774.7 39.1Q793.1 14.2 795 12.1Q796.8 10 800 3.4L800 3.4L797 3Q793.9 2.6 787.3 2.6Q780.7 2.6 764.4 2.6L764.4 2.6L761 7Q757.6 11.3 750.6 21.3Q743.5 31.4 740.2 35.1L740.2 35.1L736.6 30.5Q733 26 726.7 16.3Q720.4 6.6 716.6 2.3L716.6 2.3L679.5 2.3ZM623.5 2.8L619 13.9Q614.4 25 599.5 59.3Q584.6 93.5 584 97L584 97L586.5 97.4Q588.9 97.7 618.7 97.7L618.7 97.7L621.1 91.4Q623.5 85 625.7 82.3L625.7 82.3L662.7 82.3L665.1 88.6Q667.5 94.9 669.7 97.5L669.7 97.5L704.6 97.5L664 2.1L645.3 2.1Q626.7 2.1 623.5 2.8L623.5 2.8ZM644.1 34L645.5 37Q646.9 40 652.7 57.6L652.7 57.6L651.2 57.8Q649.7 58 634 58L634 58L638.1 47.3Q642.2 36.6 644.1 34L644.1 34ZM462.9 97.8L500.3 97.8L501.4 95.5Q502.6 93.1 507.6 79Q512.7 64.8 518.3 51.3L518.3 51.3L522.6 64.6Q527 77.9 534.4 97.6L534.4 97.6L571.5 97.6L573.5 93.2Q575.4 88.9 606.7 3.1L606.7 3.1L605.3 2.6Q603.9 2.1 572.4 2.1L572.4 2.1L569.6 9.3Q566.9 16.5 561.7 32.9Q556.5 49.2 553.2 57.4L553.2 57.4L552.5 56Q551.7 54.6 548.1 41.7Q544.4 28.7 535.6 2.1L535.6 2.1L501.3 2.1L500.3 4.4Q499.3 6.7 483 58.1L483 58.1L481.6 55.2Q480.2 52.3 465.1 3L465.1 3L463.6 2.5Q462.2 2.1 430.5 2.1L430.5 2.1L433.4 11.6Q436.2 21 462.9 97.8L462.9 97.8ZM231.4 2.3L231.4 31.6L262.6 31.6L262.6 97.2L264.4 97.5Q266.2 97.7 294.8 97.7L294.8 97.7L294.8 31.4L326.8 31.4L326.8 2.3L231.4 2.3ZM225.3 2.3L193.5 2.3L193.5 25.3Q193.4 48.4 193.4 52.6Q193.4 56.8 192.2 59.2Q190.9 61.6 189.1 63.4Q187.3 65.2 184.4 66.6Q181.4 68.1 177.4 68.1Q173.5 68.2 168.4 68.2Q163.4 68.2 159.8 67Q156.3 65.7 154.6 64.1Q153 62.4 151.2 59.1Q149.4 55.8 149.4 2L149.4 2L145.7 2.1Q142 2.1 117.7 2.1L117.7 2.1L117.4 5.6Q117.1 9.2 117.1 32.6Q117.1 56 117.5 59.3Q117.9 62.6 118.8 66.7Q119.7 70.8 121.3 74.3Q123 77.7 125.9 81.8Q128.7 85.8 131.1 87.8Q133.4 89.8 137.8 92.2Q142.1 94.5 146.5 95.9Q150.9 97.2 158.3 98.6Q165.7 99.9 171.1 99.9Q176.5 99.9 183.3 98.8Q190.1 97.7 194.3 96.7Q198.5 95.7 203.7 93Q208.9 90.2 212.4 87.1Q215.8 84 217.5 81.8Q219.1 79.6 220.6 76.8Q222 74 223.7 68.2Q225.3 62.4 225.3 2.3L225.3 2.3ZM112.4 57.8L79 57.8L77.5 60.6Q76.1 63.4 73.7 65.2Q71.4 67 67.1 68.3Q62.7 69.7 57.2 69.7Q51.7 69.7 46.8 68.3Q41.8 67 39.8 65.7Q37.7 64.5 35.9 61.9Q34.1 59.3 33.2 55.4Q32.3 51.6 32.7 47.3Q33 43.1 34.2 40.2Q35.4 37.4 36.8 35.8Q38.2 34.3 40.2 33.1Q42.2 31.9 45.7 30.9Q49.1 29.9 53.8 29.9Q58.5 29.9 63.8 30.6Q69.2 31.2 71.8 32.9Q74.4 34.5 75.7 35.9Q77 37.3 79.6 41.8L79.6 41.8L92.7 41.8Q105.8 41.8 111.8 41.1L111.8 41.1L112.1 39.4Q112.4 37.7 112 34.8Q111.7 31.9 109.6 26.5Q107.6 21 104.8 17.5Q102.1 14 99.8 12Q97.5 9.9 93.2 7.6Q88.9 5.2 83.1 3.4Q77.4 1.7 71.9 0.8Q66.3 0 57.2 0Q48.1 0 42.3 0.9Q36.5 1.8 28.8 4.5Q21.2 7.3 17 10.4Q12.8 13.5 10 16.8Q7.2 20.1 4.5 26.3Q1.8 32.6 0.9 38.4Q0.1 44.2 0.1 48.5Q0.1 52.8 0.8 59.8Q1.5 66.9 2.9 70.8Q4.3 74.8 6.9 79Q9.5 83.2 12.3 85.8Q15.1 88.4 19.4 91.2Q23.7 93.9 29 95.7Q34.4 97.4 40.5 98.6Q46.6 99.9 54.4 99.9Q62.2 99.9 70.5 98.8Q78.8 97.7 83.3 96.3Q87.8 94.9 91.2 93.1Q94.6 91.3 98.3 88.4Q101.9 85.6 104.6 81.8Q107.3 78 108.9 74.5Q110.6 71 111.5 66.9Q112.4 62.7 112.4 57.8L112.4 57.8ZM403.5 65.9L402.1 70.6L399.2 72Q396.3 73.3 392.8 74Q389.4 74.8 385.5 74.8Q381.6 74.8 378 74.3Q374.4 73.9 371.9 72.9Q369.3 71.9 367.5 70.4Q365.7 68.9 364.1 65.3L364.1 65.3L330.3 65.3L330.8 70.1Q331.4 74.8 332.6 77.8Q333.8 80.7 336 83.8Q338.1 86.8 340 88.6Q342 90.4 346.7 92.9Q351.4 95.5 355.4 96.6Q359.3 97.7 368.2 98.8Q377.2 99.9 384.5 99.9Q391.7 99.9 400.6 98.6Q409.4 97.2 414 95.7Q418.6 94.2 421.4 92.7Q424.2 91.2 426.2 89.6Q428.2 88 430.4 85.5Q432.6 82.9 433.8 80.5Q435.1 78 436.1 73.3Q437.1 68.6 437.1 66.2Q437.1 63.8 436.1 60.4Q435.2 56.9 434 54.7Q432.7 52.5 431.1 50.8Q429.4 49 426.5 47.2Q423.7 45.4 420.3 43.9Q416.9 42.5 409.7 41.2Q402.5 39.9 386.5 38.4Q370.6 36.9 364.6 34.5L364.6 34.5L364.6 29.5L367.3 27.9Q370 26.3 373.8 25.6Q377.6 25 381.4 25Q385.1 25 390.5 25.8Q395.9 26.5 397.9 28.1Q400 29.7 402.3 33.8L402.3 33.8L435.4 33.8L434.1 27.7Q432.7 21.6 430.6 18Q428.5 14.3 426.3 12.2Q424.2 10 420.8 7.8Q417.3 5.6 412.9 4.1Q408.5 2.5 402.5 1.2Q396.6 0 386.5 0Q376.3 0 367.3 1.2Q358.2 2.5 352.2 4.8Q346.2 7.2 342.8 9.6Q339.5 12 336.6 16Q333.7 19.9 332.6 22.9Q331.5 25.9 331.3 27.9Q331 30 331 33.5Q331 37 332.4 40.7Q333.7 44.4 336.1 47.3Q338.5 50.2 342.9 52.7Q347.3 55.2 351.7 56.4Q356 57.6 362.5 58.7Q369.1 59.8 380.8 60.7Q392.6 61.6 395.9 62.2Q399.2 62.9 403.5 65.9L403.5 65.9Z"/></symbol>
+    <symbol id="arrow" viewBox="0 0 16 16"><path d="M3 2v7h10M9 5l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<div class="counter" aria-hidden="true"><small id="kept-tag">raw runtime</small><b class="num" id="kept">4:12:00</b><span id="kept-cap">360 clips in the folder</span></div>
+
+<header class="nav">
+  <a class="nav__logo" href="#top" aria-label="Cutsway home"><svg viewBox="0 0 800.1 100" role="img" aria-label="Cutsway"><use href="#logo"/></svg></a>
+  <nav class="nav__links" aria-label="Main"><a href="#long-form">What we cut</a><a href="/work/">Our work</a><a href="#turnaround">Turnaround</a><a href="#faq">FAQ</a></nav>
+  <div class="nav__cta"><a class="pill" href="#book" data-book data-magnet="0.25">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a><button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i></button></div>
+</header>
+
+<div class="menu" id="menu">
+  <nav aria-label="Menu"><a href="#long-form">What we cut</a><a href="/work/">Our work</a><a href="#turnaround">Turnaround</a><a href="#faq">FAQ</a><a href="#book" data-book>Book a call</a></nav>
+  <a class="menu__mail" data-email href="mailto:cutsway.socialmanager@gmail.com">cutsway.socialmanager@gmail.com</a>
+  <a class="menu__mail" data-whatsapp href="https://wa.me/916281301476">WhatsApp +91 62813 01476</a>
+</div>
+
+<main id="top">
+  <section class="ch" data-scene aria-labelledby="h1">
+    <h1 class="display" id="h1"><span class="h1__k">Cutsway · video editing for gaming creators, streamers and podcasters</span>your raw pile.</h1>
+    <div class="hero__row hero__row--stack">
+      <p>Four hours of gameplay, a folder of clips, a podcast on three mics. Scroll, and watch Cutsway burn it down to the part people finish.</p>
+      <span class="hint" aria-hidden="true"><i></i>Move through the pile, then scroll</span>
+    </div>
+  </section>
+
+  <div class="burn-gap" aria-hidden="true"></div>
+
+  <section class="ch" data-scene aria-labelledby="cut-h">
+    <div class="copy rise">
+      <h2 class="display" id="cut-h">we cut it.</h2>
+      <p>Loading screens, dead air, the twenty minutes where nothing happens: gone. What stays is the part worth watching.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="long-form" data-scene aria-labelledby="lf-h">
+    <div class="copy rise">
+      <h2 class="display" id="lf-h">gaming videos &amp; long-form</h2>
+      <p>The keepers, in the right order, become one video: story, pacing and sound design, with the thumbnail made alongside it.</p>
+      <a class="tag" href="/gaming-video-editing/">Gaming video editing →</a>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="sh-h">
+    <div class="copy rise">
+      <h2 class="display" id="sh-h">shorts &amp; reels</h2>
+      <p>The same clips, reframed to vertical and captioned for the first second of a scroll.</p>
+      <a class="tag" href="/shorts-reels-editing/">Shorts &amp; reels editing →</a>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="pod-h">
+    <div class="copy rise">
+      <h2 class="display" id="pod-h">podcasts</h2>
+      <p>Three mics, two cameras, one clean episode, plus the clips that bring new listeners in.</p>
+      <a class="tag" href="/podcast-editing/">Podcast editing →</a>
+    </div>
+  </section>
+
+  <section class="ch" id="turnaround" data-scene aria-labelledby="turn-h">
+    <div class="glass turn rise">
+      <h2 class="display" id="turn-h">when is it yours?</h2>
+      <div class="chips" role="group" aria-label="What would you send?">
+        <button class="chip" data-f="thumb">Thumbnail</button>
+        <button class="chip" data-f="shorts">Shorts pack</button>
+        <button class="chip" data-f="video" aria-pressed="true">Gaming video</button>
+        <button class="chip" data-f="podcast">Podcast</button>
+      </div>
+      <p class="due" aria-live="polite">Sent now, it's back by<strong class="num" id="due">…</strong></p>
+      <ol class="splits num" id="splits"></ol>
+      <p class="note">From the moment your files land. The keepers are already on the timeline.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="soc-h">
+    <div class="copy rise">
+      <h2 class="display" id="soc-h">posted, everywhere</h2>
+      <p>Sorted into YouTube, Instagram, TikTok and X, each with its own title and caption, scheduled for when your audience is awake.</p>
+      <a class="tag" href="/social-media-management/">Posting &amp; scheduling →</a>
+      <a class="pill pill--solid" href="#book" data-book data-magnet="0.3">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </section>
+
+  <section class="ch" id="faq" data-scene aria-labelledby="faq-h">
+    <h2 class="display faq-h rise" id="faq-h">fair questions</h2>
+    <div class="glass faq rise" style="--i:1">
+      <details><summary>Who is Cutsway for?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Gaming YouTubers, streamers and podcasters who would rather record than edit. We cut long-form videos, stream highlights, shorts and reels, and podcast episodes, design the thumbnails, and post it all for you.</p></details>
+      <details><summary>What do I send you?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>The whole raw pile. Recordings, VODs, the clips you are not sure about. Cutting is our job.</p></details>
+      <details><summary>Can you work from a stream VOD?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Yes. One VOD becomes a highlight video and a shorts pack from the same session.</p></details>
+      <details><summary>How many revisions?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Two rounds on every edit, left as notes on the exact frame.</p></details>
+      <details><summary>Will you post it for me?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>If you want. We schedule and post with titles and captions written for each platform.</p></details>
+      <details><summary>How do we start?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Book a call or message us on WhatsApp. Tell us about your channel and what you need, and we'll get back to you within a day.</p></details>
+      <details><summary>Do you work in Hindi and Telugu?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Yes. We're based in Hyderabad and work in English, Hindi and Telugu, with creators anywhere in India or abroad.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="book" data-scene aria-labelledby="book-h">
+  <h2 class="display rise" id="book-h"><a href="#book" data-book="direct" data-magnet="0.08">book a call.</a></h2>
+  <p class="rise" style="--i:1">Send us the pile. Twenty minutes on a call and we'll tell you what we'd keep.</p>
+  <div class="foot__grid rise" style="--i:2">
+    <div class="foot__talk"><span class="foot__k">Talk to us</span><a data-email href="mailto:cutsway.socialmanager@gmail.com">cutsway.socialmanager@gmail.com</a><a data-whatsapp href="https://wa.me/916281301476">WhatsApp +91 62813 01476</a><span class="foot__where">Hyderabad, India · English, Hindi and Telugu</span></div>
+    <div><span class="foot__k">Follow</span><nav aria-label="Social"><a data-social="youtube" href="#">YouTube</a><a data-social="instagram" href="#">Instagram</a><a data-social="tiktok" href="#">TikTok</a><a data-social="x" href="#">X</a><a data-social="discord" href="#">Discord</a></nav></div>
+    <div><span class="foot__k">Services</span><nav aria-label="Services"><a href="/gaming-video-editing/">Gaming video editing</a><a href="/shorts-reels-editing/">Shorts &amp; reels</a><a href="/podcast-editing/">Podcast editing</a><a href="/thumbnail-design/">Thumbnails</a><a href="/social-media-management/">Posting &amp; scheduling</a><a href="/work/">Our work</a></nav></div>
+  </div>
+  <div class="foot__row rise" style="--i:3"><span>© <span data-year>2026</span> Cutsway · video editing for gaming creators, streamers and podcasters</span><a href="#top">Back to top ↑</a></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="../shared/site-config.js"></script>
+<script src="../shared/page.js"></script>
+<script src="../shared/ui.js"></script>
+<script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { createWorld, chapterTracker, reduce, phone, ease, clamp01, canvasTex, drawGame, font, dotTexture, fontsReady } from '../shared/kit.js';
+  import { specAt, specGradient, drawLogo, LOGO, BG, YELLOW, ORANGE, RED, CYAN, BLUE, PAPER, GAME_BRAND } from '../shared/brand.js';
+  import { PLATFORM_KEYS, drawPostCard } from '../shared/platforms.js';
+  import { loadThumbs, reelVideo, keepPlaying, REEL } from '../shared/work.js';
+
+  const world = createWorld({ bloom: [0.5, 0.5, 0.88], fov: 38, bg: BG });
+  const { scene, camera } = world;
+  world.phoneFov = 58;
+  scene.fog = new THREE.Fog(BG, 9, 26);
+  const BLOOM = world.bloomPass.strength;
+
+  // chapters, in page order
+  const C = { PILE: 0, CUT: 1, GAME: 2, SHORT: 3, POD: 4, TURN: 5, POST: 6, FAQ: 7, BOOK: 8 };
+
+  // ── Cutsway's own work: thumbnails and a reel (labels in shared/work.js); they load in the background ──
+  const WORK = '../assets/work/';
+  const thumbs = loadThumbs(WORK);
+  const reel = reelVideo(WORK, phone());
+  const rawFrames = new Image(); rawFrames.src = WORK + 'raw-frames.jpg';
+
+  // ── raw frames: an atlas of 64 clips off the recorder (gameplay, the podcast's face-cams and two-shots, loading screens, menus) ──
+  const ATLAS = canvasTex(2048, 1152), TW = 256, TH = 144;
+  await Promise.all([fontsReady(), Promise.race([rawFrames.decode().catch(() => {}), new Promise(r => setTimeout(r, 2500))])]);
+  const haveRaw = rawFrames.complete && rawFrames.naturalWidth > 0;
+  (function () {
+    const { g } = ATLAS; const R = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(5);
+    for (let k = 0; k < 64; k++) {
+      const x = (k % 8) * TW, y = Math.floor(k / 8) * TH, kind = k % 8;
+      g.save(); g.beginPath(); g.rect(x, y, TW, TH); g.clip();
+      if (kind < 3) { drawGame(g, x, y, TW, TH, R() * 40, false, GAME_BRAND); g.fillStyle = `hsla(${R() * 360},60%,40%,0.3)`; g.fillRect(x, y, TW, TH); }
+      else if (kind === 3) { g.fillStyle = '#111118'; g.fillRect(x, y, TW, TH); g.fillStyle = '#a3a3b5'; g.font = font(800, 18); g.fillText('LOADING…', x + 76, y + 80); g.strokeStyle = CYAN; g.lineWidth = 3; g.beginPath(); g.arc(x + 128, y + 50, 14, 0, 4.5); g.stroke(); }
+      else if (kind === 4 && haveRaw) g.drawImage(rawFrames, (k >> 3) * TW, 0, TW, TH, x, y, TW, TH);
+      else if (kind === 6 && haveRaw) g.drawImage(rawFrames, (k >> 3) * TW, TH, TW, TH, x, y, TW, TH);
+      else if (kind === 4) { g.fillStyle = ['#1a1c2a', '#221c2e', '#1f1a22'][k % 3]; g.fillRect(x, y, TW, TH); g.fillStyle = '#c48a67'; g.beginPath(); g.arc(x + 128, y + 66, 30, 0, 7); g.fill(); g.fillStyle = '#15131a'; g.beginPath(); g.arc(x + 128, y + 56, 31, Math.PI, 0); g.fill(); g.fillStyle = '#2a2a3a'; g.fillRect(x + 82, y + 100, 92, 50); }
+      else if (kind === 5) { g.fillStyle = BG; g.fillRect(x, y, TW, TH); for (let r = 0; r < 4; r++) { g.fillStyle = r === 1 ? YELLOW : '#262633'; g.fillRect(x + 70, y + 30 + r * 24, 116, 16); } }
+      else if (kind === 6) { g.fillStyle = '#141420'; g.fillRect(x, y, TW, TH); [70, 186].forEach((px, n) => { g.fillStyle = n ? RED : BLUE; g.fillRect(x + px - 30, y + 80, 60, 64); g.fillStyle = '#c48a67'; g.beginPath(); g.arc(x + px, y + 62, 20, 0, 7); g.fill(); }); }
+      else { g.fillStyle = '#050507'; g.fillRect(x, y, TW, TH); g.fillStyle = '#262633'; g.font = font(700, 14); g.fillText('[ no signal ]', x + 84, y + 78); }
+      g.fillStyle = 'rgba(7,7,10,0.65)'; g.fillRect(x + 6, y + TH - 22, 70, 16); g.fillStyle = PAPER; g.font = font(700, 11); g.fillText(`C${String(k + 1).padStart(3, '0')}.mp4`, x + 10, y + TH - 10);
+      g.restore();
+    }
+    // raw = ungraded: washed out, low contrast, like log footage straight off the recorder
+    g.globalCompositeOperation = 'saturation'; g.fillStyle = 'hsla(0,0%,50%,0.82)'; g.fillRect(0, 0, 2048, 1152);
+    g.globalCompositeOperation = 'source-over'; g.fillStyle = 'rgba(108,108,118,0.28)'; g.fillRect(0, 0, 2048, 1152);
+    ATLAS.tex.needsUpdate = true;
+  })();
+
+  // ── the finished work: the long-form and podcast thumbnails in one canvas, the reel as a video texture of its own ──
+  // the canvas re-uploads only when a picture cuts to the next, skips mipmaps (it is never shown much smaller than it is
+  // drawn) and on phones is drawn at half size, still more pixels than the phone shows. Mosaic cells address everything in
+  // one space VW × VH: the canvas from u 0, the reel past u 1, what stays still past v 1.
+  const VW = 1600, VH = 1152, VS = phone() ? 0.5 : 1, VID = canvasTex(1024 * VS, VH * VS);
+  VID.tex.generateMipmaps = false; VID.tex.minFilter = THREE.LinearFilter;
+  const REEL_TEX = new THREE.VideoTexture(reel); REEL_TEX.colorSpace = THREE.SRGBColorSpace; REEL_TEX.flipY = false;
+  // what stays still (the post cards, the wordmark) lives in a texture of its own, uploaded once
+  const SH = 712, REG = { game: [0, 0, 1024, 576], podcast: [0, 576, 1024, 576], short: [VW, 0, 576, 1024], logo: [0, VH + 512, 1600, 200] };
+  const STILL = canvasTex(VW, SH);
+  // one post card per platform, in its own colours
+  const FACE = PLATFORM_KEYS.map((key, b) => [b * 256, VH, 242, 512]);
+  PLATFORM_KEYS.forEach((key, b) => drawPostCard(STILL.g, key, FACE[b][0], 0, FACE[b][2], FACE[b][3], font));
+  // the logo on clear ground: the cells it misses show their own clip, dimmed
+  { const lw = VW * 0.94; drawLogo(STILL.g, (VW - lw) / 2, 512 + (200 - lw * LOGO.h / LOGO.w) / 2, lw); STILL.tex.flipY = false; STILL.tex.needsUpdate = true; }
+
+  // long-form cuts between three thumbnails; the podcast cuts from its raw thumbnail to the finished one (the glow pass)
+  const LONG = ['wealthy', 'stocks', 'creator'], POD = ['rawtalks-plain', 'rawtalks'], HOLD = 2.6;
+  const shown = { game: '', podcast: '' };
+  function showThumb(reg, key) {                          // draws only when the picture changes, or arrives
+    const th = thumbs[key], want = th.ready ? key : '-';
+    if (shown[reg] === want) return false;
+    const g = VID.g, [x, y, w, h] = REG[reg]; g.setTransform(VS, 0, 0, VS, 0, 0);
+    if (th.ready) g.drawImage(th.img, x, y, w, h); else drawGame(g, x, y, w, h, 0, false, GAME_BRAND);
+    shown[reg] = want; return true;
+  }
+
+  // ── cards: one instanced mesh; each samples its raw frame or its cell of the finished video, and can burn ──
+  const N = phone() ? 280 : 360, KEEP = 144;
+  const geo = new THREE.PlaneGeometry(0.32, 0.18);
+  const aRaw = new Float32Array(N * 2), aMos = new Float32Array(N * 4), aTint = new Float32Array(N * 3), aState = new Float32Array(N * 3), aFx = new Float32Array(N * 2);
+  geo.setAttribute('aRaw', new THREE.InstancedBufferAttribute(aRaw, 2));
+  geo.setAttribute('aMos', new THREE.InstancedBufferAttribute(aMos, 4).setUsage(THREE.DynamicDrawUsage));
+  geo.setAttribute('aTint', new THREE.InstancedBufferAttribute(aTint, 3).setUsage(THREE.DynamicDrawUsage));
+  geo.setAttribute('aState', new THREE.InstancedBufferAttribute(aState, 3).setUsage(THREE.DynamicDrawUsage));
+  geo.setAttribute('aFx', new THREE.InstancedBufferAttribute(aFx, 2).setUsage(THREE.DynamicDrawUsage));
+  const mat = new THREE.ShaderMaterial({
+    side: THREE.DoubleSide,
+    uniforms: { uAtlas: { value: ATLAS.tex }, uVid: { value: VID.tex }, uVidU: { value: VW / 1024 }, uReel: { value: REEL_TEX }, uReelUV: { value: new THREE.Vector2(VW / 576, VH / 1024) }, uStill: { value: STILL.tex }, uStillV: { value: VH / SH }, uFog: { value: new THREE.Color(BG) }, uSweep: { value: new THREE.Vector3(-99, 0, 0) } },
+    vertexShader: `attribute vec2 aRaw; attribute vec4 aMos; attribute vec3 aTint; attribute vec3 aState; attribute vec2 aFx;
+      varying vec2 vUv; varying vec2 vRaw; varying vec2 vMos; varying vec3 vTint; varying vec3 vState; varying vec2 vFx; varying float vDepth; varying vec2 vW;
+      void main(){ vUv = uv; vRaw = vec2(uv.x + aRaw.x, 1.0 - uv.y + aRaw.y) / 8.0; vMos = aMos.xy + uv * aMos.zw; vTint = aTint; vState = aState; vFx = aFx;
+        vec4 w = instanceMatrix * vec4(position, 1.0); vW = w.xy;
+        vec4 mv = modelViewMatrix * w; vDepth = -mv.z; gl_Position = projectionMatrix * mv; }`,
+    fragmentShader: `uniform sampler2D uAtlas, uVid, uReel, uStill; uniform float uVidU, uStillV; uniform vec2 uReelUV; uniform vec3 uFog; uniform vec3 uSweep;
+      varying vec2 vUv; varying vec2 vRaw; varying vec2 vMos; varying vec3 vTint; varying vec3 vState; varying vec2 vFx; varying float vDepth; varying vec2 vW;
+      float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }
+      float noise(vec2 p){ vec2 i = floor(p), f = fract(p); f = f*f*(3.0-2.0*f);
+        return mix(mix(hash(i), hash(i+vec2(1,0)), f.x), mix(hash(i+vec2(0,1)), hash(i+vec2(1,1)), f.x), f.y); }
+      void main(){
+        if (vState.x < hash(gl_FragCoord.xy)) discard;                    // fade by dithering: no sorting needed
+        // burning: the card is eaten from its edges inward, along a noisy front
+        float burn = vFx.x, edge = min(min(vUv.x, 1.0-vUv.x)*1.78, min(vUv.y, 1.0-vUv.y));
+        float n = noise(vUv*vec2(7.0,4.0) + vFx.y*31.0)*0.55 + edge*1.6;
+        float front = n - burn * 1.35;
+        if (burn > 0.0 && front < 0.0) discard;
+        vec3 raw = texture2D(uAtlas, vRaw).rgb;
+        vec4 v4 = mix(texture2D(uVid, vec2(vMos.x * uVidU, vMos.y)), texture2D(uStill, vec2(vMos.x, (vMos.y - 1.0) * uStillV)), step(1.0, vMos.y));
+        v4 = mix(v4, texture2D(uReel, vec2((vMos.x - 1.0) * uReelUV.x, vMos.y * uReelUV.y)), step(1.0, vMos.x));
+        vec3 vid = mix(raw * 0.07, v4.rgb, v4.a);                            // clear ground (around the wordmark) shows the clip, dimmed
+        float ink = mix(1.0, v4.a, vState.z);
+        vec3 c = mix(raw, vid, vState.z);
+        c = mix(c, vTint * (0.75 + 0.35 * raw), vState.y);
+        float e = min(min(vUv.x, 1.0 - vUv.x) * 32.0, min(vUv.y, 1.0 - vUv.y) * 18.0);
+        c *= mix(0.55, 1.0, smoothstep(0.0, 0.6, e) * (1.0 - vState.z) + vState.z);
+        if (burn > 0.0) {
+          c *= mix(0.12, 1.0, smoothstep(0.02, 0.22, front));            // char behind the glowing edge
+          float glow = 1.0 - smoothstep(0.0, 0.06, front);
+          c += mix(vec3(3.2, 0.9, 0.12), vec3(4.0, 2.6, 0.9), glow) * glow;
+        }
+        // the render sweep across the wordmark: the letters lift, each haloes in its own colour, and a white-hot slanted core runs through
+        float k = uSweep.y * max(vState.y, vState.z), d = vW.x - (vW.y - uSweep.z) * 0.45 - uSweep.x;
+        c *= 1.0 + 0.45 * k * ink;
+        c += c * k * 1.9 * exp(-pow(d * 2.0, 2.0)) * ink;
+        c += vec3(1.0) * k * 2.8 * exp(-pow(d * 10.0, 2.0)) * max(0.12, ink);
+        c = mix(c, uFog, smoothstep(10.0, 26.0, vDepth));
+        gl_FragColor = vec4(c, 1.0);
+        #include <colorspace_fragment>
+      }`,
+  });
+  ATLAS.tex.flipY = false; VID.tex.flipY = false; ATLAS.tex.needsUpdate = true;
+  const cards = new THREE.InstancedMesh(geo, mat, N); cards.frustumCulled = false; scene.add(cards);
+
+  // per card: random raw frame, keeper or reject, places in each formation
+  const R = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(11);
+  const keepIdx = new Int32Array(N).fill(-1);
+  { const order = [...Array(N).keys()].sort(() => R() - 0.5); for (let k = 0; k < KEEP; k++) keepIdx[order[k]] = k; }
+  const chaos = [], spin = [];
+  for (let i = 0; i < N; i++) {
+    const tile = Math.floor(R() * 64); aRaw.set([tile % 8, Math.floor(tile / 8)], i * 2);
+    const u = R() * Math.PI * 2, v = Math.acos(2 * R() - 1), r = 1.4 + Math.pow(R(), 0.7) * 3.6;
+    chaos.push(new THREE.Vector3(Math.sin(v) * Math.cos(u) * r * 1.35, Math.cos(v) * r * 0.75, Math.sin(v) * Math.sin(u) * r - 1));
+    spin.push(new THREE.Euler(R() * 6.28, R() * 6.28, R() * 6.28));
+    aFx[i * 2 + 1] = R();
+  }
+  const delay = Float32Array.from({ length: N }, () => R());
+
+  // colours worked out once, so the frame loop allocates nothing
+  const KEEP_TINT = Array.from({ length: KEEP }, (_, k) => specAt(k / KEEP));
+  const SPARK_TINT = Array.from({ length: 24 }, (_, k) => specAt(k / 23).multiplyScalar(1.6));
+  const BLACK = new THREE.Color(BG);
+
+  const deckC = new THREE.Vector3();
+  // formations (by chapter): each fills position, rotation, scale x/y, tint, tintMix, mosaic rect, mosaicMix, fade, arrival delay
+  const off = () => phone() ? 0 : 1.9;
+  // the wordmark: the keepers as a 24 × 6 mosaic of the logo, [centre x, centre y, width]
+  const LOGO_TURN = () => phone() ? [0, 2.45, 3.5] : [3.55, 0.55, 4.6], LOGO_BOOK = () => phone() ? [0, 4.5, 4.4] : [0.5, 1.95, 8.6];   // the finale sits above the footer's dark floor
+  function logoSlot(k, out, [ox, oy, w]) {
+    mosaicSlot(k, out, 24, 6, w, w * LOGO.h / LOGO.w, REG.logo, ox, oy);
+    out.d = (k % 24) / 24;                                 // the word builds left to right
+  }
+  function mosaicSlot(k, out, cols, rows, W, H, reg, ox, oy) {   // one cell of a picture made of clips
+    const c = k % cols, r = Math.floor(k / cols), cw = W / cols, ch = H / rows;
+    // the cells overlap a hair, on alternating depths like a checkerboard, so the work reads whole with no seams to shimmer
+    out.p.set(ox - W / 2 + cw * (c + 0.5), oy + H / 2 - ch * (r + 0.5), ((c + r) & 1) * 0.004); out.e.set(0, 0, 0);
+    out.sx = (cw * 1.008) / 0.32; out.sy = (ch * 1.008) / 0.18;
+    const [rx, ry, rw, rh] = reg;
+    out.mos[0] = (rx + rw * c / cols) / VW; out.mos[1] = (ry + rh * (r + 1) / rows) / VH; out.mos[2] = rw / cols / VW; out.mos[3] = -rh / rows / VH;
+    out.mm = 1; out.tm = 0; out.fade = 1;
+    out.d = Math.hypot((c + 0.5) / cols - 0.5, (r + 0.5) / rows - 0.5) * 1.4;   // the picture assembles from the centre out
+    return out;
+  }
+  function cutRipple(k, t, out) {                        // at each cut the cells dip and come back, a wave left to right
+    if (reduce) return; const ph = (t % HOLD) - (k % 16) * 0.018;
+    if (ph > 0 && ph < 0.3) { const s = 1 - Math.sin(ph / 0.3 * Math.PI) * 0.07; out.sx *= s; out.sy *= s; }
+  }
+  function formation(state, i, t, out) {
+    const k = keepIdx[i], keeper = k >= 0;
+    out.sx = out.sy = 1; out.tm = 0; out.mm = 0; out.fade = 1; out.mos[0] = out.mos[1] = out.mos[2] = out.mos[3] = 0; out.tint.copy(BLACK); out.d = delay[i];
+    if (state === C.PILE || (!keeper && state > C.PILE)) {   // the pile, drifting
+      const c = chaos[i], d = reduce ? 0 : 1;
+      out.p.set(c.x + Math.sin(t * 0.3 + i) * 0.25 * d, c.y + Math.cos(t * 0.25 + i * 1.7) * 0.2 * d, c.z);
+      out.e.set(spin[i].x + t * 0.12 * d, spin[i].y + t * 0.09 * d, spin[i].z);
+      out.sx = out.sy = 2.1;
+      return;
+    }
+    if (state === C.CUT) {                                  // the keepers, already graded into the brand's colours
+      const c = chaos[i]; out.p.set(c.x * 0.8 + off() * 0.6, c.y * 0.8, c.z * 0.6); out.e.set(spin[i].x * 0.35, spin[i].y * 0.35 + t * 0.05, spin[i].z * 0.35); out.sx = out.sy = 1.8;
+      out.tint.copy(KEEP_TINT[k]); out.tm = 0.5; return;
+    }
+    if (state === C.GAME) return cutRipple(k, t, mosaicSlot(k, out, 16, 9, phone() ? 3.4 : 6.0, phone() ? 1.9 : 3.375, REG.game, off(), phone() ? 1.8 : 0.3));
+    if (state === C.SHORT) return mosaicSlot(k, out, 9, 16, phone() ? 1.9 : 2.5, phone() ? 3.38 : 4.44, REG.short, off(), phone() ? 1.5 : 0.1);
+    if (state === C.POD) return cutRipple(k, t, mosaicSlot(k, out, 16, 9, phone() ? 3.4 : 6.0, phone() ? 1.9 : 3.375, REG.podcast, off(), phone() ? 1.8 : 0.6));
+    if (state === C.TURN) return logoSlot(k, out, LOGO_TURN());
+    if (state === C.BOOK) return logoSlot(k, out, LOGO_BOOK());
+    if (state === C.POST) {                                 // four decks, one per platform (YouTube, Instagram, TikTok, X), side by side;
+      const ph = phone(), deck = Math.floor(k / 36), d = k % 36;      // 36 cards each, the logo card on top; now and then a deck posts its top card
+      deckAt(deck, deckC); const cx = deckC.x, cy = deckC.y;              // phones: two by two
+      const jitter = (delay[i] - 0.5) * 0.05, top = d === 35;
+      const post = reduce || !top ? 0 : Math.pow(Math.max(0, Math.sin(t * 0.9 - deck * 1.1)), 12);
+      out.p.set(cx + d * 0.003 + jitter * 0.2, cy + d * 0.0035 + post * 0.32, d * 0.007 + post * 0.15);
+      out.e.set(-0.1, 0.16, [-0.05, 0.03, -0.025, 0.05][deck] + jitter + post * 0.08);
+      out.sx = ph ? 2.06 : 2.2; out.sy = ph ? 7.72 : 8.25;
+      const [fx, fy, fw, fh] = FACE[deck];
+      out.mos[0] = fx / VW; out.mos[1] = (fy + fh) / VH; out.mos[2] = fw / VW; out.mos[3] = -fh / VH;
+      out.mm = 1; out.tm = 0; out.d = deck * 0.18 + d / 36 * 0.25; return;
+    }
+    if (state === C.FAQ) {                                  // a slow ring behind the questions
+      const a = k / KEEP * Math.PI * 2 + t * 0.06 * (reduce ? 0 : 1), r = 3.4;
+      out.p.set(off() + Math.cos(a) * r, Math.sin(a) * r * 0.55, Math.sin(a) * 1.5 - 2); out.e.set(0, -a * 0.2, a); out.tint.copy(KEEP_TINT[k]); out.tm = 0.5; return;
+    }
+  }
+
+  // the razor: a white-hot cut with a cold cyan halo (the rejects it leaves behind burn orange)
+  const razor = new THREE.Mesh(new THREE.PlaneGeometry(0.035, 12), new THREE.MeshBasicMaterial({ color: new THREE.Color('#eaf6ff').multiplyScalar(4), toneMapped: false, transparent: true }));
+  scene.add(razor);
+  const halo = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 12), new THREE.MeshBasicMaterial({ color: new THREE.Color(CYAN).multiplyScalar(0.9), toneMapped: false, transparent: true, opacity: 0.3, depthWrite: false }));
+  scene.add(halo);
+
+  // the sweep's light: white, so each letter keeps its own colour; a shaft crossing the word, a streak along it, a flare where they meet
+  const glowCanvas = (w, h, paint) => { const c = document.createElement('canvas'); c.width = w; c.height = h; paint(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; };
+  const shaftTex = glowCanvas(64, 256, (g, w, h) => {
+    const v = g.createLinearGradient(0, 0, 0, h); v.addColorStop(0, 'rgba(200,230,255,0)'); v.addColorStop(0.5, 'rgba(255,255,255,1)'); v.addColorStop(1, 'rgba(200,230,255,0)');
+    g.fillStyle = v; g.fillRect(0, 0, w, h); g.globalCompositeOperation = 'destination-in';
+    const x = g.createLinearGradient(0, 0, w, 0); x.addColorStop(0, 'rgba(0,0,0,0)'); x.addColorStop(0.5, 'rgba(0,0,0,1)'); x.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = x; g.fillRect(0, 0, w, h);
+  });
+  const streakTex = glowCanvas(256, 16, (g, w, h) => {
+    const x = g.createLinearGradient(0, 0, w, 0); x.addColorStop(0, 'rgba(200,230,255,0)'); x.addColorStop(0.5, 'rgba(255,255,255,1)'); x.addColorStop(1, 'rgba(200,230,255,0)'); g.fillStyle = x; g.fillRect(0, 0, w, h);
+    g.globalCompositeOperation = 'destination-in'; const v = g.createLinearGradient(0, 0, 0, h); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(0.5, 'rgba(0,0,0,1)'); v.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = v; g.fillRect(0, 0, w, h);
+  });
+  const flareTex = glowCanvas(256, 256, (g, w) => {
+    const r = g.createRadialGradient(128, 128, 0, 128, 128, 128); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(0.12, 'rgba(235,245,255,0.85)'); r.addColorStop(0.4, 'rgba(150,205,255,0.22)'); r.addColorStop(1, 'rgba(120,180,255,0)');
+    g.fillStyle = r; g.fillRect(0, 0, w, w);
+    g.globalCompositeOperation = 'lighter';
+    [[256, 5], [5, 256]].forEach(([sw, sh]) => { const lg = g.createRadialGradient(128, 128, 0, 128, 128, 128); lg.addColorStop(0, 'rgba(255,255,255,0.9)'); lg.addColorStop(1, 'rgba(190,225,255,0)'); g.fillStyle = lg; g.fillRect(128 - sw / 2, 128 - sh / 2, sw, sh); });
+  });
+  const addMat = map => { const m = new THREE.MeshBasicMaterial({ map, transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending, toneMapped: false }); m.color.setScalar(1.4); return m; };
+  const shaft = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 3.4), addMat(shaftTex));
+  const streak = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 0.1), addMat(streakTex));
+  const flare = new THREE.Mesh(new THREE.PlaneGeometry(1.15, 1.15), addMat(flareTex));
+  shaft.rotation.z = -0.42;
+  [shaft, streak, flare].forEach((m, n) => { m.renderOrder = 5 + n; });
+  const beam = new THREE.Group(); beam.add(shaft, streak, flare); scene.add(beam);
+
+  // a soft glow behind each platform deck, in the platform's colour
+  const softTex = glowCanvas(128, 128, (g, w) => { const r = g.createRadialGradient(64, 64, 0, 64, 64, 64); r.addColorStop(0, 'rgba(255,255,255,0.9)'); r.addColorStop(0.5, 'rgba(255,255,255,0.25)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, w, w); });
+  const deckGlows = ['#ff0033', '#d300c5', '#25f4ee', '#ffffff'].map(c => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: softTex, color: new THREE.Color(c), transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false }));
+    scene.add(m); return m;
+  });
+  const deckAt = (deck, out) => phone() ? out.set((deck % 2 - 0.5) * 1.7, deck < 2 ? 2.85 : 1.05, -0.35) : out.set(off() + 2.05 + (deck - 1.5) * 1.2, 0.6, -0.35);
+
+  // sparks off the razor and the sweep (fall) and embers off burning clips (rise): one particle pool
+  const SPN = 380, spPos = new Float32Array(SPN * 3), spVel = new Float32Array(SPN * 3), spLife = new Float32Array(SPN), spGrav = new Float32Array(SPN), spCol = new Float32Array(SPN * 3), spBase = new Float32Array(SPN * 3);
+  const spGeo = new THREE.BufferGeometry();
+  spGeo.setAttribute('position', new THREE.BufferAttribute(spPos, 3)); spGeo.setAttribute('color', new THREE.BufferAttribute(spCol, 3));
+  const sparkMat = new THREE.PointsMaterial({ size: 0.055, map: dotTexture(), vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
+  sparkMat.color.setRGB(3, 3, 3);
+  const sparks = new THREE.Points(spGeo, sparkMat); sparks.frustumCulled = false; scene.add(sparks);
+  const HOT = new THREE.Color('#e6f4ff'), EMBER = new THREE.Color('#ff7a1c');
+  let spawn = 0;
+  function emit(x, y, z, vx, vy, vz, grav, col) {
+    const s = spawn++ % SPN; spPos[s * 3] = x; spPos[s * 3 + 1] = y; spPos[s * 3 + 2] = z; spVel[s * 3] = vx; spVel[s * 3 + 1] = vy; spVel[s * 3 + 2] = vz;
+    spLife[s] = 1; spGrav[s] = grav; spBase[s * 3] = col.r; spBase[s * 3 + 1] = col.g; spBase[s * 3 + 2] = col.b;
+  }
+
+  // drifting specks in the dark, in the logo's colours
+  const DN = phone() ? 220 : 380, dp = new Float32Array(DN * 3), dc = new Float32Array(DN * 3), dSpeed = new Float32Array(DN);
+  for (let i = 0; i < DN; i++) {
+    dp.set([(R() - 0.5) * 24, (R() - 0.5) * 12, -R() * 14 + 3], i * 3);
+    const c = specAt((dp[i * 3] + 12) / 24 * 0.8 + R() * 0.2).multiplyScalar(0.5 + R() * 0.7); dc.set([c.r, c.g, c.b], i * 3); dSpeed[i] = 0.15 + R() * 0.35;
+  }
+  const dgeo = new THREE.BufferGeometry(); dgeo.setAttribute('position', new THREE.BufferAttribute(dp, 3)); dgeo.setAttribute('color', new THREE.BufferAttribute(dc, 3));
+  const dust = new THREE.Points(dgeo, new THREE.PointsMaterial({ size: 0.03, map: dotTexture(), vertexColors: true, transparent: true, opacity: 0.8, depthWrite: false, blending: THREE.AdditiveBlending }));
+  dust.frustumCulled = false; scene.add(dust);
+
+  // the logo's spectrum, low on the horizon behind everything
+  const glowTex = glowCanvas(512, 128, (g, w, h) => {
+    g.fillStyle = specGradient(g, 0, w); g.fillRect(0, 0, w, h); g.globalCompositeOperation = 'destination-in';
+    const v = g.createRadialGradient(w / 2, w / 2, 0, w / 2, w / 2, w / 2); v.addColorStop(0, 'rgba(0,0,0,1)'); v.addColorStop(0.5, 'rgba(0,0,0,0.35)'); v.addColorStop(1, 'rgba(0,0,0,0)');
+    g.setTransform(1, 0, 0, h / w, 0, 0); g.fillStyle = v; g.fillRect(0, 0, w, w);   // squashed: an ellipse across the band
+  });
+  const furnace = new THREE.Mesh(new THREE.PlaneGeometry(36, 14), new THREE.MeshBasicMaterial({ map: glowTex, transparent: true, opacity: 0.14, depthWrite: false, fog: false, blending: THREE.AdditiveBlending }));
+  furnace.position.set(1, -5.5, -12); scene.add(furnace);
+
+  // the cursor pushes the pile around
+  const mouseNdc = new THREE.Vector2(9, 9), mouseW = new THREE.Vector3(99, 99, 0), mouseT = new THREE.Vector3(99, 99, 0);
+  const ray = new THREE.Raycaster(), zPlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+  let pointerIn = false;
+  if (matchMedia('(hover: hover)').matches && !reduce) {
+    addEventListener('pointermove', e => { mouseNdc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); pointerIn = true; }, { passive: true });
+    document.addEventListener('mouseout', e => { if (!e.relatedTarget) pointerIn = false; });
+  }
+  const PILE = new Set([C.PILE, C.CUT, C.FAQ]);
+
+  // camera per chapter: [position, look-at]
+  const CAM = [[[0, 0, 10.5], [0, 0, 0]], [[-1.2, 0.6, 9.5], [0.6, 0, 0]], [[0, 0, 8.4], [1.4, 0.2, 0]], [[0, 0, 8.4], [1.4, 0.1, 0]], [[0, 0, 8.4], [1.4, 0.2, 0]],
+    [[0.8, 1.6, 8.6], [1.0, 0.4, 0]], [[0, 0.2, 8.6], [1.5, 0.1, 0]], [[0, 0.2, 9.5], [1.2, 0, -1]], [[0, 0.5, 10.5], [0.8, 0.4, 0]]];
+  const CAM_PHONE = [[[0, 0.5, 13], [0, 0.6, 0]], [[0, 0.6, 12], [0, 0.8, 0]], [[0, 1.0, 7.5], [0, 1.4, 0]], [[0, 1.0, 7.8], [0, 1.3, 0]], [[0, 1.0, 7.5], [0, 1.4, 0]],
+    [[0, 1.6, 11], [0, 1.4, 0]], [[0, 1.0, 9.6], [0, 1.0, 0]], [[0, 0.6, 11], [0, 0.6, -1]], [[0, 1.4, 12], [0, 1.4, 0]]];
+
+  // the counter: runtime, not just clip count (sample figures: ~42 s a clip, an 18:40 edit)
+  const tc = s => { s = Math.max(0, Math.round(s)); const h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, x = s % 60; return (h ? `${h}:${String(m).padStart(2, '0')}` : `${m}`) + `:${String(x).padStart(2, '0')}`; };
+  const RAW_S = 4 * 3600 + 12 * 60, EDIT_S = 18 * 60 + 40;
+  const COUNT = [
+    null,
+    ['after the cut', EDIT_S, `${KEEP} clips kept`],
+    ['long-form', EDIT_S, ''],
+    ['one short', REEL.seconds, 'a podcast clip, captioned'],
+    ['podcast thumbnail', '', 'before and after the glow pass'],
+    ['after the cut', EDIT_S, `${KEEP} clips, on the timeline`],
+    ['scheduled', '4 platforms', 'YouTube · Instagram · TikTok · X'],
+    ['kept', `${KEEP} clips`, 'in order, ready to post'],
+    ['kept', `${KEEP} clips`, 'in order, ready to post'],
+  ];
+
+  const track = chapterTracker();
+  const mk = () => ({ p: new THREE.Vector3(), e: new THREE.Euler(), sx: 1, sy: 1, tint: new THREE.Color(), tm: 0, mos: [0, 0, 0, 0], mm: 0, fade: 1, d: 0 });
+  const A = mk(), B = mk();
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), qa = new THREE.Quaternion(), qb = new THREE.Quaternion(), pos = new THREE.Vector3(), scl = new THREE.Vector3();
+  const pa = new THREE.Vector3(), pb = new THREE.Vector3(), la = new THREE.Vector3(), lb = new THREE.Vector3(), look = new THREE.Vector3();
+  const tagEl = document.getElementById('kept-tag'), keptEl = document.getElementById('kept'), capEl = document.getElementById('kept-cap');
+  const isLogo = s => s === C.TURN || s === C.BOOK;
+  let lastCount = '';
+
+  world.start((t, dt) => {
+    const S = track(dt), last = window.chapterCount() - 1;
+    const i = Math.min(last, Math.floor(S)), f = S - i, j = Math.min(last, i + 1);
+
+    // the cut: during the move from the pile to the keepers, the razor sweeps left to right
+    const cutting = i === C.PILE, razorX = cutting ? -8.5 + clamp01(f * 1.15) * 17 : 99;
+    razor.visible = halo.visible = cutting && f > 0.02 && f < 0.97;
+    razor.position.set(razorX, 0, 0.5); halo.position.copy(razor.position);
+
+    // cursor on the z=0 plane, smoothed
+    if (pointerIn) { ray.setFromCamera(mouseNdc, camera); if (!ray.ray.intersectPlane(zPlane, mouseT)) mouseT.set(99, 99, 0); } else mouseT.set(99, 99, 0);
+    if (mouseW.x > 50 && mouseT.x < 50) mouseW.copy(mouseT); else mouseW.lerp(mouseT, Math.min(1, dt * 8));
+    const pileW = (PILE.has(i) ? 1 - ease(f) : 0) + (PILE.has(j) && j !== i ? ease(f) : 0);
+
+    for (let n = 0; n < N; n++) {
+      const keeper = keepIdx[n] >= 0;
+      formation(i, n, t, A); formation(j, n, t, B);
+      let e = ease(clamp01((f - 0.12) * 1.5 - B.d * 0.25)), burn = 0;
+      if (cutting) {
+        if (keeper) e = ease(clamp01((f - 0.55) * 2.2 - delay[n] * 0.2));
+        else {                                    // rejects catch once the razor has passed them, curl, and burn away
+          e = 0;
+          const past = razorX - chaos[n].x;
+          if (past > 0) { burn = clamp01(past * 0.55 - delay[n] * 0.15); A.p.y += past * 0.12; A.e.x += past * 0.5; A.e.z += past * 0.2; }
+        }
+      } else if (!keeper) burn = 1;
+      pos.lerpVectors(A.p, B.p, e);
+      if (pileW > 0.01 && mouseW.x < 50) {        // part the pile around the cursor
+        const dx = pos.x - mouseW.x, dy = pos.y - mouseW.y, dist = Math.hypot(dx, dy) + 1e-4, rr = 1.7;
+        if (dist < rr) { const push = Math.pow(1 - dist / rr, 2) * 1.2 * pileW; pos.x += dx / dist * push; pos.y += dy / dist * push; pos.z += push * 0.6; }
+      }
+      qa.setFromEuler(A.e); qb.setFromEuler(B.e); q.slerpQuaternions(qa, qb, e);
+      scl.set(A.sx + (B.sx - A.sx) * e, A.sy + (B.sy - A.sy) * e, 1);
+      if (!keeper && burn >= 1) scl.set(0.0001, 0.0001, 1);
+      cards.setMatrixAt(n, m4.compose(pos, q, scl));
+      aTint[n * 3] = A.tint.r + (B.tint.r - A.tint.r) * e; aTint[n * 3 + 1] = A.tint.g + (B.tint.g - A.tint.g) * e; aTint[n * 3 + 2] = A.tint.b + (B.tint.b - A.tint.b) * e;
+      // a mosaic cell keeps its own picture while it travels between pictures
+      const useB = B.mm > 0 && (A.mm === 0 || e > 0.5);
+      const mo = useB ? B.mos : A.mos; aMos[n * 4] = mo[0]; aMos[n * 4 + 1] = mo[1]; aMos[n * 4 + 2] = mo[2]; aMos[n * 4 + 3] = mo[3];
+      aState[n * 3] = A.fade + (B.fade - A.fade) * e; aState[n * 3 + 1] = A.tm + (B.tm - A.tm) * e; aState[n * 3 + 2] = A.mm + (B.mm - A.mm) * e;
+      aFx[n * 2] = burn;
+      // embers lift off clips while they burn
+      if (!reduce && burn > 0.05 && burn < 0.92 && Math.random() < 0.05)
+        emit(pos.x + (Math.random() - 0.5) * 0.5, pos.y + (Math.random() - 0.5) * 0.3, pos.z, (Math.random() - 0.5) * 0.4, 0.5 + Math.random() * 0.8, (Math.random() - 0.5) * 0.3, 0.5, EMBER);
+    }
+    cards.instanceMatrix.needsUpdate = true;
+    geo.attributes.aTint.needsUpdate = geo.attributes.aMos.needsUpdate = geo.attributes.aState.needsUpdate = geo.attributes.aFx.needsUpdate = true;
+
+    // the render sweep: a light runs across the wordmark while it is formed, then rests before the next pass
+    const book = i === C.BOOK || j === C.BOOK;
+    const barW = clamp01((isLogo(i) ? 1 - f * 2.5 : 0) + (isLogo(j) && j !== i ? (f - 0.6) * 2.5 : 0));
+    const [ox, oy, lw] = book ? LOGO_BOOK() : LOGO_TURN(), bs = lw / 8.6;
+    const cyc = (t * 0.4) % 1.45, run = Math.min(1, cyc), u = 0.5 - Math.cos(run * Math.PI) / 2;
+    const sx = ox + lw * (-0.58 + u * 1.16), sy = oy, pass = cyc < 1 ? Math.pow(Math.sin(run * Math.PI), 0.35) : 0;
+    const k = reduce ? 0 : barW * pass;
+    mat.uniforms.uSweep.value.set(sx, reduce ? barW * 0.5 : k, sy);
+    beam.visible = k > 0.01;
+    if (beam.visible) {
+      beam.position.set(sx, sy, 0.15); beam.scale.setScalar(bs);
+      shaft.material.opacity = 0.7 * k; streak.material.opacity = 0.85 * k;
+      flare.material.opacity = k; flare.rotation.z = t * 0.6; flare.scale.setScalar(0.85 + Math.sin(t * 9) * 0.06);
+      // sparks fly off in the colour of the letter the light is crossing
+      const spark = SPARK_TINT[Math.round(clamp01(u * 1.16 - 0.08) * 23)];
+      for (let n = 0; n < 3; n++) emit(sx + (Math.random() - 0.5) * 0.3 * bs, sy + (Math.random() - 0.5) * 0.5 * bs, 0.3, (Math.random() - 0.3) * 1.6 * bs, Math.random() * 1.8 * bs, (Math.random() - 0.5) * 1.2, -4.5, spark);
+    }
+    // the post cards carry the platforms' own whites and reds: hold the bloom back so their marks stay crisp
+    // the work itself (thumbnails, the reel, the post cards) is shown true: bloom steps back while it is on screen
+    const near = c => clamp01(1.6 - Math.abs(S - c) * 1.6), postW = near(C.POST), workW = Math.max(postW, near(C.GAME), near(C.SHORT), near(C.POD));
+    deckGlows.forEach((m, n) => { m.visible = postW > 0.01; if (!m.visible) return; deckAt(n, m.position); m.scale.set(phone() ? 1.9 : 2.2, phone() ? 2.3 : 2.7, 1); m.material.opacity = postW * (n === 2 ? 0.45 : 0.28); });
+    world.bloomPass.strength = (BLOOM + (reduce ? 0 : barW * (book ? 0.45 : 0.3))) * (1 - 0.85 * workW);
+
+    // sparks where the razor meets the pile
+    if (razor.visible && !reduce) for (let n = 0; n < 4; n++) emit(razorX, (Math.random() - 0.5) * 6, 0.6, (Math.random() - 0.2) * 3, (Math.random() - 0.3) * 3, (Math.random() - 0.5) * 2, -6, HOT);
+    for (let s = 0; s < SPN; s++) {
+      if (spLife[s] <= 0) { spPos[s * 3 + 1] = -999; continue; }
+      const ember = spGrav[s] > 0;
+      spLife[s] -= dt * (ember ? 0.55 : 1.6);
+      spVel[s * 3 + 1] += dt * spGrav[s];
+      if (ember) { spVel[s * 3] += Math.sin(t * 3 + s) * dt * 0.6; spVel[s * 3] *= 0.98; }
+      for (let a = 0; a < 3; a++) spPos[s * 3 + a] += spVel[s * 3 + a] * dt;
+      const l = Math.max(0, spLife[s]); spCol[s * 3] = spBase[s * 3] * l; spCol[s * 3 + 1] = spBase[s * 3 + 1] * l * l; spCol[s * 3 + 2] = spBase[s * 3 + 2] * l * l;
+    }
+    spGeo.attributes.position.needsUpdate = spGeo.attributes.color.needsUpdate = true;
+
+    // ambient specks rise and sway
+    if (!reduce) {
+      for (let n = 0; n < DN; n++) {
+        dp[n * 3 + 1] += dSpeed[n] * dt; dp[n * 3] += Math.sin(t * 0.7 + n) * dt * 0.08;
+        if (dp[n * 3 + 1] > 6.5) dp[n * 3 + 1] = -6.5;
+      }
+      dgeo.attributes.position.needsUpdate = true;
+    }
+
+    // the finished work: a thumbnail redraws only when it cuts; the reel decodes only near its chapter
+    const showGame = i === C.GAME || j === C.GAME, showPod = i === C.POD || j === C.POD, cut = Math.floor(t / HOLD);
+    if ((showGame && showThumb('game', LONG[cut % 3])) | (showPod && showThumb('podcast', POD[cut % 2]))) VID.tex.needsUpdate = true;
+    keepPlaying(reel, Math.abs(S - C.SHORT) < 1.15);
+
+    // the counter tells the story in runtime
+    let tag, val, cap;
+    if (i === C.PILE) {
+      const p = clamp01((f - 0.05) * 1.1), clips = Math.round(N - (N - KEEP) * p);
+      tag = p < 0.02 ? 'raw runtime' : p > 0.98 ? 'after the cut' : 'cutting';
+      val = tc(RAW_S + (EDIT_S - RAW_S) * ease(p)); cap = p < 0.02 ? `${N} clips in the folder` : `${clips} clips left`;
+    } else {
+      const c = COUNT[Math.max(1, Math.min(Math.round(S), COUNT.length - 1))];
+      tag = c[0]; val = typeof c[1] === 'number' ? tc(c[1]) : c[1]; cap = c[2];
+      const ch = Math.round(S), cut = Math.floor(t / HOLD);
+      if (ch === C.GAME) cap = thumbs[LONG[cut % 3]].label;
+      if (ch === C.POD) val = cut % 2 ? 'after' : 'before';
+    }
+    const key = tag + val + cap;
+    if (key !== lastCount) { tagEl.textContent = tag; keptEl.textContent = val; capEl.textContent = cap; lastCount = key; }
+
+    // camera
+    const cams = phone() ? CAM_PHONE : CAM, ke = ease(f);
+    pa.fromArray(cams[i][0]); pb.fromArray(cams[j][0]); la.fromArray(cams[i][1]); lb.fromArray(cams[j][1]);
+    camera.position.lerpVectors(pa, pb, ke); look.lerpVectors(la, lb, ke);
+    if (!reduce) { camera.position.x += Math.sin(t * 0.21) * 0.15; camera.position.y += Math.sin(t * 0.17) * 0.1; }
+    camera.lookAt(look);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway · Video editing for gaming creators, streamers and podcasters</title>
+<meta name="description" content="Cutsway edits gaming videos, streams, shorts and podcasts, fast: hooks that hold, shorts for every platform, posted on schedule. Book a call.">
+<meta name="theme-color" content="#07070a">
+<link rel="canonical" href="https://cutsway.co/">
+<link rel="icon" href="./shared/favicon.svg?v=9db0ee7e" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./shared/apple-touch-icon.png?v=921760e5">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cutsway">
+<meta property="og:title" content="Cutsway · Video editing for gaming creators">
+<meta property="og:description" content="Cutsway edits gaming videos, streams, shorts and podcasts, fast: hooks that hold, shorts for every platform, posted on schedule. Book a call.">
+<meta property="og:url" content="https://cutsway.co/">
+<meta property="og:image" content="https://cutsway.co/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Cutsway", "url": "https://cutsway.co/", "email": "cutsway.socialmanager@gmail.com", "telephone": "+91 62813 01476", "sameAs": ["https://www.youtube.com/@cutsway", "https://www.instagram.com/cutsway/"], "description": "Cutsway edits gaming videos, streams, shorts and podcasts, fast: hooks that hold, shorts for every platform, posted on schedule. Book a call.", "areaServed": "Worldwide", "serviceType": ["Gaming video editing", "Long-form YouTube editing", "Shorts and reels editing", "Podcast editing", "Thumbnail design", "Social media posting"]}</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./shared/page.css?v=a5b362df">
+<link rel="stylesheet" href="./shared/brand.css?v=7ffc1462">
+<style>
+  /* the poster, when there is no 3D (no WebGL, data saver, a blocked CDN); set here so the url resolves next to this page */
+  .no-webgl body { background: linear-gradient(to top, rgb(7 7 10 / 0.7), transparent 55%), url(poster.jpg) center / cover fixed, var(--night); }
+  /* the night clock */
+  .night { display: grid; justify-items: end; gap: 8px; }
+  .night__time { font-weight: 900; font-stretch: 125%; letter-spacing: -0.03em; font-size: clamp(1.6rem, 2.6vw, 2.6rem); line-height: 1; text-transform: lowercase; }
+  .night__bar { width: clamp(140px, 14vw, 200px); height: 4px; background: rgb(244 242 236 / 0.2); overflow: hidden; }
+  .night__bar b { display: block; height: 100%; background: var(--spec); transform-origin: left; transform: scaleX(var(--p, 0)); }
+  .night__cap { font-size: var(--step-small); font-weight: 700; color: var(--soft); transition: color 300ms; }
+  .night__cap.is-due { color: var(--yellow); }
+  @media (max-width: 820px) {
+    .hud { top: calc(84px + env(safe-area-inset-top, 0px)); bottom: auto; padding: 8px 12px; border-radius: 14px; background: rgb(14 14 22 / 0.55); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+    .night__cap { display: none; }
+  }
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What do I send you?", "acceptedAnswer": {"@type": "Answer", "text": "The raw recording, your channel link, a past video whose feel you like, and the date it needs to go up."}}, {"@type": "Question", "name": "Can you work from a stream VOD?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. One VOD becomes a highlight video and a shorts pack from the same session."}}, {"@type": "Question", "name": "How many revisions?", "acceptedAnswer": {"@type": "Answer", "text": "Two rounds on every edit, left as notes on the exact frame."}}, {"@type": "Question", "name": "Will you post it for me?", "acceptedAnswer": {"@type": "Answer", "text": "If you want. We schedule and post with titles and captions written for each platform."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#top">Skip to content</a>
+<canvas id="world" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<div class="export" id="export" aria-hidden="true">
+  <div class="export__logo"><svg viewBox="0 0 800.1 100"><use href="#logo"/></svg><svg class="export__fill" id="export-fill" viewBox="0 0 800.1 100"><use href="#logo"/></svg></div>
+  <div class="export__row"><span>exporting cutsway.mp4</span><span class="num" id="export-pct">000%</span></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spec" gradientUnits="userSpaceOnUse" x1="0" x2="800.1" y1="0" y2="0"><stop offset="0.000" stop-color="#272ed2"/><stop offset="0.071" stop-color="#1c4cdd"/><stop offset="0.143" stop-color="#108ae8"/><stop offset="0.214" stop-color="#03c0f4"/><stop offset="0.286" stop-color="#5ae2e8"/><stop offset="0.357" stop-color="#a9f0dc"/><stop offset="0.429" stop-color="#e8f8cd"/><stop offset="0.500" stop-color="#fcf397"/><stop offset="0.571" stop-color="#fddf4b"/><stop offset="0.643" stop-color="#fcb51c"/><stop offset="0.714" stop-color="#fc8020"/><stop offset="0.786" stop-color="#fb3b27"/><stop offset="0.857" stop-color="#e21c2f"/><stop offset="0.929" stop-color="#a81d30"/><stop offset="1.000" stop-color="#761a2b"/></linearGradient>
+    <symbol id="logo" viewBox="0 0 800.1 100"><path fill="url(#spec)" fill-rule="evenodd" d="M679.5 2.3L680.5 4.3Q681.4 6.3 723.9 64.9L723.9 64.9L723.9 97.4L727 97.4Q730 97.3 755.7 97.3L755.7 97.3L755.9 95.4Q756.1 93.5 756.2 85.4Q756.2 77.3 756.2 64.1L756.2 64.1L774.7 39.1Q793.1 14.2 795 12.1Q796.8 10 800 3.4L800 3.4L797 3Q793.9 2.6 787.3 2.6Q780.7 2.6 764.4 2.6L764.4 2.6L761 7Q757.6 11.3 750.6 21.3Q743.5 31.4 740.2 35.1L740.2 35.1L736.6 30.5Q733 26 726.7 16.3Q720.4 6.6 716.6 2.3L716.6 2.3L679.5 2.3ZM623.5 2.8L619 13.9Q614.4 25 599.5 59.3Q584.6 93.5 584 97L584 97L586.5 97.4Q588.9 97.7 618.7 97.7L618.7 97.7L621.1 91.4Q623.5 85 625.7 82.3L625.7 82.3L662.7 82.3L665.1 88.6Q667.5 94.9 669.7 97.5L669.7 97.5L704.6 97.5L664 2.1L645.3 2.1Q626.7 2.1 623.5 2.8L623.5 2.8ZM644.1 34L645.5 37Q646.9 40 652.7 57.6L652.7 57.6L651.2 57.8Q649.7 58 634 58L634 58L638.1 47.3Q642.2 36.6 644.1 34L644.1 34ZM462.9 97.8L500.3 97.8L501.4 95.5Q502.6 93.1 507.6 79Q512.7 64.8 518.3 51.3L518.3 51.3L522.6 64.6Q527 77.9 534.4 97.6L534.4 97.6L571.5 97.6L573.5 93.2Q575.4 88.9 606.7 3.1L606.7 3.1L605.3 2.6Q603.9 2.1 572.4 2.1L572.4 2.1L569.6 9.3Q566.9 16.5 561.7 32.9Q556.5 49.2 553.2 57.4L553.2 57.4L552.5 56Q551.7 54.6 548.1 41.7Q544.4 28.7 535.6 2.1L535.6 2.1L501.3 2.1L500.3 4.4Q499.3 6.7 483 58.1L483 58.1L481.6 55.2Q480.2 52.3 465.1 3L465.1 3L463.6 2.5Q462.2 2.1 430.5 2.1L430.5 2.1L433.4 11.6Q436.2 21 462.9 97.8L462.9 97.8ZM231.4 2.3L231.4 31.6L262.6 31.6L262.6 97.2L264.4 97.5Q266.2 97.7 294.8 97.7L294.8 97.7L294.8 31.4L326.8 31.4L326.8 2.3L231.4 2.3ZM225.3 2.3L193.5 2.3L193.5 25.3Q193.4 48.4 193.4 52.6Q193.4 56.8 192.2 59.2Q190.9 61.6 189.1 63.4Q187.3 65.2 184.4 66.6Q181.4 68.1 177.4 68.1Q173.5 68.2 168.4 68.2Q163.4 68.2 159.8 67Q156.3 65.7 154.6 64.1Q153 62.4 151.2 59.1Q149.4 55.8 149.4 2L149.4 2L145.7 2.1Q142 2.1 117.7 2.1L117.7 2.1L117.4 5.6Q117.1 9.2 117.1 32.6Q117.1 56 117.5 59.3Q117.9 62.6 118.8 66.7Q119.7 70.8 121.3 74.3Q123 77.7 125.9 81.8Q128.7 85.8 131.1 87.8Q133.4 89.8 137.8 92.2Q142.1 94.5 146.5 95.9Q150.9 97.2 158.3 98.6Q165.7 99.9 171.1 99.9Q176.5 99.9 183.3 98.8Q190.1 97.7 194.3 96.7Q198.5 95.7 203.7 93Q208.9 90.2 212.4 87.1Q215.8 84 217.5 81.8Q219.1 79.6 220.6 76.8Q222 74 223.7 68.2Q225.3 62.4 225.3 2.3L225.3 2.3ZM112.4 57.8L79 57.8L77.5 60.6Q76.1 63.4 73.7 65.2Q71.4 67 67.1 68.3Q62.7 69.7 57.2 69.7Q51.7 69.7 46.8 68.3Q41.8 67 39.8 65.7Q37.7 64.5 35.9 61.9Q34.1 59.3 33.2 55.4Q32.3 51.6 32.7 47.3Q33 43.1 34.2 40.2Q35.4 37.4 36.8 35.8Q38.2 34.3 40.2 33.1Q42.2 31.9 45.7 30.9Q49.1 29.9 53.8 29.9Q58.5 29.9 63.8 30.6Q69.2 31.2 71.8 32.9Q74.4 34.5 75.7 35.9Q77 37.3 79.6 41.8L79.6 41.8L92.7 41.8Q105.8 41.8 111.8 41.1L111.8 41.1L112.1 39.4Q112.4 37.7 112 34.8Q111.7 31.9 109.6 26.5Q107.6 21 104.8 17.5Q102.1 14 99.8 12Q97.5 9.9 93.2 7.6Q88.9 5.2 83.1 3.4Q77.4 1.7 71.9 0.8Q66.3 0 57.2 0Q48.1 0 42.3 0.9Q36.5 1.8 28.8 4.5Q21.2 7.3 17 10.4Q12.8 13.5 10 16.8Q7.2 20.1 4.5 26.3Q1.8 32.6 0.9 38.4Q0.1 44.2 0.1 48.5Q0.1 52.8 0.8 59.8Q1.5 66.9 2.9 70.8Q4.3 74.8 6.9 79Q9.5 83.2 12.3 85.8Q15.1 88.4 19.4 91.2Q23.7 93.9 29 95.7Q34.4 97.4 40.5 98.6Q46.6 99.9 54.4 99.9Q62.2 99.9 70.5 98.8Q78.8 97.7 83.3 96.3Q87.8 94.9 91.2 93.1Q94.6 91.3 98.3 88.4Q101.9 85.6 104.6 81.8Q107.3 78 108.9 74.5Q110.6 71 111.5 66.9Q112.4 62.7 112.4 57.8L112.4 57.8ZM403.5 65.9L402.1 70.6L399.2 72Q396.3 73.3 392.8 74Q389.4 74.8 385.5 74.8Q381.6 74.8 378 74.3Q374.4 73.9 371.9 72.9Q369.3 71.9 367.5 70.4Q365.7 68.9 364.1 65.3L364.1 65.3L330.3 65.3L330.8 70.1Q331.4 74.8 332.6 77.8Q333.8 80.7 336 83.8Q338.1 86.8 340 88.6Q342 90.4 346.7 92.9Q351.4 95.5 355.4 96.6Q359.3 97.7 368.2 98.8Q377.2 99.9 384.5 99.9Q391.7 99.9 400.6 98.6Q409.4 97.2 414 95.7Q418.6 94.2 421.4 92.7Q424.2 91.2 426.2 89.6Q428.2 88 430.4 85.5Q432.6 82.9 433.8 80.5Q435.1 78 436.1 73.3Q437.1 68.6 437.1 66.2Q437.1 63.8 436.1 60.4Q435.2 56.9 434 54.7Q432.7 52.5 431.1 50.8Q429.4 49 426.5 47.2Q423.7 45.4 420.3 43.9Q416.9 42.5 409.7 41.2Q402.5 39.9 386.5 38.4Q370.6 36.9 364.6 34.5L364.6 34.5L364.6 29.5L367.3 27.9Q370 26.3 373.8 25.6Q377.6 25 381.4 25Q385.1 25 390.5 25.8Q395.9 26.5 397.9 28.1Q400 29.7 402.3 33.8L402.3 33.8L435.4 33.8L434.1 27.7Q432.7 21.6 430.6 18Q428.5 14.3 426.3 12.2Q424.2 10 420.8 7.8Q417.3 5.6 412.9 4.1Q408.5 2.5 402.5 1.2Q396.6 0 386.5 0Q376.3 0 367.3 1.2Q358.2 2.5 352.2 4.8Q346.2 7.2 342.8 9.6Q339.5 12 336.6 16Q333.7 19.9 332.6 22.9Q331.5 25.9 331.3 27.9Q331 30 331 33.5Q331 37 332.4 40.7Q333.7 44.4 336.1 47.3Q338.5 50.2 342.9 52.7Q347.3 55.2 351.7 56.4Q356 57.6 362.5 58.7Q369.1 59.8 380.8 60.7Q392.6 61.6 395.9 62.2Q399.2 62.9 403.5 65.9L403.5 65.9Z"/></symbol>
+    <symbol id="arrow" viewBox="0 0 16 16"><path d="M3 2v7h10M9 5l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<div class="hud night" aria-hidden="true"><span class="night__time num" id="hud-time">9:00 pm</span><span class="night__bar"><b id="hud-bar"></b></span><span class="night__cap" id="hud-cap">one night in the studio</span></div>
+
+<header class="nav">
+  <a class="nav__logo" href="#top" aria-label="Cutsway home"><svg viewBox="0 0 800.1 100" role="img" aria-label="Cutsway"><use href="#logo"/></svg></a>
+  <nav class="nav__links" aria-label="Main"><a href="#long-form">What we cut</a><a href="#turnaround">Turnaround</a><a href="#faq">FAQ</a></nav>
+  <div class="nav__cta"><a class="pill" href="#book" data-book data-magnet="0.25">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a><button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i></button></div>
+</header>
+
+<div class="menu" id="menu">
+  <nav aria-label="Menu"><a href="#long-form">What we cut</a><a href="#turnaround">Turnaround</a><a href="#faq">FAQ</a><a href="#book" data-book>Book a call</a></nav>
+  <a class="menu__mail" data-email href="mailto:cutsway.socialmanager@gmail.com">cutsway.socialmanager@gmail.com</a>
+  <a class="menu__mail" data-whatsapp href="https://wa.me/916281301476">WhatsApp +91 62813 01476</a>
+</div>
+
+<main id="top">
+  <section class="ch" data-scene aria-labelledby="h1">
+    <h1 class="display" id="h1">send it tonight.</h1>
+    <div class="hero__row">
+      <p>Cutsway edits gaming videos, long-form, podcasts and shorts while you sleep. Scroll through one night in the studio: raw files at 9 pm, the first cut by 9 am.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="long-form" data-scene aria-labelledby="lf-h">
+    <div class="copy rise">
+      <h2 class="display" id="lf-h">gaming videos &amp; long-form</h2>
+      <p>Hours of gameplay cut to the minutes worth watching. Story and retention edits that keep people past minute one, with the thumbnail made alongside the edit, not after it.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="sh-h">
+    <div class="copy rise">
+      <h2 class="display" id="sh-h">shorts &amp; reels</h2>
+      <p>One VOD becomes a week of verticals: captioned, reframed, cut for the first second of a scroll.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="pod-h">
+    <div class="copy rise">
+      <h2 class="display" id="pod-h">podcasts</h2>
+      <p>Multi-cam episodes cut clean and levelled, plus the clips that bring new listeners in.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="turnaround" data-scene aria-labelledby="turn-h">
+    <div class="glass turn rise">
+      <h2 class="display" id="turn-h">when is it yours?</h2>
+      <div class="chips" role="group" aria-label="What would you send?">
+        <button class="chip" data-f="thumb">Thumbnail</button>
+        <button class="chip" data-f="shorts">Shorts pack</button>
+        <button class="chip" data-f="video" aria-pressed="true">Gaming video</button>
+        <button class="chip" data-f="podcast">Podcast</button>
+      </div>
+      <p class="due" aria-live="polite">Sent now, it's back by<strong class="num" id="due">…</strong></p>
+      <ol class="splits num" id="splits"></ol>
+      <p class="note">From the moment your files land. First cuts arrive overnight; the final follows your notes.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="soc-h">
+    <div class="copy rise">
+      <h2 class="display" id="soc-h">posted, everywhere</h2>
+      <p>We schedule and post on YouTube, Instagram, TikTok and X, with titles and captions written for each one.</p>
+      <a class="pill pill--solid" href="#book" data-book data-magnet="0.3">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </section>
+
+  <section class="ch" id="faq" data-scene aria-labelledby="faq-h">
+    <h2 class="display faq-h rise" id="faq-h">fair questions</h2>
+    <div class="glass faq rise" style="--i:1">
+      <details><summary>What do I send you?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>The raw recording, your channel link, a past video whose feel you like, and the date it needs to go up.</p></details>
+      <details><summary>Can you work from a stream VOD?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Yes. One VOD becomes a highlight video and a shorts pack from the same session.</p></details>
+      <details><summary>How many revisions?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Two rounds on every edit, left as notes on the exact frame.</p></details>
+      <details><summary>Will you post it for me?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>If you want. We schedule and post with titles and captions written for each platform.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="book" data-scene aria-labelledby="book-h">
+  <h2 class="display rise" id="book-h"><a href="#book" data-book="direct" data-magnet="0.08">book a call.</a></h2>
+  <p class="rise" style="--i:1">It's 9 am and the first cut is waiting for you. Twenty minutes on a call, and the next one is ours.</p>
+  <div class="foot__grid rise" style="--i:2">
+    <div class="foot__talk"><span class="foot__k">Talk to us</span><a data-email href="mailto:cutsway.socialmanager@gmail.com">cutsway.socialmanager@gmail.com</a><a data-whatsapp href="https://wa.me/916281301476">WhatsApp +91 62813 01476</a></div>
+    <div><span class="foot__k">Follow</span><nav aria-label="Social"><a data-social="youtube" href="https://www.youtube.com/@cutsway" target="_blank" rel="noopener me">YouTube</a><a data-social="instagram" href="https://www.instagram.com/cutsway/" target="_blank" rel="noopener me">Instagram</a><a data-social="tiktok" href="#" hidden>TikTok</a><a data-social="x" href="#" hidden>X</a><a data-social="discord" href="#" hidden>Discord</a></nav></div>
+    <div><span class="foot__k">On this page</span><nav aria-label="Footer"><a href="#long-form">What we cut</a><a href="#turnaround">Turnaround</a><a href="#faq">FAQ</a></nav></div>
+  </div>
+  <div class="foot__row rise" style="--i:3"><span>© <span data-year>2026</span> Cutsway · video editing for gaming creators, streamers and podcasters</span><a href="#top">Back to top ↑</a></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="./shared/site-config.js?v=b751a288"></script>
+<script src="./shared/page.js?v=6d3595d0"></script>
+<script src="./shared/ui.js?v=6a39ddc0"></script>
+<script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
+  import { createWorld, chapterTracker, reduce, phone, ease, clamp01, V, canvasTex, drawGame as drawGameFrame, font } from './shared/kit.js?v=415acb47';
+  import { specAt, specGradient, drawLogo, drawLogoNeon, PAPER, INK, MUTED, YELLOW, CYAN, BLUE, RED, ORANGE, GAME_BRAND } from './shared/brand.js?v=1817101b';
+  import { loadEditor } from './editor.js';
+  import { drawMark } from './shared/platforms.js?v=56c2c6ce';
+  import { loadThumbs, reelVideo, keepPlaying, frameReady, drawFit, THUMBS } from './shared/work.js?v=0b2358e4';
+
+  const BG = '#07070a';
+  const world = createWorld({ bloom: [0.42, 0.5, 0.88], shadows: true, fov: 40, bg: BG });
+  const { scene, camera, renderer } = world;
+  world.phoneFov = 52;
+  scene.fog = new THREE.Fog(BG, 6, 16);
+  RectAreaLightUniformsLib.init();
+
+  // materials: flat for the room
+  const M = (color, o = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.78, metalness: 0.05, flatShading: true, ...o });
+  const S = (color, o = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.7, metalness: 0.02, ...o });
+  const add = (geo, mat, x, y, z, parent = scene) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.receiveShadow = true; parent.add(m); return m; };
+  const box = (w, h, d, mat, x, y, z, parent) => add(new THREE.BoxGeometry(w, h, d), mat, x, y, z, parent);
+  const cyl = (r1, r2, h, mat, x, y, z, parent, seg = 16) => add(new THREE.CylinderGeometry(r1, r2, h, seg), mat, x, y, z, parent);
+  const UP = V(0, 1, 0);
+  function rod(a, b, r, mat, parent = scene, seg = 10) { const d = b.clone().sub(a), m = add(new THREE.CylinderGeometry(r, r, d.length(), seg), mat, 0, 0, 0, parent); m.position.copy(a).add(b).multiplyScalar(0.5); m.quaternion.setFromUnitVectors(UP, d.normalize()); return m; }
+  const unlit = (map, k = 1, extra = {}) => new THREE.MeshBasicMaterial({ map, toneMapped: false, color: new THREE.Color(k, k, k), ...extra });
+  const glow = (c, k = 2) => new THREE.MeshBasicMaterial({ color: new THREE.Color(c).multiplyScalar(k), toneMapped: false });
+  const softDot = (inner = 'rgba(255,255,255,0.5)') => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); const r = g.createRadialGradient(32, 32, 0, 32, 32, 32); r.addColorStop(0, inner); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); };
+
+  // ── the room ──
+  const floor = add(new THREE.PlaneGeometry(30, 30), M('#111116', { roughness: 0.92 }), 0, 0, 0); floor.rotation.x = -Math.PI / 2;
+  add(new THREE.PlaneGeometry(12, 6), M('#18181f', { roughness: 0.95 }), 0, 3, -1.12);
+  add(new THREE.PlaneGeometry(12, 6), M('#15151b', { roughness: 0.95 }), -2.6, 3, 2).rotation.y = Math.PI / 2;
+  add(new THREE.CircleGeometry(1.3, 7), M('#191c33', { roughness: 1 }), 0, 0.005, 0.4).rotation.x = -Math.PI / 2;
+  box(12, 0.08, 0.02, M('#0d0d12'), 0, 0.04, -1.11);   // skirting
+  add(new THREE.PlaneGeometry(12, 6), M('#16161c', { roughness: 0.95 }), 0, 3, 3.3).rotation.y = Math.PI;
+  [[0.55, 1.05, 0.06, 2.1], [-0.55, 1.05, 0.06, 2.1], [0, 2.12, 1.16, 0.06]].forEach(([x, y, w, h]) => box(w, h, 0.06, M('#24242d'), 1.2 + x, y, 3.27));
+  add(new THREE.PlaneGeometry(1.04, 2.06), new THREE.MeshBasicMaterial({ color: new THREE.Color('#07070c') }), 1.2, 1.03, 3.29).rotation.y = Math.PI;
+
+  // window: dusk over the city, through the night to morning
+  const win = canvasTex(1024, 720);
+  // dusk is the logo's warm end, the night its blue, and morning comes up through the whole spectrum
+  const SKY = [
+    [0,    '#0e1236', '#3a1a4a', '#e21c2f', '#fc8020'],
+    [2,    '#04050c', '#080b1c', '#0e1430', '#141c44'],
+    [7,    '#04050c', '#0a0e26', '#142052', '#1c3478'],
+    [8.3,  '#0e1236', '#1c4cdd', '#5ae2e8', '#fcf397'],
+    [9.6,  '#1c4cdd', '#3fa6ea', '#a9f0dc', '#fddf4b'],
+    [12,   '#4f9ae6', '#a9e4f0', '#f4f2ec', '#fcf397'],
+  ].map(([h, ...c]) => [h, c.map(x => new THREE.Color(x))]);
+  const skyAt = h => { let a = SKY[0], b = SKY[SKY.length - 1]; for (let k = 0; k < SKY.length - 1; k++) if (h >= SKY[k][0] && h <= SKY[k + 1][0]) { a = SKY[k]; b = SKY[k + 1]; break; } const f = b[0] === a[0] ? 0 : (h - a[0]) / (b[0] - a[0]); return a[1].map((c, n) => c.clone().lerp(b[1][n], clamp01(f))); };
+  const RW = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(9);
+  const STARS = Array.from({ length: 90 }, () => [RW() * 1024, RW() * 720 * 0.5, 0.3 + RW() * 0.6]);
+  const BLD = []; { let x = 0; while (x < 1024) { const bw = 40 + RW() * 90, bh = 120 + RW() * 330, wins = []; for (let wy = 720 - bh + 14; wy < 710; wy += 22) for (let wx = x + 8; wx < x + bw - 10; wx += 16) wins.push([wx, wy, RW(), RW() < 0.5]); BLD.push([x, bw, bh, wins]); x += bw + 6; } }
+  const BLD_NIGHT = new THREE.Color('#07080f'), BLD_DAY = new THREE.Color('#2a3150'), bldC = new THREE.Color();
+  function drawWindow(h) {
+    const { g } = win, W = 1024, H = 720, [top, mid, hor, glo] = skyAt(h);
+    const sky = g.createLinearGradient(0, 0, 0, H);
+    sky.addColorStop(0, top.getStyle()); sky.addColorStop(0.45, mid.getStyle()); sky.addColorStop(0.78, hor.getStyle()); sky.addColorStop(0.92, glo.getStyle());
+    g.fillStyle = sky; g.fillRect(0, 0, W, H);
+    const starA = clamp01((h - 0.8) / 1.2) * clamp01((8.6 - h) / 1.2);
+    STARS.forEach(([x, y, a]) => { g.fillStyle = `rgba(255,255,255,${a * starA})`; g.fillRect(x, y, 2, 2); });
+    if (h > 1 && h < 8.5) { const mp = (h - 1) / 7.5, mx = 120 + mp * 780, my = 230 - Math.sin(mp * Math.PI) * 170; g.fillStyle = 'rgba(246,239,228,0.95)'; g.beginPath(); g.arc(mx, my, 34, 0, 7); g.fill(); g.fillStyle = top.getStyle(); g.beginPath(); g.arc(mx + 14, my - 8, 30, 0, 7); g.fill(); }
+    if (h > 9) { const sp = Math.min(1, (h - 9) / 3), sx = 760, sy = 560 - sp * 330; const sg = g.createRadialGradient(sx, sy, 0, sx, sy, 160); sg.addColorStop(0, 'rgba(255,240,200,1)'); sg.addColorStop(0.25, 'rgba(255,214,140,0.7)'); sg.addColorStop(1, 'rgba(255,214,140,0)'); g.fillStyle = sg; g.fillRect(sx - 160, sy - 160, 320, 320); }
+    const lit = h < 2 ? 0.3 - h * 0.05 : h < 6 ? 0.2 - (h - 2) * 0.03 : h < 9.5 ? 0.08 + (h - 6) * 0.03 : Math.max(0.03, 0.18 - (h - 9.5) * 0.06);
+    const bc = bldC.copy(BLD_NIGHT).lerp(BLD_DAY, clamp01((h - 8.5) / 3)).getStyle();
+    BLD.forEach(([x, bw, bh, wins]) => { g.fillStyle = bc; g.fillRect(x, H - bh, bw, bh); wins.forEach(([wx, wy, r, warm]) => { if (r < lit) { g.fillStyle = warm ? '#fcb51c' : '#a9f0dc'; g.fillRect(wx, wy, 6, 9); } }); });
+    win.tex.needsUpdate = true;
+  }
+  drawWindow(0);
+  const winMesh = add(new THREE.PlaneGeometry(1.8, 1.25), unlit(win.tex, 0.85), -2.585, 1.6, -0.1); winMesh.rotation.y = Math.PI / 2;
+  const frameMat = M('#0b0b10');
+  [[0, 0.65, 1.9, 0.06], [0, -0.65, 1.9, 0.06], [0.93, 0, 0.06, 1.36], [-0.93, 0, 0.06, 1.36], [0, 0, 0.04, 1.3]].forEach(([dz, dy, w, h]) => box(0.06, h, w, frameMat, -2.57, 1.6 + dy, -0.1 + dz));
+  box(0.16, 0.035, 1.9, M('#24242d'), -2.52, 0.95, -0.1);   // sill
+  const dusk = new THREE.PointLight('#fc8020', 2.2, 4, 1.6); dusk.position.set(-2.2, 1.6, -0.1); scene.add(dusk);
+
+  // neon sign: the logo on the wall, each letter glowing its own colour; it buzzes on as the night starts
+  const sign = canvasTex(2048, 336);
+  { const { g } = sign; drawLogoNeon(g, 64, 48, 1920, 34); sign.tex.needsUpdate = true; }
+  const signMat = new THREE.MeshBasicMaterial({ map: sign.tex, transparent: true, toneMapped: false, color: new THREE.Color(0.95, 0.95, 0.95) });
+  const signMesh = add(new THREE.PlaneGeometry(2.4, 0.394), signMat, -0.05, 2.12, -1.1);
+  // its light on the wall, painted on: the spectrum, soft, behind the tubes
+  const signWash = canvasTex(512, 128);
+  { const { g } = signWash; g.fillStyle = specGradient(g, 40, 472); g.fillRect(0, 0, 512, 128); g.globalCompositeOperation = 'destination-in';
+    const v = g.createRadialGradient(256, 256, 0, 256, 256, 256); v.addColorStop(0, 'rgba(0,0,0,1)'); v.addColorStop(0.55, 'rgba(0,0,0,0.4)'); v.addColorStop(1, 'rgba(0,0,0,0)');
+    g.setTransform(1, 0, 0, 0.25, 0, 0); g.fillStyle = v; g.fillRect(0, 0, 512, 512); signWash.tex.needsUpdate = true; }
+  const signWashMat = new THREE.MeshBasicMaterial({ map: signWash.tex, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false });
+  add(new THREE.PlaneGeometry(3.6, 1.3), signWashMat, -0.05, 2.12, -1.108);
+  const signLight = new THREE.PointLight('#d9dcff', 3, 4.5, 1.6); signLight.position.set(0, 2.1, -0.75); scene.add(signLight);
+
+  // framed thumbnail poster + acoustic foam
+  const poster = canvasTex(640, 360);
+  box(0.86, 0.5, 0.025, M('#0b0b10'), -1.75, 1.78, -1.1);
+  add(new THREE.PlaneGeometry(0.8, 0.45), unlit(poster.tex, 0.7), -1.75, 1.78, -1.085);
+  const foamMat = M('#1b1d30', { roughness: 1 });
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 5; c++) { const f = box(0.17, 0.17, 0.05, foamMat, -2.2 + c * 0.19, 0.95 + r * 0.19, -1.09); f.rotation.z = (r + c) % 2 ? Math.PI / 2 : 0; for (let k = 0; k < 3; k++) box(0.17, 0.02, 0.03, foamMat, 0, -0.05 + k * 0.05, 0.035, f); }
+
+  // wall clock: the night's hour, and in the turnaround chapter, your due time
+  const clockG = new THREE.Group(); clockG.position.set(1.55, 1.85, -1.09); scene.add(clockG);
+  cyl(0.27, 0.27, 0.03, M('#0b0b10'), 0, 0, 0, clockG, 40).rotation.x = Math.PI / 2;
+  cyl(0.245, 0.245, 0.032, M(PAPER, { emissive: PAPER, emissiveIntensity: 0.25 }), 0, 0, 0.004, clockG, 40).rotation.x = Math.PI / 2;
+  for (let k = 0; k < 12; k++) { const a = k / 12 * Math.PI * 2, t = box(0.012, k % 3 ? 0.03 : 0.05, 0.01, M(INK), Math.sin(a) * 0.205, Math.cos(a) * 0.205, 0.022, clockG); t.rotation.z = -a; }
+  const hand = (len, w, mat = M(INK)) => { const p = new THREE.Group(); p.position.z = 0.03; clockG.add(p); box(w, len, 0.008, mat, 0, len / 2 - 0.02, 0, p); return p; };
+  const hourHand = hand(0.13, 0.022), minHand = hand(0.19, 0.014), secHand = new THREE.Group();
+  secHand.position.z = 0.036; clockG.add(secHand); box(0.005, 0.21, 0.004, M(RED), 0, 0.08, 0, secHand);
+  cyl(0.018, 0.018, 0.02, M(RED), 0, 0, 0.04, clockG).rotation.x = Math.PI / 2;
+  const setHands = hours => { hourHand.rotation.z = -(hours % 12) / 12 * Math.PI * 2; minHand.rotation.z = -(hours % 1) * Math.PI * 2; };
+
+  // shelf: drives, a plant
+  box(1.1, 0.04, 0.24, M('#24242d'), 1.55, 1.35, -1.0);
+  [[BLUE, 0.1, 0.24], [CYAN, 0.08, 0.2], [YELLOW, 0.06, 0.18], [RED, 0.09, 0.22]].forEach(([c, w, h], k) => box(w, h, 0.18, M(c), 1.15 + k * 0.12, 1.37 + h / 2, -1.0));
+  cyl(0.07, 0.055, 0.12, M('#c9c2b4'), 1.9, 1.43, -1.0, scene, 8);
+  [[0, 0.16, 0], [0.06, 0.13, 0.03], [-0.05, 0.12, -0.02], [0.02, 0.2, -0.03]].forEach(([x, y, z]) => add(new THREE.IcosahedronGeometry(0.08, 0), M('#2f5a3a'), 1.9 + x, 1.43 + y, -1.0 + z));
+
+  // ── the desk ──
+  const deskMat = M('#24242c', { roughness: 0.55 }), dark = M('#0e0e13', { roughness: 0.5 }), metal = M('#101014', { roughness: 0.35, metalness: 0.4 });
+  box(2.4, 0.05, 0.85, deskMat, 0, 0.74, -0.38);
+  box(2.4, 0.012, 0.02, M('#33333e'), 0, 0.745, 0.035);
+  [[-1.15, -0.75], [1.15, -0.75], [-1.15, -0.02], [1.15, -0.02]].forEach(([x, z]) => box(0.05, 0.72, 0.05, dark, x, 0.36, z));
+
+  // LED strip under the back edge: the logo's spectrum as light, washing the wall behind (painted on, no extra lights)
+  for (let k = 0; k < 34; k++) box(0.06, 0.012, 0.012, glow(specAt(k / 33), 2.2), -1.12 + k * (2.24 / 33), 0.705, -0.79);
+  const wash = canvasTex(512, 128);
+  { const { g } = wash;
+    g.fillStyle = specGradient(g, 0, 512); g.fillRect(0, 0, 512, 128); g.globalCompositeOperation = 'destination-in';
+    const v = g.createLinearGradient(0, 0, 0, 128); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(0.55, 'rgba(0,0,0,0.9)'); v.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = v; g.fillRect(0, 0, 512, 128); wash.tex.needsUpdate = true; }
+  add(new THREE.PlaneGeometry(2.8, 0.9), new THREE.MeshBasicMaterial({ map: wash.tex, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false }), 0, 0.55, -1.105);
+  add(new THREE.PlaneGeometry(2.6, 0.6), new THREE.MeshBasicMaterial({ map: wash.tex, transparent: true, opacity: 0.22, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false }), 0, 0.006, -0.85).rotation.x = -Math.PI / 2;
+
+  // cables behind the desk
+  [[V(0, 0.95, -0.66), V(0.05, 0.6, -0.85), V(-0.1, 0.05, -1.0)], [V(-1.0, 0.92, -0.58), V(-0.9, 0.5, -0.9), V(-0.6, 0.03, -1.02)], [V(1.0, 0.92, -0.58), V(0.9, 0.5, -0.9), V(0.4, 0.03, -1.02)]].forEach(p => {
+    add(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(p), 20, 0.008, 6), dark, 0, 0, 0);
+  });
+
+  // monitors
+  function monitor(w, h, x, y, z, ry, tex) {
+    const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.y = ry; scene.add(g);
+    box(w + 0.03, h + 0.03, 0.035, M('#0d0a09', { roughness: 0.4 }), 0, 0, 0, g);
+    box(w * 0.5, h * 0.6, 0.05, M('#0d0a09', { roughness: 0.4 }), 0, 0, -0.035, g);
+    const screen = add(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: tex, toneMapped: false, color: new THREE.Color(1.15, 1.15, 1.15) }), 0, 0, 0.019, g);
+    box(0.04, y - 0.77 - h / 2, 0.04, dark, 0, -(h / 2) - (y - 0.77 - h / 2) / 2, -0.06, g);
+    box(0.26, 0.012, 0.18, dark, 0, 0.775 - y, -0.05, g);
+    g.userData.screen = screen;
+    return g;
+  }
+  // screens run at reduced size and redraw at their own rates, only while the camera can see them
+  const MAIN = canvasTex(1024, 576), SIDE_L = canvasTex(640, 360), SIDE_R = canvasTex(640, 360), PH = canvasTex(288, 576);
+  const mainMon = monitor(1.15, 0.65, 0, 1.17, -0.6, 0, MAIN.tex);
+  const leftMon = monitor(0.8, 0.45, -1.0, 1.1, -0.48, 0.5, SIDE_L.tex);
+  const rightMon = monitor(0.8, 0.45, 1.0, 1.1, -0.48, -0.5, SIDE_R.tex);
+  const screenLight = new THREE.RectAreaLight('#e4ebff', 7, 1.15, 0.65); screenLight.position.set(0, 1.17, -0.56); screenLight.lookAt(0, 1.1, 1); scene.add(screenLight);
+  // sticky notes on the bezel
+  const note = canvasTex(128, 128);
+  (function () { const { g } = note; g.fillStyle = YELLOW; g.fillRect(0, 0, 128, 128); g.strokeStyle = '#4a4430'; g.lineWidth = 4; for (let k = 0; k < 4; k++) { g.beginPath(); g.moveTo(14, 30 + k * 24); for (let x = 14; x < 110; x += 8) g.lineTo(x, 30 + k * 24 + Math.sin(x * 0.4 + k) * 3); g.stroke(); } note.tex.needsUpdate = true; })();
+  [[0.5, 0.27, 0.12], [0.555, 0.2, -0.1]].forEach(([x, y, r]) => { const n = add(new THREE.PlaneGeometry(0.07, 0.07), new THREE.MeshStandardMaterial({ map: note.tex, roughness: 0.9 }), x, y, 0.02, mainMon); n.rotation.z = r; });
+
+  // speakers
+  [-1, 1].forEach(s => {
+    const sp = new THREE.Group(); sp.position.set(s * 0.67, 0.88, -0.72); sp.rotation.y = -s * 0.25; scene.add(sp);
+    box(0.13, 0.22, 0.14, M('#131318', { roughness: 0.6 }), 0, 0, 0, sp);
+    [0.045, -0.04].forEach((y, k) => { cyl(k ? 0.04 : 0.022, k ? 0.04 : 0.022, 0.01, M('#08080b'), 0, y, 0.071, sp, 20).rotation.x = Math.PI / 2; });
+    box(0.006, 0.006, 0.004, glow(CYAN), 0.045, -0.095, 0.071, sp);
+  });
+
+  // desk mat with the logo printed on it, and a spectrum stitch along its edge
+  const deskPad = canvasTex(1024, 420);
+  { const { g } = deskPad; g.fillStyle = '#121218'; g.fillRect(0, 0, 1024, 420);
+    g.strokeStyle = specGradient(g, 0, 1024); g.globalAlpha = 0.55; g.lineWidth = 5; g.strokeRect(8, 8, 1008, 404); g.globalAlpha = 1;
+    drawLogo(g, 690, 352, 300); deskPad.tex.needsUpdate = true; }
+  add(new THREE.PlaneGeometry(1.0, 0.41), new THREE.MeshStandardMaterial({ map: deskPad.tex, roughness: 0.95 }), 0.1, 0.766, -0.12).rotation.x = -Math.PI / 2;
+
+  // keyboard: keycaps over a spectrum underglow
+  const kb = new THREE.Group(); kb.position.set(-0.08, 0.768, -0.13); scene.add(kb);
+  box(0.46, 0.022, 0.15, M('#111116', { roughness: 0.45 }), 0, 0.011, 0, kb);
+  const kbGlow = canvasTex(256, 16);
+  { const { g } = kbGlow; g.fillStyle = specGradient(g, 0, 256); g.fillRect(0, 0, 256, 16); kbGlow.tex.needsUpdate = true; }
+  add(new THREE.PlaneGeometry(0.45, 0.14), unlit(kbGlow.tex, 1.6), 0, 0.0225, 0, kb).rotation.x = -Math.PI / 2;
+  const keys = new THREE.InstancedMesh(new THREE.BoxGeometry(0.024, 0.012, 0.024), M('#1c1c24', { roughness: 0.5 }), 75);
+  { const m4 = new THREE.Matrix4(); let n = 0; for (let r = 0; r < 5; r++) for (let c = 0; c < 15; c++) { m4.makeTranslation(-0.196 + c * 0.028, 0.03, -0.056 + r * 0.028); keys.setMatrixAt(n++, m4); } }
+  keys.castShadow = keys.receiveShadow = true; kb.add(keys);
+
+  // mouse with a glowing strip
+  const MOUSE_HOME = V(0.36, 0.768, -0.07);
+  const mouseG = new THREE.Group(); mouseG.position.copy(MOUSE_HOME); scene.add(mouseG);
+  const mb = add(new THREE.SphereGeometry(0.035, 16, 10), M('#15151b', { roughness: 0.35 }), 0, 0.012, 0, mouseG); mb.scale.set(1.0, 0.62, 1.75);
+  box(0.004, 0.003, 0.07, glow(CYAN), 0, 0.033, -0.012, mouseG);
+
+  // mugs pile up through the night, then a can
+  const mug = new THREE.Group(); mug.position.set(-0.62, 0.765, -0.22); scene.add(mug);
+  cyl(0.04, 0.036, 0.1, M('#e9e4d8'), 0, 0.05, 0, mug, 18);
+  cyl(0.035, 0.035, 0.005, M('#2e1c12'), 0, 0.094, 0, mug, 18);
+  add(new THREE.TorusGeometry(0.025, 0.008, 6, 12, Math.PI), M('#e9e4d8'), 0.045, 0.05, 0, mug).rotation.z = -Math.PI / 2;
+  const puff = softDot();
+  const mug2 = mug.clone(); mug2.position.set(-0.78, 0.765, -0.4); mug2.rotation.y = 1.2; scene.add(mug2);
+  const mug3 = mug.clone(); mug3.position.set(-0.47, 0.765, -0.46); mug3.rotation.y = -0.6; scene.add(mug3);
+  const can = new THREE.Group(); can.position.set(0.52, 0.765, -0.38); scene.add(can);
+  cyl(0.026, 0.026, 0.1, M(RED, { roughness: 0.3, metalness: 0.6 }), 0, 0.05, 0, can, 16);
+  cyl(0.0265, 0.0265, 0.035, M(INK, { roughness: 0.3, metalness: 0.6 }), 0, 0.05, 0, can, 16);
+  const sun = new THREE.DirectionalLight('#ffbf80', 0); sun.position.set(-6, 2.6, 0.4); sun.target.position.set(0.4, 0.8, -0.3); scene.add(sun, sun.target);
+  const steam = [0, 1, 2, 3].map(() => { const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: puff, transparent: true, depthWrite: false, opacity: 0 })); s.scale.setScalar(0.06); mug.add(s); return s; });
+
+  // phone on a stand, playing a short
+  const phoneG = new THREE.Group(); phoneG.position.set(0.72, 0.88, -0.16); phoneG.rotation.set(-0.22, -0.35, 0); scene.add(phoneG);
+  box(0.09, 0.18, 0.01, M('#0a0a0e', { roughness: 0.3 }), 0, 0, 0, phoneG);
+  const phoneScreen = add(new THREE.PlaneGeometry(0.082, 0.17), new THREE.MeshBasicMaterial({ map: PH.tex, toneMapped: false, color: new THREE.Color(1.2, 1.2, 1.2) }), 0, 0, 0.0056, phoneG);
+  box(0.06, 0.012, 0.07, dark, 0.72, 0.772, -0.2); rod(V(0.72, 0.775, -0.19), V(0.72, 0.84, -0.17), 0.006, dark);
+
+  // game controller
+  const pad = new THREE.Group(); pad.position.set(0.66, 0.78, 0.0); pad.rotation.y = 0.5; scene.add(pad);
+  const padMat = M('#17171d', { roughness: 0.5 });
+  const pb = add(new THREE.SphereGeometry(0.05, 14, 8), padMat, 0, 0, 0, pad); pb.scale.set(1.5, 0.45, 0.9);
+  [-1, 1].forEach(s => { const gr = add(new THREE.SphereGeometry(0.03, 12, 8), padMat, s * 0.06, -0.004, 0.03, pad); gr.scale.set(1, 0.7, 1.4); cyl(0.009, 0.011, 0.014, M(INK), s * 0.03, 0.022, -0.005, pad, 10); });
+  [[RED, 0.055, -0.02], [YELLOW, 0.07, -0.005], [CYAN, 0.04, -0.005], [BLUE, 0.055, 0.01]].forEach(([c, x, z]) => add(new THREE.SphereGeometry(0.006, 8, 6), glow(c, 1.4), x, 0.02, z, pad));
+
+  // external drive with a blinking light
+  box(0.08, 0.018, 0.12, M('#1c2148', { roughness: 0.4 }), -0.34, 0.774, -0.56);
+  const driveLed = box(0.008, 0.004, 0.004, glow(CYAN, 2.5), -0.31, 0.784, -0.5);
+
+  // mic on a boom arm
+  const p0 = V(-0.95, 0.77, -0.72), p1 = V(-0.95, 1.25, -0.65), p2 = V(-0.62, 1.32, -0.3), p3 = V(-0.5, 1.12, -0.2);
+  rod(p0, p1, 0.016, metal); rod(p1, p2, 0.012, metal); rod(p2, p3, 0.012, metal);
+  [p1, p2].forEach(p => add(new THREE.SphereGeometry(0.02, 10, 8), metal, p.x, p.y, p.z));
+  const mic = add(new THREE.CapsuleGeometry(0.038, 0.12, 6, 14), M('#16161b', { roughness: 0.6, metalness: 0.2 }), -0.5, 1.06, -0.19); mic.rotation.x = 0.35;
+  add(new THREE.TorusGeometry(0.04, 0.006, 6, 16), glow(RED, 1.8), -0.5, 1.1, -0.18).rotation.x = Math.PI / 2 + 0.35;
+  const popF = add(new THREE.CircleGeometry(0.055, 20), new THREE.MeshStandardMaterial({ color: INK, transparent: true, opacity: 0.55, side: THREE.DoubleSide }), -0.46, 1.08, -0.05); popF.rotation.x = 0.2;
+
+  // desk lamp: the warm key light, with shadows
+  cyl(0.07, 0.07, 0.02, metal, -1.02, 0.775, -0.62, scene, 16);
+  rod(V(-1.02, 0.78, -0.62), V(-1.0, 1.25, -0.5), 0.01, metal); rod(V(-1.0, 1.25, -0.5), V(-0.78, 1.3, -0.3), 0.01, metal);
+  const shade = add(new THREE.ConeGeometry(0.08, 0.11, 16, 1, true), M(RED, { side: THREE.DoubleSide }), -0.74, 1.27, -0.27); shade.rotation.z = 0.8;
+  const lamp = new THREE.SpotLight('#ffc98f', 9, 4, 0.75, 0.65, 1.4);
+  lamp.position.set(-0.74, 1.24, -0.27); lamp.target.position.set(-0.25, 0.75, -0.15); lamp.castShadow = true; lamp.shadow.mapSize.setScalar(phone() ? 512 : 1024); lamp.shadow.bias = -0.0008;
+  scene.add(lamp, lamp.target);
+
+  // gaming chair
+  const chair = new THREE.Group(); chair.position.set(0, 0, 0.46); scene.add(chair);
+  const leather = S('#18181e', { roughness: 0.45 }), accent = S(BLUE, { roughness: 0.45 });
+  const seat = add(new THREE.CapsuleGeometry(0.06, 0.4, 4, 12), leather, 0, 0.5, 0, chair); seat.rotation.z = Math.PI / 2; seat.scale.set(1, 1, 4.2);
+  const backG = new THREE.Group(); backG.position.set(0, 0.55, 0.27); backG.rotation.x = 0.14; chair.add(backG);
+  box(0.46, 0.72, 0.09, leather, 0, 0.38, 0, backG);
+  [-1, 1].forEach(s => { box(0.07, 0.62, 0.12, leather, s * 0.24, 0.36, -0.02, backG); box(0.015, 0.6, 0.002, accent, s * 0.16, 0.36, -0.046, backG); });
+  [-1, 1].forEach(s => { box(0.03, 0.2, 0.03, metal, s * 0.29, 0.62, -0.02, chair); box(0.07, 0.03, 0.25, leather, s * 0.29, 0.73, -0.05, chair); });
+  cyl(0.03, 0.03, 0.36, metal, 0, 0.27, 0, chair, 12);
+  for (let k = 0; k < 5; k++) {
+    const a = k / 5 * Math.PI * 2, leg = box(0.035, 0.03, 0.32, metal, Math.sin(a) * 0.15, 0.07, Math.cos(a) * 0.15, chair); leg.rotation.y = a;
+    const wh = cyl(0.025, 0.025, 0.03, dark, Math.sin(a) * 0.3, 0.028, Math.cos(a) * 0.3, chair, 12); wh.rotation.z = Math.PI / 2; wh.rotation.y = a;
+  }
+
+  // only what sits on the desk throws a lamp shadow; the walls, shelf and floor just receive
+  scene.updateMatrixWorld(true);
+  { const p = V(); scene.traverse(o => { if (!o.isMesh) return; o.getWorldPosition(p); o.castShadow = p.y > 0.7 && p.y < 1.6 && Math.abs(p.x) < 1.3 && p.z > -0.95 && p.z < 0.6; }); }
+
+  // ── the editor: a whole rigged character, posed live ──
+  let editor = null;
+  const phonesMat = S('#0c0c10', { roughness: 0.35 }), cushion = S('#202028', { roughness: 0.6 });
+  loadEditor(scene, { url: './assets/models/editor.glb', seat: V(0, 0.6, 0.47) }).then(e => {
+    editor = e;
+    const r = e.phones.userData.headR, ph = e.phones;
+    const band = add(new THREE.TorusGeometry(r * 1.16, r * 0.1, 8, 28, Math.PI), phonesMat, 0, -r * 0.1, 0, ph); band.castShadow = true;
+    [-1, 1].forEach(s => {
+      const cup = cyl(r * 0.44, r * 0.44, r * 0.3, phonesMat, s * r * 1.12, -r * 0.42, 0, ph, 22); cup.rotation.z = Math.PI / 2; cup.castShadow = true;
+      const cus = add(new THREE.TorusGeometry(r * 0.33, r * 0.11, 8, 18), cushion, s * r * 0.98, -r * 0.42, 0, ph); cus.rotation.y = Math.PI / 2;
+      const ring = add(new THREE.TorusGeometry(r * 0.42, r * 0.035, 6, 24), glow(s < 0 ? BLUE : RED), s * r * 1.28, -r * 0.42, 0, ph); ring.rotation.y = Math.PI / 2;
+    });
+    // the model's shaders compile in parallel and its textures upload before it appears, so its arrival costs no frame
+    e.root.visible = ph.visible = false;
+    Promise.all([world.warm(e.root), world.warm(ph)]).then(() => { e.root.visible = ph.visible = true; renderer.shadowMap.needsUpdate = true; });
+  }).catch(err => console.warn('editor model did not load', err));
+  const pose = { t: 0, look: 0, slump: 0, stretch: 0, relax: 0 };
+
+  // dust in the screen light
+  const dot = softDot('#fff');
+  const DN = 300, dp = new Float32Array(DN * 3);
+  for (let i = 0; i < DN; i++) dp.set([(Math.random() - 0.5) * 4.6, Math.random() * 2.6, -1.05 + Math.random() * 3.2], i * 3);
+  const dgeo = new THREE.BufferGeometry(); dgeo.setAttribute('position', new THREE.BufferAttribute(dp, 3));
+  const dust = new THREE.Points(dgeo, new THREE.PointsMaterial({ color: '#e6ebff', size: 0.004, transparent: true, opacity: 0.35, depthWrite: false, map: dot, alphaTest: 0.01 }));
+  scene.add(dust);
+  const ambient = new THREE.AmbientLight('#232842', 0.6); scene.add(ambient);
+  const nightAmb = new THREE.Color('#232842'), dayAmb = new THREE.Color('#b9bfd2');
+  const hemi = new THREE.HemisphereLight('#1e2a5a', '#0b0b12', 0.4); scene.add(hemi);
+  const rim = new THREE.DirectionalLight('#4f8dff', 0.7); rim.position.set(1.5, 2.2, 2.5); scene.add(rim);
+
+  // ── Cutsway's own work on the screens: the thumbnails and the reel (labels in shared/work.js), loading in the background ──
+  const WORK = './assets/work/';
+  const thumbs = loadThumbs(WORK, ['wealthy', 'stocks', 'creator', 'rawtalks']);
+  const reel = reelVideo(WORK, true);                     // the small cut: the phone and the preview never show it larger
+  const CYCLE = ['wealthy', 'stocks', 'creator', 'rawtalks'];
+
+  // ── what's on the screens (drawn in 1280×720 space, scaled to the canvas) ──
+  const PROGRAM = ['game', 'game', 'reel', 'podcast', 'export', 'posted', 'thumb', 'posted'];
+  const night = { h: 0, p: 0 };
+  function drawGame(g, x, y, w, h, t) {
+    drawGameFrame(g, x, y, w, h, t, true, GAME_BRAND);
+    g.fillStyle = 'rgba(7,7,10,0.6)'; g.fillRect(x + w - 250, y + 16, 234, 30);
+    g.fillStyle = PAPER; g.font = font(700, 17); g.fillText('cutsway  ▸  1v5 clutch', x + w - 238, y + 37);
+    g.fillStyle = YELLOW; g.fillRect(x + 20, y + h - 30, 160 * (0.4 + 0.3 * Math.sin(t)), 10);
+  }
+  function drawPodcast(g, x, y, w, h, t) {
+    g.fillStyle = '#12131f'; g.fillRect(x, y, w, h);
+    g.fillStyle = '#1a1b2c'; g.fillRect(x, y + h * 0.7, w, h * 0.3);
+    [[0.3, '#1c2a6e', CYAN], [0.7, '#5a1a2a', ORANGE]].forEach(([fx, body, ac], k) => {
+      const px = x + w * fx, talk = k === Math.floor(t / 2.2) % 2;
+      g.fillStyle = body; g.fillRect(px - 60, y + h * 0.5, 120, h * 0.3);
+      g.fillStyle = '#c48a67'; g.beginPath(); g.arc(px, y + h * 0.42 + (talk ? Math.sin(t * 9) * 2 : 0), 34, 0, 7); g.fill();
+      g.fillStyle = INK; g.fillRect(px + (k ? -70 : 50), y + h * 0.44, 14, 46);
+      g.fillStyle = ac; g.fillRect(px - 60, y + h * 0.5, 120, 6);
+    });
+    g.fillStyle = PAPER; g.fillRect(x + 24, y + h - 64, 300, 40); g.fillStyle = INK; g.font = font(900, 22); g.fillText('ep. 41 · burnout', x + 38, y + h - 36);
+  }
+  function drawThumb(g, x, y, w, h, t, key = CYCLE[Math.floor(Math.max(0, t) / 2.4) % CYCLE.length]) {
+    const th = thumbs[key];
+    if (th.ready) { g.drawImage(th.img, x, y, w, h); thumbFrame(g, x, y, w, h, t); return; }
+    g.fillStyle = YELLOW; g.fillRect(x, y, w, h);
+    g.fillStyle = BLUE; g.beginPath(); g.moveTo(x + w * 0.55, y); g.lineTo(x + w, y); g.lineTo(x + w, y + h); g.lineTo(x + w * 0.42, y + h); g.fill();
+    g.fillStyle = '#c48a67'; g.beginPath(); g.arc(x + w * 0.76, y + h * 0.48, h * 0.24, 0, 7); g.fill();
+    g.fillStyle = INK; g.beginPath(); g.arc(x + w * 0.7, y + h * 0.44, h * 0.016, 0, 7); g.arc(x + w * 0.82, y + h * 0.44, h * 0.016, 0, 7); g.fill();
+    g.beginPath(); g.ellipse(x + w * 0.76, y + h * 0.58, h * 0.036, h * 0.05, 0, 0, 7); g.fill();
+    g.font = font(900, Math.round(h * 0.17)); g.fillStyle = INK;
+    g.fillText('WE LOST', x + w * 0.035, y + h * 0.36); g.fillText('THE RAID', x + w * 0.035, y + h * 0.56);
+    g.fillStyle = RED; g.fillRect(x + w * 0.035, y + h * 0.66, w * 0.27, h * 0.11); g.fillStyle = PAPER; g.font = font(900, Math.round(h * 0.073)); g.fillText('AT 1 HP', x + w * 0.053, y + h * 0.745);
+    thumbFrame(g, x, y, w, h, t);
+  }
+  function thumbFrame(g, x, y, w, h, t) {                 // the selection pulse while it is being worked on
+    if (t >= 0) { const pulse = (Math.sin(t * 4) + 1) / 2; g.strokeStyle = `rgba(244,242,236,${0.4 + pulse * 0.6})`; g.lineWidth = 4; g.strokeRect(x + 4, y + 4, w - 8, h - 8); }
+  }
+  // the reel on the timeline: a vertical clip in the 16:9 preview, with its safe area
+  function drawReel(g, x, y, w, h, t) {
+    if (!frameReady(reel)) return drawPodcast(g, x, y, w, h, t);
+    g.fillStyle = '#0c0c12'; g.fillRect(x, y, w, h);
+    const rw = h * 9 / 16, rx = x + (w - rw) / 2;
+    drawFit(g, reel, rx, y, rw, h, 'contain');
+    g.strokeStyle = 'rgba(244,242,236,0.35)'; g.lineWidth = 1.5; g.setLineDash([6, 6]); g.strokeRect(rx + rw * 0.06, y + h * 0.08, rw * 0.88, h * 0.78); g.setLineDash([]);
+    g.fillStyle = MUTED; g.font = font(700, 16); g.fillText('9:16  ·  1080 × 1920', x + 18, y + 30);
+    g.fillText(prog === 'podcast' ? 'clip 03 of 08' : 'short  ·  0:11', x + w - 150, y + 30);
+  }
+  function drawExport(g, x, y, w, h, t) {
+    drawGame(g, x, y, w, h, t); g.fillStyle = 'rgba(7,7,10,0.72)'; g.fillRect(x, y, w, h);
+    const p = (t * 0.18) % 1, bx = x + w * 0.12, bw = w * 0.76;
+    g.fillStyle = PAPER; g.font = font(800, 26); g.fillText('Exporting cutsway_ep41.mp4', bx, y + h * 0.4);
+    g.fillStyle = '#20202c'; g.fillRect(bx, y + h * 0.47, bw, 22);
+    g.save(); g.beginPath(); g.rect(bx, y + h * 0.47, bw * p, 22); g.clip();
+    g.fillStyle = specGradient(g, bx, bx + bw); g.fillRect(bx, y + h * 0.47, bw, 22); g.restore();
+    g.fillStyle = MUTED; g.font = font(700, 20); g.fillText(Math.round(p * 100) + '%  ·  4K  ·  60 fps', bx, y + h * 0.47 + 56);
+  }
+  drawThumb(poster.g, 0, 0, 640, 360, -1, 'stocks'); poster.tex.needsUpdate = true;
+  let posterReal = false;
+  function drawPosted(g, x, y, w, h) {
+    drawThumb(g, x, y, w, h, -1, 'wealthy');
+    g.fillStyle = 'rgba(7,7,10,0.82)'; g.fillRect(x, y + h - 96, w, 96);
+    g.fillStyle = CYAN; g.beginPath(); g.arc(x + 54, y + h - 48, 24, 0, 7); g.fill();
+    g.strokeStyle = INK; g.lineWidth = 6; g.beginPath(); g.moveTo(x + 42, y + h - 48); g.lineTo(x + 51, y + h - 39); g.lineTo(x + 67, y + h - 58); g.stroke();
+    g.fillStyle = PAPER; g.font = font(900, 28); g.fillText('Uploaded', x + 96, y + h - 54);
+    g.fillStyle = MUTED; g.font = font(700, 18); g.fillText(`${THUMBS.wealthy.label}  ·  live 9:00 am`, x + 96, y + h - 26);
+  }
+  const PREVIEW = { game: drawGame, reel: drawReel, podcast: drawReel, thumb: drawThumb, export: drawExport, posted: drawPosted };
+  const SPEC_STYLE = Array.from({ length: 41 }, (_, k) => specAt(k / 40).getStyle());
+  let prog = 'game';
+  function drawEditor(p, t) {
+    prog = p;
+    const { g } = MAIN, W = 1280, H = 720; g.setTransform(1024 / 1280, 0, 0, 576 / 720, 0, 0);
+    g.fillStyle = '#0c0c12'; g.fillRect(0, 0, W, H);
+    g.fillStyle = '#15151d'; g.fillRect(0, 0, W, 30); g.fillStyle = MUTED; g.font = font(700, 15); g.fillText('cutsway  —  client_ep41.prproj', 14, 20);
+    [[RED, W - 60], [YELLOW, W - 40], [CYAN, W - 20]].forEach(([c, x]) => { g.fillStyle = c; g.beginPath(); g.arc(x, 15, 6, 0, 7); g.fill(); });
+    PREVIEW[prog](g, 16, 42, 860, 440, t);
+    g.fillStyle = '#15151d'; g.fillRect(892, 42, 372, 440);
+    g.fillStyle = PAPER; g.font = font(800, 17); g.fillText(prog === 'podcast' ? 'Audio  ·  Essential Sound' : 'Lumetri Color', 908, 70);
+    for (let k = 0; k < 9; k++) { g.fillStyle = '#262633'; g.fillRect(908, 90 + k * 40, 120, 10); g.fillStyle = '#30303f'; g.fillRect(1040, 90 + k * 40, 200, 10); g.fillStyle = SPEC_STYLE[k * 5]; g.fillRect(1040, 90 + k * 40, 200 * (0.3 + 0.6 * Math.abs(Math.sin(k * 1.7 + t * 0.3))), 10); }
+    const ty = 498; g.fillStyle = '#101017'; g.fillRect(0, ty, W, H - ty);
+    g.fillStyle = '#262633'; for (let k = 0; k < 64; k++) g.fillRect(70 + k * 19, ty + 6, 1, k % 4 ? 6 : 12);
+    ['V2', 'V1', 'A1', 'A2'].forEach((n, r) => {
+      const ry = ty + 30 + r * 46; g.fillStyle = MUTED; g.font = font(700, 14); g.fillText(n, 18, ry + 25);
+      let cx = 70, k = 0;
+      const edge = 70 + (W - 100) * night.p;
+      while (cx < Math.min(W - 30, edge)) {
+        const cw = 60 + ((k * 73 + r * 41) % 150);
+        g.fillStyle = SPEC_STYLE[Math.min(40, Math.round((cx - 70) / (W - 100) * 40))];   // the timeline reads like the logo, left to right
+        g.globalAlpha = r > 1 ? 0.55 : 0.92; g.fillRect(cx, ry, cw - 4, 36); g.globalAlpha = 1;
+        if (r > 1) { g.fillStyle = 'rgba(7,7,10,0.55)'; for (let q = 0; q < cw - 8; q += 5) { const a = Math.abs(Math.sin(q * 0.3 + k)) * 14; g.fillRect(cx + q, ry + 18 - a / 2, 2, a); } }
+        cx += cw; k++;
+      }
+    });
+    const ph = Math.min(W - 30, 70 + (W - 100) * night.p);
+    g.fillStyle = RED; g.fillRect(ph, ty + 2, 2, H - ty); g.beginPath(); g.moveTo(ph - 8, ty); g.lineTo(ph + 10, ty); g.lineTo(ph + 1, ty + 12); g.fill();
+    const fr = Math.floor(t * 30); g.fillStyle = YELLOW; g.font = font(800, 18);
+    g.fillText(`00:${String(Math.floor(fr / 1800) % 60).padStart(2, '0')}:${String(Math.floor(fr / 30) % 60).padStart(2, '0')}:${String(fr % 30).padStart(2, '0')}`, 18, ty + 18);
+    MAIN.tex.needsUpdate = true;
+  }
+  function drawLeft(prog, t) {
+    const { g } = SIDE_L, W = 800, H = 450; g.setTransform(640 / 800, 0, 0, 360 / 450, 0, 0);
+    g.fillStyle = '#0c0c12'; g.fillRect(0, 0, W, H);
+    if (prog === 'thumb') {
+      g.fillStyle = PAPER; g.font = font(800, 22); g.fillText('#client-ep41', 24, 40);
+      const due = window.CUT.due.toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit', hour12: true });
+      [['client', 'can I get the edit + thumb by the weekend?', 0], ['cutsway', `yes. back by ${due}.`, 1], ['client', 'that is insane. booking the next one', 0]].forEach(([who, msg, me], k) => {
+        const y = 80 + k * 110, bx = me ? 220 : 24; g.fillStyle = me ? CYAN : '#262633'; g.fillRect(bx, y, 556, 80);
+        g.fillStyle = me ? INK : MUTED; g.font = font(800, 16); g.fillText(who, bx + 18, y + 28);
+        g.fillStyle = me ? INK : PAPER; g.font = font(600, 21); g.fillText(msg, bx + 18, y + 60);
+      });
+    } else {
+      g.fillStyle = PAPER; g.font = font(800, 22); g.fillText(prog === 'podcast' ? 'Episode 41 · 3 mics' : 'Audio mix', 24, 40);
+      for (let row = 0; row < 3; row++) {
+        const y0 = 110 + row * 110; g.fillStyle = '#15151d'; g.fillRect(24, y0 - 40, 680, 80);
+        g.fillStyle = SPEC_STYLE[Math.round((row / 2.2 + 0.05) * 40)];
+        for (let x = 0; x < 680; x += 6) { const a = (Math.abs(Math.sin(x * 0.05 + t * 3 + row)) * 0.7 + Math.abs(Math.sin(x * 0.013 - t + row * 2)) * 0.3) * 34; g.fillRect(24 + x, y0 - a, 3, a * 2); }
+      }
+      for (let k = 0; k < 2; k++) { const lv = 0.5 + Math.abs(Math.sin(t * 6 + k)) * 0.45; g.fillStyle = '#15151d'; g.fillRect(730 + k * 26, 70, 18, 340); g.fillStyle = lv > 0.85 ? RED : CYAN; g.fillRect(730 + k * 26, 70 + 340 * (1 - lv), 18, 340 * lv); }
+    }
+    SIDE_L.tex.needsUpdate = true;
+  }
+  function drawRight(prog, t) {
+    const { g } = SIDE_R, W = 800; g.setTransform(640 / 800, 0, 0, 360 / 450, 0, 0);
+    g.fillStyle = '#0c0c12'; g.fillRect(0, 0, W, 450);
+    g.fillStyle = PAPER; g.font = font(800, 22); g.fillText('Posting schedule', 24, 40);
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], plat = [['youtube', RED], ['instagram', ORANGE], ['tiktok', CYAN], ['x', PAPER]];
+    days.forEach((d, k) => { g.fillStyle = MUTED; g.font = font(700, 15); g.fillText(d, 30 + k * 108, 78); });
+    for (let k = 0; k < 7; k++) for (let r = 0; r < 4; r++) {
+      if ((k * 3 + r * 5) % 4 === 0) continue;
+      const x = 24 + k * 108, y = 96 + r * 82, [p, c] = plat[r], live = (k + r + Math.floor(t * 0.7)) % 9 === 0;
+      g.fillStyle = live ? c : '#1a1a23'; g.fillRect(x, y, 98, 68);
+      drawMark(g, p, x + 22, y + 22, 24, live ? INK : c);
+      g.fillStyle = live ? INK : MUTED; g.font = font(600, 13); g.fillText(live ? 'posted' : '9:00 pm', x + 10, y + 52);
+    }
+    SIDE_R.tex.needsUpdate = true;
+  }
+  function drawPhone(t) {
+    const { g } = PH, W = 360, H = 720; g.setTransform(288 / 360, 0, 0, 576 / 720, 0, 0);
+    if (frameReady(reel)) {                               // the real reel; it carries its own captions
+      drawFit(g, reel, 0, 0, W, H, 'cover');
+      [0, 1, 2].forEach(j => { g.fillStyle = 'rgba(244,242,236,0.85)'; g.beginPath(); g.arc(W - 30, H * 0.62 + j * 60, 17, 0, 7); g.fill(); });
+      g.fillStyle = RED; g.beginPath(); g.arc(W - 30, H * 0.62, 8, 0, 7); g.fill();
+      g.fillStyle = 'rgba(38,38,51,0.8)'; g.fillRect(0, H - 6, W, 6); g.fillStyle = specGradient(g, 0, W); g.fillRect(0, H - 6, W * (reel.currentTime / (reel.duration || 1)), 6);
+      PH.tex.needsUpdate = true; return;
+    }
+    drawGameFrame(g, 0, 0, W, H, t * 1.2, false, GAME_BRAND);
+    g.fillStyle = 'rgba(7,7,10,0.35)'; g.fillRect(0, 0, W, H);
+    const caps = ['1V5', 'CLUTCH', 'IN', '9 SECONDS'], k = Math.floor(t * 2) % caps.length, pop = 1 + Math.max(0, 0.18 - ((t * 2) % 1) * 0.6);
+    g.save(); g.translate(W / 2, H * 0.55); g.scale(pop, pop); g.textAlign = 'center'; g.font = font(900, 58);
+    g.lineWidth = 10; g.strokeStyle = INK; g.strokeText(caps[k], 0, 0); g.fillStyle = k % 2 ? YELLOW : PAPER; g.fillText(caps[k], 0, 0); g.restore(); g.textAlign = 'left';
+    [0, 1, 2].forEach(j => { g.fillStyle = 'rgba(244,242,236,0.92)'; g.beginPath(); g.arc(W - 34, H * 0.55 + j * 66, 20, 0, 7); g.fill(); });
+    g.fillStyle = RED; g.beginPath(); g.arc(W - 34, H * 0.55, 9, 0, 7); g.fill();
+    g.fillStyle = '#262633'; g.fillRect(0, H - 6, W, 6); g.fillStyle = specGradient(g, 0, W); g.fillRect(0, H - 6, W * ((t * 0.12) % 1), 6);
+    g.fillStyle = PAPER; g.font = font(800, 20); g.fillText('@yourchannel', 18, H - 40);
+    PH.tex.needsUpdate = true;
+  }
+
+  // ── shots: one per chapter. [camera, look-at] ──
+  const SHOTS = [
+    [[2.55, 1.8, 2.8], [-0.55, 1.02, -0.7]],    // hero: wide from behind, the sign kept above the headline
+    [[0.62, 1.3, 0.62], [-0.38, 1.14, -0.6]],   // gaming & long-form: over the shoulder
+    [[0.32, 1.0, 0.36], [0.55, 0.9, -0.16]],    // shorts: the phone
+    [[0.42, 1.42, 0.62], [-0.72, 1.08, -0.42]], // podcasts: past the mic to the waveforms
+    [[0.15, 1.55, 0.55], [1.0, 1.72, -1.0]],    // turnaround: the clock
+    [[0.3, 1.36, 0.95], [0.62, 1.12, -0.5]],    // socials: the schedule, kept to the right of the copy
+    [[0.95, 2.65, 0.95], [0.05, 0.8, -0.32]],   // faq: overhead
+    [[2.9, 1.95, 3.6], [-0.6, 1.35, -0.6]],     // morning: the whole room, sun through the window
+  ];
+  const PHONE_SHOTS = [
+    [[1.6, 1.9, 3.4], [-0.1, 1.5, -0.7]], [[0.42, 1.42, 1.05], [-0.1, 0.98, -0.6]], [[0.55, 1.0, 0.42], [0.72, 0.92, -0.16]],
+    [[0.25, 1.45, 0.8], [-0.7, 1.08, -0.45]], [[0.9, 1.6, 0.55], [1.45, 1.85, -1.0]], [[0.4, 1.3, 0.7], [0.95, 1.05, -0.45]],
+    [[0.7, 2.9, 1.3], [0.05, 0.8, -0.32]], [[2.4, 2.4, 5.2], [-0.1, 1.4, -0.9]],
+  ];
+  // where the editor looks in each chapter (head yaw), and the hour of the night (hours after 9 pm)
+  const LOOKS = [0, 0, -0.55, 0.45, 0, -0.5, 0, 0];
+  const HOURS = [0, 1.5, 4, 6, 8.5, 10, 11, 12];
+  const TURN = 4;
+
+  // the due clock: hours from now, eased so the hands sweep forward when a format is picked
+  let dueShown = window.CUT.hours;
+  const hudTime = document.getElementById('hud-time'), hudBar = document.getElementById('hud-bar'), hudCap = document.getElementById('hud-cap');
+  let skyH = 0, lastCap = '';
+
+  const track = chapterTracker();
+  const mouse = { x: 0, y: 0, sx: 0, sy: 0 };
+  addEventListener('pointermove', e => { mouse.x = e.clientX / innerWidth - 0.5; mouse.y = e.clientY / innerHeight - 0.5; }, { passive: true });
+  world.onTier.push(tier => { if (tier >= 2) lamp.castShadow = false; });
+
+  const frustum = new THREE.Frustum(), pv = new THREE.Matrix4();
+  const seen = m => frustum.intersectsObject(m);
+  const pA = V(), pB = V(), lA = V(), lB = V(), look = V();
+  const sm = (a, b, x) => clamp01((x - a) / (b - a));
+  let lastMain = -1, lastSide = -1, lastPhone = -1, lastShadow = -1, lookYaw = 0;
+
+  world.start((t, dt) => {
+    const last = window.chapterCount() - 1, Ssm = track(dt);
+    const i = Math.min(last, Math.floor(Ssm)), f = Ssm - i, j = Math.min(last, i + 1), k = ease(f);
+    const shots = phone() ? PHONE_SHOTS : SHOTS;
+    pA.fromArray(shots[i][0]); pB.fromArray(shots[j][0]); lA.fromArray(shots[i][1]); lB.fromArray(shots[j][1]);
+    camera.position.lerpVectors(pA, pB, k);
+    camera.position.y += Math.sin(k * Math.PI) * 0.22; camera.position.z += Math.sin(k * Math.PI) * 0.3;
+    mouse.sx += (mouse.x - mouse.sx) * 0.06; mouse.sy += (mouse.y - mouse.sy) * 0.06;
+    look.lerpVectors(lA, lB, k);
+    camera.lookAt(look);
+    if (!reduce) { camera.translateX(mouse.sx * 0.1 + Math.sin(t * 0.4) * 0.008); camera.translateY(-mouse.sy * 0.05 + Math.sin(t * 0.55) * 0.006); }
+    camera.updateMatrixWorld(); pv.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse); frustum.setFromProjectionMatrix(pv);
+
+    // the night: the HUD clock, the sky, the lights
+    night.h = HOURS[i] + (HOURS[j] - HOURS[i]) * f; night.p = night.h / 12;
+    const mins = Math.round((21 * 60 + night.h * 60) % 1440), hh = Math.floor(mins / 60), mm = mins % 60;
+    hudTime.textContent = `${((hh + 11) % 12) + 1}:${String(mm).padStart(2, '0')} ${hh < 12 ? 'am' : 'pm'}`; hudBar.style.setProperty('--p', night.p);
+    if (Math.abs(night.h - skyH) > 0.06) { drawWindow(night.h); skyH = night.h; }
+    const morning = sm(8.3, 11, night.h);
+    sun.intensity = morning * 2.6; dusk.intensity = 2.2 * (1 - sm(0.5, 2, night.h)) + morning * 2.5; dusk.color.set(morning > 0.3 ? '#fff0c8' : '#fc8020');
+    lamp.intensity = 9 * (1 - sm(10.6, 11.6, night.h)); ambient.intensity = 0.6 + morning * 1.7; ambient.color.copy(nightAmb).lerp(dayAmb, morning);
+    hemi.intensity = 0.4 + morning * 1.3;
+    winMesh.material.color.setScalar(0.85 + morning * 0.5);
+    mug2.visible = night.h > 2.2; mug3.visible = night.h > 4.6; can.visible = night.h > 5.2;
+    // the sign buzzes on as the scroll leaves the hero
+    const on = sm(0.15, 0.55, Ssm), buzz = on < 1 && on > 0 && !reduce ? (Math.sin(t * 61) > 0.2 ? 1 : 0.35) : 1;
+    signMat.color.setScalar(0.006 + 0.944 * on * buzz);   // linear: 0.006 reads as an unlit tube
+    signLight.intensity = 3 * on * buzz; signWashMat.opacity = 0.32 * on * buzz;
+
+    // the wall clock: the night's hour, sweeping forward to your due time in the turnaround chapter
+    const dueW = reduce ? (Math.abs(Ssm - TURN) < 0.5 ? 1 : 0) : ease(clamp01(1 - Math.abs(Ssm - TURN) * 1.7));
+    dueShown += (window.CUT.hours - dueShown) * (reduce ? 1 : Math.min(1, dt * 2.5));
+    const now = new Date(), nowH = now.getHours() + now.getMinutes() / 60;
+    const nightH = 21 + night.h; let dueH = nowH + dueShown; while (dueH < nightH) dueH += 12;
+    setHands(nightH + (dueH - nightH) * dueW);
+    const cap = dueW > 0.6 ? 'the clock shows your due time' : 'one night in the studio';
+    if (cap !== lastCap) { hudCap.textContent = cap; hudCap.classList.toggle('is-due', dueW > 0.6); lastCap = cap; }
+
+    // the editor works through the night
+    pose.t = t;
+    pose.slump += ((night.h > 4.4 && night.h < 6.6 ? 1 : 0) - pose.slump) * Math.min(1, dt * 2);
+    pose.stretch += ((night.h > 7.2 && night.h < 8.1 ? 1 : 0) - pose.stretch) * Math.min(1, dt * 3);
+    pose.relax += ((night.h > 10.4 ? 1 : 0) - pose.relax) * Math.min(1, dt * 2.5);
+    lookYaw += ((LOOKS[i] + (LOOKS[j] - LOOKS[i]) * k) * (1 - pose.relax) - lookYaw) * Math.min(1, dt * 3);
+    pose.look = lookYaw + (reduce ? 0 : Math.sin(t * 0.35) * 0.06);
+    // the mouse only moves while the hand is on it: a short move, then a pause, like scrubbing a timeline; the hand follows the mouse
+    if (pose.stretch + pose.relax < 0.05 && !reduce) {
+      const n = Math.floor(t / 1.7), u = clamp01((t / 1.7 - n) / 0.3), e = u * u * (3 - 2 * u);
+      const h = x => { x = Math.sin(x * 127.1) * 43758.5453; return x - Math.floor(x); };
+      const ax = (h(n) - 0.5) * 0.05, az = (h(n + 0.5) - 0.5) * 0.03, bx = (h(n + 1) - 0.5) * 0.05, bz = (h(n + 1.5) - 0.5) * 0.03;
+      mouseG.position.set(MOUSE_HOME.x + ax + (bx - ax) * e, MOUSE_HOME.y, MOUSE_HOME.z + az + (bz - az) * e);
+    }
+    pose.mouse = mouseG.position;
+    if (editor) editor.update(pose, reduce);
+    if (!reduce) {
+      steam.forEach((s, n) => { const p = ((t * 0.35 + n / steam.length) % 1); s.position.set(Math.sin(t + n) * 0.012, 0.11 + p * 0.16, 0); s.material.opacity = Math.sin(p * Math.PI) * 0.45; s.scale.setScalar(0.04 + p * 0.06); });
+      driveLed.visible = Math.sin(t * 9) > -0.2 || Math.sin(t * 2.3) > 0.6;
+      secHand.rotation.z = -((t * 6) % 60) / 60 * Math.PI * 2;
+      dust.rotation.y = t * 0.01;
+    }
+
+    // screens at their own rates, and only when in view
+    const prog = PROGRAM[f < 0.5 ? i : j];
+    if (t - lastMain > 1 / 24 && seen(mainMon.userData.screen)) { drawEditor(prog, t); lastMain = t; }
+    keepPlaying(reel, Ssm < 4.6 && (seen(phoneScreen) || (prog === 'reel' || prog === 'podcast') && seen(mainMon.userData.screen)));
+    if (t - lastPhone > 1 / 20 && seen(phoneScreen)) { drawPhone(t); lastPhone = t; }
+    if (!posterReal && thumbs.stocks.ready) { drawThumb(poster.g, 0, 0, 640, 360, -1, 'stocks'); poster.tex.needsUpdate = true; posterReal = true; }
+    if (t - lastSide > 1 / 12) { if (seen(leftMon.userData.screen)) drawLeft(prog, t); if (seen(rightMon.userData.screen)) drawRight(prog, t); lastSide = t; }
+    if (t - lastShadow > 1 / 15) { renderer.shadowMap.needsUpdate = true; lastShadow = t; }
+    screenLight.intensity = 6 + Math.sin(t * 7) * 0.4;
+  });
+</script>
+</body>
+</html>

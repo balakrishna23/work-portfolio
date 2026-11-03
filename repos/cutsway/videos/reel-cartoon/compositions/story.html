@@ -1,0 +1,813 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Archivo";
+      src: url("assets/fonts/archivo-latin.woff2") format("woff2");
+      font-weight: 100 900;
+      font-stretch: 62% 125%;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #fddf4b;
+    }
+    #st-canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1080px;
+      height: 1920px;
+    }
+  </style>
+  <!-- The whole cartoon is drawn here from timeline time: one rig per character, one function per scene. -->
+  <div data-hf-id="hf-gn38" id="root" data-composition-id="story" data-width="1080" data-height="1920">
+    <canvas data-hf-id="hf-4asz" id="st-canvas" width="1080" height="1920" data-layout-ignore></canvas>
+  </div>
+  <script>
+    (function () {
+      const W = 1080;
+      const H = 1920;
+      const BEAT = 60 / 128;
+      const ctx = document.getElementById("st-canvas").getContext("2d");
+      const INK = "#07070a";
+      const C = {
+        yellow: "#fddf4b", red: "#fb3b27", cyan: "#03c0f4", blue: "#1c4cdd", paper: "#f4f2ec", night: "#07070a",
+        orange: "#fc8020", amber: "#fcb51c", wine: "#761a2b", skin: "#c98b5e", skin2: "#8d5a3b",
+        monster: "#7a7286", monsterD: "#5b5562", card: "#3d3846", cardL: "#8a7f8c", pants: "#2c2a33",
+      };
+
+      // ---------- easing + helpers ----------
+      const clamp = (v) => Math.max(0, Math.min(1, v));
+      const lerp = (a, b, k) => a + (b - a) * k;
+      const eo = (k) => 1 - Math.pow(1 - k, 3);
+      const ei = (k) => k * k * k;
+      const eio = (k) => (k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2);
+      const xo = (k) => (k >= 1 ? 1 : 1 - Math.pow(2, -10 * k));
+      // A damped spring for characters: overshoot is acting here.
+      const spring = (k) => (k >= 1 ? 1 : 1 - Math.cos(k * Math.PI * 2.6) * Math.exp(-5.5 * k));
+      const seg = (t, a, d) => clamp((t - a) / d);
+
+      // ---------- boiling ink ----------
+      let SEED = 0;
+      let NI = 0;
+      function h(i) {
+        const x = Math.sin(i * 127.1 + SEED * 311.7) * 43758.5453;
+        return x - Math.floor(x);
+      }
+      const jit = (a) => (h(++NI) - 0.5) * a;
+
+      function smooth(pts) {
+        const n = pts.length;
+        ctx.beginPath();
+        ctx.moveTo(pts[0][0], pts[0][1]);
+        for (let i = 0; i < n; i++) {
+          const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
+          ctx.bezierCurveTo(p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6, p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6, p2[0], p2[1]);
+        }
+        ctx.closePath();
+      }
+      function blob(cx, cy, rx, ry, o = {}) {
+        const n = o.n || 20, rot = o.rot || 0, lump = o.lump || 0, lk = o.lk || 5, ph = o.ph || 0, b = o.boil == null ? 2.4 : o.boil;
+        const pts = [];
+        for (let i = 0; i < n; i++) {
+          const a = (i / n) * Math.PI * 2;
+          const r = 1 + lump * Math.sin(a * lk + ph);
+          const x = Math.cos(a) * rx * r, y = Math.sin(a) * ry * r;
+          pts.push([cx + x * Math.cos(rot) - y * Math.sin(rot) + jit(b), cy + x * Math.sin(rot) + y * Math.cos(rot) + jit(b)]);
+        }
+        smooth(pts);
+      }
+      function box(cx, cy, w, hh, r, o = {}) {
+        const rot = o.rot || 0, b = o.boil == null ? 2 : o.boil;
+        const hw = w / 2, hh2 = hh / 2;
+        r = Math.min(r, hw, hh2);
+        const pts = [];
+        [[hw - r, hh2 - r, 0], [-hw + r, hh2 - r, 0.5], [-hw + r, -hh2 + r, 1], [hw - r, -hh2 + r, 1.5]].forEach(([x, y, a0]) => {
+          for (let k = 0; k <= 2; k++) {
+            const a = (a0 + k / 4) * Math.PI;
+            pts.push([x + Math.cos(a) * r, y + Math.sin(a) * r]);
+          }
+        });
+        smooth(pts.map(([x, y]) => [cx + x * Math.cos(rot) - y * Math.sin(rot) + jit(b), cy + x * Math.sin(rot) + y * Math.cos(rot) + jit(b)]));
+      }
+      function fs(fill, lw = 7) {
+        if (fill) {
+          ctx.fillStyle = fill;
+          ctx.fill();
+        }
+        if (lw) {
+          ctx.lineWidth = lw;
+          ctx.strokeStyle = INK;
+          ctx.lineJoin = "round";
+          ctx.lineCap = "round";
+          ctx.stroke();
+        }
+      }
+      function line(pts, lw = 7, col = INK) {
+        ctx.beginPath();
+        pts.forEach((p, i) => (i ? ctx.lineTo(p[0] + jit(2), p[1] + jit(2)) : ctx.moveTo(p[0] + jit(2), p[1] + jit(2))));
+        ctx.lineWidth = lw;
+        ctx.strokeStyle = col;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.stroke();
+      }
+      // A limb: ink outline, then the colour inside it.
+      function limb(a, b, w, col) {
+        line([a, b], w + 12, INK);
+        line([a, b], w, col);
+      }
+      function text(str, x, y, size, col, o = {}) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(o.rot || 0);
+        ctx.font = `${o.weight || 900} ${size}px Archivo`;
+        ctx.fontStretch = o.stretch || "expanded";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = col;
+        ctx.fillText(str, 0, 0);
+        ctx.restore();
+      }
+
+      // ---------- rigs ----------
+      function eye(x, y, r, o = {}) {
+        const mood = o.mood || "normal";
+        if (mood === "happy") {
+          ctx.beginPath();
+          ctx.arc(x, y + r * 0.35, r * 0.75, Math.PI * 1.15, Math.PI * 1.85);
+          ctx.lineWidth = Math.max(5, r * 0.32);
+          ctx.strokeStyle = INK;
+          ctx.lineCap = "round";
+          ctx.stroke();
+          return;
+        }
+        blob(x, y, r, r * 1.12, { n: 12, boil: 1.2 });
+        fs("#ffffff", Math.max(4, r * 0.22));
+        const look = o.look || [0, 0];
+        const pr = mood === "scared" ? r * 0.26 : r * 0.46;
+        blob(x + look[0] * r * 0.42, y + look[1] * r * 0.42, pr, pr, { n: 10, boil: 0.8 });
+        fs(INK, 0);
+        blob(x + look[0] * r * 0.42 - pr * 0.35, y + look[1] * r * 0.42 - pr * 0.35, pr * 0.28, pr * 0.28, { n: 8, boil: 0 });
+        fs("#ffffff", 0);
+        const lid = o.lid || 0;
+        if (lid > 0) {
+          ctx.save();
+          blob(x, y, r * 1.02, r * 1.14, { n: 12, boil: 0 });
+          ctx.clip();
+          ctx.fillStyle = o.lidColor || C.skin;
+          ctx.fillRect(x - r * 1.2, y - r * 1.2, r * 2.4, r * 2.3 * lid);
+          ctx.restore();
+          line([[x - r * 0.95, y - r * 1.12 + r * 2.24 * lid], [x + r * 0.95, y - r * 1.12 + r * 2.24 * lid]], Math.max(4, r * 0.2));
+        }
+      }
+      function mouth(x, y, w, mood, open) {
+        if (mood === "scared" || mood === "talk") {
+          const o = mood === "talk" ? open : 1;
+          blob(x, y, w * 0.32, w * (0.12 + 0.3 * o), { n: 12, boil: 1 });
+          fs(C.wine, 5);
+        } else if (mood === "happy") {
+          ctx.beginPath();
+          ctx.moveTo(x - w * 0.45 + jit(2), y - w * 0.05);
+          ctx.quadraticCurveTo(x, y + w * 0.65 + jit(3), x + w * 0.45 + jit(2), y - w * 0.05);
+          ctx.closePath();
+          fs(C.wine, 5);
+        } else if (mood === "tired") {
+          line([[x - w * 0.25, y + 4], [x + w * 0.25, y]], 6);
+        } else {
+          ctx.beginPath();
+          ctx.moveTo(x - w * 0.28, y);
+          ctx.quadraticCurveTo(x, y + w * 0.2, x + w * 0.28, y);
+          ctx.lineWidth = 6;
+          ctx.strokeStyle = INK;
+          ctx.lineCap = "round";
+          ctx.stroke();
+        }
+      }
+
+      // The creator. (x, y) is the middle of the hoodie. Returns the hands in world space.
+      function creator(x, y, s, o = {}) {
+        const mood = o.mood || "normal";
+        const look = o.look || [0, 0];
+        const aL = o.armL == null ? 1.9 : o.armL;
+        const aR = o.armR == null ? 1.25 : o.armR;
+        const tilt = o.tilt || 0;
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.scale(s, s);
+        ctx.rotate(tilt);
+        const sh = [[-78, -30], [78, -30]];
+        const hand = (p, a) => [p[0] + Math.cos(a) * 130, p[1] + Math.sin(a) * 130];
+        const hL = hand(sh[0], aL), hR = hand(sh[1], aR);
+        box(0, 40, 184, 214, 62);
+        fs(C.blue, 8);
+        line([[-22, -48], [-26, 8]], 5, C.paper);
+        line([[22, -48], [26, 8]], 5, C.paper);
+        limb(sh[0], hL, 26, C.blue);
+        limb(sh[1], hR, 26, C.blue);
+        blob(hL[0], hL[1], 19, 19, { n: 10 });
+        fs(C.skin, 6);
+        blob(hR[0], hR[1], 19, 19, { n: 10 });
+        fs(C.skin, 6);
+        const hy = -124;
+        blob(0, hy, 80, 86, { n: 18 });
+        fs(C.skin, 8);
+        ctx.save();
+        blob(0, hy, 80, 86, { n: 18, boil: 0 });
+        ctx.clip();
+        blob(0, hy - 74, 104, 58, { n: 14 });
+        fs(INK, 0);
+        ctx.restore();
+        ctx.beginPath();
+        ctx.arc(0, hy, 94, Math.PI * 1.08, Math.PI * 1.92);
+        ctx.lineWidth = 26;
+        ctx.strokeStyle = INK;
+        ctx.stroke();
+        ctx.lineWidth = 13;
+        ctx.strokeStyle = C.red;
+        ctx.stroke();
+        box(-88, hy + 6, 34, 64, 14);
+        fs(C.red, 7);
+        box(88, hy + 6, 34, 64, 14);
+        fs(C.red, 7);
+        const lid = o.lid || (mood === "tired" ? 0.45 : 0);
+        eye(-30, hy + 4, 18, { look, mood: mood === "happy" ? "happy" : mood === "scared" ? "scared" : "normal", lid });
+        eye(30, hy + 4, 18, { look, mood: mood === "happy" ? "happy" : mood === "scared" ? "scared" : "normal", lid });
+        if (mood === "scared") {
+          line([[-48, hy - 34], [-16, hy - 26]], 6);
+          line([[48, hy - 34], [16, hy - 26]], 6);
+        }
+        mouth(0, hy + 46, 60, mood, o.talk || 0);
+        ctx.restore();
+        const wp = (p) => {
+          const c = Math.cos(tilt), sn = Math.sin(tilt);
+          return [x + (p[0] * c - p[1] * sn) * s, y + (p[0] * sn + p[1] * c) * s];
+        };
+        return { hL: wp(hL), hR: wp(hR), head: wp([0, hy]) };
+      }
+
+      // The Backlog. (x, y) is the middle of its body; size is its width in px.
+      function monster(x, y, size, o = {}) {
+        if (size <= 2) return;
+        const k = size / 400;
+        const sq = o.sq || 0;
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.scale(k * (1 + sq * 0.18), k * (1 - sq * 0.18));
+        ctx.rotate(o.rot || 0);
+        [[-120, -175, 62, 40, -0.5], [20, -205, 72, 44, 0.15], [140, -160, 56, 38, 0.7], [-185, -60, 44, 66, 0.2]].forEach(([lx, ly, rx, ry, r]) => {
+          blob(lx, ly, rx, ry, { rot: r, n: 14, boil: 3 });
+          fs(null, 11);
+        });
+        blob(-95, 192, 58, 30, { n: 12 });
+        fs(C.monsterD, 9);
+        blob(95, 192, 58, 30, { n: 12 });
+        fs(C.monsterD, 9);
+        blob(0, 0, 205, 192, { lump: 0.06, lk: 7, ph: 1.3, n: 30, boil: 3 });
+        fs(C.monster, 10);
+        [[-158, 72, -0.4], [158, 92, 0.35], [-70, 150, 0.12], [82, 156, -0.15], [172, -88, -0.25]].forEach(([cx, cy, r]) => {
+          box(cx, cy, 92, 54, 8, { rot: r });
+          fs(C.card, 7);
+          box(cx - 6, cy - 3, 58, 26, 4, { rot: r, boil: 1 });
+          fs(C.cardL, 0);
+        });
+        const look = o.look || [0, 0];
+        const em = o.mood === "happy" ? "happy" : o.mood === "scared" ? "scared" : "normal";
+        eye(-64, -66, 44, { look, mood: em, lid: o.lid || 0, lidColor: C.monster });
+        eye(64, -66, 44, { look, mood: em, lid: o.lid || 0, lidColor: C.monster });
+        if (o.mood === "grin" || o.mood === "happy") {
+          line([[-108, -132], [-32, -118]], 10);
+          line([[108, -132], [32, -118]], 10);
+        }
+        const m = o.mouth == null ? 0.15 : o.mouth;
+        const mw = 92 + m * 30, mh = 8 + m * 92;
+        blob(0, 42 + mh * 0.3, mw, mh, { n: 18, boil: 2 });
+        fs(C.wine, 9);
+        if (m > 0.05) {
+          ctx.save();
+          blob(0, 42 + mh * 0.3, mw, mh, { n: 18, boil: 0 });
+          ctx.clip();
+          for (let i = -3; i <= 3; i++) {
+            const tx = i * 26;
+            ctx.beginPath();
+            ctx.moveTo(tx - 12, 42 + mh * 0.3 - mh - 2);
+            ctx.lineTo(tx, 42 + mh * 0.3 - mh + 26);
+            ctx.lineTo(tx + 12, 42 + mh * 0.3 - mh - 2);
+            ctx.closePath();
+            fs(C.paper, 4);
+          }
+          if (o.noodles) {
+            for (let i = -2; i <= 2; i++) line([[i * 18, 42], [i * 18 + 8, 42 + mh * 0.6], [i * 18 - 6, 42 + mh * 1.3]], 7, C.amber);
+          }
+          ctx.restore();
+        }
+        ctx.restore();
+      }
+
+      // A Cutsway editor with giant scissors. (x, y) is the middle of the hoodie; flip 1 faces right.
+      function editor(x, y, s, o = {}) {
+        const open = o.open == null ? 0.7 : o.open;
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.scale(s * (o.flip || 1), s);
+        box(-32, 158, 38, 96, 16);
+        fs(C.pants, 7);
+        box(32, 158, 38, 96, 16);
+        fs(C.pants, 7);
+        box(0, 40, 160, 196, 56);
+        fs(C.yellow, 8);
+        blob(0, 30, 26, 26, { n: 10 });
+        fs(C.red, 6);
+        const hy = -112;
+        blob(0, hy, 66, 70, { n: 16 });
+        fs(o.skin || C.skin2, 8);
+        blob(-4, hy - 50, 74, 34, { n: 12 });
+        fs(C.red, 8);
+        box(56, hy - 38, 76, 20, 8);
+        fs(C.red, 7);
+        eye(-18, hy + 4, 14, { look: [1, 0] });
+        eye(26, hy + 4, 14, { look: [1, 0] });
+        line([[-34, hy - 18], [-6, hy - 12]], 6);
+        line([[40, hy - 20], [12, hy - 12]], 6);
+        mouth(6, hy + 38, 46, o.mood || "happy", 0);
+        // The scissors: pivot ahead of the body, blades pointing forward.
+        const px = 120, py = 10, a = open * 0.42;
+        limb([62, -16], [px - 52, py], 26, C.yellow);
+        [-1, 1].forEach((sgn) => {
+          ctx.save();
+          ctx.translate(px, py);
+          ctx.rotate(sgn * a);
+          ctx.beginPath();
+          ctx.moveTo(0, -sgn * 2);
+          ctx.lineTo(200 + jit(2), sgn * 3);
+          ctx.lineTo(0, sgn * 22);
+          ctx.closePath();
+          fs("#dcdce4", 7);
+          blob(-56, sgn * 22, 34, 22, { n: 12 });
+          fs(C.red, 8);
+          blob(-56, sgn * 22, 15, 9, { n: 8, boil: 1 });
+          fs(o.bg || C.yellow, 5);
+          ctx.restore();
+        });
+        blob(px, py, 9, 9, { n: 8 });
+        fs(C.paper, 5);
+        blob(px - 52, py, 20, 20, { n: 10 });
+        fs(o.skin || C.skin2, 6);
+        ctx.restore();
+      }
+
+      // A finished-content pet. (x, y) is where its feet touch the ground.
+      const PET = { video: [200, 124, C.blue], short: [116, 196, C.red], thumb: [200, 124, C.yellow], post: [156, 156, C.cyan] };
+      function pet(kind, x, y, s, o = {}) {
+        if (s <= 0.01) return;
+        const [bw, bh, col] = PET[kind];
+        const hop = o.hop || 0;
+        const sq = o.sq || 0;
+        ctx.save();
+        ctx.translate(x, y - hop * 70 * s);
+        ctx.rotate(o.rot || 0);
+        ctx.scale(s * (1 + sq * 0.14), s * (1 - sq * 0.14));
+        const by = -42 - bh / 2;
+        const lx = Math.min(bw * 0.22, 34);
+        const run = o.run == null ? 0 : Math.sin(o.run) * 14;
+        line([[-lx, -44], [-lx - run, -6]], 10);
+        line([[lx, -44], [lx + run, -6]], 10);
+        blob(-lx - run - 8, -4, 18, 9, { n: 10 });
+        fs(INK, 0);
+        blob(lx + run + 8, -4, 18, 9, { n: 10 });
+        fs(INK, 0);
+        box(0, by, bw, bh, 24);
+        fs(col, 8);
+        if (kind === "video") {
+          ctx.beginPath();
+          ctx.moveTo(-14, by + 6);
+          ctx.lineTo(22, by + 26);
+          ctx.lineTo(-14, by + 46);
+          ctx.closePath();
+          fs(C.paper, 6);
+        } else if (kind === "short") {
+          box(0, by + bh / 2 - 26, bw - 36, 12, 6);
+          fs(C.paper, 4);
+          box(-18, by + bh / 2 - 26, (bw - 36) * 0.4, 12, 6, { boil: 0.5 });
+          fs(C.yellow, 0);
+        } else if (kind === "thumb") {
+          box(52, by + 4, 24, 60, 9);
+          fs(INK, 0);
+          blob(52, by + 46, 13, 13, { n: 10 });
+          fs(INK, 0);
+          box(-34, by + 34, 92, 24, 8);
+          fs(C.red, 5);
+        } else {
+          ctx.beginPath();
+          const hx = 0, hy2 = by + 38;
+          ctx.moveTo(hx, hy2 + 22);
+          ctx.bezierCurveTo(hx - 46, hy2 - 6, hx - 22, hy2 - 38, hx, hy2 - 14);
+          ctx.bezierCurveTo(hx + 22, hy2 - 38, hx + 46, hy2 - 6, hx, hy2 + 22);
+          ctx.closePath();
+          fs(C.paper, 6);
+        }
+        const ey = kind === "short" ? by - bh * 0.22 : by - bh * 0.18;
+        const ex = kind === "short" ? 24 : kind === "thumb" ? 34 : 36;
+        const exo = kind === "thumb" ? -28 : 0;
+        eye(exo - ex, ey, 18, { look: o.look || [0, 0], mood: o.mood });
+        eye(exo + ex, ey, 18, { look: o.look || [0, 0], mood: o.mood });
+        ctx.restore();
+      }
+
+      // ---------- props ----------
+      function room(wall, floor, fy) {
+        ctx.fillStyle = wall;
+        ctx.fillRect(-200, -200, W + 400, H + 400);
+        ctx.fillStyle = floor;
+        ctx.fillRect(-200, fy, W + 400, H - fy + 200);
+        line([[-200, fy], [W + 200, fy]], 8);
+      }
+      function nightWindow(x, y, w, hh) {
+        box(x, y, w, hh, 18);
+        fs(C.blue, 8);
+        blob(x + w * 0.2, y - hh * 0.18, 30, 30, { n: 12 });
+        fs(C.paper, 5);
+        line([[x, y - hh / 2], [x, y + hh / 2]], 7);
+        line([[x - w / 2, y], [x + w / 2, y]], 7);
+      }
+      function poof(x, y, k, scale) {
+        if (k <= 0 || k >= 1) return;
+        for (let i = 0; i < 9; i++) {
+          const a = (i / 9) * Math.PI * 2 + 0.3;
+          const d = eo(k) * 260 * scale;
+          ctx.globalAlpha = 1 - k * k;
+          blob(x + Math.cos(a) * d, y + Math.sin(a) * d * 0.7, (70 - 40 * k) * scale, (64 - 36 * k) * scale, { n: 12 });
+          fs(C.paper, 7);
+        }
+        ctx.globalAlpha = 1;
+      }
+      function star(x, y, r, k, col) {
+        const pts = [];
+        for (let i = 0; i < 16; i++) {
+          const a = (i / 16) * Math.PI * 2 + 0.2;
+          const rr = i % 2 ? r * 0.55 : r;
+          pts.push([x + Math.cos(a) * rr * k, y + Math.sin(a) * rr * k]);
+        }
+        ctx.beginPath();
+        pts.forEach((p, i) => (i ? ctx.lineTo(p[0] + jit(3), p[1] + jit(3)) : ctx.moveTo(p[0], p[1])));
+        ctx.closePath();
+        fs(col, 9);
+      }
+      function sparkle(x, y, r) {
+        line([[x - r, y], [x + r, y]], 7, INK);
+        line([[x, y - r], [x, y + r]], 7, INK);
+        line([[x - r * 0.6, y], [x + r * 0.6, y]], 4, C.paper);
+        line([[x, y - r * 0.6], [x, y + r * 0.6]], 4, C.paper);
+      }
+      function speedLines(x0, y0, dir, k) {
+        if (k <= 0 || k >= 1) return;
+        ctx.globalAlpha = 1 - k;
+        for (let i = 0; i < 6; i++) line([[x0 - dir * (60 + i * 8), y0 - 120 + i * 50], [x0 - dir * (240 + i * 20), y0 - 120 + i * 50]], 6);
+        ctx.globalAlpha = 1;
+      }
+      function cam(z, cx, cy) {
+        ctx.translate(540, 960);
+        ctx.scale(z, z);
+        ctx.translate(-cx, -cy);
+      }
+      const beatHop = (t, ph) => Math.max(0, Math.sin((((t / BEAT + ph) % 1) + 1) % 1 * Math.PI)) * 0.55;
+      const blinkAt = (t, times) => (times.some((b) => t >= b && t < b + 0.12) ? 1 : 0);
+      // A monster's centre for a given size, standing on the ground line gy.
+      const mOn = (gy, size) => gy - (size / 400) * 222;
+
+      // ---------- scenes ----------
+      function sDesk(t) {
+        let z = 1.1 + 0.04 * eio(clamp(t / 1.8)), cx = 560, cy = 1000;
+        const zi = xo(seg(t, 1.8, 0.4)), zo = eio(seg(t, 3.55, 0.45));
+        z = lerp(lerp(z, 1.8, zi), 1.1, zo);
+        cx = lerp(lerp(cx, 880, zi), 560, zo);
+        cy = lerp(lerp(cy, 940, zi), 1000, zo);
+        cam(z, cx, cy);
+        room(C.yellow, C.orange, 1320);
+        nightWindow(850, 380, 280, 320);
+        box(200, 420, 230, 300, 14, { rot: -0.06 });
+        fs(C.red, 8);
+        ctx.beginPath();
+        ctx.moveTo(215, 310);
+        ctx.lineTo(160, 440);
+        ctx.lineTo(210, 440);
+        ctx.lineTo(180, 540);
+        ctx.lineTo(250, 400);
+        ctx.lineTo(205, 400);
+        ctx.closePath();
+        fs(C.yellow, 6);
+        const scared = t >= 4.95;
+        creator(230, 1010, 1, { mood: scared ? "scared" : "tired", look: t < 4.8 ? [1, -0.15] : [1, 0.25], armL: 1.75, armR: 0.35, lid: scared ? 0 : 0.45 });
+        box(540, 1180, 920, 280, 16);
+        fs(C.paper, 9);
+        box(600, 1035, 240, 24, 8);
+        fs(C.pants, 6);
+        box(610, 985, 60, 110, 8);
+        fs(C.pants, 7);
+        box(610, 790, 520, 320, 22);
+        fs(INK, 0);
+        box(610, 788, 480, 280, 14);
+        fs("#15151c", 0);
+        blob(445, 742, 12, 12, { n: 8, boil: 0.5 });
+        fs(C.red, 0);
+        text("STREAM ENDED", 625, 744, 38, C.paper);
+        text("4:12:00", 610, 818, 64, C.yellow);
+        const g = spring(seg(t, 4.74, 0.6));
+        const size = lerp(110, 270, g);
+        const sq = t >= 4.74 && t < 4.84 ? 0.6 : 0;
+        monster(905, mOn(1040, size), size, {
+          mood: t >= 1.85 ? "grin" : "normal",
+          mouth: t >= 1.85 ? 0.3 : 0.08,
+          look: t < 1.8 ? [-1, 0] : t < 4.7 ? [-0.3, 0.3] : [-1, -0.1],
+          lid: blinkAt(t, [1.15, 3.05]),
+          sq,
+        });
+      }
+
+      function sBed(t) {
+        cam(1.04, 540, 960);
+        room(C.cyan, C.blue, 1320);
+        nightWindow(250, 420, 260, 300);
+        box(170, 1060, 120, 460, 20);
+        fs(C.red, 8);
+        box(570, 1240, 820, 150, 24);
+        fs(C.paper, 9);
+        blob(330, 1105, 120, 50, { n: 14 });
+        fs(C.paper, 8);
+        creator(370, 1080, 0.92, { mood: "scared", look: [1, -0.1], armL: 2.3, armR: 0.95 });
+        box(620, 1190, 700, 180, 30);
+        fs(C.blue, 9);
+        line([[360, 1150], [880, 1170]], 5, C.cyan);
+        const k = xo(seg(t, 5.66, 0.35));
+        monster(lerp(1250, 860, k), mOn(1320, 430) + Math.sin(t * 9) * 4, 430, { mood: "grin", mouth: 0.35, look: [-1, 0.1] });
+      }
+
+      function sDinner(t) {
+        cam(1.04, 540, 960);
+        room(C.orange, C.red, 1320);
+        line([[540, -200], [540, 300]], 6);
+        blob(540, 330, 110, 60, { n: 14 });
+        fs(C.yellow, 8);
+        const k = xo(seg(t, 6.6, 0.32));
+        monster(lerp(1300, 790, k), 990, 620, { mood: "happy", mouth: 0.45, noodles: true, look: [-1, 0.4] });
+        creator(260, 1060, 0.95, { mood: "tired", look: [1, 0], armL: 1.6, armR: -0.45, lid: 0.35 });
+        box(540, 1170, 920, 44, 10);
+        fs(C.paper, 9);
+        box(150, 1260, 30, 150, 8);
+        fs(C.paper, 7);
+        box(930, 1260, 30, 150, 8);
+        fs(C.paper, 7);
+        blob(380, 1130, 80, 44, { n: 14 });
+        fs(C.red, 8);
+        line([[350, 1100], [372, 1060], [360, 1020]], 6, C.amber);
+        line([[400, 1100], [390, 1050], [402, 1012]], 6, C.amber);
+      }
+
+      function sChomp(t) {
+        cam(1, 540, 960);
+        room(C.paper, C.yellow, 1500);
+        blob(540, 330, 10, 10, { n: 8 });
+        fs(C.pants, 5);
+        const rise = xo(seg(t, 7.5, 0.42));
+        const open = t < 7.85 ? 0.2 : t < 8.32 ? lerp(0.2, 1.15, eo(seg(t, 7.85, 0.25))) : t < 8.37 ? lerp(1.15, 0, seg(t, 8.32, 0.05)) : 0.12 + 0.12 * Math.abs(Math.sin((t - 8.37) * 14)) * (t < 9.1 ? 1 : 0);
+        const sq = t >= 8.33 && t < 8.45 ? 0.35 : 0;
+        monster(540, lerp(2300, 1390, rise), 1100, { mood: t < 8.36 ? "grin" : "happy", mouth: open, look: [0, -1], sq });
+        // Crumbs of the calendar.
+        if (t > 8.36 && t < 9.1) {
+          for (let i = 0; i < 10; i++) {
+            const k = seg(t, 8.36 + i * 0.015, 0.6);
+            const a = -Math.PI / 2 + (i - 4.5) * 0.28;
+            box(540 + Math.cos(a) * 340 * eo(k), 1500 + Math.sin(a) * 300 * eo(k) + 400 * k * k, 26, 20, 4, { rot: i + k * 6 });
+            fs(i % 3 ? C.paper : C.red, 5);
+          }
+        }
+      }
+
+      function sCall(t) {
+        cam(1, 540, 960);
+        room(C.paper, C.orange, 1600);
+        const raise = eo(seg(t, 9.5, 0.35));
+        const hands = creator(520, 800, 1.25, { mood: t < 10.1 ? "scared" : "normal", look: [0.7, -0.7], armL: 1.6, armR: lerp(1.3, -0.95, raise) });
+        monster(540, 1680, 1400, { mood: t < 10.95 ? "grin" : "scared", mouth: 0.18, look: t < 10.95 ? [0, -1] : [1, -0.2] });
+        // The phone, ringing.
+        const ring = t > 9.9 && t < 10.9 ? Math.sin(t * 60) * 0.07 : 0;
+        const p = hands.hR;
+        ctx.save();
+        ctx.translate(p[0] + 10, p[1] - 150);
+        ctx.rotate(0.12 + ring);
+        box(0, 0, 230, 400, 34);
+        fs(INK, 0);
+        box(0, 0, 200, 366, 22);
+        fs(t > 9.9 ? C.cyan : "#15151c", 0);
+        if (t > 9.9) {
+          text("calling", 0, -100, 28, INK, { weight: 700, stretch: "normal" });
+          text("CUTSWAY", 0, -52, 34, INK, { stretch: "normal" });
+          blob(-46, 120, 30, 30, { n: 10 });
+          fs("#2bd36a", 5);
+          blob(46, 120, 30, 30, { n: 10 });
+          fs(C.red, 5);
+        }
+        ctx.restore();
+        if (t > 9.9 && t < 10.9) {
+          const w = (t * 3) % 1;
+          ctx.globalAlpha = 1 - w;
+          ctx.beginPath();
+          ctx.arc(p[0] + 10, p[1] - 150, 240 + w * 90, -0.9, -0.2);
+          ctx.lineWidth = 8;
+          ctx.strokeStyle = INK;
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
+        // POW: the door bursts on the hit.
+        const pk = seg(t, 11.08, 0.17);
+        if (pk > 0) {
+          star(540, 900, 1050, eo(pk), C.yellow);
+          text("POW!", 540, 900, 230 * eo(pk), INK, { rot: -0.08 });
+        }
+      }
+
+      const SNIPS = [12.46, 13.3, 13.9, 15.22];
+      const KINDS = ["video", "short", "thumb", "post"];
+      const ROW = [210, 420, 660, 870];
+      function sSnip(t) {
+        cam(1, 540, 960);
+        room(C.yellow, C.orange, 1330);
+        let size = 760;
+        [640, 520, 400].forEach((s2, i) => {
+          size = lerp(size, s2, spring(seg(t, SNIPS[i], 0.4)));
+        });
+        const gone = seg(t, SNIPS[3], 0.12);
+        size *= 1 - gone;
+        const cy = mOn(1330, Math.max(size, 1));
+        if (t >= SNIPS[3] + 0.05) {
+          const pop = spring(seg(t, SNIPS[3] + 0.05, 0.5));
+          const cheer = Math.sin(t * 8) * 0.12;
+          creator(540, lerp(1400, 1120, pop), 1, { mood: "happy", look: [0, -0.3], armL: -2.3 + cheer, armR: -0.85 - cheer });
+        }
+        monster(540, cy, size, { mood: t < 12.35 ? "grin" : "scared", mouth: t < 12.35 ? 0.25 : 0.4, look: [Math.sin(t * 3), -0.2], sq: SNIPS.some((s2) => t >= s2 && t < s2 + 0.08) ? 0.4 : 0 });
+        poof(540, mOn(1330, 400), seg(t, SNIPS[3], 0.6), 1.2);
+        const ein = xo(seg(t, 11.25, 0.38));
+        const snipOpen = (who) => {
+          let o = 0.7;
+          SNIPS.forEach((s2, i) => {
+            if ((i % 2 === 0) !== (who === "L")) return;
+            if (t >= s2 - 0.07 && t < s2) o = lerp(0.7, 0, seg(t, s2 - 0.07, 0.07));
+            else if (t >= s2 && t < s2 + 0.3) o = lerp(0, 0.7, eo(seg(t, s2, 0.3)));
+          });
+          return o;
+        };
+        const lunge = (who) => {
+          let d = 0;
+          SNIPS.forEach((s2, i) => {
+            if ((i % 2 === 0) !== (who === "L")) return;
+            d = Math.max(d, Math.sin(Math.PI * seg(t, s2 - 0.12, 0.4)));
+          });
+          return d * 70;
+        };
+        const back = eo(seg(t, SNIPS[3] + 0.1, 0.35)) * 90;
+        const lx = lerp(-300, 150, ein) + lunge("L") - back, rx = lerp(1380, 930, ein) - lunge("R") + back;
+        editor(lx, 1140, 0.95, { flip: 1, open: snipOpen("L") });
+        editor(rx, 1140, 0.95, { flip: -1, open: snipOpen("R"), skin: C.skin });
+        speedLines(lx, 1100, 1, seg(t, 11.25, 0.5));
+        speedLines(rx, 1100, -1, seg(t, 11.25, 0.5));
+        // Each snip pops a pet that arcs up into the row.
+        SNIPS.forEach((s2, i) => {
+          if (t < s2) return;
+          const k = seg(t, s2, 0.45);
+          const x = lerp(540, ROW[i], eo(k));
+          const y = lerp(cy, 650, eo(k)) - 300 * 4 * k * (1 - k);
+          const land = k >= 1 ? beatHop(t, i * 0.25) : 0;
+          pet(KINDS[i], x, y, lerp(0.3, 0.72, eo(k)), { hop: land, look: [0, 0.3], mood: t > 15.4 ? "happy" : "normal", rot: (1 - k) * (i % 2 ? 1 : -1) * 0.6 });
+        });
+      }
+
+      const RUNS = [["short", 16.95, 17.95], ["video", 18.3, 19.4], ["thumb", 19.4, 20.1], ["post", 19.55, 20.28]];
+      const SCREEN = [[790, 760], [910, 760], [790, 990], [910, 990]];
+      function sRace(t) {
+        cam(1, 540, 960);
+        room(C.cyan, C.blue, 1290);
+        for (let i = 0; i < 7; i++) line([[i * 180 - ((t * 400) % 180), 1350], [i * 180 + 90 - ((t * 400) % 180), 1350]], 7, C.paper);
+        // Stopwatch, spinning.
+        blob(300, 560, 180, 180, { n: 24 });
+        fs(C.paper, 10);
+        box(300, 360, 70, 40, 10);
+        fs(C.red, 8);
+        const a = t * 9;
+        line([[300, 560], [300 + Math.cos(a) * 130, 560 + Math.sin(a) * 130]], 9);
+        // The phone everything lands in.
+        box(850, 880, 330, 620, 48);
+        fs(INK, 0);
+        box(850, 880, 290, 550, 30);
+        fs(C.paper, 0);
+        RUNS.forEach(([kind, t0, t1], i) => {
+          const into = seg(t, t1, 0.3);
+          if (into >= 1) {
+            const pop = spring(seg(t, t1 + 0.25, 0.4));
+            const [sx, sy] = SCREEN[i];
+            box(sx, sy, 100 * pop, 190 * pop, 14);
+            fs(PET[kind][2], 6);
+          }
+          if (t < t0 || into >= 1) return;
+          const k = seg(t, t0, t1 - t0);
+          const gy = 1290 - i * 6;
+          let x = lerp(-160, 690, k), y = gy, s = 0.62;
+          if (into > 0) {
+            const [sx, sy] = SCREEN[i];
+            x = lerp(690, sx, eo(into));
+            y = lerp(gy, sy + 60, eo(into)) - 220 * 4 * into * (1 - into);
+            s = lerp(0.62, 0.25, into);
+          }
+          pet(kind, x, y, s, { hop: into > 0 ? 0 : Math.abs(Math.sin(t * 22 + i)) * 0.5, run: t * 24 + i, look: [1, 0], rot: 0.08 });
+        });
+      }
+
+      function sNotes(t) {
+        cam(1.12, 540, 1040);
+        room(C.yellow, C.orange, 1330);
+        nightWindow(540, 430, 300, 260);
+        const point = t > 20.95 && t < 21.7 ? 0.15 : 0.85;
+        const talk = t > 22.0 && t < 23.95 ? Math.abs(Math.sin(t * 16)) : 0;
+        const c = creator(250, 1060, 0.95, { mood: talk > 0 ? "talk" : "happy", talk, look: [1, 0.2], armL: 1.7, armR: point });
+        const snips = [21.0, 21.35];
+        let open = 0.7;
+        snips.forEach((s2) => {
+          if (t >= s2 - 0.07 && t < s2) open = lerp(0.7, 0, seg(t, s2 - 0.07, 0.07));
+          else if (t >= s2 && t < s2 + 0.3) open = lerp(0, 0.7, eo(seg(t, s2, 0.3)));
+        });
+        editor(800, 1070, 0.95, { flip: -1, open, skin: C.skin });
+        box(540, 1260, 980, 150, 16);
+        fs(C.paper, 9);
+        pet("video", 525, 1185, 0.75, { hop: beatHop(t, 0), look: [Math.sin(t * 2), -0.2], mood: t > 21.0 ? "happy" : "normal" });
+        snips.forEach((s2, i) => {
+          const k = seg(t, s2, 0.5);
+          if (k > 0 && k < 1) {
+            sparkle(450 + i * 150, 1000 - 60 * eo(k), 30 * (1 - k) + 10);
+            sparkle(600 - i * 140, 1060 - 40 * eo(k), 22 * (1 - k) + 8);
+          }
+        });
+        // The iris closes on the creator's face, in screen space (this scene's camera is 1.12 around 540,1040).
+        return { head: [(c.head[0] - 540) * 1.12 + 540, (c.head[1] - 1040) * 1.12 + 960] };
+      }
+
+      function sEnd(t) {
+        ctx.fillStyle = C.night;
+        ctx.fillRect(0, 0, W, H);
+        for (let i = 0; i < 40; i++) {
+          const x = (i * 263.7) % W, y = (i * 517.3) % 1300 + 80;
+          ctx.fillStyle = `rgba(244,242,236,${0.12 + (i % 5) * 0.05})`;
+          ctx.fillRect(x, y, 3, 3);
+        }
+        line([[-20, 1440], [W + 20, 1440]], 5, C.paper);
+        const enter = (t0) => xo(seg(t, t0, 0.5));
+        pet("video", lerp(-200, 250, enter(24.6)), 1440, 0.8, { hop: beatHop(t, 0), look: [0.5, -0.3], mood: "happy" });
+        pet("short", lerp(-200, 460, enter(24.75)), 1440, 0.8, { hop: beatHop(t, 0.25), look: [0.3, -0.3], mood: "happy" });
+        pet("thumb", lerp(-200, 670, enter(24.9)), 1440, 0.8, { hop: beatHop(t, 0.5), look: [0, -0.3] });
+        const m = enter(25.4);
+        const sz = 210;
+        monster(lerp(-200, 880, m), mOn(1440, sz) - beatHop(t, 0.75) * 30, sz, { mood: "happy", mouth: 0.3, look: [0, -0.3] });
+      }
+
+      function iris(cx, cy, r) {
+        ctx.save();
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.beginPath();
+        ctx.rect(0, 0, W, H);
+        ctx.arc(cx, cy, Math.max(0, r), 0, Math.PI * 2, true);
+        ctx.fillStyle = C.night;
+        ctx.fill("evenodd");
+        ctx.restore();
+      }
+
+      function draw(t) {
+        SEED = Math.floor(t * 12);
+        NI = 0;
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+        ctx.save();
+        if (t < 5.625) sDesk(t);
+        else if (t < 6.5625) sBed(t);
+        else if (t < 7.5) sDinner(t);
+        else if (t < 9.375) sChomp(t);
+        else if (t < 11.25) sCall(t);
+        else if (t < 16.875) sSnip(t);
+        else if (t < 20.625) sRace(t);
+        else if (t < 24.375) {
+          const c = sNotes(t);
+          ctx.restore();
+          ctx.save();
+          const k = seg(t, 24.0, 0.375);
+          if (k > 0) iris(c.head[0], c.head[1], lerp(1500, 0, eio(k)));
+        } else sEnd(t);
+        ctx.restore();
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      tl.to({}, { duration: 30 }, 0);
+      tl.eventCallback("onUpdate", () => draw(tl.time()));
+      draw(0);
+      if (document.fonts && document.fonts.load) document.fonts.load('900 40px "Archivo"').then(() => draw(tl.time()));
+      window.__timelines["story"] = tl;
+    })();
+  </script>
+</template>

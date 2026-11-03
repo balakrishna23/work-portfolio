@@ -1,0 +1,2177 @@
+{
+ "url": "prototypes/awwwards/08-burn//index.html",
+ "at": "2026-10-23T14:19:40.124Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.24,
+    0.63,
+    0.52,
+    0.34,
+    0.33
+   ],
+   "motion": {
+    "elements": 15,
+    "css": 0,
+    "transitions": 15,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4096,
+     "screens": 4.6,
+     "words": 192,
+     "img": 4,
+     "video": 0,
+     "canvas": 1,
+     "svg": 2,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "stage-5.jpg",
+      "stage-1.jpg",
+      "headset.jpg",
+      "mic-2.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Editing for gaming creators BURN THE BORING",
+     "words": 7,
+     "chars": 43,
+     "lines": 2,
+     "size": 180,
+     "vw": 12.5,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.01,
+     "leading": 0.8,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "right",
+     "position": "right",
+     "widthRatio": 0.44,
+     "top": 547,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Editing for gaming creators BURN THE BORING",
+     "words": 7,
+     "lines": 2,
+     "size": 180,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "Editing for gaming creators BURN THE BORING",
+      "words": 7,
+      "chars": 43,
+      "lines": 2,
+      "size": 180,
+      "vw": 12.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.01,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "right",
+      "position": "right",
+      "widthRatio": 0.44,
+      "top": 547,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "4:12:00",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 43.2,
+      "vw": 3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 785,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "WHAT SURVIVES",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 129.6,
+      "vw": 9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1102,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "HOW FAST IT BURNS",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 129.6,
+      "vw": 9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 2632,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "8h",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 72,
+      "vw": 5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 2795,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "24h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 72,
+      "vw": 5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 2795,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "48h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 72,
+      "vw": 5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 2795,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "72h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 72,
+      "vw": 5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 2795,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "BEFORE YOU LIGHT IT",
+      "words": 4,
+      "chars": 19,
+      "lines": 1,
+      "size": 129.6,
+      "vw": 9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 3116,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "LIGHT IT.",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 288,
+      "vw": 20,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 3652,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      15,
+      16,
+      18,
+      20,
+      22,
+      26,
+      43,
+      72,
+      130,
+      180,
+      288
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 13,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.5
+     },
+     "measureChars": 103,
+     "max": {
+      "size": 288,
+      "vw": 20,
+      "font": "Archivo",
+      "text": "Light it."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.07,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#060404",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0.2,
+      "l": 0.02
+     },
+     "dark": true,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#f4ebe0",
+       "share": 0.4
+      },
+      {
+       "color": "#bfae9c",
+       "share": 0.22
+      },
+      {
+       "color": "#eadccb",
+       "share": 0.19
+      },
+      {
+       "color": "#e8d9c7",
+       "share": 0.14
+      },
+      {
+       "color": "#060404",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#f4ebe0",
+      "hsl": {
+       "h": 33,
+       "s": 0.48,
+       "l": 0.92
+      },
+      "fg": "#060404"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 53,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Hold to burn"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 14,
+     "squareMedia": 5,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 2773
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 5,
+     "fixed": true,
+     "height": 89,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 4096,
+    "margins": {
+     "left": 37,
+     "right": 37
+    },
+    "sections": [
+     {
+      "sel": "section.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 900,
+      "words": 36,
+      "media": 0,
+      "middle": 442,
+      "heading": null,
+      "left": 37,
+      "right": 37,
+      "textLeft": 37,
+      "textRight": 37,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#work",
+      "tag": "section",
+      "top": 900,
+      "height": 1531,
+      "words": 33,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "What survives",
+       "size": 130,
+       "tag": "h2"
+      },
+      "left": 37,
+      "right": 37,
+      "textLeft": 37,
+      "textRight": 351,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#times",
+      "tag": "section",
+      "top": 2431,
+      "height": 484,
+      "words": 23,
+      "media": 0,
+      "middle": 126,
+      "heading": {
+       "text": "How fast it burns",
+       "size": 130,
+       "tag": "h2"
+      },
+      "left": 37,
+      "right": 176,
+      "textLeft": 37,
+      "textRight": 176,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 2915,
+      "height": 506,
+      "words": 61,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Before you light it",
+       "size": 130,
+       "tag": "h2"
+      },
+      "left": 37,
+      "right": 380,
+      "textLeft": 37,
+      "textRight": 380,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 3421,
+      "height": 674,
+      "words": 33,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Light it.",
+       "size": 288,
+       "tag": "h2"
+      },
+      "left": 37,
+      "right": 468,
+      "textLeft": 37,
+      "textRight": 468,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Editing for gaming creators BURN THE BORING",
+      "size": 180,
+      "top": 547,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 37,
+      "n": 6
+     },
+     {
+      "x": 611,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 8,
+    "bodySize": 13,
+    "stage": true,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.33,
+    0.79,
+    0.81,
+    0.66,
+    0.33
+   ],
+   "motion": {
+    "elements": 15,
+    "css": 0,
+    "transitions": 15,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 4974,
+     "screens": 4.9,
+     "words": 186,
+     "img": 4,
+     "video": 0,
+     "canvas": 1,
+     "svg": 2,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "stage-5.jpg",
+      "stage-1.jpg",
+      "headset.jpg",
+      "mic-2.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Editing for gaming creators BURN THE BORING",
+     "words": 7,
+     "chars": 43,
+     "lines": 2,
+     "size": 161.3,
+     "vw": 21,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.01,
+     "leading": 0.8,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "right",
+     "position": "right",
+     "widthRatio": 0.74,
+     "top": 593,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Editing for gaming creators BURN THE BORING",
+     "words": 7,
+     "lines": 2,
+     "size": 161.3,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "Editing for gaming creators BURN THE BORING",
+      "words": 7,
+      "chars": 43,
+      "lines": 2,
+      "size": 161.3,
+      "vw": 21,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.01,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "right",
+      "position": "right",
+      "widthRatio": 0.74,
+      "top": 593,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "4:12:00",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 924,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "WHAT SURVIVES",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 1144,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Stream VODs",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1696,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "Gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2258,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "Shorts",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2820,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "Podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3382,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "HOW FAST IT BURNS",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 3586,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "8h",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 3698,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "24h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 3698,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "48h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 3835,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "72h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 3835,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "BEFORE YOU LIGHT IT",
+      "words": 4,
+      "chars": 19,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 4053,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "LIGHT IT.",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 153.6,
+      "vw": 20,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.95,
+      "top": 4643,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 14,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      15,
+      16,
+      18,
+      20,
+      22,
+      26,
+      32,
+      48,
+      69,
+      154,
+      161
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 13,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.5
+     },
+     "measureChars": 103,
+     "max": {
+      "size": 161.3,
+      "vw": 21,
+      "font": "Archivo",
+      "text": "Burn theboring"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.07,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#060404",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0.2,
+      "l": 0.02
+     },
+     "dark": true,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#f4ebe0",
+       "share": 0.39
+      },
+      {
+       "color": "#bfae9c",
+       "share": 0.23
+      },
+      {
+       "color": "#eadccb",
+       "share": 0.2
+      },
+      {
+       "color": "#e8d9c7",
+       "share": 0.15
+      },
+      {
+       "color": "#060404",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#f4ebe0",
+      "hsl": {
+       "h": 33,
+       "s": 0.48,
+       "l": 0.92
+      },
+      "fg": "#060404"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 53,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Hold to burn"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 14,
+     "squareMedia": 5,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 3676
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 89,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 4974,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "section.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 1024,
+      "words": 36,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#work",
+      "tag": "section",
+      "top": 1024,
+      "height": 2442,
+      "words": 33,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "What survives",
+       "size": 69,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 20,
+      "textRight": 337,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#times",
+      "tag": "section",
+      "top": 3466,
+      "height": 466,
+      "words": 23,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "How fast it burns",
+       "size": 69,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 184,
+      "textLeft": 20,
+      "textRight": 184,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 3933,
+      "height": 570,
+      "words": 61,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Before you light it",
+       "size": 69,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 216,
+      "textLeft": 20,
+      "textRight": 216,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 4503,
+      "height": 471,
+      "words": 33,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Light it.",
+       "size": 154,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 88,
+      "textLeft": 20,
+      "textRight": 88,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Editing for gaming creators BURN THE BORING",
+      "size": 161,
+      "top": 593,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 8
+     }
+    ],
+    "leftBlocks": 8,
+    "bodySize": 13,
+    "stage": true,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.42,
+    0.65,
+    0.59,
+    0.42,
+    0.43
+   ],
+   "motion": {
+    "elements": 15,
+    "css": 0,
+    "transitions": 15,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 3863,
+     "screens": 4.6,
+     "words": 186,
+     "img": 4,
+     "video": 0,
+     "canvas": 1,
+     "svg": 2,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 4,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "stage-5.jpg",
+      "stage-1.jpg",
+      "headset.jpg",
+      "mic-2.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Editing for gaming creators BURN THE BORING",
+     "words": 7,
+     "chars": 43,
+     "lines": 2,
+     "size": 81.9,
+     "vw": 21,
+     "font": "Archivo",
+     "weight": 900,
+     "tracking": -0.01,
+     "leading": 0.8,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "right",
+     "position": "right",
+     "widthRatio": 0.74,
+     "top": 565,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Editing for gaming creators BURN THE BORING",
+     "words": 7,
+     "lines": 2,
+     "size": 81.9,
+     "font": "Archivo"
+    },
+    "headings": [
+     {
+      "text": "Editing for gaming creators BURN THE BORING",
+      "words": 7,
+      "chars": 43,
+      "lines": 2,
+      "size": 81.9,
+      "vw": 21,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.01,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "right",
+      "position": "right",
+      "widthRatio": 0.74,
+      "top": 565,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "4:12:00",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 751,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "WHAT SURVIVES",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 57.6,
+      "vw": 14.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 964,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Stream VODs",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 1202,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "Gaming videos",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 1513,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "Shorts",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 1798,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "Podcasts",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 2082,
+      "tag": "b",
+      "kind": "statement"
+     },
+     {
+      "text": "HOW FAST IT BURNS",
+      "words": 4,
+      "chars": 17,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 14.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2286,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "8h",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 2437,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "24h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.33,
+      "top": 2437,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "48h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.33,
+      "top": 2600,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "72h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.33,
+      "top": 2600,
+      "tag": "b",
+      "kind": "heading"
+     },
+     {
+      "text": "BEFORE YOU LIGHT IT",
+      "words": 4,
+      "chars": 19,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 14.8,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2846,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "What do I send?",
+      "words": 4,
+      "chars": 15,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2974,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "What if you cut my favourite bit?",
+      "words": 7,
+      "chars": 33,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3072,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Do you post?",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3197,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Are those times real?",
+      "words": 4,
+      "chars": 21,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Archivo",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3322,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "LIGHT IT.",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 80,
+      "vw": 20.5,
+      "font": "Archivo",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 0.84,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3555,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 18,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Archivo",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      13,
+      15,
+      16,
+      18,
+      20,
+      22,
+      26,
+      32,
+      48,
+      58,
+      80,
+      82
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Archivo",
+      "size": 13,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.5
+     },
+     "measureChars": 55,
+     "max": {
+      "size": 81.9,
+      "vw": 21,
+      "font": "Archivo",
+      "text": "Burn theboring"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.07,
+     "centerShare": 0.01,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#060404",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0.2,
+      "l": 0.02
+     },
+     "dark": true,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#f4ebe0",
+       "share": 0.39
+      },
+      {
+       "color": "#bfae9c",
+       "share": 0.23
+      },
+      {
+       "color": "#eadccb",
+       "share": 0.2
+      },
+      {
+       "color": "#e8d9c7",
+       "share": 0.15
+      },
+      {
+       "color": "#060404",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#f4ebe0",
+      "hsl": {
+       "h": 33,
+       "s": 0.48,
+       "l": 0.92
+      },
+      "fg": "#060404"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 53,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Book a call",
+      "Hold to burn"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 4,
+     "boxRadius": 14,
+     "squareMedia": 5,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 2415
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 89,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 3863,
+    "margins": {
+     "left": 16,
+     "right": 16
+    },
+    "sections": [
+     {
+      "sel": "section.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 844,
+      "words": 36,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#work",
+      "tag": "section",
+      "top": 844,
+      "height": 1322,
+      "words": 33,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "What survives",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 31,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#times",
+      "tag": "section",
+      "top": 2166,
+      "height": 559,
+      "words": 23,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "How fast it burns",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 63,
+      "textLeft": 16,
+      "textRight": 63,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#faq",
+      "tag": "section",
+      "top": 2726,
+      "height": 690,
+      "words": 61,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Before you light it",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 38,
+      "textLeft": 16,
+      "textRight": 38,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#book",
+      "tag": "footer",
+      "top": 3415,
+      "height": 448,
+      "words": 33,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Light it.",
+       "size": 80,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 24,
+      "textLeft": 16,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Editing for gaming creators BURN THE BORING",
+      "size": 82,
+      "top": 565,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 8
+     }
+    ],
+    "leftBlocks": 8,
+    "bodySize": 13,
+    "stage": true,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (button #f4ebe0, text #f4ebe0).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "12 different font sizes (13, 15, 16, 18, 20, 22, 26, 43, 72, 130, 180, 288).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 13px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "measure",
+   "width": 1440,
+   "message": "Longest paragraph runs about 103 characters per line.",
+   "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch).",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-not-dealt",
+   "width": 1440,
+   "message": "The sheet dealt Chivo and Chivo, but the page renders Archivo.",
+   "fix": "Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look."
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 15 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\08-burn\\desktop-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\08-burn\\desktop-page-01.jpg",
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\08-burn\\desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\08-burn\\tablet-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\08-burn\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\08-burn\\mobile-fold.jpg",
+   "pages": [
+    "C:\\Users\\merug\\OneDrive\\Desktop\\work\\cutsway\\.taste-skill\\aw\\08-burn\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

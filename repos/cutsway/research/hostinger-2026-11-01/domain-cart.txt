@@ -1,0 +1,523 @@
+- generic: Biggest deals of the year. 30-day money-back guarantee. Limited time deals. 24/7 support. Don't miss out
+- generic: Biggest deals of the year
+- generic: 30-day money-back guarantee
+- generic: Limited time deals
+- generic: 24/7 support
+- generic: Don't miss out
+- generic: Biggest deals of the year
+- generic: 30-day money-back guarantee
+- generic: Limited time deals
+- generic: 24/7 support
+- generic: Don't miss out
+- generic: Biggest deals of the year
+- generic: 30-day money-back guarantee
+- generic: Limited time deals
+- generic: 24/7 support
+- generic: Don't miss out
+- generic: Biggest deals of the year
+- generic: 30-day money-back guarantee
+- generic: Limited time deals
+- generic: 24/7 support
+- generic: Don't miss out
+- generic: Biggest deals of the year
+- generic: 30-day money-back guarantee
+- generic: Limited time deals
+- generic: 24/7 support
+- generic: Don't miss out
+- generic: Biggest deals of the year
+- generic: 30-day money-back guarantee
+- generic: Limited time deals
+- generic: 24/7 support
+- generic: Don't miss out
+- generic: Biggest deals of the year
+- generic: 30-day money-back guarantee
+- generic: Limited time deals
+- generic: 24/7 support
+- generic: Don't miss out
+- generic: Biggest deals of the year
+- generic: 30-day money-back guarantee
+- generic: Limited time deals
+- generic: 24/7 support
+- generic: Don't miss out
+- navigation:
+  - link "homepage link":
+    - /url: /in/
+  - link "Pricing":
+    - /url: /in/pricing
+  - button "Products":
+    - text: Products
+  - button "Solutions":
+    - text: Solutions
+  - button "Developers":
+    - text: Developers
+  - button "Resources":
+    - text: Resources
+  - button "Agent":
+    - generic: Agent
+  - 'button "Select location & language: India, English"':
+    - generic: EN
+  - button "Cart, 1 items":
+    - generic: "1"
+  - link "Log in":
+    - /url: https://auth.hostinger.com/in/login
+- main:
+  - heading "Find your domain name" [level=1]
+  - generic: Search
+  - textbox "Search":
+    - /placeholder: Type in that perfect domain name
+    - text: cutsway.com
+  - button "Get domain ideas":
+  - button "Search":
+  - generic: Exact match
+  - heading "expand cutsway.com" [level=4]:
+    - button "expand":
+    - generic: cutsway.com
+  - generic: ₹
+  - generic: "1"
+  - generic: ₹
+  - generic: 1,499
+  - generic: /1st yr
+  - generic: With 3-year term
+  - button "Make it yours" [active]:
+    - generic: View cart
+  - radiogroup:
+    - radio "Unlimited plan":
+      - generic: Unlimited plan
+      - generic: Recommended
+      - generic: Launch your cutsway.com website and get this domain free for 1 year.
+      - generic: Unlimited websites and mailboxes, 50 GB NVMe storage, plus CDN, AI tools, and priority 24/7 support.
+      - generic: ₹
+      - generic: "799"
+      - generic: ₹
+      - generic: "299"
+      - generic: /mo
+      - generic: Billed annually
+    - radio "Premium plan":
+      - generic: Premium plan
+      - generic: Launch your cutsway.com website and get this domain free for 1 year.
+      - generic: Up to 3 websites, 2 mailboxes per site, 20 GB SSD storage, and weekly backups.
+      - generic: ₹
+      - generic: "679"
+      - generic: ₹
+      - generic: "199"
+      - generic: /mo
+      - generic: Billed annually
+  - generic: Bundle & save
+  - heading "cutsway.com + .online + .org" [level=4]:
+    - generic: cutsway.com + .online + .org
+  - generic: ₹
+  - generic: 1,877
+  - generic: ₹
+  - generic: 6,737
+  - generic: /1st yr
+  - button "Make it yours":
+    - generic: Make it yours
+  - 'heading "Sale Season: 1 month of the Unlimited plan free" [level=5]'
+  - generic: Limited time deal
+  - generic: "*Register a .tech, .org, .net, .io, or .ai domain for 2+ years"
+  - img "Image"
+  - heading "More options" [level=3]
+  - generic: Popular
+  - generic: Business
+  - generic: Education
+  - generic: International
+  - generic: Technology
+  - generic: Social
+  - generic: Professional
+  - generic: Entertainment
+  - generic: All
+  - heading "cutsway.in" [level=4]:
+    - text: cutsway
+    - text: .in
+  - generic: ₹
+  - generic: "899"
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "1"
+  - generic: With 3-year term
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.tech" [level=4]:
+    - text: cutsway
+    - text: .tech
+  - generic: Best deal
+  - generic: ₹
+  - generic: 6,199
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "679"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.media" [level=4]:
+    - text: cutsway
+    - text: .media
+  - generic: ₹
+  - generic: 5,129
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "489"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.co.in" [level=4]:
+    - text: cutsway
+    - text: .co.in
+  - generic: ₹
+  - generic: "799"
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "499"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.org" [level=4]:
+    - text: cutsway
+    - text: .org
+  - generic: ₹
+  - generic: 1,749
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "1"
+  - generic: With 3-year term
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.shop" [level=4]:
+    - text: cutsway
+    - text: .shop
+  - generic: Best deal
+  - generic: ₹
+  - generic: 3,879
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "99"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.store" [level=4]:
+    - text: cutsway
+    - text: .store
+  - generic: ₹
+  - generic: 5,329
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "99"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.online" [level=4]:
+    - text: cutsway
+    - text: .online
+  - generic: ₹
+  - generic: 3,489
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "99"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.net" [level=4]:
+    - text: cutsway
+    - text: .net
+  - generic: ₹
+  - generic: 1,749
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "999"
+  - generic: With 2-year term
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.io" [level=4]:
+    - text: cutsway
+    - text: .io
+  - generic: Best deal
+  - generic: ₹
+  - generic: 7,259
+  - generic: /1st yr
+  - generic: ₹
+  - generic: 3,099
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.studio" [level=4]:
+    - text: cutsway
+    - text: .studio
+  - generic: ₹
+  - generic: 4,549
+  - generic: /1st yr
+  - generic: ₹
+  - generic: 1,259
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.space" [level=4]:
+    - text: cutsway
+    - text: .space
+  - generic: ₹
+  - generic: 3,199
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "99"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.blog" [level=4]:
+    - text: cutsway
+    - text: .blog
+  - generic: ₹
+  - generic: 2,909
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "199"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.live" [level=4]:
+    - text: cutsway
+    - text: .live
+  - generic: ₹
+  - generic: 3,679
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "289"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.ai" [level=4]:
+    - text: cutsway
+    - text: .ai
+  - generic: ₹
+  - generic: 10,649
+  - generic: /1st yr
+  - generic: ₹
+  - generic: 8,718
+  - generic: 2-year term only
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.cc" [level=4]:
+    - text: cutsway
+    - text: .cc
+  - generic: ₹
+  - generic: 1,069
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "389"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.sbs" [level=4]:
+    - text: cutsway
+    - text: .sbs
+  - generic: ₹
+  - generic: 1,549
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "99"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.pro" [level=4]:
+    - text: cutsway
+    - text: .pro
+  - generic: Best deal
+  - generic: ₹
+  - generic: 3,099
+  - generic: /1st yr
+  - generic: ₹
+  - generic: "289"
+  - button "Get it":
+    - generic: Get it
+  - heading "cutsway.co" [level=4]:
+    - text: cutsway
+    - text: .co
+  - generic: ₹
+  - generic: 3,389
+  - generic: /1st yr
+  - generic: ₹
+  - generic: 2,709
+  - button "Get it":
+    - generic: Get it
+- contentinfo:
+  - link "Hostinger":
+    - /url: /in/
+  - generic: Domain name results
+  - generic: Hosting
+  - link "Web hosting":
+    - /url: /in/web-hosting
+  - link "Shared hosting":
+    - /url: /in/shared-hosting
+  - link "Hosting for WordPress":
+    - /url: /in/wordpress-hosting
+  - link "VPS hosting":
+    - /url: /in/vps-hosting
+  - link "Self-hosted n8n":
+    - /url: /in/self-hosted-n8n
+  - link "Business email":
+    - /url: /in/business-email
+  - link "Cloud hosting":
+    - /url: /in/cloud-hosting
+  - link "Hosting for WooCommerce":
+    - /url: /in/woocommerce-hosting
+  - link "Hosting for agencies":
+    - /url: /in/pro
+  - link "Minecraft hosting":
+    - /url: /in/vps/minecraft-hosting
+  - link "Hermes Agent VPS":
+    - /url: https://www.hostinger.com/in/applications/hermes-agent
+  - link "OpenClaw":
+    - /url: /in/ai-automation-apps
+  - link "Paperclip VPS":
+    - /url: https://www.hostinger.com/in/applications/paperclip
+  - link "Google Workspace":
+    - /url: /in/google-workspace
+  - generic: Domain
+  - link "Domains":
+    - /url: /in/domain-name-search
+  - link "Buy a domain":
+    - /url: /in/domains
+  - link "Cheap domains":
+    - /url: /in/cheap-domain
+  - link "Free Domain Name":
+    - /url: /in/free-domain
+  - link "WHOIS Lookup":
+    - /url: /in/whois
+  - link "Free SSL certificate":
+    - /url: /in/free-ssl-certificate
+  - link "Domain transfer":
+    - /url: /in/domain-transfer
+  - link "Domain Extensions":
+    - /url: /in/tld
+  - link "Personal domain name":
+    - /url: /in/personal-domain-name
+  - link "Premium domains":
+    - /url: /in/premium-domains
+  - generic: Tools
+  - link "AI Builder":
+    - /url: /in/ai-builder
+  - link "Drag-and-drop website builder":
+    - /url: /in/website-builder
+  - link "Ecommerce Website Builder":
+    - /url: /in/ecommerce-website
+  - link "Templates":
+    - /url: /in/templates
+  - link "Domain Name Generator":
+    - /url: /in/domain-name-generator
+  - link "Print on Demand":
+    - /url: /in/print-on-demand
+  - link "Link in bio":
+    - /url: /in/link-in-bio
+  - link "Business Name Generator":
+    - /url: /in/business-name-generator
+  - link "AI Newsletter Generator":
+    - /url: /in/ai-email-generator
+  - link "AI Logo Generator":
+    - /url: /in/logo-maker
+  - link "Migrate to Hostinger":
+    - /url: /in/website-migration
+  - link "Hostinger API":
+    - /url: https://developers.hostinger.com/
+  - generic: Information
+  - link "Pricing":
+    - /url: /in/pricing
+  - link "Hostinger Reviews":
+    - /url: /in/reviews
+  - link "Affiliate program":
+    - /url: /in/affiliates
+  - link "Educational partnership":
+    - /url: /in/educational-partnership
+  - link "Referral program":
+    - /url: /in/referral-program
+  - link "Agency directory":
+    - /url: /in/agency-directory
+  - link "Sale Season deals":
+    - /url: /in/black-friday
+  - link "Roadmap":
+    - /url: https://www.hostinger.com/roadmap
+  - link "Changelog":
+    - /url: https://www.hostinger.com/changelog
+  - link "System status":
+    - /url: https://statuspage.hostinger.com/
+  - link "Trust center":
+    - /url: https://trust.hostinger.com/
+  - link "Sitemap":
+    - /url: /in/sitemap
+  - link "EntityMap":
+    - /url: https://www.hostinger.com/entitymap.html
+  - generic: Company
+  - link "About Hostinger":
+    - /url: /in/about
+  - link "Our technology":
+    - /url: /in/technology
+  - link "Blog":
+    - /url: https://www.hostinger.com/blog/
+  - link "Student discount":
+    - /url: /in/student-discount
+  - generic: Support
+  - link "Tutorials":
+    - /url: https://www.hostinger.com/in/tutorials/
+  - link "Knowledge Base":
+    - /url: https://www.hostinger.com/support
+  - link "Hostinger Academy":
+    - /url: https://www.youtube.com/HostingerIndia
+  - link "Contact us":
+    - /url: /in/contacts
+  - link "Report Online Abuse":
+    - /url: /in/report-abuse
+  - link "Hire an expert":
+    - /url: /in/agency-directory
+  - link "ic-linkedin-monochrome-24":
+    - /url: https://www.linkedin.com/company/hostinger
+  - link "ic-facebook-monochrome-24":
+    - /url: https://www.facebook.com/Hostinger
+  - link "ic-instagram-monochrome-24":
+    - /url: https://www.instagram.com/hostinger_global
+  - link "ic-x-twitter-monochrome-24":
+    - /url: https://x.com/Hostinger
+  - link "ic-youtube-24":
+    - /url: https://www.youtube.com/@Hostinger
+  - link "ic-reddit-monochrome-24":
+    - /url: https://www.reddit.com/r/Hostinger/
+  - link "ic-tiktok-monochrome-24":
+    - /url: https://www.tiktok.com/@hostingeracademy
+  - link "ic-discord-monochrome-24":
+    - /url: https://discord.gg/Zp2FteMUea
+  - link "homepage link":
+    - /url: /in/
+  - link "NPRD request policy":
+    - /url: /in/legal/non-public-registrant-data-request-policy
+  - link "Privacy policy":
+    - /url: /in/legal/privacy-policy
+  - link "Refund policy":
+    - /url: /in/legal/refund-policy
+  - link "Terms of service":
+    - /url: /in/legal/universal-terms-of-service-agreement
+  - img "upi"
+  - img "rupay"
+  - img "visa"
+  - img "mastercard"
+  - img "paypal"
+  - link "and more":
+    - /url: /in/payment-methods
+  - generic: © 2004-2026 Hostinger - Premium Web Hosting, Cloud, VPS, AI Website Builder & Domain Registration Services.
+  - paragraph: Prices are listed without GST
+- generic: Domains cart · 1 item
+- button "Cross":
+- generic: Domains are not reserved until purchased.
+- generic: cutsway.com
+- generic: ₹
+- generic: 1,499
+- generic: /1st yr
+- generic: ₹
+- generic: "1"
+- generic: With 3-year term
+- generic: 1st yr is just ₹1, then ₹1,499/yr for the remaining time.
+- generic: Renews at ₹1,499/yr
+- button "Cross":
+- generic: Subtotal
+- generic: ₹4,497
+- generic: ₹2,999
+- text: Taxes and fees calculated at checkout.
+- text: You can change domain periods at the next step.
+- button "Continue to checkout":
+  - generic: Continue to checkout
+- generic: First-year discount only with a 3-year term. Renews at the regular rate after the full term ends.
+- generic: Registration may need identity checks, such as your address, email, phone number, or a government-issued ID.
+- generic: Get 1 month of the Unlimited plan free with a 2+ year term.
+- generic: First-year discount only with a 3-year term. Renews at the regular rate after the full term ends.
+- generic: Get 1 month of the Unlimited plan free with a 2+ year term.
+- generic: Registration may need identity checks, such as your address, email, phone number, or a government-issued ID.
+- generic: Get 1 month of the Unlimited plan free with a 2+ year term.
+- generic: First-year discount only with a 3-year term. Renews at the regular rate after the full term ends.
+- generic: Get 1 month of the Unlimited plan free with a 2+ year term.
+- generic: First-year discount only with a 2-year term. Renews at the regular rate after the full term ends.
+- generic: Get 1 month of the Unlimited plan free with a 2+ year term.
+- generic: Get 1 month of the Unlimited plan free with a 2+ year term.
+- generic: This domain requires a 2-year registration. The discount applies to the first year, then renews at the regular price.
+- generic: First-year discount only with a 3-year term. Renews at the regular rate after the full term ends.

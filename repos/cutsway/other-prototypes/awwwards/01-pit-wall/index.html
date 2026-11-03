@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Pit Wall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root { --night: #0b0806; --raise: #17110d; --paper: #f6efe4; --soft: #cbbfb2; --gold: #ffc72e; --red: #f0163a; --m: clamp(16px, 4vw, 64px); }
+  * { box-sizing: border-box; }
+  html { background: var(--night); color: var(--paper); scroll-behavior: smooth; }
+  body { margin: 0; font-family: Archivo, system-ui, sans-serif; font-size: 18px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  ::selection { background: var(--gold); color: var(--night); }
+  .cond { font-stretch: 62%; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.86; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  .nav { position: absolute; inset: 0 0 auto; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 22px var(--m); mix-blend-mode: normal; }
+  .nav svg { width: 120px; height: 50px; color: var(--paper); display: block; }
+  .nav nav { display: flex; gap: 28px; font-weight: 600; font-size: 16px; }
+  .nav nav a { text-decoration: none; opacity: .86; transition: opacity .2s; }
+  .nav nav a:hover { opacity: 1; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 20px; background: var(--gold); color: var(--night); font-weight: 800; text-decoration: none; transition: transform .25s cubic-bezier(.16,1,.3,1), background .2s; }
+  .btn:hover { transform: translateY(-2px); background: #ffd65a; }
+  .btn:active { transform: translateY(0) scale(.98); }
+  .btn:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  /* hero */
+  .hero { position: relative; min-height: 100svh; overflow: hidden; display: grid; grid-template-columns: 1fr minmax(0, 1.6fr) 1fr; grid-template-rows: 1fr auto; padding: 120px var(--m) 40px; gap: 24px; }
+  .hero__photo { position: absolute; inset: 0; z-index: 0; }
+  .hero__photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.15) brightness(.55); transform: scale(1.08); transition: transform 1.6s cubic-bezier(.16,1,.3,1); }
+  .hero__photo::after { content: ""; position: absolute; inset: 0; background: rgb(11 8 6 / .35); }
+  .hero > *:not(.hero__photo) { position: relative; z-index: 1; }
+  .stats { align-self: center; display: grid; gap: 26px; margin: 0; }
+  .stats div { display: grid; }
+  .stats dt { order: 2; font-size: 16px; color: var(--soft); }
+  .stats dd { margin: 0; font-size: clamp(2.2rem, 3.4vw, 3.4rem); }
+  .stats--r { justify-items: end; text-align: right; }
+  .big { align-self: center; justify-self: center; text-align: center; }
+  .big__n { display: block; font-size: clamp(11rem, 27vw, 26rem); color: var(--paper); transition: color .3s; }
+  .big__n small { font-size: .32em; color: var(--gold); margin-left: .04em; }
+  .hero__foot { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; }
+  h1 { margin: 0 0 14px; font-size: clamp(3.4rem, 7vw, 6.6rem); }
+  .lede { margin: 0 0 22px; max-width: 34ch; font-size: 19px; }
+  .picker { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px; }
+  .picker button { font: inherit; font-size: 15px; font-weight: 700; padding: 10px 14px; border: 0; background: rgb(246 239 228 / .12); color: var(--paper); cursor: pointer; transition: background .2s, color .2s, transform .2s; }
+  .picker button:hover { background: rgb(246 239 228 / .22); }
+  .picker button[aria-pressed="true"] { background: var(--paper); color: var(--night); }
+  .picker button:active { transform: scale(.96); }
+  .next { justify-self: end; text-align: right; background: var(--raise); padding: 18px 20px; min-width: 250px; }
+  .next p { margin: 0; color: var(--soft); font-size: 15px; }
+  .next b { display: block; font-size: 2.6rem; margin: 6px 0 2px; color: var(--gold); }
+
+  section { padding: clamp(120px, 14vw, 200px) var(--m) 0; }
+  h2 { margin: 0 0 28px; font-size: clamp(3rem, 7vw, 7rem); }
+
+  /* lap chart */
+  .laps { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 4vw, 64px); align-items: start; }
+  .laps__rows { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+  .laps__rows li { display: grid; grid-template-columns: 9.5rem 1fr 4.5rem; align-items: center; gap: 16px; }
+  .laps__rows span { font-weight: 700; }
+  .laps__rows i { display: block; height: 34px; background: var(--raise); position: relative; overflow: hidden; }
+  .laps__rows i::after { content: ""; position: absolute; inset: 0; width: var(--w); background: var(--c, var(--gold)); transform-origin: left; transform: scaleX(var(--s, 1)); transition: transform 1.2s cubic-bezier(.16,1,.3,1); }
+  .laps__rows b { font-size: 2rem; text-align: right; }
+  .laps__note { color: var(--soft); font-size: 16px; margin-top: 22px; max-width: 46ch; }
+  .laps figure { margin: 0; }
+  .laps img, .crew img { width: 100%; display: block; filter: grayscale(1) contrast(1.1); }
+  figcaption { font-size: 15px; color: var(--soft); margin-top: 10px; }
+
+  /* pit stop */
+  .crew { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 64px); }
+  .crew__img { position: sticky; top: 100px; align-self: start; }
+  .stops { margin: 0; padding: 0; list-style: none; }
+  .stops li { display: grid; grid-template-columns: 6.5rem 1fr; gap: 20px; padding: 22px 0; }
+  .stops li + li { box-shadow: inset 0 0 0 0 transparent; }
+  .stops b { font-size: 2.6rem; color: var(--gold); }
+  .stops h3 { margin: 0 0 4px; font-size: 22px; }
+  .stops p { margin: 0; }
+  .stops li:nth-child(odd) { background: var(--raise); padding-left: 18px; padding-right: 18px; }
+
+  /* faq */
+  .faq { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(24px, 4vw, 64px); }
+  details { background: var(--raise); margin-bottom: 8px; }
+  summary { cursor: pointer; list-style: none; padding: 20px 22px; font-weight: 800; font-size: 20px; display: flex; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--gold); font-size: 28px; line-height: .8; transition: transform .3s; }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { margin: 0; padding: 0 22px 22px; max-width: 60ch; }
+
+  footer { padding: clamp(120px, 14vw, 200px) var(--m) 32px; }
+  .foot__cta { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
+  .foot__cta p { margin: 0; font-size: clamp(1.4rem, 2.4vw, 2.2rem); font-weight: 700; max-width: 22ch; line-height: 1.15; }
+  .foot__word { display: block; font-size: 25.5vw; line-height: .78; margin: 0 -0.02em; color: var(--paper); }
+  .credits { color: var(--soft); font-size: 13px; margin-top: 28px; }
+
+  @media (max-width: 860px) {
+    .nav nav { display: none; }
+    .hero { grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr auto; padding-top: 100px; }
+    .big { grid-column: 1 / -1; grid-row: 1; }
+    .big__n { font-size: 46vw; }
+    .stats { gap: 14px; } .stats dd { font-size: 2rem; }
+    .hero__foot { grid-template-columns: 1fr; }
+    .next { justify-self: stretch; text-align: left; }
+    .laps, .crew, .faq { grid-template-columns: 1fr; }
+    .crew__img { position: static; }
+    .laps__rows li { grid-template-columns: 7rem 1fr 3.4rem; gap: 10px; }
+    .laps__rows b { font-size: 1.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <a href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#cw-logo"/></svg></a>
+  <nav aria-label="Main"><a href="#laps">Turnaround</a><a href="#crew">The pit stop</a><a href="#faq">Questions</a></nav>
+  <a class="btn" href="#book">Book a call</a>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h1" style="padding-top:120px">
+    <div class="hero__photo"><img src="../_shared/img/stage-5.jpg" alt="A packed esports arena, rows of players at glowing monitors" id="hero-img"></div>
+    <dl class="stats">
+      <div><dd class="cond num">8h</dd><dt>A thumbnail</dt></div>
+      <div><dd class="cond num">24h</dd><dt>A shorts pack</dt></div>
+      <div><dd class="cond num">72h</dd><dt>A podcast episode</dt></div>
+    </dl>
+    <div class="big" aria-live="polite">
+      <span class="big__n cond num" id="big">48<small>h</small></span>
+    </div>
+    <dl class="stats stats--r">
+      <div><dd class="cond num">2</dd><dt>Revision rounds</dt></div>
+      <div><dd class="cond num">4</dd><dt>Platforms posted to</dt></div>
+      <div><dd class="cond num">1</dd><dt>Editor who knows your channel</dt></div>
+    </dl>
+    <div class="hero__foot">
+      <div>
+        <h1 class="cond" id="h1">Edited at race pace</h1>
+        <p class="lede">Cutsway edits gaming videos, streams, shorts and podcasts, and has them back before your audience notices you were gone.</p>
+        <div class="picker" role="group" aria-label="What are you sending?">
+          <button data-k="thumb">Thumbnail</button><button data-k="shorts">Shorts pack</button><button data-k="video" aria-pressed="true">Gaming video</button><button data-k="stream">Stream VOD</button><button data-k="podcast">Podcast</button>
+        </div>
+        <a class="btn" href="#book">Book a call</a>
+      </div>
+      <div class="next"><p>Sent now, back by</p><b class="cond num" id="due">…</b><p id="out">one 12 to 25 minute edit</p></div>
+    </div>
+  </section>
+
+  <section id="laps" aria-labelledby="laps-h">
+    <h2 class="cond" id="laps-h" data-rise>The lap chart</h2>
+    <div class="laps">
+      <div data-rise="kids">
+        <ul class="laps__rows" id="rows">
+          <li><span>Thumbnail</span><i style="--w:11%"></i><b class="cond num">8h</b></li>
+          <li><span>Shorts pack</span><i style="--w:33%"></i><b class="cond num">24h</b></li>
+          <li><span>Gaming video</span><i style="--w:66%"></i><b class="cond num">48h</b></li>
+          <li><span>Stream VOD</span><i style="--w:66%;--c:#ff8a22"></i><b class="cond num">48h</b></li>
+          <li><span>Podcast</span><i style="--w:100%;--c:#f0163a"></i><b class="cond num">72h</b></li>
+        </ul>
+        <p class="laps__note">The clock starts when your files land, not when we get round to them. Weekends included. Sample times, to be confirmed per channel.</p>
+      </div>
+      <figure data-rise><img src="../_shared/img/stage-1.jpg" alt="Two players in headsets at their PCs on a tournament stage"><figcaption>Your audience lives on a schedule. So do we.</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="crew" aria-labelledby="crew-h">
+    <h2 class="cond" id="crew-h" data-rise>Inside the pit stop</h2>
+    <div class="crew">
+      <figure class="crew__img" data-rise><img src="../_shared/img/stage-4.jpg" alt="A camera crew filming an interview at a gaming event"><figcaption>One gaming video, from upload to posted, in 48 hours.</figcaption></figure>
+      <ol class="stops" data-rise="kids">
+        <li><b class="cond num">0h</b><div><h3>Your files land</h3><p>Upload the raw recording, the VOD, the facecam. Nothing to sort first.</p></div></li>
+        <li><b class="cond num">+4h</b><div><h3>First pass</h3><p>Dead air, loading screens and false starts come out. The story is found.</p></div></li>
+        <li><b class="cond num">+20h</b><div><h3>The cut</h3><p>Pacing, zooms, memes where they earn it, captions, sound design.</p></div></li>
+        <li><b class="cond num">+30h</b><div><h3>Thumbnail and title</h3><p>Three thumbnail options made alongside the edit, never after it.</p></div></li>
+        <li><b class="cond num">+36h</b><div><h3>Your notes</h3><p>Leave comments on the exact frame. Two rounds are included.</p></div></li>
+        <li><b class="cond num">48h</b><div><h3>Posted</h3><p>Scheduled to YouTube, with shorts cut for TikTok, Reels and X.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <div class="faq">
+      <div><h2 class="cond" id="faq-h" data-rise>Before you send it</h2><figure data-rise style="margin:32px 0 0"><img src="../_shared/img/pad-ps5.jpg" alt="Hands on a red controller" style="width:100%;display:block;filter:grayscale(1) contrast(1.1)"></figure></div>
+      <div data-rise="kids">
+        <details open><summary>What do I actually send?</summary><p>Everything. The raw recording, stream VODs, the clips you are not sure about. Cutting is our job.</p></details>
+        <details><summary>Will it still sound like my channel?</summary><p>Your first edit starts with your last ten uploads. We learn your pacing, your jokes and what you never cut before we touch a frame.</p></details>
+        <details><summary>What if I need it faster?</summary><p>Tell us when you book. Rush slots exist most days for thumbnails and shorts.</p></details>
+        <details><summary>Do you post it for me?</summary><p>Yes, if you want. Titles, descriptions and schedule for YouTube, TikTok, Instagram and X.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="book">
+  <div class="foot__cta">
+    <p>Your next upload could be on the grid by the weekend.</p>
+    <a class="btn" href="mailto:cutsway.socialmanager@gmail.comm?subject=Book%20a%20call">Book a call</a>
+  </div>
+  <span class="foot__word cond" aria-hidden="true">Cutsway</span>
+  <p class="credits">Photographs: esports events by Flickr users 23979265@N07 and 84584821@N08, CC BY 2.0. Turnaround times are samples.</p>
+</footer>
+
+<script src="../_shared/brand.js"></script>
+<script>
+  const big = document.getElementById('big'), due = document.getElementById('due'), out = document.getElementById('out');
+  let cur = 48;
+  function roll(to) {
+    if (Cutsway.reduce) { big.firstChild.nodeValue = to; cur = to; return; }
+    const from = cur, t0 = performance.now();
+    (function step(t) { const k = Math.min(1, (t - t0) / 600), e = 1 - Math.pow(1 - k, 4);
+      big.firstChild.nodeValue = Math.round(from + (to - from) * e); if (k < 1) requestAnimationFrame(step); })(t0);
+    cur = to;
+  }
+  function pick(k) {
+    const j = Cutsway.JOBS[k];
+    document.querySelectorAll('.picker button').forEach(b => b.setAttribute('aria-pressed', b.dataset.k === k));
+    roll(j.hours); const d = Cutsway.due(j.hours); due.textContent = d.day.slice(0, 3) + ' ' + d.time; out.textContent = j.out;
+  }
+  document.querySelectorAll('.picker button').forEach(b => b.addEventListener('click', () => pick(b.dataset.k)));
+  pick('video');
+  // lap bars draw in when seen
+  const rows = document.getElementById('rows');
+  rows.querySelectorAll('i').forEach(i => i.style.setProperty('--s', Cutsway.reduce ? 1 : 0));
+  new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { rows.querySelectorAll('i').forEach((i, n) => setTimeout(() => i.style.setProperty('--s', 1), n * 90)); o.disconnect(); } }), { threshold: .4 }).observe(rows);
+  // slow push-in on the hero photo
+  requestAnimationFrame(() => document.getElementById('hero-img').style.transform = 'scale(1)');
+  addEventListener('scroll', () => { if (!Cutsway.reduce) document.getElementById('hero-img').style.transform = `scale(${1 + scrollY / 4000}) translateY(${scrollY * .25}px)`; }, { passive: true });
+</script>
+</body>
+</html>

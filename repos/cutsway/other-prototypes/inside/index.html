@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cutsway — Into the Screen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/page.css">
+<style>
+  .tc { position: fixed; z-index: 25; right: var(--m); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); display: grid; justify-items: end; gap: 6px; pointer-events: none; }
+  .tc b { font-weight: 900; font-stretch: 112%; font-size: clamp(1.3rem, 2vw, 2rem); line-height: 1; font-variant-numeric: tabular-nums; }
+  .tc span { font-size: var(--step-small); font-weight: 700; color: var(--soft); }
+  @media (max-width: 820px) { .tc { top: calc(84px + env(safe-area-inset-top, 0px)); bottom: auto; } }
+</style>
+</head>
+<body>
+<canvas id="world" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<div class="export" id="export" aria-hidden="true">
+  <div class="export__bar"><i id="export-fill"></i></div>
+  <div class="export__row"><span>opening client_ep41.prproj</span><span class="num" id="export-pct">000%</span></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="spec" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#2136cd"/><stop offset=".08" stop-color="#2664f7"/><stop offset=".2" stop-color="#32a9f6"/>
+      <stop offset=".3" stop-color="#32d7f6"/><stop offset=".38" stop-color="#c5f9ed"/><stop offset=".45" stop-color="#fbf7c9"/>
+      <stop offset=".53" stop-color="#fef78e"/><stop offset=".61" stop-color="#f9e853"/><stop offset=".69" stop-color="#f5b843"/>
+      <stop offset=".77" stop-color="#fa7d31"/><stop offset=".87" stop-color="#ef462e"/><stop offset="1" stop-color="#e32139"/>
+    </linearGradient>
+    <clipPath id="barclip"><polygon points="4,58 396,19 396,53 4,92"/></clipPath>
+    <symbol id="logo" viewBox="0 0 400 166">
+      <g clip-path="url(#barclip)">
+        <rect x="4" y="0" width="266" height="100" fill="url(#spec)"/>
+        <rect x="276" y="0" width="7" height="100" fill="#eb1635"/><rect x="289" y="0" width="7" height="100" fill="#d41c40"/>
+        <rect x="302" y="0" width="7" height="100" fill="#b22546"/><rect x="315" y="0" width="7" height="100" fill="#8a2445"/>
+        <rect x="328" y="0" width="7" height="100" fill="#6a2444"/><rect x="341" y="0" width="7" height="100" fill="#52263f"/>
+        <rect x="354" y="0" width="7" height="100" fill="#3f2740"/><rect x="367" y="0" width="7" height="100" fill="#33283f"/>
+        <rect x="380" y="0" width="7" height="100" fill="#2d2844"/>
+      </g>
+      <text x="0" y="146" font-family="Archivo, sans-serif" font-weight="900" font-stretch="125%" font-size="74" letter-spacing="-3" fill="currentColor">cutsway</text>
+    </symbol>
+    <symbol id="arrow" viewBox="0 0 16 16"><path d="M3 2v7h10M9 5l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  </defs>
+</svg>
+
+<div class="tc" aria-hidden="true"><b id="tc">00:00:00:00</b><span id="tc-cap">playhead</span></div>
+
+<header class="nav">
+  <a class="nav__logo" href="#top" aria-label="Cutsway home"><svg viewBox="0 0 400 166" role="img" aria-label="cutsway"><use href="#logo"/></svg></a>
+  <nav class="nav__links" aria-label="Main"><a href="#long-form">What we cut</a><a href="#turnaround">Turnaround</a><a href="#faq">FAQ</a></nav>
+  <div class="nav__cta"><a class="pill" href="#book">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+</header>
+
+<main id="top">
+  <section class="ch" data-scene aria-labelledby="h1">
+    <h1 class="display" id="h1">go inside the edit.</h1>
+    <div class="hero__row">
+      <p>Cutsway edits gaming videos, long-form, podcasts and shorts. Scroll into the screen and ride the timeline of one edit, start to finish.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="long-form" data-scene aria-labelledby="lf-h">
+    <div class="copy rise">
+      <h2 class="display" id="lf-h">gaming videos &amp; long-form</h2>
+      <p>Every block on these tracks was hours of footage once. Story, pacing and sound design decide which ones stay, and the playhead never stops.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="sh-h">
+    <div class="copy rise">
+      <h2 class="display" id="sh-h">shorts &amp; reels</h2>
+      <p>The best moments stand up on their own: reframed to vertical, captioned for the first second of a scroll.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="pod-h">
+    <div class="copy rise">
+      <h2 class="display" id="pod-h">podcasts</h2>
+      <p>Three mics become one clean conversation. Levelled, de-noised, cut for pace, plus the clips that bring new listeners in.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="turnaround" data-scene aria-labelledby="turn-h">
+    <div class="glass turn rise">
+      <h2 class="display" id="turn-h">when is it yours?</h2>
+      <div class="chips" role="group" aria-label="What would you send?">
+        <button class="chip" data-f="thumb">Thumbnail</button>
+        <button class="chip" data-f="shorts">Shorts pack</button>
+        <button class="chip" data-f="video" aria-pressed="true">Gaming video</button>
+        <button class="chip" data-f="podcast">Podcast</button>
+      </div>
+      <p class="due" aria-live="polite">Sent now, it's back by<strong class="num" id="due">…</strong></p>
+      <ol class="splits num" id="splits"></ol>
+      <p class="note">Sample turnaround times. The export beside the track is yours.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-scene aria-labelledby="soc-h">
+    <div class="copy rise">
+      <h2 class="display" id="soc-h">posted, everywhere</h2>
+      <p>Out of the timeline and onto YouTube, Instagram, TikTok and X, each with its own title and caption.</p>
+      <a class="pill pill--solid" href="#book">Book a call <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </section>
+
+  <section class="ch" id="faq" data-scene aria-labelledby="faq-h">
+    <h2 class="display faq-h rise" id="faq-h">fair questions</h2>
+    <div class="glass faq rise" style="--i:1">
+      <details><summary>What do I send you?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>The raw recording, your channel link, a past video whose feel you like, and the date it needs to go up.</p></details>
+      <details><summary>Can you work from a stream VOD?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Yes. One VOD becomes a highlight video and a shorts pack from the same session.</p></details>
+      <details><summary>How many revisions?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>Two rounds on every edit, left as notes on the exact frame. Sample policy, confirm before launch.</p></details>
+      <details><summary>Will you post it for me?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2.5" fill="none"/></svg></summary><p>If you want. We schedule and post with titles and captions written for each platform.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="book" data-scene aria-labelledby="book-h">
+  <h2 class="display rise" id="book-h"><a href="#book">book a call.</a></h2>
+  <p class="rise" style="--i:1">That was one edit, from the inside. Twenty minutes on a call and the next timeline is yours.</p>
+  <div class="foot__row rise" style="--i:2">
+    <span>cutsway.socialmanager@gmail.com · sample address</span>
+    <nav aria-label="Social"><a href="#">YouTube</a><a href="#">Instagram</a><a href="#">X</a><a href="#">Discord</a></nav>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="../shared/page.js"></script>
+<script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { createWorld, chapterTracker, SPEC, SLICES, specAt, reduce, phone, ease, clamp01, canvasTex, drawGame, drawLogoBar, drawWordmark, font, dotTexture, fontsReady, glowMat, flat } from '../shared/kit.js';
+
+  const world = createWorld({ bloom: [0.5, 0.5, 0.86], fov: 42, bg: '#050409' });
+  world.phoneFov = 62;
+  const { renderer, camera, composer } = world;
+  const outer = world.scene;                      // the room with the monitor
+  const inner = new THREE.Scene();                // the timeline, seen through the screen
+  inner.background = new THREE.Color('#07060d');
+  inner.fog = new THREE.Fog('#07060d', 10, 34);
+  await fontsReady();
+
+  // ── outside: one monitor in the dark ──
+  const SW = 3.2, SH = 1.8;
+  const bezel = flat('#0c0b10', { roughness: 0.35 });
+  const mon = new THREE.Group(); outer.add(mon);
+  [[0, SH / 2 + 0.07, SW + 0.28, 0.14], [0, -SH / 2 - 0.1, SW + 0.28, 0.2], [-SW / 2 - 0.07, 0, 0.14, SH + 0.34], [SW / 2 + 0.07, 0, 0.14, SH + 0.34]]
+    .forEach(([x, y, w, h]) => { const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.12), bezel); b.position.set(x, y, -0.04); mon.add(b); });
+  const back = new THREE.Mesh(new THREE.BoxGeometry(SW + 0.28, SH + 0.34, 0.3), bezel); back.position.set(0, -0.015, -0.3); mon.add(back);
+  const neck = new THREE.Mesh(new THREE.BoxGeometry(0.22, 1.0, 0.16), bezel); neck.position.set(0, -SH / 2 - 0.6, -0.3); mon.add(neck);
+  const foot = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.05, 0.7), bezel); foot.position.set(0, -SH / 2 - 1.1, -0.2); mon.add(foot);
+  const led = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.012, 0.01), glowMat('#e32139', 3)); led.position.set(SW / 2 - 0.1, -SH / 2 - 0.13, 0.025); mon.add(led);
+  const desk = new THREE.Mesh(new THREE.PlaneGeometry(30, 12), flat('#120f18', { roughness: 0.6 })); desk.rotation.x = -Math.PI / 2; desk.position.y = -SH / 2 - 1.125; outer.add(desk);
+  outer.add(new THREE.AmbientLight('#3a2f4a', 0.6));
+  const screenGlow = new THREE.PointLight('#8fb0ff', 6, 7, 1.6); screenGlow.position.set(0, 0, 1.2); outer.add(screenGlow);
+  const rimR = new THREE.PointLight('#e32139', 3, 6, 1.6); rimR.position.set(2.6, 1.2, -1.2); outer.add(rimR);
+  const rimB = new THREE.PointLight('#2664f7', 3, 6, 1.6); rimB.position.set(-2.6, 1.2, -1.2); outer.add(rimB);
+
+  // the screen is a portal: it shows the inner world rendered from this very camera
+  const rt = new THREE.WebGLRenderTarget(16, 16, { samples: 4 });
+  rt.texture.colorSpace = THREE.LinearSRGBColorSpace;
+  const portal = new THREE.Mesh(new THREE.PlaneGeometry(SW, SH), new THREE.ShaderMaterial({
+    uniforms: { uTex: { value: rt.texture }, uRes: { value: new THREE.Vector2(1, 1) }, uTime: { value: 0 } },
+    vertexShader: `void main(){ gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+    fragmentShader: `uniform sampler2D uTex; uniform vec2 uRes; uniform float uTime;
+      void main(){ vec2 uv = gl_FragCoord.xy / uRes; vec3 c = texture2D(uTex, uv).rgb;
+        c *= 0.94 + 0.06 * sin(gl_FragCoord.y * 1.6 + uTime * 8.0);   // a faint scanline, only from outside
+        gl_FragColor = vec4(c * 1.15, 1.0); }`,
+    toneMapped: false,
+  }));
+  outer.add(portal);
+  function sizeRT() { const s = renderer.getDrawingBufferSize(new THREE.Vector2()); rt.setSize(s.x, s.y); portal.material.uniforms.uRes.value.copy(s); }
+  world.onResize.push(sizeRT); world.onTier.push(sizeRT); sizeRT();
+
+  // ── inside: the timeline as a landscape ──
+  const FLOOR = -0.9, END = -60;
+  inner.add(new THREE.AmbientLight('#4a3d5c', 0.9));
+  const hemi = new THREE.HemisphereLight('#3a3a80', '#0b0910', 0.6); inner.add(hemi);
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(80, 140), new THREE.MeshStandardMaterial({ color: '#0e0c15', roughness: 0.55, metalness: 0.3 }));
+  ground.rotation.x = -Math.PI / 2; ground.position.set(0, FLOOR, -50); inner.add(ground);
+
+  // lanes: three video tracks and two audio tracks, left to right
+  const LANES = [{ x: -2.1, kind: 'v', name: 'V3' }, { x: -1.15, kind: 'v', name: 'V2' }, { x: -0.2, kind: 'v', name: 'V1' }, { x: 0.95, kind: 'a', name: 'A1' }, { x: 1.9, kind: 'a', name: 'A2' }];
+  LANES.forEach(l => { const s = new THREE.Mesh(new THREE.PlaneGeometry(0.86, 72), new THREE.MeshStandardMaterial({ color: l.kind === 'v' ? '#15121e' : '#121620', roughness: 0.7 })); s.rotation.x = -Math.PI / 2; s.position.set(l.x, FLOOR + 0.002, -34); inner.add(s); });
+
+  // ruler ticks down the left edge, with timecodes
+  const ticks = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ color: '#3a3646' }), 140);
+  { const m = new THREE.Matrix4(); for (let k = 0; k < 140; k++) { const z = 2 - k * 0.5, big = k % 10 === 0; m.compose(new THREE.Vector3(-2.85, FLOOR + 0.01, z), new THREE.Quaternion(), new THREE.Vector3(big ? 0.4 : 0.2, 0.01, 0.03)); ticks.setMatrixAt(k, m); } }
+  inner.add(ticks);
+  function label(text, color = '#aaa6b9', px = 44, w = 512, h = 96) {
+    const c = canvasTex(w, h); c.g.font = font(800, px); c.g.fillStyle = color; c.g.fillText(text, 8, h * 0.68); c.tex.needsUpdate = true;
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: c.tex, transparent: true, depthWrite: false, fog: true })); s.scale.set(w / h * 0.3, 0.3, 1); return s;
+  }
+  for (let k = 0; k < 7; k++) { const s = label(`00:0${k}:00:00`); s.position.set(-3.45, FLOOR + 0.25, 2 - k * 10); s.scale.multiplyScalar(0.8); inner.add(s); }
+  LANES.forEach(l => { const s = label(l.name, '#f2f0e6', 60, 128, 96); s.position.set(l.x, FLOOR + 0.3, 1.6); s.scale.set(0.4, 0.3, 1); inner.add(s); });
+
+  // clips: blocks on the video tracks, coloured along the timeline like the logo bar, ending in its slices
+  const R = (s => () => (s = (s * 16807) % 2147483647) / 2147483647)(21);
+  const clipList = [];
+  LANES.filter(l => l.kind === 'v').forEach((l, li) => {
+    let z = 1.4 - R() * 1.5;
+    while (z > END + 2) {
+      const len = 1.2 + R() * 3.2, gap = 0.08 + (R() < 0.25 ? R() * 1.4 : 0);
+      if (z - len < END + 2) break;
+      if (li !== 0 || R() > 0.35) clipList.push({ x: l.x, z0: z, len, h: li === 2 ? 0.34 : 0.26 });
+      z -= len + gap;
+    }
+    for (let k = 0; k < 9; k++) clipList.push({ x: l.x, z0: END + 1.6 - k * 0.62, len: 0.22, h: li === 2 ? 0.34 : 0.26, slice: k });
+  });
+  const clipMesh = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({ roughness: 0.45, metalness: 0.15 }), clipList.length);
+  const capMesh = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ toneMapped: false }), clipList.length);
+  { const m = new THREE.Matrix4(), q = new THREE.Quaternion();
+    clipList.forEach((c, n) => {
+      const zc = c.z0 - c.len / 2, u = clamp01(-zc / (-END - 2));
+      const col = c.slice !== undefined ? new THREE.Color(SLICES[c.slice]) : specAt(u);
+      m.compose(new THREE.Vector3(c.x, FLOOR + c.h / 2, zc), q, new THREE.Vector3(0.78, c.h, c.len)); clipMesh.setMatrixAt(n, m); clipMesh.setColorAt(n, col.clone().multiplyScalar(0.55));
+      m.compose(new THREE.Vector3(c.x, FLOOR + c.h + 0.006, zc), q, new THREE.Vector3(0.8, 0.012, c.len)); capMesh.setMatrixAt(n, m); capMesh.setColorAt(n, col.clone().multiplyScalar(1.6));
+    }); }
+  inner.add(clipMesh, capMesh);
+
+  // audio: waveforms on the two audio tracks; they rise into a canyon in the podcast stretch
+  const WN = 2 * 420, wave = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ toneMapped: false }), WN);
+  const waveBase = new Float32Array(WN);
+  for (let n = 0; n < WN; n++) { const z = 1.2 - (n % 420) * 0.15; waveBase[n] = (0.25 + 0.75 * Math.abs(Math.sin(z * 1.7) * Math.cos(z * 0.43 + (n >= 420 ? 1 : 0)))) * (0.6 + R() * 0.4); wave.setColorAt(n, specAt(clamp01(-z / 58)).multiplyScalar(n >= 420 ? 0.55 : 0.75)); }
+  inner.add(wave);
+  const canyon = z => Math.exp(-Math.pow((z + 27) / 5.5, 2));   // how tall the waveform walls are at depth z
+
+  // keyframes floating over V2
+  const keys = new THREE.InstancedMesh(new THREE.OctahedronGeometry(0.09), glowMat('#f9e853', 1.6), 18);
+  const keyPos = Array.from({ length: 18 }, (_, k) => new THREE.Vector3(-1.15 + (R() - 0.5) * 0.4, FLOOR + 0.8 + R() * 0.4, -2 - k * 3.1 - R()));
+  inner.add(keys);
+
+  // the playhead: a red wall of light that runs ahead of you
+  const ph = new THREE.Group(); inner.add(ph);
+  const phPlane = new THREE.Mesh(new THREE.PlaneGeometry(5.6, 3.2), new THREE.MeshBasicMaterial({ color: new THREE.Color('#e32139').multiplyScalar(0.7), transparent: true, opacity: 0.12, side: THREE.DoubleSide, depthWrite: false, toneMapped: false }));
+  phPlane.position.y = FLOOR + 1.6; phPlane.visible = false;
+  const phLine = new THREE.Mesh(new THREE.BoxGeometry(5.6, 0.025, 0.025), glowMat('#e32139', 4)); phLine.position.y = FLOOR + 0.02; ph.add(phLine);
+  const phHead = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.22, 3), glowMat('#e32139', 4)); phHead.rotation.x = Math.PI; phHead.position.set(-2.85, FLOOR + 3.2, 0); ph.add(phHead);
+  const phPost = new THREE.Mesh(new THREE.BoxGeometry(0.02, 3.2, 0.02), glowMat('#e32139', 3)); phPost.position.set(-2.85, FLOOR + 1.6, 0); ph.add(phPost);
+  const phLight = new THREE.PointLight('#e32139', 4, 5, 1.6); phLight.position.set(0, FLOOR + 1, 0); ph.add(phLight);
+
+  // a vertical short, standing beside the track
+  const SHORT = canvasTex(360, 640);
+  const shortPanel = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 2.49), new THREE.MeshBasicMaterial({ map: SHORT.tex, toneMapped: false, color: new THREE.Color(1.25, 1.25, 1.25) }));
+  shortPanel.position.set(3.1, FLOOR + 1.45, -17.5); shortPanel.rotation.y = -0.62; inner.add(shortPanel);
+  const shortFrame = new THREE.Mesh(new THREE.BoxGeometry(1.5, 2.6, 0.06), flat('#0c0b10')); shortFrame.position.copy(shortPanel.position).add(new THREE.Vector3(Math.sin(-0.62), 0, Math.cos(-0.62)).multiplyScalar(-0.045)); shortFrame.rotation.y = -0.62; inner.add(shortFrame);
+  function drawShort(t) {
+    const { g } = SHORT, W = 360, H = 640;
+    drawGame(g, 0, 0, W, H, t * 1.2, false); g.fillStyle = 'rgba(11,10,16,0.3)'; g.fillRect(0, 0, W, H);
+    const caps = ['1V5', 'CLUTCH', 'IN', '9 SECONDS'], k = Math.floor(t * 2) % caps.length, pop = 1 + Math.max(0, 0.2 - ((t * 2) % 1) * 0.6);
+    g.save(); g.translate(W / 2, H * 0.56); g.scale(pop, pop); g.textAlign = 'center'; g.font = font(900, 56); g.lineWidth = 10; g.strokeStyle = '#0b0a10'; g.strokeText(caps[k], 0, 0); g.fillStyle = k % 2 ? '#f9e853' : '#f2f0e6'; g.fillText(caps[k], 0, 0); g.restore(); g.textAlign = 'left';
+    g.fillStyle = '#f2f0e6'; g.fillRect(0, H - 6, W * ((t * 0.12) % 1), 6);
+    SHORT.tex.needsUpdate = true;
+  }
+
+  // the export window, floating beside the track
+  const EXP = canvasTex(800, 450);
+  const expPanel = new THREE.Mesh(new THREE.PlaneGeometry(3.2, 1.8), new THREE.MeshBasicMaterial({ map: EXP.tex, toneMapped: false, transparent: true }));
+  expPanel.position.set(3.6, FLOOR + 1.6, -37.5); expPanel.rotation.y = -0.6; expPanel.scale.setScalar(0.82); inner.add(expPanel);
+  function drawExport(t) {
+    const { g } = EXP; g.clearRect(0, 0, 800, 450);
+    g.fillStyle = 'rgba(16,14,22,0.92)'; g.fillRect(0, 0, 800, 450); g.strokeStyle = 'rgba(242,240,230,0.25)'; g.lineWidth = 3; g.strokeRect(2, 2, 796, 446);
+    const p = (t * 0.16) % 1;
+    g.fillStyle = '#f2f0e6'; g.font = font(900, 40); g.fillText('Exporting', 48, 96);
+    g.fillStyle = '#aaa6b9'; g.font = font(700, 24); g.fillText('client_ep41_final.mp4  ·  4K  ·  60 fps', 48, 140);
+    g.fillStyle = '#2d2844'; g.fillRect(48, 210, 704, 34);
+    g.save(); g.beginPath(); g.rect(48, 210, 704 * p, 34); g.clip(); const lg = g.createLinearGradient(48, 0, 752, 0); SPEC.forEach((c, k) => lg.addColorStop(k / (SPEC.length - 1), c)); g.fillStyle = lg; g.fillRect(48, 210, 704, 34); g.restore();
+    g.fillStyle = '#f9e853'; g.font = font(900, 64); g.fillText(Math.round(p * 100) + '%', 48, 340);
+    const due = window.CUT.due.toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+    g.fillStyle = '#aaa6b9'; g.font = font(700, 24); g.fillText(`Delivery: ${due}`, 48, 396);
+    EXP.tex.needsUpdate = true;
+  }
+
+  // four platforms, with clips streaming up into them
+  const PLAT = [['YT', '#e32139'], ['IG', '#fa7d31'], ['TT', '#32d7f6'], ['X', '#f2f0e6']];
+  const platG = new THREE.Group(); inner.add(platG);
+  PLAT.forEach(([n, c], k) => {
+    const t = canvasTex(256, 256); t.g.fillStyle = c; t.g.fillRect(0, 0, 256, 256); t.g.fillStyle = '#0b0a10'; t.g.font = font(900, 120); t.g.textAlign = 'center'; t.g.fillText(n, 128, 172); t.tex.needsUpdate = true;
+    const tile = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.9), new THREE.MeshBasicMaterial({ map: t.tex, toneMapped: false })); tile.position.set(0.4 + k * 1.15, FLOOR + 2.6 + (k % 2) * 0.35, -48.5); platG.add(tile);
+  });
+  const SN = 120, streamPos = new Float32Array(SN * 3), streamT = Float32Array.from({ length: SN }, () => R());
+  const sgeo = new THREE.BufferGeometry(); sgeo.setAttribute('position', new THREE.BufferAttribute(streamPos, 3));
+  const stream = new THREE.Points(sgeo, new THREE.PointsMaterial({ color: new THREE.Color('#fbf7c9').multiplyScalar(2), size: 0.07, map: dotTexture(), transparent: true, depthWrite: false, toneMapped: false })); inner.add(stream);
+
+  // the last frame of the edit, lying on the ground: the wordmark
+  const ENDC = canvasTex(2048, 760);
+  ENDC.g.fillStyle = '#07060d'; ENDC.g.fillRect(0, 0, 2048, 760); drawLogoBar(ENDC.g, 64, 0, 4.7); drawWordmark(ENDC.g, 40, 720, 330, '#f2f0e6'); ENDC.tex.needsUpdate = true;
+  const endCard = new THREE.Mesh(new THREE.PlaneGeometry(6.4, 2.37), new THREE.MeshBasicMaterial({ map: ENDC.tex, toneMapped: false, color: new THREE.Color(1.2, 1.2, 1.2) }));
+  endCard.rotation.x = -Math.PI / 2; endCard.position.set(-0.1, FLOOR + 0.01, END - 5.5); inner.add(endCard);
+
+  // dust
+  const DN = 900, dp = new Float32Array(DN * 3); for (let i = 0; i < DN; i++) dp.set([(R() - 0.5) * 14, FLOOR + R() * 6, 4 - R() * 72], i * 3);
+  const dgeo = new THREE.BufferGeometry(); dgeo.setAttribute('position', new THREE.BufferAttribute(dp, 3));
+  inner.add(new THREE.Points(dgeo, new THREE.PointsMaterial({ color: '#c5f9ed', size: 0.03, map: dotTexture(), transparent: true, opacity: 0.45, depthWrite: false })));
+
+  // ── the ride: one camera stop per chapter [position, look-at] ──
+  const SHOTS = [
+    [[0, 0.15, 5.6], [0, -0.05, 0]],            // outside, facing the monitor
+    [[-0.55, 0.05, -4.5], [0.7, -0.35, -12]],    // low over the video tracks
+    [[0.7, 0.45, -13.4], [3.1, 0.55, -17.5]],    // the vertical short
+    [[1.42, -0.35, -20.5], [1.42, -0.3, -31]],   // between the waveform walls of A1 and A2
+    [[0.2, 0.8, -32.4], [1.6, 0.75, -37.5]],     // the export, sitting in the open right side
+    [[-0.3, 1.0, -42.5], [1.9, 1.8, -48.5]],     // the platforms
+    [[4.5, 5.2, -36], [0, -0.8, -48]],           // high over the timeline
+    [[0, 22, 9], [-0.1, -0.9, -36]],             // high and far back: the whole timeline reads as the logo bar, ending on the wordmark
+  ];
+  const PHONE_SHOTS = SHOTS.map(([p, l], n) => n === 0 ? [[0, 0.3, 9.5], [0, 0.2, 0]] : n === 7 ? [[0, 34, 14], [-0.1, -0.9, -38]] : [[p[0] - 0.6, p[1] + 0.2, p[2] + 1.6], [l[0], l[1] + 0.3, l[2]]]);
+  const NAMES = ['playhead', 'V1 · gameplay', 'V2 · short', 'A1 · podcast', 'export', 'upload', 'the whole edit', 'final frame'];
+
+  const track = chapterTracker();
+  const pa = new THREE.Vector3(), pb = new THREE.Vector3(), la = new THREE.Vector3(), lb = new THREE.Vector3(), look = new THREE.Vector3();
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), sv = new THREE.Vector3(), pv = new THREE.Vector3();
+  const tcEl = document.getElementById('tc'), capEl = document.getElementById('tc-cap'); const pad = n => String(n).padStart(2, '0');
+  let lastCanvas = -1;
+  const renderPass = composer.passes[0];
+
+  world.start((t, dt) => {
+    const S = track(dt), last = window.chapterCount() - 1;
+    const i = Math.min(last, Math.floor(S)), f = S - i, j = Math.min(last, i + 1), k = ease(f);
+    const shots = phone() ? PHONE_SHOTS : SHOTS;
+    pa.fromArray(shots[i][0]); pb.fromArray(shots[j][0]); la.fromArray(shots[i][1]); lb.fromArray(shots[j][1]);
+    camera.position.lerpVectors(pa, pb, k); look.lerpVectors(la, lb, k);
+    if (!reduce && i > 0) { camera.position.y += Math.sin(t * 0.6) * 0.03; camera.position.x += Math.sin(t * 0.4) * 0.04; }
+    camera.lookAt(look);
+
+    // playhead runs a little ahead of the camera
+    const phZ = S > 5.5 ? END - 1 : Math.min(camera.position.z - 6, 1.5); ph.position.z = Math.max(END - 1, phZ);
+    // fog thins as the camera climbs, so the whole timeline shows from above
+    const up = Math.max(0, camera.position.y - 1.5); inner.fog.near = 10 + up * 3; inner.fog.far = 34 + up * 6;
+    const frames = Math.max(0, Math.round((2 - ph.position.z) * 60 * 10));
+    tcEl.textContent = `00:${pad(Math.floor(frames / 3600) % 60)}:${pad(Math.floor(frames / 60) % 60)}:${pad(frames % 60 % 30)}`;
+    capEl.textContent = NAMES[f < 0.5 ? i : j];
+
+    // waveforms: alive, and tall in the canyon
+    for (let n = 0; n < WN; n++) {
+      const lane = n >= 420 ? LANES[4] : LANES[3], z = 1.2 - (n % 420) * 0.15;
+      const h = waveBase[n] * (0.2 + canyon(z) * 1.5) * (reduce ? 1 : 0.8 + 0.2 * Math.sin(t * 6 + n * 0.7));
+      m4.compose(pv.set(lane.x, FLOOR + h / 2, z), q, sv.set(0.62, h, 0.07)); wave.setMatrixAt(n, m4);
+    }
+    wave.instanceMatrix.needsUpdate = true;
+    keyPos.forEach((p, n) => { q.setFromEuler(new THREE.Euler(0, t * 1.2 + n, 0)); m4.compose(pv.set(p.x, p.y + Math.sin(t * 1.5 + n) * 0.05, p.z), q, sv.set(1, 1, 1)); keys.setMatrixAt(n, m4); });
+    keys.instanceMatrix.needsUpdate = true; q.identity();
+    for (let n = 0; n < SN; n++) { const s = (streamT[n] + t * 0.25) % 1, k4 = n % 4; streamPos.set([0.4 + k4 * 1.15 + Math.sin(n) * 0.2, FLOOR + 0.3 + s * (2.3 + (k4 % 2) * 0.35), -44 - s * 4.5], n * 3); }
+    sgeo.attributes.position.needsUpdate = true;
+
+    if (t - lastCanvas > 1 / 20) { if (Math.abs(camera.position.z + 17) < 12) drawShort(t); if (Math.abs(camera.position.z + 37) < 12) drawExport(t); lastCanvas = t; }
+
+    // outside: draw the inner world into the screen; inside: draw it directly
+    const outside = S < 1 && camera.position.z > 0.02;
+    if (outside) {
+      renderer.setRenderTarget(rt); renderer.render(inner, camera); renderer.setRenderTarget(null);
+      portal.material.uniforms.uTime.value = t; renderPass.scene = outer;
+    } else renderPass.scene = inner;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+- link "Biggest deals of the year. 30-day money-back guarantee. Up to 50% off. 24/7 support. Don't miss out":
+  - /url: "#pricing"
+  - generic: Biggest deals of the year. 30-day money-back guarantee. Up to 50% off. 24/7 support. Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 50% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 50% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 50% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 50% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 50% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 50% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 50% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+  - generic: Biggest deals of the year
+  - generic: 30-day money-back guarantee
+  - generic: Up to 50% off
+  - generic: 24/7 support
+  - generic: Don't miss out
+- navigation:
+  - link "homepage link":
+    - /url: /in/
+  - link "Pricing":
+    - /url: /in/pricing
+  - button "Products":
+    - text: Products
+  - button "Solutions":
+    - text: Solutions
+  - button "Developers":
+    - text: Developers
+  - button "Resources":
+    - text: Resources
+  - button "Agent":
+    - generic: Agent
+  - 'button "Select location & language: India, English"':
+    - generic: EN
+  - link "Log in":
+    - /url: https://auth.hostinger.com/in/login
+- main:
+  - text: Up to 50% off
+  - heading "Agency hosting" [level=1]
+  - text: this Sale Season
+  - text: Keep sites protected with full website isolation
+  - text: Access sharing per site for smooth collaboration
+  - text: Up to 40% increased website speed
+  - text: Unbranded client dashboards
+  - generic: From ₹4,999
+  - generic: ₹2,499/mo
+  - link "Claim deal":
+    - /url: "#pricing"
+    - generic: Claim deal
+  - text: 30-day money-back guarantee
+  - button "Play video":
+  - generic: Up to 50% off
+  - iframe
+  - generic: Recommended by WordPress.org
+  - generic: 1M+
+  - generic: "5"
+  - generic: "6"
+  - generic: "7"
+  - generic: "8"
+  - generic: "9"
+  - generic: "0"
+  - generic: "1"
+  - generic: M
+  - generic: +
+  - generic: Developers & agencies trust us
+  - generic: 10M+
+  - generic: "5"
+  - generic: "6"
+  - generic: "7"
+  - generic: "8"
+  - generic: "9"
+  - generic: "0"
+  - generic: "1"
+  - generic: "4"
+  - generic: "5"
+  - generic: "6"
+  - generic: "7"
+  - generic: "8"
+  - generic: "9"
+  - generic: "0"
+  - generic: M
+  - generic: +
+  - generic: Websites created with us
+  - generic: 150+
+  - generic: "5"
+  - generic: "6"
+  - generic: "7"
+  - generic: "8"
+  - generic: "9"
+  - generic: "0"
+  - generic: "1"
+  - generic: "9"
+  - generic: "0"
+  - generic: "1"
+  - generic: "2"
+  - generic: "3"
+  - generic: "4"
+  - generic: "5"
+  - generic: "4"
+  - generic: "5"
+  - generic: "6"
+  - generic: "7"
+  - generic: "8"
+  - generic: "9"
+  - generic: "0"
+  - generic: +
+  - generic: Countries served
+  - generic: 20+
+  - generic: "6"
+  - generic: "7"
+  - generic: "8"
+  - generic: "9"
+  - generic: "0"
+  - generic: "1"
+  - generic: "2"
+  - generic: "4"
+  - generic: "5"
+  - generic: "6"
+  - generic: "7"
+  - generic: "8"
+  - generic: "9"
+  - generic: "0"
+  - generic: +
+  - generic: Years of experience
+  - heading "Secure your deal before it’s gone" [level=2]
+  - paragraph: 30-day money-back guarantee
+  - paragraph: Cancel anytime
+  - paragraph: 24/7 support
+  - heading "Agency Startup" [level=3]
+  - paragraph: Optimized for business and ecommerce websites.
+  - generic: Startup
+  - generic: Professional
+  - generic: Growth
+  - paragraph: Resources
+  - generic: 6 CPU cores
+  - generic: 12 GB RAM
+  - generic: 300 GB NVMe storage
+  - generic: 4 000 000 inodes (files and directories)
+  - generic: 100 websites
+  - generic: 10 mailboxes per website - free for 1 year
+  - generic: ₹4,999
+  - generic: 50% off
+  - generic: ₹
+  - generic: 2,499
+  - generic: /mo
+  - button "Choose plan":
+    - generic: Choose plan
+  - paragraph: Today you pay ₹59,976 for 24 months. Renews at ₹3,499/mo for the same term. Cancel anytime.
+  - paragraph: "Sale Season: Get 2x AI credits, 2000 instead of 1000"
+  - generic: Priority 24/7 expert support
+  - generic: Full website isolation
+  - generic: NEW
+  - generic: Access sharing per site
+  - generic: NEW
+  - generic: Unbranded client dashboard
+  - generic: NEW
+  - generic: Proactive monitoring alerts
+  - generic: NEW
+  - generic: Unlimited CDN & SSL
+  - generic: FREE
+  - generic: Dedicated IP address
+  - generic: Daily backups
+  - generic: Managed hosting for WordPress and WooCommerce
+  - generic: 30-Day money-back guarantee
+  - heading "Every plan includes all the developer tools you need" [level=3]
+  - generic: SSH & WP-CLI for faster site management
+  - generic: SFTP account management for secure team access
+  - generic: PHP version management offers better performance
+  - generic: Free safe staging environments
+  - generic: 1-click website cloning
+  - generic: Redirects Manager preserves SEO
+  - generic: Cron jobs automate tasks
+  - generic: Free malware scanning
+  - generic: Unlimited collaborators
+  - link "View all features":
+    - /url: /in/pricing?plan=agency#compare-table
+    - generic: View all features
+  - paragraph: The price displayed is the monthly rate excluding applicable taxes. The total price for the plan to be paid upfront at checkout includes the monthly rate multiplied by the number of months in your plan, along with any applicable taxes.
+  - heading "All-in-one agency hosting" [level=2]
+  - img "Lightning fast performance"
+  - heading "Lightning fast performance" [level=3]
+  - paragraph: Our web server is optimized to boost site speed by up to 40%, all without extra plugins or complicated setup.
+  - generic: Built-in caching
+  - generic: OPcache
+  - generic: Code minification
+  - generic: Automatic image optimization
+  - img "Website isolation"
+  - heading "Website isolation" [level=3]
+  - paragraph: Every site runs in its own environment, ensuring top performance and eliminating cross-site security risks.
+  - img "Easy to scale"
+  - heading "Easy to scale" [level=3]
+  - paragraph: No need for multiple hosting plans - with Agency hosting, you can save costs by running up to 300 sites on a single plan.
+  - img "Secure & professional collaboration tools"
+  - heading "Secure & professional collaboration tools" [level=3]
+  - paragraph: Share access to specific websites with clients or team members — with full control over permissions. Optionally enable unbranded dashboards, so your clients get a clean, professional view with no Hostinger branding.
+  - heading "99.9% uptime guarantee" [level=2]
+  - generic: Our global infrastructure and CDN deliver fast, reliable performance 24/7. With data centers worldwide, downtime is virtually eliminated.
+  - link "Get started":
+    - /url: "#pricing"
+    - generic: Get started
+  - img "99.9% uptime guarantee"
+  - heading "Manage multiple client sites effortlessly" [level=2]
+  - img "Proactive monitoring alerts"
+  - button "Proactive monitoring alerts" [expanded]:
+    - heading "Proactive monitoring alerts" [level=3]
+  - generic: Get notified before your clients do. Set up alerts for site errors and stay one step ahead of any issues.
+  - button "One dashboard for all sites":
+    - heading "One dashboard for all sites" [level=3]
+  - button "Risk-free staging environments":
+    - heading "Risk-free staging environments" [level=3]
+  - button "Make collaboration simple":
+    - heading "Make collaboration simple" [level=3]
+  - button "Free unlimited migrations":
+    - heading "Free unlimited migrations" [level=3]
+  - button "1-click website cloning":
+    - heading "1-click website cloning" [level=3]
+  - button "Daily automatic backups":
+    - heading "Daily automatic backups" [level=3]
+  - heading "More ways to serve every client" [level=2]
+  - img "Priority expert support for Pros"
+  - heading "Add email marketing to every client site" [level=2]
+  - generic: Set up sign-up forms, welcome emails, and newsletters for clients in minutes. Share access with clients or teammates when it’s time to collaborate.
+  - link "Explore Reach":
+    - /url: /in/email-marketing
+    - generic: Explore Reach
+  - img "Add email marketing to every client site"
+  - heading "Scale client work with AI agents" [level=2]
+  - generic: Let AI agents help with client work like SEO, analytics, and eCommerce. Get more done without adding extra tools or complexity.
+  - link "Explore AI agents":
+    - /url: /in/hostinger-agent
+    - generic: Explore AI agents
+  - img "Scale client work with AI agents"
+  - heading "Host all your projects in one place" [level=2]
+  - img "Vibe coding applications"
+  - heading "Vibe coding applications" [level=3]
+  - paragraph: Host your frontend apps with speed, reliability, and ease.
+  - img "Hostinger Website Builder"
+  - heading "Hostinger Website Builder" [level=3]
+  - paragraph: Build sites quickly with an intuitive drag-and-drop interface.
+  - img "WordPress"
+  - heading "WordPress" [level=3]
+  - paragraph: Run powerful, flexible websites with full access to themes, plugins, and customizations.
+  - img "Custom PHP/HTML"
+  - heading "Custom PHP/HTML" [level=3]
+  - paragraph: Deploy fully custom-coded projects (Laravel, Prestashop, or any other PHP-based project) with ease.
+  - link "Get started":
+    - /url: "#pricing"
+    - generic: Get started
+  - img "Pranay Jain Co-Founder of Brandemic"
+  - paragraph: Hostinger has provided me with a completely different experience than the other providers I've tried. Now, it's been over five years, and I've hosted more than 100 websites.
+  - separator
+  - paragraph: Pranay Jain
+  - paragraph:
+    - strong: Co-Founder of Brandemic
+    - text: "| brandemic.in"
+  - button "ChevronSmallLeft":
+  - button "ChevronSmallRight":
+  - heading "Apply for partner program" [level=2]
+  - img "Apply for partner program"
+  - button "Recurring commissions" [expanded]:
+    - heading "Recurring commissions" [level=3]
+  - generic: Earn ongoing commissions every time your referred clients renew their hosting plans, creating a reliable passive income stream.
+  - button "Exclusive offers":
+    - heading "Exclusive offers" [level=3]
+  - button "Partner badge":
+    - heading "Partner badge" [level=3]
+  - button "20% off the Agency plan":
+    - heading "20% off the Agency plan" [level=3]
+  - button "Co-marketing opportunities":
+    - heading "Co-marketing opportunities" [level=3]
+  - button "Agency directory":
+    - heading "Agency directory" [level=3]
+  - link "Become a partner":
+    - /url: https://hpanel.hostinger.com/agency-hub/partner-program
+    - generic: Become a partner
+  - heading "Priority expert support for Pros" [level=2]
+  - generic: Our award-winning AI agent Hostinger Agent is here for you 24/7
+  - generic: Connect with our agents for an immediate response (< 30 seconds)
+  - generic: No frustrating waiting times – Hostinger Agent replies instantly.
+  - img "Priority expert support for Pros"
+  - heading "Curious what’s next for agencies? See our roadmap!" [level=5]:
+    - text: Curious what’s next for agencies?
+    - text: See our roadmap!
+  - generic: See our roadmap!
+  - link "See roadmap":
+    - /url: https://www.hostinger.com/roadmap/agency-hosting
+    - generic: See roadmap
+  - heading "Agency web hosting FAQs" [level=2]
+  - generic: Find answers to the most frequently asked questions about Hostinger Pro services.
+  - button "What is agency web hosting?" [expanded]:
+    - heading "What is agency web hosting?" [level=3]
+  - paragraph: Agency hosting is web hosting service tailored specifically for web developers, freelancers, and agencies who look after multiple client websites to efficiently manage various sites under one account, via one easy-to-use dashboard. Alongside managing multiple websites from one place, Hostinger Pro offers optimal performance, full security, the ability to scale your business and 24/7 expert support.
+  - button "Can I share access to specific website hosted on my Agency plan?":
+    - heading "Can I share access to specific website hosted on my Agency plan?" [level=3]
+  - button "How much can I earn from the referral program?":
+    - heading "How much can I earn from the referral program?" [level=3]
+  - button "How many customers can I manage with Hostinger?":
+    - heading "How many customers can I manage with Hostinger?" [level=3]
+  - button "How can I get access to my clients’ sites?":
+    - heading "How can I get access to my clients’ sites?" [level=3]
+  - button "What kind of access will I have?":
+    - heading "What kind of access will I have?" [level=3]
+  - button "How much does it cost to join the referral program?":
+    - heading "How much does it cost to join the referral program?" [level=3]
+  - button "What kind of support can I expect?":
+    - heading "What kind of support can I expect?" [level=3]
+  - button "Can I migrate existing websites to Hostinger?":
+    - heading "Can I migrate existing websites to Hostinger?" [level=3]
+  - heading "Try the full agency experience, cancel anytime" [level=2]
+  - generic: Try risk-free. 30-day money-back guarantee.
+  - link "Get started":
+    - /url: "#pricing"
+    - generic: Get started
+  - img "Try the full agency experience, cancel anytime"
+- contentinfo:
+  - link "Hostinger":
+    - /url: /in/
+  - generic: Hostinger Pro
+  - generic: Hosting
+  - link "Web hosting":
+    - /url: /in/web-hosting
+  - link "Shared hosting":
+    - /url: /in/shared-hosting
+  - link "Hosting for WordPress":
+    - /url: /in/wordpress-hosting
+  - link "VPS hosting":
+    - /url: /in/vps-hosting
+  - link "Self-hosted n8n":
+    - /url: /in/self-hosted-n8n
+  - link "Business email":
+    - /url: /in/business-email
+  - link "Cloud hosting":
+    - /url: /in/cloud-hosting
+  - link "Hosting for WooCommerce":
+    - /url: /in/woocommerce-hosting
+  - link "Hosting for agencies":
+    - /url: /in/pro
+  - link "Minecraft hosting":
+    - /url: /in/vps/minecraft-hosting
+  - link "Hermes Agent VPS":
+    - /url: https://www.hostinger.com/in/applications/hermes-agent
+  - link "OpenClaw":
+    - /url: /in/ai-automation-apps
+  - link "Paperclip VPS":
+    - /url: https://www.hostinger.com/in/applications/paperclip
+  - link "Google Workspace":
+    - /url: /in/google-workspace
+  - generic: Domain
+  - link "Domains":
+    - /url: /in/domain-name-search
+  - link "Buy a domain":
+    - /url: /in/domains
+  - link "Cheap domains":
+    - /url: /in/cheap-domain
+  - link "Free Domain Name":
+    - /url: /in/free-domain
+  - link "WHOIS Lookup":
+    - /url: /in/whois
+  - link "Free SSL certificate":
+    - /url: /in/free-ssl-certificate
+  - link "Domain transfer":
+    - /url: /in/domain-transfer
+  - link "Domain Extensions":
+    - /url: /in/tld
+  - link "Personal domain name":
+    - /url: /in/personal-domain-name
+  - link "Premium domains":
+    - /url: /in/premium-domains
+  - generic: Tools
+  - link "AI Builder":
+    - /url: /in/ai-builder
+  - link "Drag-and-drop website builder":
+    - /url: /in/website-builder
+  - link "Ecommerce Website Builder":
+    - /url: /in/ecommerce-website
+  - link "Templates":
+    - /url: /in/templates
+  - link "Domain Name Generator":
+    - /url: /in/domain-name-generator
+  - link "Print on Demand":
+    - /url: /in/print-on-demand
+  - link "Link in bio":
+    - /url: /in/link-in-bio
+  - link "Business Name Generator":
+    - /url: /in/business-name-generator
+  - link "AI Newsletter Generator":
+    - /url: /in/ai-email-generator
+  - link "AI Logo Generator":
+    - /url: /in/logo-maker
+  - link "Migrate to Hostinger":
+    - /url: /in/website-migration
+  - link "Hostinger API":
+    - /url: https://developers.hostinger.com/
+  - generic: Information
+  - link "Pricing":
+    - /url: /in/pricing
+  - link "Hostinger Reviews":
+    - /url: /in/reviews
+  - link "Affiliate program":
+    - /url: /in/affiliates
+  - link "Educational partnership":
+    - /url: /in/educational-partnership
+  - link "Referral program":
+    - /url: /in/referral-program
+  - link "Agency directory":
+    - /url: /in/agency-directory
+  - link "Sale Season deals":
+    - /url: /in/black-friday
+  - link "Roadmap":
+    - /url: https://www.hostinger.com/roadmap
+  - link "Changelog":
+    - /url: https://www.hostinger.com/changelog
+  - link "System status":
+    - /url: https://statuspage.hostinger.com/
+  - link "Trust center":
+    - /url: https://trust.hostinger.com/
+  - link "Sitemap":
+    - /url: /in/sitemap
+  - link "EntityMap":
+    - /url: https://www.hostinger.com/entitymap.html
+  - generic: Company
+  - link "About Hostinger":
+    - /url: /in/about
+  - link "Our technology":
+    - /url: /in/technology
+  - link "Blog":
+    - /url: https://www.hostinger.com/blog/
+  - link "Student discount":
+    - /url: /in/student-discount
+  - generic: Support
+  - link "Tutorials":
+    - /url: https://www.hostinger.com/in/tutorials/
+  - link "Knowledge Base":
+    - /url: https://www.hostinger.com/support
+  - link "Hostinger Academy":
+    - /url: https://www.youtube.com/HostingerIndia
+  - link "Contact us":
+    - /url: /in/contacts
+  - link "Report Online Abuse":
+    - /url: /in/report-abuse
+  - link "Hire an expert":
+    - /url: /in/agency-directory
+  - link "ic-linkedin-monochrome-24":
+    - /url: https://www.linkedin.com/company/hostinger
+  - link "ic-facebook-monochrome-24":
+    - /url: https://www.facebook.com/Hostinger
+  - link "ic-instagram-monochrome-24":
+    - /url: https://www.instagram.com/hostinger_global
+  - link "ic-x-twitter-monochrome-24":
+    - /url: https://x.com/Hostinger
+  - link "ic-youtube-24":
+    - /url: https://www.youtube.com/@Hostinger
+  - link "ic-reddit-monochrome-24":
+    - /url: https://www.reddit.com/r/Hostinger/
+  - link "ic-tiktok-monochrome-24":
+    - /url: https://www.tiktok.com/@hostingeracademy
+  - link "ic-discord-monochrome-24":
+    - /url: https://discord.gg/Zp2FteMUea
+  - link "homepage link":
+    - /url: /in/
+  - link "NPRD request policy":
+    - /url: /in/legal/non-public-registrant-data-request-policy
+  - link "Privacy policy":
+    - /url: /in/legal/privacy-policy
+  - link "Refund policy":
+    - /url: /in/legal/refund-policy
+  - link "Terms of service":
+    - /url: /in/legal/universal-terms-of-service-agreement
+  - img "upi"
+  - img "rupay"
+  - img "visa"
+  - img "mastercard"
+  - img "paypal"
+  - link "and more":
+    - /url: /in/payment-methods
+  - generic: © 2004-2026 Hostinger - Premium Web Hosting, Cloud, VPS, AI Website Builder & Domain Registration Services.
+  - paragraph: Prices are listed without GST
+- generic: Boosted speeds with free, unlimited Hostinger CDN configured out-of-the-box.
+- generic: Share a website dashboard with your client that shows no Hostinger branding.
+- generic: Inodes are items that correspond to the number of files and folders you have on your account.
+- generic: Each mailbox includes 1GB storage. Upgrade anytime for more storage, features, or mailboxes. Renews at ₹39/mo (24-month term).
+- generic: Use AI credits to create and edit websites, generate content, and automate tasks. Get a one-time gift of double the usual credits with a 24-month plan.
+- generic: Your site's core files are secured and unauthorized changes are prevented.
+- generic: Invite a collaborator or your client to manage specific websites.
+- generic: Share a website dashboard with your client that shows no Hostinger branding.
+- generic: Set up alerts for site errors and stay one step ahead of any issues.
+- generic: Hostinger's CDN (Content Delivery Network) optimizes website speed by caching content on multiple servers globally and delivering it from the visitor's nearest location, resulting in up to 40% faster loading times. Hostinger CDN comes with built-in static website caching, cache purging, CSS and JavaScript minification, data center rerouting, CDN bypass mode, and other website security features.
+- generic: An exclusive IP for your site that enables better stability, reliability, and flexibility — ideal for advanced setups and direct access.
+- generic: Protect your website data with automatic backups. Daily backups are stored for 7 days, and weekly backups are stored for 7 weeks.
+- generic: For more information please check our Refund Policy (exclusions may apply).
