@@ -28,11 +28,17 @@ Drop a skill folder into `.claude/skills/` in any project (or `~/.claude/skills/
 | [`supabase`](skills/supabase) | Any Supabase task: Database, Auth, Edge Functions, Realtime, Storage, SSR clients |
 | [`supabase-postgres-best-practices`](skills/supabase-postgres-best-practices) | Postgres schema, indexes, RLS, query performance |
 
+### Linked as a git submodule ([remotion-dev/skills](https://github.com/remotion-dev/skills))
+
+[`skills/remotion/skills`](skills/remotion): `remotion-best-practices`, `-captions`, `-create`, `-docs`, `-interactivity`, `-license`, `-maps`, `-markup`, `-multimedia`, `-render`, `-saas`, `-studio`, `-upgrade`.
+
+Clone with submodules: `git clone --recurse-submodules https://github.com/balakrishna23/work-portfolio.git`
+(or run `git submodule update --init` in an existing clone). Alternatively: `npx skills add remotion-dev/skills`.
+
 ### Used, install from source (not redistributed here)
 
 | Skill(s) | Install |
 |---|---|
-| Remotion skills: `remotion-best-practices`, `-captions`, `-create`, `-docs`, `-interactivity`, `-maps`, `-markup`, `-multimedia`, `-render`, `-saas`, `-studio`, `-upgrade` | `npx skills add remotion-dev/skills` ([source](https://github.com/remotion-dev/skills)) |
 | HyperFrames block `wireframe-portal-title` | `npx hyperframes add wireframe-portal-title` |
 | Supabase skills (latest version) | `npx skills add supabase/agent-skills` |
 
